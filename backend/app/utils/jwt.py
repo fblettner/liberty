@@ -1,4 +1,3 @@
-import secrets
 from fastapi import  Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 import jwt  # PyJWT
@@ -8,9 +7,11 @@ from cryptography.fernet import Fernet
 import os
 import json
 
-SECRETS_FILE = os.path.join(os.path.dirname(__file__), "../config/secrets.json")
-ENCRYPTED_SECRETS_FILE = os.path.join(os.path.dirname(__file__), "../config/secrets.json.enc")
-KEY_FILE = os.path.join(os.path.dirname(__file__), "../config/encryption.key")
+from backend.app.config.config import get_config_path
+
+SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json")
+ENCRYPTED_SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json.enc")
+KEY_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/encryption.key")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 240
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -55,7 +56,7 @@ class JWT:
     def create_secrets_file(self, secrets_file: str):
         default_secrets = {
             "SECRET_KEY": Fernet.generate_key().decode(),  
-            "MASTER_KEY": Fernet.generate_key().decode(),  
+            "MASTER_KEY": "3zTvzr3p67VC61jmV54rIYu1545x4TlY",  
         }
         with open(secrets_file, "w") as f:
             json.dump(default_secrets, f, indent=4)

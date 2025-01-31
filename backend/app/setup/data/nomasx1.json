@@ -1,0 +1,53 @@
+{
+    "settings_applications": [
+        {
+            "apps_id": 10,
+            "apps_type": "JDE",
+            "apps_ctry_id": null,
+            "apps_name": "JDE_TEMPLATE",
+            "apps_dbtype": "ORACLE",
+            "apps_jdbc": null,
+            "apps_user": "system",
+            "apps_password": "ENC:udhSch9tjs7oFqR/ZHppnIYdNNl0T5YhgVyNmeJLE3c7BcJ+uEB9iK75buRdiURVz/pmTDyLh64iJaaqtvX2KKGUj5A1Rnwrm9xzhaQUVf7tAePDitO3pKzGpIx/67uOp40aQnqpkW3iBu2x",
+            "apps_host": "132.145.35.251",
+            "apps_port": 1521,
+            "apps_database": "jdeorcl",
+            "apps_directdb": "N",
+            "apps_dblink": " ",
+            "apps_audit_user": "admin",
+            "apps_audit_date": "2025-01-22T10:39:44.962000"
+        }
+    ],
+    "settings_users": [
+        {
+            "susr_id": "demo",
+            "susr_password": "640D2BB21FFD213E7CDE007B4FDD99EB",
+            "susr_name": "Demo User",
+            "susr_email": "contact@nomana-it.fr",
+            "susr_status": "Y",
+            "susr_apps_update": "N",
+            "susr_apps_settings": "Y",
+            "susr_apps_security": "Y",
+            "susr_apps_license": "Y",
+            "susr_apps_performance": null,
+            "susr_apps_reporting": null,
+            "susr_audit_user": "admin",
+            "susr_audit_date": "2022-03-06T21:41:55"
+        },
+        {
+            "susr_id": "admin",
+            "susr_password": "D0D6CBB864D2F2A73C836428BC8FF6CF",
+            "susr_name": "Franck Blettner",
+            "susr_email": "franck.blettner@nomana-it.fr",
+            "susr_status": "Y",
+            "susr_apps_update": "Y",
+            "susr_apps_settings": "Y",
+            "susr_apps_security": "Y",
+            "susr_apps_license": "Y",
+            "susr_apps_performance": "Y",
+            "susr_apps_reporting": "Y",
+            "susr_audit_user": "admin",
+            "susr_audit_date": "2022-02-13T21:11:45"
+        }
+    ]
+}

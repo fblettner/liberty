@@ -2,9 +2,6 @@ from enum import Enum
 from typing import List
 from pydantic import BaseModel
 
-from app.services.db_query import LoginType, SessionMode
-
-
 class LoginRequest(BaseModel):
     user: str
     password: str | None

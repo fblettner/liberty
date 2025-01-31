@@ -1,20 +1,20 @@
 import json
 from typing import Any, Dict, Optional
-from fastapi import APIRouter, Body, Depends, HTTPException, Header, Query, Request, Path
+from fastapi import APIRouter, Body, Depends, HTTPException, Query, Request, Path
 from pydantic import Field
-from app.controllers.api_controller import ApiController
-from app.models.apidb import ENCRYPT_ERROR_MESSAGE, ENCRYPT_RESPONSE_DESCRIPTION, ENCRYPT_RESPONSE_EXAMPLE, GET_APIDB_ERROR_EXAMPLE, GET_APIDB_RESPONSE_DESCRIPTION, GET_APIDB_RESPONSE_EXAMPLE, EncryptResponse, GetSuccessResponse, GetErrorResponse
-from app.models.apidb import POST_APIDB_ERROR_EXAMPLE, POST_APIDB_RESPONSE_DESCRIPTION, POST_APIDB_RESPONSE_EXAMPLE, PostErrorResponse, PostSuccessResponse
-from app.models.applications import APPLICATIONS_ERROR_MESSAGE, APPLICATIONS_RESPONSE_DESCRIPTION, APPLICATIONS_RESPONSE_EXAMPLE, ApplicationsResponse
-from app.models.auth import TOKEN_ERROR_MESSAGE, TOKEN_RESPONSE_DESCRIPTION, TOKEN_RESPONSE_EXAMPLE, USER_ERROR_MESSAGE, USER_RESPONSE_DESCRIPTION, USER_RESPONSE_EXAMPLE, LoginRequest, TokenResponse, UserResponse
-from app.models.base import DataRequest, EncryptRequest, ErrorResponse, FilterCondition, SuccessResponse, ValidationErrorResponse, response_200, response_400, response_422, response_500
-from app.models.apidb import CHECKDB_ERROR_MESSAGE, CHECKDB_RESPONSE_DESCRIPTION, CHECKDB_RESPONSE_EXAMPLE, CheckDBErrorResponse, CheckDBResponse
-from app.models.modules import MODULES_ERROR_MESSAGE, MODULES_RESPONSE_DESCRIPTION, MODULES_RESPONSE_EXAMPLE, ModulesResponse
-from app.models.pool import CLOSE_ERROR_MESSAGE, CLOSE_RESPONSE_DESCRIPTION, CLOSE_RESPONSE_EXAMPLE
-from app.models.pool import OPEN_ERROR_MESSAGE, OPEN_RESPONSE_DESCRIPTION, OPEN_RESPONSE_EXAMPLE
-from app.models.themes import THEMES_ERROR_MESSAGE, THEMES_RESPONSE_DESCRIPTION, THEMES_RESPONSE_EXAMPLE, ThemesResponse
-from app.services.db_query import LoginType, QuerySource, QueryType, SessionMode
-from app.utils.jwt import JWT
+from backend.app.controllers.api_controller import ApiController
+from backend.app.models.apidb import ENCRYPT_ERROR_MESSAGE, ENCRYPT_RESPONSE_DESCRIPTION, ENCRYPT_RESPONSE_EXAMPLE, GET_APIDB_ERROR_EXAMPLE, GET_APIDB_RESPONSE_DESCRIPTION, GET_APIDB_RESPONSE_EXAMPLE, EncryptResponse, GetSuccessResponse, GetErrorResponse
+from backend.app.models.apidb import POST_APIDB_ERROR_EXAMPLE, POST_APIDB_RESPONSE_DESCRIPTION, POST_APIDB_RESPONSE_EXAMPLE, PostErrorResponse, PostSuccessResponse
+from backend.app.models.applications import APPLICATIONS_ERROR_MESSAGE, APPLICATIONS_RESPONSE_DESCRIPTION, APPLICATIONS_RESPONSE_EXAMPLE, ApplicationsResponse
+from backend.app.models.auth import TOKEN_ERROR_MESSAGE, TOKEN_RESPONSE_DESCRIPTION, TOKEN_RESPONSE_EXAMPLE, USER_ERROR_MESSAGE, USER_RESPONSE_DESCRIPTION, USER_RESPONSE_EXAMPLE, LoginRequest, TokenResponse, UserResponse
+from backend.app.models.base import ErrorResponse, FilterCondition, SuccessResponse, ValidationErrorResponse, response_200, response_400, response_422, response_500
+from backend.app.models.apidb import CHECKDB_ERROR_MESSAGE, CHECKDB_RESPONSE_DESCRIPTION, CHECKDB_RESPONSE_EXAMPLE, CheckDBErrorResponse, CheckDBResponse
+from backend.app.models.modules import MODULES_ERROR_MESSAGE, MODULES_RESPONSE_DESCRIPTION, MODULES_RESPONSE_EXAMPLE, ModulesResponse
+from backend.app.models.pool import CLOSE_ERROR_MESSAGE, CLOSE_RESPONSE_DESCRIPTION, CLOSE_RESPONSE_EXAMPLE
+from backend.app.models.pool import OPEN_ERROR_MESSAGE, OPEN_RESPONSE_DESCRIPTION, OPEN_RESPONSE_EXAMPLE
+from backend.app.models.themes import THEMES_ERROR_MESSAGE, THEMES_RESPONSE_DESCRIPTION, THEMES_RESPONSE_EXAMPLE, ThemesResponse
+from backend.app.services.db_query import LoginType, QuerySource, QueryType, SessionMode
+from backend.app.utils.jwt import JWT
 
 
 def setup_api_routes(app, controller: ApiController, jwt: JWT):

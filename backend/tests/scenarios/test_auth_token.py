@@ -1,7 +1,7 @@
 import pytest
 import allure
 
-from tests.main import VALID_CREDENTIALS
+from backend.tests.main import VALID_CREDENTIALS
 
 AUTH_QUERY_PARAMS = {"pool": "default", "mode": "framework", "type": "database"}
 INVALID_CREDENTIALS = {"user": "testuser", "password": ""}

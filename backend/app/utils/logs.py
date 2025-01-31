@@ -1,5 +1,4 @@
 import logging
-from os import error
 logger = logging.getLogger(__name__)
 
 import json

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request
-from app.controllers.socket_controller import SocketController
+from backend.app.controllers.socket_controller import SocketController
 
 def setup_socket_routes(app, controller: SocketController):
     router = APIRouter()

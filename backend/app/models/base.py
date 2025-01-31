@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, RootModel
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Any, Union
 
 class BadRequestResponse(BaseModel):
     status: str

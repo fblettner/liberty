@@ -3,8 +3,8 @@ logger = logging.getLogger(__name__)
 import re
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine
-from app.database.base_dao import BaseDAO
-from app.business.postgres import PostgresQuery
+from backend.app.database.base_dao import BaseDAO
+from backend.app.business.postgres import PostgresQuery
 from typing import Dict, List
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker

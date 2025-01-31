@@ -1,6 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
 
+from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, date
@@ -9,7 +10,7 @@ from sqlalchemy import text
 import re
 from abc import abstractmethod
 import json
-from app.business.postgres import PostgresQuery
+from backend.app.business.postgres import PostgresQuery
 
 class BaseDAO:
     def __init__(self, config: dict):

@@ -1,14 +1,14 @@
 # Description: API REST service for handling REST API requests.
 import logging
+
+from backend.app.logs.logs import get_logs_json_path, get_logs_text_path
 logger = logging.getLogger(__name__)
 
 import json
 import os
-from fastapi import Request, HTTPException, Query
-from sqlalchemy import text
-from typing import List, Dict, Any
+from fastapi import Request, HTTPException
 from datetime import datetime, timezone
-from app.utils.logs import LogHandler
+from backend.app.utils.logs import LogHandler
 
 class ApiType:
     internal = "INTERNAL"
@@ -18,12 +18,6 @@ class ApiType:
 class ApiFramework:
     CreateFrameworkDatabase = "CreateFrameworkDatabase"
     DropFrameworkDatabase = "DropFrameworkDatabase"
-
-class LogFiles:
-#    frontend_text = "/opt/liberty/logs/logs-frontend-text.log"
-#    frontend_json = "/opt/liberty/logs/logs-frontend-json.log"
-     frontend_text = os.path.join(os.path.dirname(__file__), "../logs/logs-frontend-text.log")
-     frontend_json = os.path.join(os.path.dirname(__file__), "../logs/logs-frontend-json.log")
 
 class Rest:
     def __init__(self):
@@ -45,13 +39,13 @@ class Rest:
                 f"Method: {log_data['method']}, URL: {log_data['url']}\n"
                 f"Category: {log_data['category']}, Feature: {log_data['feature']}, IsException: {log_data['isException']}\n\n"
             )
-            with open(LogFiles.frontend_text, "a") as text_file:
+            with open(get_logs_text_path(), "a") as text_file:
                 text_file.write(text_log)
 
             # JSON log
             json_log = json.dumps({"timestamp": timestamp, **log_data})
             print(json_log)
-            with open(LogFiles.frontend_json, "a") as json_file:
+            with open(get_logs_json_path, "a") as json_file:
                 json_file.write(json_log + "\n")
 
         except Exception as e:
@@ -76,12 +70,7 @@ class Rest:
             filter_key = query_params.get("filter_key")
             filter_value = query_params.get("filter_value")
             
-            log_file_path = (
-                LogFiles.frontend_json
-                if format == "json"
-                else LogFiles.frontend_text
-            )
-            await self.logs_handler.load_logs_cache_json(LogFiles.frontend_json)
+            await self.logs_handler.load_logs_cache_json(get_logs_json_path())
 
             filtered_logs = [
                 log

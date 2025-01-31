@@ -1,7 +1,7 @@
 import pytest
 import allure
 
-from tests.main import VALID_CREDENTIALS
+from backend.tests.main import VALID_CREDENTIALS
 
 # Define query parameters required for /auth/user
 AUTH_QUERY_PARAMS = {"pool": "default", "mode": "framework", "type": "database"}

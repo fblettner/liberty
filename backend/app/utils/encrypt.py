@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 
-from app.utils.jwt import JWT
+from backend.app.utils.jwt import JWT
 
 class Encryption:
     def __init__(self, jwt: JWT):

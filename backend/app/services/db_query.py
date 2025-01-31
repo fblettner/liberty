@@ -1,15 +1,13 @@
-from enum import Enum
-import json
 import logging
-
-from app.utils.jwt import JWT
-
 logger = logging.getLogger(__name__)
-from app.utils.encrypt import Encryption
+
+from enum import Enum
+from backend.app.utils.jwt import JWT
+from backend.app.utils.encrypt import Encryption
 import configparser
 import os
-from app.services.db_pool import DBPool, PoolConfig, DBType, PoolInterface
-from fastapi import Request, HTTPException, FastAPI
+from backend.app.services.db_pool import DBPool, PoolConfig, DBType, PoolInterface
+from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 
 class QueryType(str, Enum):
@@ -32,17 +30,14 @@ class LoginType(str, Enum):
 defaultPool = "default"
 sessionPool = "SESSION"
 
-
-
 class Query:
 
     def __init__(self, jwt : JWT):
         self.db_pools = PoolInterface()
         self.jwt = jwt
 
-    def load_db_properties(self) -> PoolConfig:
+    def load_db_properties(self, db_properties_path) -> PoolConfig:
         # Read the properties file
-        db_properties_path = os.path.join(os.path.dirname(__file__), "../config/db.properties")
         config_parser = configparser.ConfigParser()
         config_parser.read(db_properties_path)
 
@@ -62,9 +57,9 @@ class Query:
             "replace_null": "N"
         }
 
-    async def default_pool(self) -> PoolConfig:
+    async def default_pool(self, config) -> PoolConfig:
     # Read the properties file
-        config = self.load_db_properties()
+        
         # Startup logic
         default_pool = DBPool(debug_mode=False)
         await default_pool.create_pool(DBType.POSTGRES, config)

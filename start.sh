@@ -1,2 +1,2 @@
 source .venv/bin/activate
-fastapi run backend/app/main.py
+fastapi dev backend/app/main.py

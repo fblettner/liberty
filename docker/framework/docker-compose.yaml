@@ -1,0 +1,24 @@
+services:
+  fastapi:
+    build:
+      platforms: 
+        - linux/arm64      
+      context: ../../.
+      dockerfile: ./docker/framework/Dockerfile
+    image: ghcr.io/fblettner/liberty-framework:latest
+    #command: ["fastapi", "run", "main.py"]
+    command: ["uvicorn", "app.main:app", "--host", "fastapi", "--port", "8000"]
+    security_opt:
+      - "label:disable"
+    cap_drop:
+      - MKNOD
+      - AUDIT_WRITE
+    networks:
+      - liberty-network
+    working_dir: /
+    ports:
+      - 8000:8000
+networks:
+  liberty-network:
+    name: liberty-network
+    external: true

@@ -1,29 +1,26 @@
 import logging
 
-from fastapi.responses import JSONResponse
-
-from app.utils.jwt import JWT
+from backend.app.config import get_db_properties_path
 
 # Configure global logging
 logging.basicConfig(
     level=logging.WARN,  # Default logging level
     format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
 )
-# Suppress Uvicorn's access logs
-logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
-logging.getLogger("uvicorn").setLevel(logging.WARNING)
-logging.getLogger("engineio").setLevel(logging.WARNING)
-logging.getLogger("socketio").setLevel(logging.WARNING)
 
 import os
+from fastapi.responses import JSONResponse
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi_socketio import SocketManager
-from app.controllers.api_controller import ApiController
-from app.controllers.socket_controller import SocketController
-from app.routes.api_routes import setup_api_routes
-from app.routes.react_routes import setup_react_routes
-from app.routes.socket_routes import setup_socket_routes
+from backend.app.utils.jwt import JWT
+from backend.app.controllers.setup_controller import SetupController
+from backend.app.controllers.api_controller import ApiController
+from backend.app.controllers.socket_controller import SocketController
+from backend.app.routes.api_routes import setup_api_routes
+from backend.app.routes.react_routes import setup_react_routes
+from backend.app.routes.socket_routes import setup_socket_routes
+from backend.app.routes.setup_routes import setup_setup_routes
 from contextlib import asynccontextmanager
 
 class BackendAPI:
@@ -31,6 +28,7 @@ class BackendAPI:
         self.jwt = JWT()
         self.api_controller = ApiController(self.jwt)
         self.socket_controller = SocketController()
+        self.setup_controller = SetupController(self.api_controller, self.jwt)
 
         self.socket_manager = None
 
@@ -38,6 +36,7 @@ class BackendAPI:
         setup_api_routes(app, self.api_controller, self.jwt)
         setup_react_routes(app)
         setup_socket_routes(app, self.socket_controller)
+        setup_setup_routes(app, self.setup_controller)
 
     def setup_sockets(self, app: FastAPI):
         # Attach Socket.IO manager
@@ -173,16 +172,43 @@ backend_api.setup_sockets(app)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup logic
     query_instance = backend_api.api_controller.queryRest
-    await query_instance.default_pool()
+    try:
+        app.state.setup_required = False
+        db_properties_path = get_db_properties_path()
+        if not os.path.exists(db_properties_path):
+            logging.warning("Database properties file is missing. Setup required.")
+            app.state.setup_required = True
+            app.mount(
+                "/assets",
+                StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/assets"), html=True),
+                name="assets",
+            )
+            yield
+            return
+        config = query_instance.load_db_properties(db_properties_path)
+        await query_instance.default_pool(config)
+        logging.warning("Database initialized successfully.")
 
-    yield
-app.mount(
-    "/assets",
-    StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/assets"), html=True),
-    name="assets",
-)
+        # Serve frontend assets if the database is ready
+        app.mount(
+            "/assets",
+            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/frontend/assets"), html=True),
+            name="assets",
+        )
+        yield
+    except Exception as e:
+        logging.warning(f"Database is not available: {str(e)}")
+        app.state.maintenance_mode = True
+        app.mount(
+            "/assets",
+            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/maintenance/assets"), html=True),
+            name="assets",
+        )
+        yield
+
+
+
 
 # Set the lifespan handler
 app.router.lifespan_context = lifespan
