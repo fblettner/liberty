@@ -4,7 +4,7 @@ export TAG=latest
 # Define variables
 DB_CONTAINER="liberty-framework-pg-1"   # PostgreSQL container name
 DB_USER="liberty"                   # Database user
-DUMP_DIR="./pg/dump"                       # Local directory for the dump files
+DUMP_DIR="../backend/app/postgres/dump"
 
 # Step 1: Create the dump directory if it doesn't exist
 echo "Creating dump directory..."
@@ -21,16 +21,16 @@ for DB in $DATABASES; do
   echo "Processing database: $DB"
   
   # Step 3a: Dump the schema-only from the PostgreSQL database inside the Docker container
-  echo "Dumping schema-only for $DB..."
-  docker exec $DB_CONTAINER pg_dump -U $DB_USER --schema-only $DB > $DUMP_DIR/${DB}_schema.sql
+  # echo "Dumping schema-only for $DB..."
+  # docker exec $DB_CONTAINER pg_dump -U $DB_USER --schema-only $DB > $DUMP_DIR/${DB}_schema.sql
   
   # Step 3b: Dump the data-only from the PostgreSQL database inside the Docker container
-  echo "Dumping data-only for $DB..."
-  docker exec $DB_CONTAINER pg_dump -U $DB_USER --data-only $DB > $DUMP_DIR/${DB}_data.dump
+  # echo "Dumping data-only for $DB..."
+  # docker exec $DB_CONTAINER pg_dump -U $DB_USER --data-only $DB > $DUMP_DIR/${DB}_data.sql
   
-    # Step 3b: Dump the data-only from the PostgreSQL database inside the Docker container
+    # Step 3b: Dump schema and data from the PostgreSQL database inside the Docker container
   echo "Dumping schema and data for $DB..."
-  docker exec $DB_CONTAINER pg_dump -U $DB_USER $DB > $DUMP_DIR/${DB}.sql
+  docker exec $DB_CONTAINER pg_dump -Fc -U $DB_USER $DB > $DUMP_DIR/${DB}.dump
   
 done
 

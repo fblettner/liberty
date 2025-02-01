@@ -1,5 +1,7 @@
 import logging
+import subprocess
 
+from backend.app.postgres.dump.dump import get_dump_path
 from backend.app.setup.data.data import get_data_path
 logger = logging.getLogger(__name__)
 import json
@@ -19,19 +21,26 @@ class DateTimeEncoder(json.JSONEncoder):
         return super().default(obj)
     
 class Install: 
-    def __init__(self, user, password, host, port, database):
+    def __init__(self, user, password, host, port, database, admin_database):
         self.database = database
-        self.DATABASE_URL = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
-        self.engine = create_engine(self.DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
-        self.metadata = MetaData()
-        self.metadata.reflect(bind=self.engine)
+        self.admin_database = admin_database
+        self.user = user
+        self.password = password
+        self.host = host
+        self.port = port
 
-    def upload_json_to_database(self, database):        
+
+    def upload_json_to_database(self, database):     
+        DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
+        engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
+        metadata = MetaData()
+        metadata.reflect(bind=engine)
+       
         # Load JSON data
         with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{database}.json"), "r", encoding="utf-8") as file:
             data = json.load(file)
 
-        with self.engine.begin() as conn:
+        with engine.begin() as conn:
             # 🚀 Step 1: Disable Foreign Keys Temporarily
             conn.execute(text("SET session_replication_role = 'replica';"))
 
@@ -43,7 +52,7 @@ class Install:
 
                 logging.warning(f"Uploading data to table: {table_name}")
 
-                table = Table(table_name, self.metadata, autoload_with=self.engine)
+                table = Table(table_name, metadata, autoload_with=engine)
                 primary_keys = [col.name for col in table.primary_key.columns]  # Get primary keys
 
                 if not primary_keys:
@@ -64,3 +73,61 @@ class Install:
             conn.execute(text("SET session_replication_role = 'origin';"))
 
         logging.warning("Data upload completed successfully!")
+
+
+    def restore_postgres_dump(self, database):
+        """Restores a PostgreSQL dump using `pg_restore`."""
+        
+        # Database configuration
+        ADMIN_DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.admin_database}"
+
+            # Create an engine
+        admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+        with admin_engine.connect() as conn:
+            result = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{database}'"))
+            db_exists = result.scalar()
+
+            if not db_exists:
+                logging.warning(f"Creating database '{database}'...")
+                conn.execute(text(f'CREATE DATABASE "{database}"'))
+            else:
+                logging.warning(f"Database '{database}' already exists. Skipping creation.")
+            # 🚀 Check if the role exists
+            result = conn.execute(text(f"SELECT 1 FROM pg_roles WHERE rolname = '{database}'"))
+            role_exists = result.scalar()
+
+            if not role_exists:
+                logging.warning(f"Creating role '{database}' with password...")
+                conn.execute(text(f"CREATE ROLE {database} WITH LOGIN PASSWORD '{self.password}'"))
+            else:
+                logging.warning(f"Role '{database}' already exists. Skipping creation.")
+
+            # 🚀 Grant privileges to the role
+            conn.execute(text(f'GRANT ALL PRIVILEGES ON DATABASE "{database}" TO {database}'))
+            logging.warning(f"Granted privileges to role '{database}' on database '{database}'.")       
+
+        dump_file = get_dump_path(database)
+        if not os.path.exists(dump_file):
+            logging.warning(f"Dump file {dump_file} not found!")
+            return
+
+        logging.warning(f"Restoring database {database} from {dump_file}...")
+
+        try:
+            command = [
+                "/Library/PostgreSQL/16/bin/pg_restore",
+                "--clean",  
+                "--if-exists",  
+                "-U", self.user,
+                "-h", self.host,
+                "-p", str(self.port),
+                "-d", database,
+                dump_file
+            ]
+
+            subprocess.run(command, check=True, env={"PGPASSWORD": self.password})
+
+            logging.warning("Database restored successfully!")
+
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Restore failed: {e}")

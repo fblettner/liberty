@@ -24,28 +24,34 @@ class Setup:
             data = await req.json()
             host = data.get("host")
             port = data.get("port")
-            database = data.get("database")
+            admin_database = data.get("database")
             user = data.get("user")
             password = data.get("password")
 
-            # Database configuration
-            DATABASE_URL = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
-
-            # Create an engine
-            engine = create_engine(DATABASE_URL, isolation_level="AUTOCOMMIT") 
-            with engine.connect() as conn:
-                conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {database}"))
-
             # Create all tables in the database
-            for table in Base.metadata.tables.values():
-                if not table.schema:
-                    table.schema = database  # 🔹 Assign schema to tables
-            Base.metadata.create_all(engine)
-            logging.warning("All tables have been successfully created!")
+#            for table in Base.metadata.tables.values():
+#                if not table.schema:
+#                    table.schema = database  # 🔹 Assign schema to tables
+#            Base.metadata.create_all(engine)
+#            logging.warning("All tables have been successfully created!")
 
-            liberty_init = Install(user, password, host, port, database)
-            liberty_init.upload_json_to_database(database)
-
+            databases_to_install = {
+                "liberty": True,
+                "libnsx1": data.get("enterprise", False),
+                "libnjde": data.get("enterprise", False),
+                "libnetl": data.get("enterprise", False),
+                "nomasx1": data.get("enterprise", False),
+                "nomajde": data.get("enterprise", False),
+                "airflow": data.get("airflow", False),
+                "keycloak": data.get("keycloak", False),
+                "gitea": data.get("gitea", False),
+            }
+            databases_to_install = [db for db, status in databases_to_install.items() if status]
+            for db_name in databases_to_install:
+                print(f"Installing {db_name} database...")
+                db_init = Install(user, password, host, port, db_name, admin_database)
+                db_init.restore_postgres_dump(db_name)
+                print(f"{db_name} database restored successfully!")
             
             db_properties_path = get_db_properties_path()
             encryption = Encryption(self.jwt)
@@ -56,7 +62,7 @@ user={user}
 password={encrypted_password}
 host={host}
 port={port}
-database={database}
+database={admin_database}
 pool_min=1
 pool_max=10
 pool_alias=default
@@ -92,47 +98,20 @@ pool_alias=default
                 "count": 0
             })
 
-    async def export(self, req: Request):
+    async def repository(self, req: Request):
         try:
-
-            liberty_dump = Dump(self.apiController, "liberty")
-            liberty_dump.extract_schema_to_json()
-
-            libnsx1_dump = Dump(self.apiController, "libnsx1")
-            libnsx1_dump.extract_schema_to_json()
-
-            libnjde_dump = Dump(self.apiController, "libnjde")
-            libnjde_dump.extract_schema_to_json()
-
-            libnjde_dump = Dump(self.apiController, "libnjde")
-            libnjde_dump.extract_schema_to_json()
-
-            nomasx1_dump = Dump(self.apiController, "nomasx1")
-            tables = ["settings_applications", "settings_users"]
-            nomasx1_dump.extract_table_to_json(tables)
-
-            # Return the response
-            return JSONResponse({
-                    "items": [],
-                    "status": "success",
-                    "count": 0
-                })
-
-        except Exception as err:
-            message = str(err)
-            return JSONResponse({
-                "items": [{"message": f"Error: {message}"}],
-                "status": "error",
-                "count": 0
-            })
-
-    async def models(self, req: Request):
-        try:
-
-            models_list = ["liberty", "libnsx1", "libnjde", "nomasx1"]
-            for model in models_list:
-                models = Models(self.apiController, model)
+            database_to_export = ["liberty", "libnsx1", "libnjde", "libnetl", "nomasx1"]
+            for database in database_to_export:
+                models = Models(self.apiController, database)
                 models.create_model()
+
+                if database == "nomasx1":
+                    dump = Dump(self.apiController, database)
+                    tables = ["settings_applications", "settings_users"]
+                    dump.extract_table_to_json(tables)
+                else:
+                    dump = Dump(self.apiController, database)
+                    dump.extract_schema_to_json()
 
             # Return the response
             return JSONResponse({

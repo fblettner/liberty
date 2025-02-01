@@ -412,10 +412,8 @@ class LyDlgColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
-        ForeignKeyConstraint(["col_id"], ["ly_dlg_col.col_id"]),
+        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"]),
     )
-    lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgcol_rel = relationship('ly_dlg_col')
 
 

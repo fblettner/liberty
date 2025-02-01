@@ -19,10 +19,5 @@ class SetupController:
     async def install(self, req: Request):
         return await self.setupRest.install(req)
     
-
-    async def export(self, req: Request):
-        return await self.setupRest.export(req)    
-    
-
-    async def models(self, req: Request):
-        return await self.setupRest.models(req)        
+    async def repository(self, req: Request):
+        return await self.setupRest.repository(req)        

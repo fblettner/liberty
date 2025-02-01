@@ -66,7 +66,8 @@ export default function SetupDialog() {
     port: "5433",
     database: "liberty",
     user: "liberty",
-    password: "change_on_install",
+    password: "nomana",
+    enterprise: false,
     keycloak: false,
     airflow: false,
     gitea: false,
@@ -100,7 +101,6 @@ export default function SetupDialog() {
       let queryAPI = window.location.origin + "/api/setup/install"
       logMessage("Creating database...");
       setProgress(50);
-      console.log(queryAPI)
       const response = await axios.post(queryAPI, JSON.stringify(formData), {
         headers: {
           'Content-Type': 'application/json',
@@ -203,6 +203,16 @@ export default function SetupDialog() {
 
               {step === 2 && (
                 <>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="enterprise"
+                      checked={formData.enterprise}
+                      onChange={handleChange}
+                      label="Do you want to install enterprise features?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>                
                   <Div_AppsSetup>
                     <Checkbox
                       id="keycloak"

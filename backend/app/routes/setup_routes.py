@@ -33,32 +33,14 @@ def setup_setup_routes(app, controller: SetupController):
         result = await controller.install(req)
         result_data = json.loads(result.body.decode("utf-8"))  
 
-        # ✅ Check if the installation was successful
         if result_data.get("status") == "success":
             app.state.setup_required = False  
-
         return result  
     
-    @router.get(
-        "/export/database",
-        summary="Database - Database Export",
-        description="Export all tables content to JSON.",
-        tags=["Export"], 
-        response_model=SuccessResponse,
-        responses={
-            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
-            422: response_422(),  
-            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
-        },
-    )
-    async def export(
-        req: Request,
-    ):
-        return await controller.export(req)
 
     @router.get(
-        "/export/models",
-        summary="EXPORT - Models Export",
+        "/export/repository",
+        summary="EXPORT - Repository for new installations",
         description="Export all tables models to Alchemy.",
         tags=["Export"], 
         response_model=SuccessResponse,
@@ -71,7 +53,7 @@ def setup_setup_routes(app, controller: SetupController):
     async def models(
         req: Request,
     ):
-        return await controller.models(req)
+        return await controller.repository(req)
     
     @router.post("/setup/status", include_in_schema=False)
     async def status():

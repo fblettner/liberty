@@ -77,13 +77,13 @@ class DbOraFeatures(Base):
 
 
 class DbOraLicenses(Base):
-    __tablename__ = 'db_ora_licenses$'
+    __tablename__ = 'db_ora_licenses'
     oral_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     oral_component = Column(VARCHAR(255), primary_key=True, nullable=False)
     oral_used = Column(VARCHAR(1), primary_key=False, nullable=True)
     oral_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     oral_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    oral_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    oral_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class DbOraOptions(Base):
@@ -368,14 +368,14 @@ class SecurityActivityLog(Base):
 
 
 class SecurityAssignments(Base):
-    __tablename__ = 'security_assignments$'
+    __tablename__ = 'security_assignments'
     rlu_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     rlu_user_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     rlu_role_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     rlu_dt_effective = Column(DATE, primary_key=False, nullable=True)
     rlu_dt_expiration = Column(DATE, primary_key=False, nullable=True)
     rlu_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    rlu_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    rlu_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SecurityAudit(Base):
@@ -470,17 +470,17 @@ class SecurityRights(Base):
 
 
 class SecurityRoles(Base):
-    __tablename__ = 'security_roles$'
+    __tablename__ = 'security_roles'
     rol_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     rol_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     rol_name = Column(VARCHAR(255), primary_key=False, nullable=True)
     rol_seq = Column(INTEGER, primary_key=False, nullable=True)
     rol_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    rol_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    rol_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SecurityUsers(Base):
-    __tablename__ = 'security_users$'
+    __tablename__ = 'security_users'
     usr_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usr_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usr_name = Column(VARCHAR(255), primary_key=False, nullable=True)
@@ -490,7 +490,7 @@ class SecurityUsers(Base):
     usr_dt_creation = Column(DATE, primary_key=False, nullable=True)
     usr_privileged = Column(VARCHAR(1), primary_key=False, nullable=True)
     usr_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    usr_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    usr_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SecurityUsersData(Base):
@@ -524,7 +524,7 @@ class SecurityUsersData(Base):
 
 
 class SecurityUsersProp(Base):
-    __tablename__ = 'security_users_prop'
+    __tablename__ = 'security_users_prop$'
     usrp_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrp_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usrp_name = Column(VARCHAR(255), primary_key=False, nullable=True)
@@ -538,7 +538,7 @@ class SecurityUsersProp(Base):
     usrp_id_previous = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    usrp_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    usrp_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityXref(Base):
@@ -822,14 +822,14 @@ class SettingsUsers(Base):
 
 
 class SodActivities(Base):
-    __tablename__ = 'sod_activities'
+    __tablename__ = 'sod_activities$'
     act_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     act_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     act_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     act_name = Column(VARCHAR(100), primary_key=False, nullable=True)
     act_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     act_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    act_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    act_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SodConflictDetails(Base):
@@ -850,7 +850,7 @@ class SodConflictDetails(Base):
 
 
 class SodConflictSummary(Base):
-    __tablename__ = 'sod_conflict_summary$'
+    __tablename__ = 'sod_conflict_summary'
     cfs_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     cfs_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     cfs_act1_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -859,7 +859,7 @@ class SodConflictSummary(Base):
     cfs_privileged = Column(VARCHAR(1), primary_key=True, nullable=False)
     cfs_count = Column(INTEGER, primary_key=False, nullable=True)
     cfs_refresh = Column(DATE, primary_key=False, nullable=True)
-    cfs_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    cfs_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SodMatrix(Base):
@@ -876,7 +876,7 @@ class SodMatrix(Base):
 
 
 class SodObjects(Base):
-    __tablename__ = 'sod_objects'
+    __tablename__ = 'sod_objects$'
     object_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     object_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     object_act_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -885,21 +885,21 @@ class SodObjects(Base):
     object_name = Column(VARCHAR(100), primary_key=False, nullable=True)
     object_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     object_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    object_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    object_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SodProcess(Base):
-    __tablename__ = 'sod_process$'
+    __tablename__ = 'sod_process'
     process_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     process_name = Column(VARCHAR(100), primary_key=False, nullable=True)
     process_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     process_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    process_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    process_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SodRisks(Base):
-    __tablename__ = 'sod_risks$'
+    __tablename__ = 'sod_risks'
     risk_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     risk_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     risk_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -907,6 +907,6 @@ class SodRisks(Base):
     risk_level = Column(VARCHAR(1), primary_key=False, nullable=True)
     risk_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     risk_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    risk_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    risk_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
