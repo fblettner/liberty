@@ -99,3 +99,14 @@ export const Div_Logs = styled(Div)(({ theme }) => ({
     maxHeight: "100px",
     overflowY: "auto"
 }));
+
+export const Div_DialogToolbar = styled(Div)(({ theme }) => ({
+    display: 'flex',
+    width: '100%',
+}));
+
+export const Div_DialogToolbarButtons = styled(Div)(({ theme }) => ({
+    display: 'flex',
+    flexGrow: 1,
+    gap: theme.spacing(1),
+}));

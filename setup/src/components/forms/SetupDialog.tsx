@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import axios from "axios";
-import { Div_AppsSetup, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Paper_Setup } from "@ly_components/styles/Div";
+import { Div_AppsSetup, Div_DialogToolbar, Div_DialogToolbarButtons, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Paper_Setup } from "@ly_components/styles/Div";
 import { LYLogoIcon } from "@ly_styles/icons";
 import { Input } from '@ly_components/common/Input';
 import { Button } from "@ly_components/common/Button";
@@ -89,17 +89,18 @@ export default function SetupDialog() {
     setLogs((prevLogs) => [...prevLogs, message]);
   };
 
-  const handleInstall = async () => {
+  const handleInstall = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setLoading(true);
     setLogs([]);
     logMessage("Starting installation...");
     setProgress(20);
 
     try {
-      let queryAPI = window.location.href + "api/setup/install"
+      let queryAPI = window.location.origin + "/api/setup/install"
       logMessage("Creating database...");
       setProgress(50);
-
+      console.log(queryAPI)
       const response = await axios.post(queryAPI, JSON.stringify(formData), {
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +114,7 @@ export default function SetupDialog() {
 
         // 🔄 Refresh the page after a short delay (1.5s)
         setTimeout(() => {
-          window.location.reload();
+          window.location.href = window.location.origin;
         }, 1500);
       } else {
         logMessage(`Error: ${data.items[0].message}`);
@@ -131,7 +132,7 @@ export default function SetupDialog() {
         <Div_Setup>
           <Paper_Setup>
             <LYLogoIcon width="75px" height="75px" />
-            <Form_Setup>
+            <Form_Setup noValidate onSubmit={handleInstall}>
               <Title>Installation - Step {step} of 2</Title>
 
               {step === 1 && (
@@ -232,13 +233,20 @@ export default function SetupDialog() {
                   </Div_AppsSetup>
                 </>
               )}
+              {loading && (
+                <>
+                  <ProgressBar progress={progress} />
+                  <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                    <Spinner />
+                  </div>
 
+                </>
+              )}
               <Div_Logs>
                 {logs.map((log, index) => (
                   <div key={index}>{log}</div>
                 ))}
               </Div_Logs>
-
               {step === 1 && (
                 <Button_Setup fullWidth variant="contained" onClick={() => setStep(2)}>
                   Next
@@ -246,14 +254,16 @@ export default function SetupDialog() {
               )}
 
               {step === 2 && (
-                <Fragment>
-                  <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)}>
-                    Previous
-                  </Button_Setup>
-                  <Button_Setup fullWidth variant="contained" onClick={handleInstall} disabled={loading}>
-                    Install
-                  </Button_Setup>
-                </Fragment>
+                <Div_DialogToolbar>
+                  <Div_DialogToolbarButtons>
+                    <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)} disabled={loading}>
+                      Previous
+                    </Button_Setup>
+                    <Button_Setup type="submit" fullWidth variant="contained"  disabled={loading}>
+                      Install
+                    </Button_Setup>
+                  </Div_DialogToolbarButtons>
+                </Div_DialogToolbar>
               )}
             </Form_Setup>
           </Paper_Setup>
