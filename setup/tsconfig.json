@@ -18,6 +18,8 @@
     "paths": {
       "@ly_app/*": ["src/app/*"], 
       "@ly_components/*": ["src/components/*"], 
+      "@ly_utils/*": ["src/utils/*"],
+      "@ly_styles/*": ["src/styles/*"],
     },
 
   },

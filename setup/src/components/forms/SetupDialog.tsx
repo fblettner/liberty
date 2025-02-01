@@ -3,26 +3,17 @@ import { useState } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import axios from "axios";
-import { Div_AppsLayout } from "@ly_components/styles/Div";
+import { Div_AppsSetup, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Paper_Setup } from "@ly_components/styles/Div";
+import { LYLogoIcon } from "@ly_styles/icons";
+import { Input } from '@ly_components/common/Input';
+import { Button } from "@ly_components/common/Button";
 
 // Styles
-const Container = styled.div`
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  padding: 20px;
-`;
 
-const Card = styled.div`
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-`;
+const Form_Setup = styled('form')(({ theme }) => ({
+  width: '100%', // Fix IE 11 issue.
+  marginTop: theme.spacing(1),
+}))
 
 const Title = styled.h2`
   text-align: center;
@@ -30,43 +21,17 @@ const Title = styled.h2`
   margin-bottom: 16px;
 `;
 
-const Input = styled.input`
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  
-`;
+export const Button_Setup = styled(Button)(({ theme, variant }) => ({
 
-const Button = styled.button`
-  width: 100%;
-  padding: 12px;
-  background: #007bff;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-  
-  &:disabled {
-    background: #cccccc;
-    cursor: not-allowed;
-  }
-`;
+  marginTop: theme.spacing(2),
+  color: theme.palette.text.primary,
+  "&:hover":  {
+    boxShadow: theme.shadows[4],
+    background: theme.palette.primary.main,
+    transform: "scale(1.03)", 
+},
+}));
 
-const LogContainer = styled.div`
-  margin-top: 10px;
-  padding: 10px;
-  background: #eaeaea;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  max-height: 100px;
-  overflow-y: auto;
-`;
 
 const progressBarAnimation = keyframes`
   from { width: 0; }
@@ -133,15 +98,15 @@ export default function SetupDialog() {
           'Content-Type': 'application/json',
         }
       });
-      
+
       const data = await response.data;
       if (data.status === "success") {
         setProgress(100);
         logMessage("Installation complete! Redirecting...");
-        
+
         // 🔄 Refresh the page after a short delay (1.5s)
         setTimeout(() => {
-            window.location.reload();
+          window.location.reload();
         }, 1500);
       } else {
         logMessage(`Error: ${data.items[0].message}`);
@@ -154,35 +119,97 @@ export default function SetupDialog() {
   };
 
   return (
-    <Div_AppsLayout>
-      <Card>
-        <Title>Installation</Title>
+    <Div_SetupLayout>
+      <Main_Content>
+        <Div_Setup>
+          <Paper_Setup>
+            <LYLogoIcon width="75px" height="75px" />
+            <Form_Setup>
+              <Title>Installation</Title>
+              <Div_AppsSetup>
+                <Input
+                  id="host"
+                  name="host"
+                  label="Database Host"
+                  value={formData.host}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  variant="standard"
+                />
+              </Div_AppsSetup>
+              <Div_AppsSetup>
+                <Input
+                  id="port"
+                  name="port"
+                  label="Port"
+                  value={formData.port}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  variant="standard"
+                />
+              </Div_AppsSetup>
+              <Div_AppsSetup>
+                <Input
+                  id="database"
+                  name="database"
+                  label="Database Name"
+                  value={formData.database}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  variant="standard"
+                />
+              </Div_AppsSetup>
+              <Div_AppsSetup>
+                <Input 
+                  id="user" 
+                  name="user" 
+                  label="User" 
+                  value={formData.user} 
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  variant="standard" 
+                />
+              </Div_AppsSetup>
+              <Div_AppsSetup>
+                <Input 
+                  id="password" 
+                  name="password" 
+                  label="Password" 
+                  type="password" 
+                  value={formData.password} 
+                  onChange={handleChange} 
+                  required
+                  fullWidth
+                  variant="standard"
+                />
+              </Div_AppsSetup>
 
-        <Input name="host" placeholder="Database Host" value={formData.host} onChange={handleChange} />
-        <Input name="port" placeholder="Port" value={formData.port} onChange={handleChange} />
-        <Input name="database" placeholder="Database Name" value={formData.database} onChange={handleChange} />
-        <Input name="user" placeholder="User" value={formData.user} onChange={handleChange} />
-        <Input name="password" placeholder="Password" type="password" value={formData.password} onChange={handleChange} />
+              {loading && (
+                <>
+                  <ProgressBar progress={progress} />
+                  <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                    <Spinner />
+                  </div>
+                </>
+              )}
 
-        {loading && (
-          <>
-            <ProgressBar progress={progress} />
-            <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-              <Spinner />
-            </div>
-          </>
-        )}
+              <Div_Logs>
+                {logs.map((log, index) => (
+                  <div key={index}>{log}</div>
+                ))}
+              </Div_Logs>
 
-        <LogContainer>
-          {logs.map((log, index) => (
-            <div key={index}>{log}</div>
-          ))}
-        </LogContainer>
-
-        <Button onClick={handleInstall} disabled={loading}>
-          Proceed
-        </Button>
-      </Card>
-    </Div_AppsLayout>
+              <Button_Setup fullWidth variant="contained" onClick={handleInstall} disabled={loading}>
+                Proceed
+              </Button_Setup>
+            </Form_Setup>
+          </Paper_Setup>
+        </Div_Setup>
+      </Main_Content>
+    </Div_SetupLayout>
   );
 }

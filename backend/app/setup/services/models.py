@@ -7,12 +7,11 @@ logger = logging.getLogger(__name__)
 from collections import defaultdict, deque
 import os
 import re
-from sqlalchemy import MetaData, create_engine, inspect, text
+from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import declarative_base
-
 from backend.app.setup.models.models import get_models_path
-
+   
+    
 class Models:
     def __init__(self, apiController: ApiController, database):
         db_properties_path = get_db_properties_path()
@@ -194,26 +193,6 @@ Base = declarative_base()\n\n"""
         # Ensure tables are written in correct order
         for class_name in sorted(table_definitions.keys()):
             model_content += table_definitions[class_name]
-
-        # Add Materialized Views as read-only models
-        for view in materialized_views:
-            model_content += f"class {self.to_valid_class_name(view)}(Base):\n"
-            model_content += f"    __tablename__ = '{view}'\n"
-            model_content += f"    __table_args__ = {{'info': {{'is_materialized_view': True}}}}\n"
-            model_content += "\n\n"
-
-        # Add Stored Procedures as callable functions
-        existing_proc_names = set()
-
-        for schema, procedure in stored_procedures:
-            proc_name = f"{schema}_{procedure}".lower().replace(" ", "_")
-
-            if proc_name not in existing_proc_names:
-                model_content += f"""
-    def {proc_name}():
-        \"\"\"Stored Procedure: {procedure} (Schema: {schema})\"\"\"
-        pass\n"""
-                existing_proc_names.add(proc_name)
 
         # Write to models.py
         models_file = os.path.join(os.path.dirname(__file__), f"{get_models_path()}/{self.database}.py")

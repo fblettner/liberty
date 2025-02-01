@@ -7,7 +7,7 @@ export default defineConfig({
 
   build: {
     outDir: "../backend/app/public/setup",
-    assetsDir: 'assets',
+    assetsDir: 'setup/assets',
     emptyOutDir: true,
     sourcemap: true
   },
@@ -15,6 +15,9 @@ export default defineConfig({
     alias: {
       "@ly_app": path.resolve(__dirname, 'src/app'),
       "@ly_components": path.resolve(__dirname, 'src/components'),
+      "@ly_assets": path.resolve(__dirname, 'src/assets'),
+      "@ly_styles": path.resolve(__dirname, 'src/styles'),
+      "@ly_utils": path.resolve(__dirname, 'src/utils'),
     },
   },
 })

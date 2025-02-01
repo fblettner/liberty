@@ -3,7 +3,7 @@
 user=liberty
 password=ENC:7XmIlJ/grlCP6ivNhRjnbj9ime1STInqCtU2rN7cQShcVFd1DBSLn4yob7yEhxdxBTaQGwh/s5QoposLqUqS0MYDRbzESETcDEjiej68/SpMtiiu6DWphyXZKMsx2nIGjrgK4OA6
 host=localhost
-port=5433
+port=5432
 database=liberty
 pool_min=1
 pool_max=10

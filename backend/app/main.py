@@ -174,37 +174,37 @@ backend_api.setup_sockets(app)
 async def lifespan(app: FastAPI):
     query_instance = backend_api.api_controller.queryRest
     try:
-        app.state.setup_required = False
-        db_properties_path = get_db_properties_path()
-        if not os.path.exists(db_properties_path):
-            logging.warning("Database properties file is missing. Setup required.")
-            app.state.setup_required = True
-            app.mount(
-                "/assets",
-                StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/assets"), html=True),
-                name="assets",
-            )
-            yield
-            return
-        config = query_instance.load_db_properties(db_properties_path)
-        await query_instance.default_pool(config)
-        logging.warning("Database initialized successfully.")
-
-        # Serve frontend assets if the database is ready
+        app.mount(
+            "/offline/assets",
+            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/offline/assets"), html=True),
+            name="assets",
+        )
+        app.mount(
+            "/setup/assets",
+            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/setup/assets"), html=True),
+            name="assets",
+        )   
         app.mount(
             "/assets",
             StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/frontend/assets"), html=True),
             name="assets",
-        )
+        )        
+
+        app.state.setup_required = False
+        app.state.offline_mode = False
+        db_properties_path = get_db_properties_path()
+        if not os.path.exists(db_properties_path):
+            logging.warning("Database properties file is missing. Setup required.")
+            app.state.setup_required = True
+            yield
+        config = query_instance.load_db_properties(db_properties_path)
+        await query_instance.default_pool(config)
+        logging.warning("Database initialized successfully.")
         yield
     except Exception as e:
         logging.warning(f"Database is not available: {str(e)}")
-        app.state.maintenance_mode = True
-        app.mount(
-            "/assets",
-            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/maintenance/assets"), html=True),
-            name="assets",
-        )
+        app.state.offline_mode = True
+
         yield
 
 

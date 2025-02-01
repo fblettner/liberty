@@ -412,7 +412,8 @@ class LyDlgColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"]),
+        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
+        ForeignKeyConstraint(["col_id"], ["ly_dlg_col.col_id"]),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgcol_rel = relationship('ly_dlg_col')
@@ -878,7 +879,6 @@ class LyTblColCdn(Base):
     __table_args__ = (
         ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"]),
     )
-    lytables_rel = relationship('ly_tables')
     lytblcol_rel = relationship('ly_tbl_col')
 
 
@@ -967,15 +967,3 @@ class LyUsrRoles(Base):
     lyroles_rel = relationship('ly_roles')
 
 
-
-    def liberty_get_insert_columns():
-        """Stored Procedure: get_insert_columns (Schema: liberty)"""
-        pass
-
-    def liberty_get_query_columns():
-        """Stored Procedure: get_query_columns (Schema: liberty)"""
-        pass
-
-    def liberty_create_application():
-        """Stored Procedure: create_application (Schema: liberty)"""
-        pass

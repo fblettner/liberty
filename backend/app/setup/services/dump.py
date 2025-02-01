@@ -8,8 +8,7 @@ import json
 import datetime
 import os
 from sqlalchemy import create_engine, MetaData, Table
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.dialects.postgresql import insert
+
 
 EXCLUDED_TABLES = {"databasechangelog", "databasechangeloglock"}  # Add tables to exclude
 
@@ -19,11 +18,12 @@ class DateTimeEncoder(json.JSONEncoder):
         if isinstance(obj, (datetime.datetime, datetime.date)):
             return obj.isoformat()  # Convert datetime to string
         return super().default(obj)
-    
+
 class Dump: 
     def __init__(self, apiController: ApiController, database):
         db_properties_path = get_db_properties_path()
         config = apiController.queryRest.load_db_properties(db_properties_path)
+        self.database = database
 
         # Database configuration
         DATABASE_URL = f"postgresql+psycopg2://{database}:{config["password"]}@{config["host"]}:{config["port"]}/{database}"
@@ -88,6 +88,8 @@ class Dump:
                     rows = [dict(row) for row in result.mappings()]
 
                 all_data[table_name] = rows
+
+
 
             # Save to JSON file with DateTimeEncoder
             with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "w", encoding="utf-8") as json_file:

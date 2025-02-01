@@ -1,16 +1,14 @@
 import logging
-
+logger = logging.getLogger(__name__)
 from backend.app.config import get_db_properties_path
-from backend.app.setup.services.init import Init
+from backend.app.setup.services.install import Install
 from backend.app.setup.services.models import Models
 from backend.app.utils.encrypt import Encryption
 from backend.app.utils.jwt import JWT
-logger = logging.getLogger(__name__)
 import os
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
 from backend.app.setup.models.liberty import Base
 from backend.app.setup.services.dump import Dump
 from backend.app.controllers.api_controller import ApiController  
@@ -45,7 +43,7 @@ class Setup:
             Base.metadata.create_all(engine)
             logging.warning("All tables have been successfully created!")
 
-            liberty_init = Init(user, password, host, port, database)
+            liberty_init = Install(user, password, host, port, database)
             liberty_init.upload_json_to_database(database)
 
             
@@ -131,8 +129,10 @@ pool_alias=default
     async def models(self, req: Request):
         try:
 
-            liberty_models = Models(self.apiController, "liberty")
-            liberty_models.create_model()
+            models_list = ["liberty", "libnsx1", "libnjde", "nomasx1"]
+            for model in models_list:
+                models = Models(self.apiController, model)
+                models.create_model()
 
             # Return the response
             return JSONResponse({

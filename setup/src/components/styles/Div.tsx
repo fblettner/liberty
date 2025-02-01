@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import BackgroundLY from '@ly_assets/background_ly.jpg'
+import { alpha } from "@ly_utils/commonUtils";
 
 // Define elevation shadows similar to Material-UI
 const elevationShadows: string[] = [
@@ -41,8 +43,59 @@ export const Div = styled.div<DivProps>(
     })
 );
 
-export const Div_AppsLayout = styled('div')(({ theme }) => ({
+export const Div_SetupLayout = styled('div')(({ theme }) => ({
     height: '100vh',
     width: '100%',
     display: 'flex',
+}));
+
+export const Main_Content = styled('main') (({ theme }) => ({
+    flexGrow: 1,
+    width: '100%',
+    overflow: 'auto',
+    height: '100%',
+  }));
+
+export const Div_Setup = styled(Div)(({ theme }) => ({
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundImage: `url(${BackgroundLY})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    boxSizing: 'border-box',
+}));
+
+export const Paper_Setup = styled(Div)(({ theme }) => ({
+    padding: "8px",
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    background: alpha(theme.palette.background.default, 0.8),
+    borderRadius: '0px',
+    height: '100%',
+    width: '100%',
+    '@media (min-width:600px)': {
+        width: '500px', // For `sm` breakpoint and up
+        height: 'auto',
+        borderRadius: '12px',
+    },
+}));
+
+export const Div_AppsSetup = styled(Div)(({ theme }) => ({
+    display: 'flex',
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+}));
+
+export const Div_Logs = styled(Div)(({ theme }) => ({
+    marginTop: "10p",
+    padding: "10px",
+    background: theme.palette.background.paper,
+    borderRadius: "6px",
+    fontSize: "0.9rem",
+    maxHeight: "100px",
+    overflowY: "auto"
 }));

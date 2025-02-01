@@ -54,6 +54,15 @@ class Databasechangeloglock(Base):
     lockedby = Column(VARCHAR(255), primary_key=False, nullable=True)
 
 
+class DbAudit(Base):
+    __tablename__ = 'db_audit'
+    aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    aud_table = Column(VARCHAR(30), primary_key=False, nullable=True)
+    aud_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    aud_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    aud_id = Column(INTEGER, primary_key=True, nullable=False)
+
+
 class DbOraFeatures(Base):
     __tablename__ = 'db_ora_features'
     oraf_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -86,6 +95,19 @@ class DbOraOptions(Base):
     orao_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     orao_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     orao_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class DbOraPartitions(Base):
+    __tablename__ = 'db_ora_partitions$'
+    opar_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    opar_owner = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_segment_type = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_segment_name = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_min_created = Column(DATE, primary_key=False, nullable=True)
+    opar_min_last_ddl = Column(DATE, primary_key=False, nullable=True)
+    opar_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    opar_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    opar_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class DbOraProperties(Base):
@@ -356,6 +378,15 @@ class SecurityAssignments(Base):
     rlu_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
+class SecurityAudit(Base):
+    __tablename__ = 'security_audit'
+    aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    aud_table = Column(VARCHAR(30), primary_key=False, nullable=True)
+    aud_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    aud_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    aud_id = Column(INTEGER, primary_key=True, nullable=False)
+
+
 class SecurityLdap(Base):
     __tablename__ = 'security_ldap'
     ldap_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -439,17 +470,17 @@ class SecurityRights(Base):
 
 
 class SecurityRoles(Base):
-    __tablename__ = 'security_roles'
+    __tablename__ = 'security_roles$'
     rol_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     rol_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     rol_name = Column(VARCHAR(255), primary_key=False, nullable=True)
     rol_seq = Column(INTEGER, primary_key=False, nullable=True)
     rol_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    rol_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    rol_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityUsers(Base):
-    __tablename__ = 'security_users'
+    __tablename__ = 'security_users$'
     usr_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usr_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usr_name = Column(VARCHAR(255), primary_key=False, nullable=True)
@@ -459,11 +490,11 @@ class SecurityUsers(Base):
     usr_dt_creation = Column(DATE, primary_key=False, nullable=True)
     usr_privileged = Column(VARCHAR(1), primary_key=False, nullable=True)
     usr_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    usr_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    usr_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityUsersData(Base):
-    __tablename__ = 'security_users_data$'
+    __tablename__ = 'security_users_data'
     usrd_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrd_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usrd_an8 = Column(INTEGER, primary_key=False, nullable=True)
@@ -478,7 +509,7 @@ class SecurityUsersData(Base):
     usrd_ac05 = Column(VARCHAR(10), primary_key=False, nullable=True)
     usrd_ac05_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
     usrd_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    usrd_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    usrd_ukid = Column(INTEGER, primary_key=False, nullable=True)
     usrd_abat1 = Column(VARCHAR(10), primary_key=False, nullable=True)
     usrd_abat1_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
     usrd_ullngp = Column(VARCHAR(2), primary_key=False, nullable=True)
@@ -868,7 +899,7 @@ class SodProcess(Base):
 
 
 class SodRisks(Base):
-    __tablename__ = 'sod_risks'
+    __tablename__ = 'sod_risks$'
     risk_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     risk_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     risk_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -876,19 +907,6 @@ class SodRisks(Base):
     risk_level = Column(VARCHAR(1), primary_key=False, nullable=True)
     risk_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     risk_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    risk_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    risk_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
-class L(Base):
-    __tablename__ = 'l'
-    __table_args__ = {'info': {'is_materialized_view': True}}
-
-
-
-    def nomasx1_purge_archive_data():
-        """Stored Procedure: purge_archive_data (Schema: nomasx1)"""
-        pass
-
-    def nomasx1_purge_data():
-        """Stored Procedure: purge_data (Schema: nomasx1)"""
-        pass
