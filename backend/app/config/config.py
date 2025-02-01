@@ -15,3 +15,4 @@ def get_db_properties_path():
 def get_config_path():
     """Return the absolute path to db.properties"""
     return str(CONFIG_PATH)
+

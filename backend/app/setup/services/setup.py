@@ -1,4 +1,7 @@
+import configparser
 import logging
+
+from backend.app.config.config import get_config_path
 logger = logging.getLogger(__name__)
 from backend.app.config import get_db_properties_path
 from backend.app.setup.services.install import Install
@@ -113,18 +116,24 @@ pool_alias=default
 
     async def repository(self, req: Request):
         try:
-            database_to_export = ["liberty", "libnsx1", "libnjde", "libnetl", "nomasx1"]
+            self.config = configparser.ConfigParser()
+            self.config.read(os.path.join(get_config_path(), "liberty.ini"))
+            database_to_export = self.config["repository"]["databases"].split(", ")
             for database in database_to_export:
-                models = Models(self.apiController, database)
-                models.create_model()
+                model_enabled = self.config[database].getboolean("model")
+                data_enabled = self.config[database].getboolean("data")
+                tables = self.config[database].get("tables", "").split(", ") if self.config[database].get("tables") else []
 
-                if database == "nomasx1":
+                if model_enabled:
+                    models = Models(self.apiController, database)
+                    models.create_model()
+
+                if data_enabled:
                     dump = Dump(self.apiController, database)
-                    tables = ["settings_applications", "settings_users"]
-                    dump.extract_table_to_json(tables)
-                else:
-                    dump = Dump(self.apiController, database)
-                    dump.extract_schema_to_json()
+                    if tables and tables != [""]:  # Ensure it's not an empty list
+                        dump.extract_table_to_json(tables)
+                    else:
+                        dump.extract_schema_to_json()
 
             # Return the response
             return JSONResponse({

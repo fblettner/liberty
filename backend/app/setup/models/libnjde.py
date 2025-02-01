@@ -1,8 +1,7 @@
 """Auto-generated SQLAlchemy models."""
 
 from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
@@ -412,8 +411,7 @@ class LyDlgColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
-        ForeignKeyConstraint(["col_id"], ["ly_dlg_col.col_id"]),
+        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"]),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgcol_rel = relationship('ly_dlg_col')
@@ -480,8 +478,7 @@ class LyDlgTabCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
-        ForeignKeyConstraint(["tab_id"], ["ly_dlg_tab.tab_id"]),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"]),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgtab_rel = relationship('ly_dlg_tab')

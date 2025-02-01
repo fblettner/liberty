@@ -1,8 +1,7 @@
 """Auto-generated SQLAlchemy models."""
 
 from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
@@ -64,7 +63,7 @@ class DbAudit(Base):
 
 
 class DbOraFeatures(Base):
-    __tablename__ = 'db_ora_features'
+    __tablename__ = 'db_ora_features$'
     oraf_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     oraf_inst_id = Column(INTEGER, primary_key=True, nullable=False)
     oraf_feature = Column(VARCHAR(255), primary_key=True, nullable=False)
@@ -73,7 +72,7 @@ class DbOraFeatures(Base):
     oraf_last_usage = Column(DATE, primary_key=False, nullable=True)
     oraf_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     oraf_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    oraf_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    oraf_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class DbOraLicenses(Base):
@@ -98,7 +97,7 @@ class DbOraOptions(Base):
 
 
 class DbOraPartitions(Base):
-    __tablename__ = 'db_ora_partitions$'
+    __tablename__ = 'db_ora_partitions'
     opar_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     opar_owner = Column(VARCHAR(255), primary_key=True, nullable=False)
     opar_segment_type = Column(VARCHAR(255), primary_key=True, nullable=False)
@@ -107,7 +106,7 @@ class DbOraPartitions(Base):
     opar_min_last_ddl = Column(DATE, primary_key=False, nullable=True)
     opar_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     opar_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    opar_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    opar_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class DbOraProperties(Base):
@@ -494,7 +493,7 @@ class SecurityUsers(Base):
 
 
 class SecurityUsersData(Base):
-    __tablename__ = 'security_users_data'
+    __tablename__ = 'security_users_data$'
     usrd_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrd_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usrd_an8 = Column(INTEGER, primary_key=False, nullable=True)
@@ -509,7 +508,7 @@ class SecurityUsersData(Base):
     usrd_ac05 = Column(VARCHAR(10), primary_key=False, nullable=True)
     usrd_ac05_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
     usrd_dt_refresh = Column(DATE, primary_key=False, nullable=True)
-    usrd_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    usrd_ukid = Column(INTEGER, primary_key=True, nullable=False)
     usrd_abat1 = Column(VARCHAR(10), primary_key=False, nullable=True)
     usrd_abat1_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
     usrd_ullngp = Column(VARCHAR(2), primary_key=False, nullable=True)
@@ -524,7 +523,7 @@ class SecurityUsersData(Base):
 
 
 class SecurityUsersProp(Base):
-    __tablename__ = 'security_users_prop$'
+    __tablename__ = 'security_users_prop'
     usrp_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrp_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usrp_name = Column(VARCHAR(255), primary_key=False, nullable=True)
@@ -538,7 +537,7 @@ class SecurityUsersProp(Base):
     usrp_id_previous = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    usrp_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    usrp_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SecurityXref(Base):
@@ -850,7 +849,7 @@ class SodConflictDetails(Base):
 
 
 class SodConflictSummary(Base):
-    __tablename__ = 'sod_conflict_summary'
+    __tablename__ = 'sod_conflict_summary$'
     cfs_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     cfs_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     cfs_act1_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -859,11 +858,11 @@ class SodConflictSummary(Base):
     cfs_privileged = Column(VARCHAR(1), primary_key=True, nullable=False)
     cfs_count = Column(INTEGER, primary_key=False, nullable=True)
     cfs_refresh = Column(DATE, primary_key=False, nullable=True)
-    cfs_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    cfs_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SodMatrix(Base):
-    __tablename__ = 'sod_matrix'
+    __tablename__ = 'sod_matrix$'
     matrix_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     matrix_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     matrix_act1_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -872,7 +871,7 @@ class SodMatrix(Base):
     matrix_risk_level = Column(INTEGER, primary_key=False, nullable=True)
     matrix_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     matrix_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    matrix_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    matrix_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SodObjects(Base):
@@ -889,13 +888,13 @@ class SodObjects(Base):
 
 
 class SodProcess(Base):
-    __tablename__ = 'sod_process'
+    __tablename__ = 'sod_process$'
     process_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     process_name = Column(VARCHAR(100), primary_key=False, nullable=True)
     process_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     process_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    process_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    process_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SodRisks(Base):

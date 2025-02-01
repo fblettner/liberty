@@ -29,30 +29,6 @@
     "ly_api_params": [],
     "ly_applications": [
         {
-            "apps_id": 3,
-            "apps_name": "NOMAETL",
-            "apps_description": "Data Migration",
-            "apps_version": 403,
-            "apps_pool": "libnetl",
-            "apps_pool_min": 1,
-            "apps_pool_max": 10,
-            "apps_dbtype": "postgres",
-            "apps_jdbc": null,
-            "apps_user": "libnetl",
-            "apps_password": "ENC:S8ffQsSRRR7IPecutYTzkP3cWQNTa3JK9pgKfoHCmzNB0xij4j2W6RU5wRxh1q2IA2iSa1M5UHEOKW6sUAg7YkDPgzQu3NSSIt5epk+FMj75I6DijjX9uUgoPkeCTNmDKYaiiq34igxrkyPy",
-            "apps_host": "pg",
-            "apps_port": 5432,
-            "apps_database": "libnetl",
-            "apps_offset": 5000,
-            "apps_limit": 20000,
-            "apps_audit_user": "admin",
-            "apps_audit_date": "2024-12-16T17:15:21.431000",
-            "apps_dashboard": null,
-            "apps_type": "LIBERTY",
-            "apps_theme": "modernBluePurple",
-            "apps_replace_null": "N"
-        },
-        {
             "apps_id": 1,
             "apps_name": "LIBERTY",
             "apps_description": "Framework Liberty",
@@ -77,6 +53,30 @@
             "apps_replace_null": "N"
         },
         {
+            "apps_id": 3,
+            "apps_name": "NOMAETL",
+            "apps_description": "Data Migration",
+            "apps_version": 403,
+            "apps_pool": "libnetl",
+            "apps_pool_min": 1,
+            "apps_pool_max": 10,
+            "apps_dbtype": "postgres",
+            "apps_jdbc": null,
+            "apps_user": "libnetl",
+            "apps_password": "ENC:NhZvuOiRqX7h5t+ts8prz6oJmrOAppCgsAxl7VHwhU0MXDYLELiuZy3US7XGqDmF6vXbrQJLHogaQw8euLbfZGwU8Ba/Vyw+uLbILq7nqdp7MeTYirPXyGCnO7KmDINYEjR+IG74",
+            "apps_host": "localhost",
+            "apps_port": 5433,
+            "apps_database": "libnetl",
+            "apps_offset": 5000,
+            "apps_limit": 20000,
+            "apps_audit_user": "admin",
+            "apps_audit_date": "2024-12-16T17:15:21.431000",
+            "apps_dashboard": null,
+            "apps_type": "LIBERTY",
+            "apps_theme": "modernBluePurple",
+            "apps_replace_null": "N"
+        },
+        {
             "apps_id": 2,
             "apps_name": "NOMASX1",
             "apps_description": "Rights, licenses and SOD",
@@ -87,9 +87,9 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnsx1",
-            "apps_password": "ENC:yTo7N7zI3hZTGgYdwPo2WGjKMCteuce9oSbxYbr8u6/ls3tuwjLT4QLShQHrFe/P4WHGpm8Kyrn5SI8xYpPjP7Wo66cvVrX9eMbP0oioOhYd8V3mWRD7XkqCnSB+LXVcK3mnenCg",
-            "apps_host": "pg",
-            "apps_port": 5432,
+            "apps_password": "ENC:NhZvuOiRqX7h5t+ts8prz6oJmrOAppCgsAxl7VHwhU0MXDYLELiuZy3US7XGqDmF6vXbrQJLHogaQw8euLbfZGwU8Ba/Vyw+uLbILq7nqdp7MeTYirPXyGCnO7KmDINYEjR+IG74",
+            "apps_host": "localhost",
+            "apps_port": 5433,
             "apps_database": "libnsx1",
             "apps_offset": 10000,
             "apps_limit": 150000,
@@ -111,9 +111,9 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnjde",
-            "apps_password": "ENC:90vnZd7aU/szhITBD86f2tfbk1AeChZMyuNIBZsfnv3lhMsTbRtZseOoOrfqTz6DvQUyqe985jKi+9G9TR54opIF4CAzq51EgTZ9pK2P4sk3ifidord6mNWCCo/ZHKFu+fqswUiG",
-            "apps_host": "pg",
-            "apps_port": 5432,
+            "apps_password": "ENC:NhZvuOiRqX7h5t+ts8prz6oJmrOAppCgsAxl7VHwhU0MXDYLELiuZy3US7XGqDmF6vXbrQJLHogaQw8euLbfZGwU8Ba/Vyw+uLbILq7nqdp7MeTYirPXyGCnO7KmDINYEjR+IG74",
+            "apps_host": "localhost",
+            "apps_port": 5433,
             "apps_database": "libnjde",
             "apps_offset": 5000,
             "apps_limit": 100000,
@@ -28988,912 +28988,6 @@
             "cdn_value": null
         }
     ],
-    "ly_dlg_tab_l": [
-        {
-            "frm_id": 1,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Connexions",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 6,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "SQL",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Rôles",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-06T09:24:28.885000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:02.571000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Onglets",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:18.399000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:28.823000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:44.816000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:55.980000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:04.757000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:33.116000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Composant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:51.336000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:00.949000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire spécifique",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:13.517000"
-        },
-        {
-            "frm_id": 9,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:36.491000"
-        },
-        {
-            "frm_id": 9,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Ecrans",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:52.259000"
-        },
-        {
-            "frm_id": 6,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:20:23.583000"
-        },
-        {
-            "frm_id": 7,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:20:42.493000"
-        },
-        {
-            "frm_id": 7,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Méthodes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:02.679000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:20.594000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:31.364000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:40.400000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:54.116000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire spécifique",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:06.684000"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:24.612000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:50.071000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:23:00.513000"
-        },
-        {
-            "frm_id": 51,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-28T05:36:42.866000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:23:58.326000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Type",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:11.987000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Menus",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:24.364000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Composants",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:35.104000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:45.554000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:54.235000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:12.131000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:24.313000"
-        },
-        {
-            "frm_id": 12,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:44.690000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:17.133000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:30.107000"
-        },
-        {
-            "frm_id": 18,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:50.343000"
-        },
-        {
-            "frm_id": 18,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:02.636000"
-        },
-        {
-            "frm_id": 19,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:15.594000"
-        },
-        {
-            "frm_id": 19,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:26.116000"
-        },
-        {
-            "frm_id": 20,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:46.428000"
-        },
-        {
-            "frm_id": 20,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Script",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:58.696000"
-        },
-        {
-            "frm_id": 21,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:15.335000"
-        },
-        {
-            "frm_id": 23,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:49.222000"
-        },
-        {
-            "frm_id": 23,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:58.330000"
-        },
-        {
-            "frm_id": 24,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:10.608000"
-        },
-        {
-            "frm_id": 24,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:20.379000"
-        },
-        {
-            "frm_id": 25,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:46.749000"
-        },
-        {
-            "frm_id": 25,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:55.709000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:30:07.962000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Menus",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-28T07:49:17.045000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:30:37.791000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:05.607000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Groupe",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:17.418000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Parent / Enfant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:30.833000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:28:23.355000"
-        },
-        {
-            "frm_id": 12,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:31:35.058000"
-        },
-        {
-            "frm_id": 21,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:32:48.412000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:33:57.367000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:56:05.183000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Tâches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:56:53.292000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:59:36.724000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T20:03:34.224000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T07:39:11.544000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire personnalisé",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T07:39:44.842000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T22:32:44.519000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Branches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-26T09:32:01.133000"
-        },
-        {
-            "frm_id": 45,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-26T14:36:44.417000"
-        },
-        {
-            "frm_id": 47,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T13:58:34.377000"
-        },
-        {
-            "frm_id": 45,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T14:57:00.059000"
-        },
-        {
-            "frm_id": 4,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:03:38.742000"
-        },
-        {
-            "frm_id": 16,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:06:08.867000"
-        },
-        {
-            "frm_id": 37,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Affectations Rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:07:52.140000"
-        },
-        {
-            "frm_id": 34,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:08:56.073000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:11:47.357000"
-        },
-        {
-            "frm_id": 15,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:12:45.623000"
-        },
-        {
-            "frm_id": 39,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:13:35.838000"
-        },
-        {
-            "frm_id": 31,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:15:07.325000"
-        },
-        {
-            "frm_id": 32,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:19:11.510000"
-        },
-        {
-            "frm_id": 27,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:19:57.936000"
-        },
-        {
-            "frm_id": 30,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:20:47.769000"
-        },
-        {
-            "frm_id": 28,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Numéros suivants",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:21:21.861000"
-        },
-        {
-            "frm_id": 33,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Langue",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:21:53.736000"
-        },
-        {
-            "frm_id": 35,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Modules",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:22:26.275000"
-        },
-        {
-            "frm_id": 44,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Branches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:23:03.923000"
-        },
-        {
-            "frm_id": 43,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:23:44.641000"
-        },
-        {
-            "frm_id": 46,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Groupes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:24:33.347000"
-        },
-        {
-            "frm_id": 48,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:25:06.302000"
-        },
-        {
-            "frm_id": 49,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T16:23:33.981000"
-        },
-        {
-            "frm_id": 50,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Règles Affichage",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T17:23:56.980000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Paramètres Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T17:46:45.856000"
-        },
-        {
-            "frm_id": 52,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-11T07:56:49.218000"
-        },
-        {
-            "frm_id": 54,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-15T16:20:15.247000"
-        },
-        {
-            "frm_id": 54,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Contenu",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-15T16:33:50.927000"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "UI",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-16T07:57:44.247000"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "UI",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-16T08:26:45.966000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-24T15:20:02.559000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T16:25:54.829000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "En-Têtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T16:26:29.550000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Body",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T17:09:49.747000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "API",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-13T07:51:32.888000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-19T20:56:59.969000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-27T16:30:46.556000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 6,
-            "lng_id": "fr",
-            "lng_label": "Composant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-30T06:25:06.708000"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Schemas",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-30T12:16:54.821000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-05T08:29:58.294000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-18T15:50:30.379000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Evénements",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-11T12:58:04.029000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Evénements",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-11T13:20:47.067000"
-        },
-        {
-            "frm_id": 68,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Couleurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-17T11:54:42.526000"
-        }
-    ],
     "ly_dashboard": [
         {
             "dsh_id": 1,
@@ -30568,6 +29662,20 @@
             "lng_name": "English",
             "lng_audit_user": null,
             "lng_audit_date": null
+        }
+    ],
+    "ly_dsh_col": [
+        {
+            "dsh_id": 1,
+            "dsh_col_id": 1,
+            "dsh_display_title": "N",
+            "dsh_title": "Liberty Tools",
+            "dsh_row": 1,
+            "dsh_column": 1,
+            "dsh_component": "FormsTools",
+            "dsh_component_id": null,
+            "dsh_audit_user": "admin",
+            "dsh_audit_date": "2024-10-29T19:02:29.077000"
         }
     ],
     "ly_enum": [
@@ -32564,6 +31672,218 @@
             "lkp_tbl_id": null
         }
     ],
+    "ly_lkp_params": [
+        {
+            "lkp_id": 15,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:09.970000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 16,
+            "dd_id": "COL_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:26.996000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 18,
+            "dd_id": "DD_RULES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:47.325000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 25,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:04.227000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 3,
+            "dd_id": "FRM_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:18.119000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 4,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:31.046000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 5,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:45.890000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 28,
+            "dd_id": "FRM_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T17:21:25.933000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 30,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T11:37:24.100000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T11:51:02.277000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_COMPONENT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:38.211000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_RULES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:47.822000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_RULES_VALUES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:55.922000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 1,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-29T23:13:08.155000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 1,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-07-01T11:18:07.863000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 4,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-01T16:37:18.782000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 24,
+            "dd_id": "DLG_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:34.090000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 14,
+            "dd_id": "DD_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:47.258000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 7,
+            "dd_id": "CTX_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:59.044000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 25,
+            "dd_id": "BRC_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:15:08.676000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 2,
+            "dd_id": "CPT_NAME",
+            "audit_user": "admin",
+            "audit_date": "2024-07-03T13:31:42.577000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 18,
+            "dd_id": "DD_RULES_VALUES",
+            "audit_user": "admin",
+            "audit_date": "2024-07-03T14:31:21.664000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 33,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-20T16:23:33.077000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 5,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-08-13T08:17:28.983000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 36,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-01T11:45:18.663000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 29,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-02T20:03:59.503000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 39,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-04T20:44:34.253000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 40,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-18T16:16:38.979000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 41,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-18T22:36:56.498000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 42,
+            "dd_id": "EVT_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-12-11T13:06:15.585000",
+            "lkp_dir": "IN"
+        }
+    ],
     "ly_lnk_val": [
         {
             "lnk_id": 2,
@@ -33017,58 +32337,6 @@
             "menu_audit_date": "2024-12-17T11:29:59.472000"
         }
     ],
-    "ly_menus_filters": [],
-    "ly_modules": [
-        {
-            "module_id": "menus",
-            "module_description": "Enable Drawer Menus",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2024-07-11T07:55:02.643000",
-            "module_params": null
-        },
-        {
-            "module_id": "dev",
-            "module_description": "Enable Development Mode",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2024-12-05T18:06:42.527000",
-            "module_params": null
-        },
-        {
-            "module_id": "sentry",
-            "module_description": "Enable Sentry",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-07T17:33:37.747000",
-            "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
-        },
-        {
-            "module_id": "debug",
-            "module_description": "Enable Debug",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-26T14:00:29.665000",
-            "module_params": null
-        },
-        {
-            "module_id": "login",
-            "module_description": "Enable Embedded Login",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T00:32:18.346000",
-            "module_params": null
-        },
-        {
-            "module_id": "grafana",
-            "module_description": "Enable Grafana Dashboard",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T12:09:06.946000",
-            "module_params": null
-        }
-    ],
-    "ly_nextnum": [],
     "ly_menus_l": [
         {
             "lng_id": "fr",
@@ -33274,6 +32542,57 @@
             "lng_audit_date": "2024-12-17T11:30:08.202000"
         }
     ],
+    "ly_modules": [
+        {
+            "module_id": "menus",
+            "module_description": "Enable Drawer Menus",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2024-07-11T07:55:02.643000",
+            "module_params": null
+        },
+        {
+            "module_id": "dev",
+            "module_description": "Enable Development Mode",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2024-12-05T18:06:42.527000",
+            "module_params": null
+        },
+        {
+            "module_id": "sentry",
+            "module_description": "Enable Sentry",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-07T17:33:37.747000",
+            "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
+        },
+        {
+            "module_id": "debug",
+            "module_description": "Enable Debug",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-26T14:00:29.665000",
+            "module_params": null
+        },
+        {
+            "module_id": "login",
+            "module_description": "Enable Embedded Login",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-28T00:32:18.346000",
+            "module_params": null
+        },
+        {
+            "module_id": "grafana",
+            "module_description": "Enable Grafana Dashboard",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-28T12:09:06.946000",
+            "module_params": null
+        }
+    ],
+    "ly_nextnum": [],
     "ly_qry_fmw": [
         {
             "fmw_id": 13,
@@ -47825,188 +47144,6 @@
             "thm_audit_date": "2024-12-17T13:08:25.461000"
         }
     ],
-    "ly_thm_colors": [
-        {
-            "thm_id": 2,
-            "tcl_id": 1,
-            "tcl_key": "primary",
-            "tcl_light": "#3f51b5",
-            "tcl_dark": "#673ab7",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T11:59:48.790000"
-        },
-        {
-            "thm_id": 5,
-            "tcl_id": 2,
-            "tcl_key": "secondary",
-            "tcl_light": "#607d8b",
-            "tcl_dark": "rgb(206, 203, 203)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T17:28:42.710000"
-        },
-        {
-            "thm_id": 1,
-            "tcl_id": 2,
-            "tcl_key": "secondary",
-            "tcl_light": "#ff9800",
-            "tcl_dark": "#ffc107",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T11:56:42.205000"
-        },
-        {
-            "thm_id": 3,
-            "tcl_id": 5,
-            "tcl_key": "background",
-            "tcl_light": "linear-gradient(90deg, rgba(120,190,101,1) 0%, RGBA(163, 218, 133, 1) 100%)",
-            "tcl_dark": "linear-gradient(90deg, rgba(59,122,31,1) 0%, RGBA(28, 78, 10, 1) 100%)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T20:25:03.426000"
-        },
-        {
-            "thm_id": 1,
-            "tcl_id": 7,
-            "tcl_key": "color",
-            "tcl_light": "#333333",
-            "tcl_dark": "#E1D9D1",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T11:58:09.604000"
-        },
-        {
-            "thm_id": 1,
-            "tcl_id": 1,
-            "tcl_key": "primary",
-            "tcl_light": "#1976d2",
-            "tcl_dark": "#607d8b",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-18T12:42:09.836000"
-        },
-        {
-            "thm_id": 2,
-            "tcl_id": 2,
-            "tcl_key": "secondary",
-            "tcl_light": "#03a9f4",
-            "tcl_dark": "#00bcd4",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T12:01:15.158000"
-        },
-        {
-            "thm_id": 2,
-            "tcl_id": 7,
-            "tcl_key": "color",
-            "tcl_light": "#1F1F1F",
-            "tcl_dark": "#EDEDED",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T12:02:38.184000"
-        },
-        {
-            "thm_id": 3,
-            "tcl_id": 1,
-            "tcl_key": "primary",
-            "tcl_light": "#8bc34a",
-            "tcl_dark": "#4caf50",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:00:57.155000"
-        },
-        {
-            "thm_id": 3,
-            "tcl_id": 2,
-            "tcl_key": "secondary",
-            "tcl_light": "#cddc39",
-            "tcl_dark": "#ffc107",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:01:17.949000"
-        },
-        {
-            "thm_id": 3,
-            "tcl_id": 7,
-            "tcl_key": "color",
-            "tcl_light": "#2D2D2D",
-            "tcl_dark": "#F5F5F5",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:02:46.523000"
-        },
-        {
-            "thm_id": 4,
-            "tcl_id": 1,
-            "tcl_key": "primary",
-            "tcl_light": "#e91e63",
-            "tcl_dark": "#f44336",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:04:36.947000"
-        },
-        {
-            "thm_id": 4,
-            "tcl_id": 2,
-            "tcl_key": "secondary",
-            "tcl_light": "#D3D3D3",
-            "tcl_dark": "#9e9e9e",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:04:54.838000"
-        },
-        {
-            "thm_id": 4,
-            "tcl_id": 7,
-            "tcl_key": "color",
-            "tcl_light": "#1C1C1C",
-            "tcl_dark": "#EDEDED",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:06:18.043000"
-        },
-        {
-            "thm_id": 5,
-            "tcl_id": 1,
-            "tcl_key": "primary",
-            "tcl_light": "#D6BF8D",
-            "tcl_dark": "#C89B53",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:09:46.675000"
-        },
-        {
-            "thm_id": 5,
-            "tcl_id": 7,
-            "tcl_key": "color",
-            "tcl_light": "#403B34",
-            "tcl_dark": "#F0E0C3",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T13:11:29.824000"
-        },
-        {
-            "thm_id": 1,
-            "tcl_id": 5,
-            "tcl_key": "background",
-            "tcl_light": "linear-gradient(90deg, rgba(194,233,251,1) 0%, RGBA(161, 196, 253, 1) 100%)",
-            "tcl_dark": "linear-gradient(90deg, RGBA(15, 32, 39, 1)  0%, rgba(32,58,67,1) 50%, rgba(44,83,100,1) 100%)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T15:20:26.831000"
-        },
-        {
-            "thm_id": 2,
-            "tcl_id": 5,
-            "tcl_key": "background",
-            "tcl_light": "linear-gradient(90deg, rgba(33,147,176,1) 0%, RGBA(109, 213, 237, 1) 100%)",
-            "tcl_dark": "linear-gradient(90deg, rgba(30,60,114,1) 0%, RGBA(42, 82, 152, 1) 100%)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T16:19:02.169000"
-        },
-        {
-            "thm_id": 4,
-            "tcl_id": 5,
-            "tcl_key": "background",
-            "tcl_light": "linear-gradient(90deg, rgba(240,128,128,1) 0%, RGBA(250, 128, 114, 1) 100%)",
-            "tcl_dark": "linear-gradient(90deg, rgba(58,58,58,1) 0%, RGBA(28, 28, 28, 1) 100%)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T16:22:11.466000"
-        },
-        {
-            "thm_id": 5,
-            "tcl_id": 5,
-            "tcl_key": "background",
-            "tcl_light": "linear-gradient(90deg, rgba(214,191,141,1) 0%, RGBA(242, 232, 201, 1) 100%)",
-            "tcl_dark": "linear-gradient(90deg, rgba(79,58,41,1) 0%, RGBA(31, 28, 24, 1) 100%)",
-            "tcl_audit_user": "admin",
-            "tcl_audit_date": "2024-12-17T16:23:41.883000"
-        }
-    ],
     "ly_roles": [
         {
             "rol_id": "R-FRAMEWORK",
@@ -48088,23 +47225,8 @@
     "ly_tbl_col_cdn": [],
     "ly_users": [
         {
-            "usr_id": "demo",
-            "usr_password": "ENC:f9Vm+T9kdyy7F5HdfJl4S08/GG4yweI/Fvt5sTF0hJU2kLgi3pGkYTLYh6NGjjtGgPcJ2mO1244tQTgskdx2gqIyw8WcvIzgabpeIE75anwJuiEZ8ij42F9mLfUz/JlIhcQo731P",
-            "usr_name": "Demo User",
-            "usr_email": "demo@liberty.fr",
-            "usr_status": "Y",
-            "usr_admin": "N",
-            "usr_language": "fr",
-            "usr_mode": "light",
-            "usr_readonly": "Y",
-            "usr_audit_user": "demo",
-            "usr_audit_date": "2025-01-28T13:48:17.442000",
-            "usr_dashboard": 1,
-            "usr_theme": "liberty"
-        },
-        {
             "usr_id": "admin",
-            "usr_password": "ENC:CC2CC0kPwEvehjeYG4/M4dlKGy4Exq9RTBpcP3VK8O7N64BPY4b1D1v303WjQEEKR71kcUoYDbrK23EV1053lx+VDk6+AR1wVPRCcyecHWw3zek1bAWpsxX7JatXoQYqVBY6SP04",
+            "usr_password": "ENC:fpDz0w2aijvReN3CTc3Z216NILNqQI6PDORCwW2OD8X8HqV06Lgt6zPqfki6ZC1rl5Rdf6/QkxV4hLdl7ot8hzikEtxuH/PnpMpultZ1Z6NyrNS087Vskcgzi+GWtXev3223ZyKS",
             "usr_name": "Administrator",
             "usr_email": "admin@liberty.fr",
             "usr_status": "Y",
@@ -48118,20 +47240,7 @@
             "usr_theme": "liberty"
         }
     ],
-    "ly_usr_roles": [
-        {
-            "usr_id": "demo",
-            "rol_id": "R-SETTINGS",
-            "rlu_audit_user": "admin",
-            "rlu_audit_date": "2024-02-14T17:39:51.402000"
-        },
-        {
-            "usr_id": "demo",
-            "rol_id": "R-FRAMEWORK",
-            "rlu_audit_user": "admin",
-            "rlu_audit_date": "2024-02-14T17:43:59.062000"
-        }
-    ],
+    "ly_usr_roles": [],
     "ly_cdn_params": [
         {
             "cdn_id": 3,
@@ -48710,232 +47819,913 @@
             "cdn_grp_label": null
         }
     ],
-    "ly_dsh_col": [
+    "ly_dlg_tab_l": [
         {
-            "dsh_id": 1,
-            "dsh_col_id": 1,
-            "dsh_display_title": "N",
-            "dsh_title": "Liberty Tools",
-            "dsh_row": 1,
-            "dsh_column": 1,
-            "dsh_component": "FormsTools",
-            "dsh_component_id": null,
-            "dsh_audit_user": "admin",
-            "dsh_audit_date": "2024-10-29T19:02:29.077000"
+            "frm_id": 1,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Connexions",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 6,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "SQL",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Rôles",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-06T09:24:28.885000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:02.571000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Onglets",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:18.399000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:28.823000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:44.816000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:55.980000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:04.757000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:33.116000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Composant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:51.336000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:00.949000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire spécifique",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:13.517000"
+        },
+        {
+            "frm_id": 9,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:36.491000"
+        },
+        {
+            "frm_id": 9,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Ecrans",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:52.259000"
+        },
+        {
+            "frm_id": 6,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:20:23.583000"
+        },
+        {
+            "frm_id": 7,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:20:42.493000"
+        },
+        {
+            "frm_id": 7,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Méthodes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:02.679000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:20.594000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:31.364000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:40.400000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:54.116000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire spécifique",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:06.684000"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:24.612000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:50.071000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:23:00.513000"
+        },
+        {
+            "frm_id": 51,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-28T05:36:42.866000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:23:58.326000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Type",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:11.987000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Menus",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:24.364000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Composants",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:35.104000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:45.554000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:54.235000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:12.131000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:24.313000"
+        },
+        {
+            "frm_id": 12,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:44.690000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:17.133000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:30.107000"
+        },
+        {
+            "frm_id": 18,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:50.343000"
+        },
+        {
+            "frm_id": 18,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:02.636000"
+        },
+        {
+            "frm_id": 19,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:15.594000"
+        },
+        {
+            "frm_id": 19,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:26.116000"
+        },
+        {
+            "frm_id": 20,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:46.428000"
+        },
+        {
+            "frm_id": 20,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Script",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:58.696000"
+        },
+        {
+            "frm_id": 21,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:15.335000"
+        },
+        {
+            "frm_id": 23,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:49.222000"
+        },
+        {
+            "frm_id": 23,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:58.330000"
+        },
+        {
+            "frm_id": 24,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:10.608000"
+        },
+        {
+            "frm_id": 24,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:20.379000"
+        },
+        {
+            "frm_id": 25,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:46.749000"
+        },
+        {
+            "frm_id": 25,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:55.709000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:30:07.962000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Menus",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-28T07:49:17.045000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:30:37.791000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:05.607000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Groupe",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:17.418000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Parent / Enfant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:30.833000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:28:23.355000"
+        },
+        {
+            "frm_id": 12,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:31:35.058000"
+        },
+        {
+            "frm_id": 21,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:32:48.412000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:33:57.367000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:56:05.183000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Tâches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:56:53.292000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:59:36.724000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T20:03:34.224000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T07:39:11.544000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire personnalisé",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T07:39:44.842000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T22:32:44.519000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Branches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-26T09:32:01.133000"
+        },
+        {
+            "frm_id": 45,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-26T14:36:44.417000"
+        },
+        {
+            "frm_id": 47,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T13:58:34.377000"
+        },
+        {
+            "frm_id": 45,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T14:57:00.059000"
+        },
+        {
+            "frm_id": 4,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:03:38.742000"
+        },
+        {
+            "frm_id": 16,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:06:08.867000"
+        },
+        {
+            "frm_id": 37,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Affectations Rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:07:52.140000"
+        },
+        {
+            "frm_id": 34,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:08:56.073000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:11:47.357000"
+        },
+        {
+            "frm_id": 15,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:12:45.623000"
+        },
+        {
+            "frm_id": 39,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:13:35.838000"
+        },
+        {
+            "frm_id": 31,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:15:07.325000"
+        },
+        {
+            "frm_id": 32,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:19:11.510000"
+        },
+        {
+            "frm_id": 27,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:19:57.936000"
+        },
+        {
+            "frm_id": 30,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:20:47.769000"
+        },
+        {
+            "frm_id": 28,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Numéros suivants",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:21:21.861000"
+        },
+        {
+            "frm_id": 33,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Langue",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:21:53.736000"
+        },
+        {
+            "frm_id": 35,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Modules",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:22:26.275000"
+        },
+        {
+            "frm_id": 44,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Branches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:23:03.923000"
+        },
+        {
+            "frm_id": 43,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:23:44.641000"
+        },
+        {
+            "frm_id": 46,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Groupes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:24:33.347000"
+        },
+        {
+            "frm_id": 48,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:25:06.302000"
+        },
+        {
+            "frm_id": 49,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T16:23:33.981000"
+        },
+        {
+            "frm_id": 50,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Règles Affichage",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T17:23:56.980000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Paramètres Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T17:46:45.856000"
+        },
+        {
+            "frm_id": 52,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-11T07:56:49.218000"
+        },
+        {
+            "frm_id": 54,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-15T16:20:15.247000"
+        },
+        {
+            "frm_id": 54,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Contenu",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-15T16:33:50.927000"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "UI",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-16T07:57:44.247000"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "UI",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-16T08:26:45.966000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-24T15:20:02.559000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T16:25:54.829000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "En-Têtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T16:26:29.550000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Body",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T17:09:49.747000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "API",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-13T07:51:32.888000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-19T20:56:59.969000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-27T16:30:46.556000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 6,
+            "lng_id": "fr",
+            "lng_label": "Composant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-30T06:25:06.708000"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Schemas",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-30T12:16:54.821000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-05T08:29:58.294000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-18T15:50:30.379000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Evénements",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-11T12:58:04.029000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Evénements",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-11T13:20:47.067000"
+        },
+        {
+            "frm_id": 68,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Couleurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-17T11:54:42.526000"
         }
     ],
-    "ly_lkp_params": [
-        {
-            "lkp_id": 15,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:09.970000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 16,
-            "dd_id": "COL_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:26.996000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 18,
-            "dd_id": "DD_RULES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:47.325000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 25,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:04.227000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 3,
-            "dd_id": "FRM_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:18.119000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 4,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:31.046000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 5,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:45.890000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 28,
-            "dd_id": "FRM_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T17:21:25.933000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 30,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T11:37:24.100000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T11:51:02.277000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_COMPONENT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:38.211000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_RULES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:47.822000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_RULES_VALUES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:55.922000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 1,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-29T23:13:08.155000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 1,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-07-01T11:18:07.863000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 4,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-01T16:37:18.782000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 24,
-            "dd_id": "DLG_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:34.090000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 14,
-            "dd_id": "DD_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:47.258000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 7,
-            "dd_id": "CTX_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:59.044000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 25,
-            "dd_id": "BRC_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:15:08.676000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 2,
-            "dd_id": "CPT_NAME",
-            "audit_user": "admin",
-            "audit_date": "2024-07-03T13:31:42.577000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 18,
-            "dd_id": "DD_RULES_VALUES",
-            "audit_user": "admin",
-            "audit_date": "2024-07-03T14:31:21.664000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 33,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-20T16:23:33.077000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 5,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-08-13T08:17:28.983000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 36,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-01T11:45:18.663000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 29,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-02T20:03:59.503000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 39,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-04T20:44:34.253000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 40,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-18T16:16:38.979000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 41,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-18T22:36:56.498000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 42,
-            "dd_id": "EVT_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-12-11T13:06:15.585000",
-            "lkp_dir": "IN"
-        }
-    ],
+    "ly_menus_filters": [],
     "ly_query": [
         {
             "query_id": 2,
@@ -53996,6 +53786,188 @@
             "query_orderby": "TCL_KEY",
             "query_audit_user": "admin",
             "query_audit_date": "2024-12-17T14:22:21.565000"
+        }
+    ],
+    "ly_thm_colors": [
+        {
+            "thm_id": 2,
+            "tcl_id": 1,
+            "tcl_key": "primary",
+            "tcl_light": "#3f51b5",
+            "tcl_dark": "#673ab7",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T11:59:48.790000"
+        },
+        {
+            "thm_id": 5,
+            "tcl_id": 2,
+            "tcl_key": "secondary",
+            "tcl_light": "#607d8b",
+            "tcl_dark": "rgb(206, 203, 203)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T17:28:42.710000"
+        },
+        {
+            "thm_id": 1,
+            "tcl_id": 2,
+            "tcl_key": "secondary",
+            "tcl_light": "#ff9800",
+            "tcl_dark": "#ffc107",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T11:56:42.205000"
+        },
+        {
+            "thm_id": 3,
+            "tcl_id": 5,
+            "tcl_key": "background",
+            "tcl_light": "linear-gradient(90deg, rgba(120,190,101,1) 0%, RGBA(163, 218, 133, 1) 100%)",
+            "tcl_dark": "linear-gradient(90deg, rgba(59,122,31,1) 0%, RGBA(28, 78, 10, 1) 100%)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T20:25:03.426000"
+        },
+        {
+            "thm_id": 1,
+            "tcl_id": 7,
+            "tcl_key": "color",
+            "tcl_light": "#333333",
+            "tcl_dark": "#E1D9D1",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T11:58:09.604000"
+        },
+        {
+            "thm_id": 1,
+            "tcl_id": 1,
+            "tcl_key": "primary",
+            "tcl_light": "#1976d2",
+            "tcl_dark": "#607d8b",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-18T12:42:09.836000"
+        },
+        {
+            "thm_id": 2,
+            "tcl_id": 2,
+            "tcl_key": "secondary",
+            "tcl_light": "#03a9f4",
+            "tcl_dark": "#00bcd4",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T12:01:15.158000"
+        },
+        {
+            "thm_id": 2,
+            "tcl_id": 7,
+            "tcl_key": "color",
+            "tcl_light": "#1F1F1F",
+            "tcl_dark": "#EDEDED",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T12:02:38.184000"
+        },
+        {
+            "thm_id": 3,
+            "tcl_id": 1,
+            "tcl_key": "primary",
+            "tcl_light": "#8bc34a",
+            "tcl_dark": "#4caf50",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:00:57.155000"
+        },
+        {
+            "thm_id": 3,
+            "tcl_id": 2,
+            "tcl_key": "secondary",
+            "tcl_light": "#cddc39",
+            "tcl_dark": "#ffc107",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:01:17.949000"
+        },
+        {
+            "thm_id": 3,
+            "tcl_id": 7,
+            "tcl_key": "color",
+            "tcl_light": "#2D2D2D",
+            "tcl_dark": "#F5F5F5",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:02:46.523000"
+        },
+        {
+            "thm_id": 4,
+            "tcl_id": 1,
+            "tcl_key": "primary",
+            "tcl_light": "#e91e63",
+            "tcl_dark": "#f44336",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:04:36.947000"
+        },
+        {
+            "thm_id": 4,
+            "tcl_id": 2,
+            "tcl_key": "secondary",
+            "tcl_light": "#D3D3D3",
+            "tcl_dark": "#9e9e9e",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:04:54.838000"
+        },
+        {
+            "thm_id": 4,
+            "tcl_id": 7,
+            "tcl_key": "color",
+            "tcl_light": "#1C1C1C",
+            "tcl_dark": "#EDEDED",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:06:18.043000"
+        },
+        {
+            "thm_id": 5,
+            "tcl_id": 1,
+            "tcl_key": "primary",
+            "tcl_light": "#D6BF8D",
+            "tcl_dark": "#C89B53",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:09:46.675000"
+        },
+        {
+            "thm_id": 5,
+            "tcl_id": 7,
+            "tcl_key": "color",
+            "tcl_light": "#403B34",
+            "tcl_dark": "#F0E0C3",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T13:11:29.824000"
+        },
+        {
+            "thm_id": 1,
+            "tcl_id": 5,
+            "tcl_key": "background",
+            "tcl_light": "linear-gradient(90deg, rgba(194,233,251,1) 0%, RGBA(161, 196, 253, 1) 100%)",
+            "tcl_dark": "linear-gradient(90deg, RGBA(15, 32, 39, 1)  0%, rgba(32,58,67,1) 50%, rgba(44,83,100,1) 100%)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T15:20:26.831000"
+        },
+        {
+            "thm_id": 2,
+            "tcl_id": 5,
+            "tcl_key": "background",
+            "tcl_light": "linear-gradient(90deg, rgba(33,147,176,1) 0%, RGBA(109, 213, 237, 1) 100%)",
+            "tcl_dark": "linear-gradient(90deg, rgba(30,60,114,1) 0%, RGBA(42, 82, 152, 1) 100%)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T16:19:02.169000"
+        },
+        {
+            "thm_id": 4,
+            "tcl_id": 5,
+            "tcl_key": "background",
+            "tcl_light": "linear-gradient(90deg, rgba(240,128,128,1) 0%, RGBA(250, 128, 114, 1) 100%)",
+            "tcl_dark": "linear-gradient(90deg, rgba(58,58,58,1) 0%, RGBA(28, 28, 28, 1) 100%)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T16:22:11.466000"
+        },
+        {
+            "thm_id": 5,
+            "tcl_id": 5,
+            "tcl_key": "background",
+            "tcl_light": "linear-gradient(90deg, rgba(214,191,141,1) 0%, RGBA(242, 232, 201, 1) 100%)",
+            "tcl_dark": "linear-gradient(90deg, rgba(79,58,41,1) 0%, RGBA(31, 28, 24, 1) 100%)",
+            "tcl_audit_user": "admin",
+            "tcl_audit_date": "2024-12-17T16:23:41.883000"
         }
     ]
 }

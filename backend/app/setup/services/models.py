@@ -122,8 +122,7 @@ class Models:
         # Start writing to `models.py`
         model_content = """\"\"\"Auto-generated SQLAlchemy models.\"\"\"\n
 from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()\n\n"""
 

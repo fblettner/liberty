@@ -1,6 +1,8 @@
+import configparser
 import logging
 import subprocess
 
+from backend.app.config.config import get_config_path
 from backend.app.postgres.dump.dump import get_dump_path
 from backend.app.setup.data.data import get_data_path
 from backend.app.utils.encrypt import Encryption
@@ -140,8 +142,10 @@ class Install:
         DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
         engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
 
-        databases_to_update = ["liberty", "libnsx1", "libnjde", "libnetl", "nomajde", "nomasx1"]
-        
+        self.config = configparser.ConfigParser()
+        self.config.read(os.path.join(get_config_path(), "liberty.ini"))
+        databases_to_update = self.config["repository"]["databases"].split(", ")    
+
         """Update a row in the table using SQLAlchemy ORM"""
         try:
             metadata = MetaData()

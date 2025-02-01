@@ -1,1485 +1,4 @@
 {
-    "ly_actions": [],
-    "ly_act_tasks": [],
-    "ly_act_params_filters": [],
-    "ly_act_params": [],
-    "ly_act_tasks_params": [],
-    "ly_ctx_val_l": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Afficher les propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Afficher les détails",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 3,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Afficher les objets",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Afficher les détails",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les options",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Afficher les caractéristiques",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Afficher les partitions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les applications",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les composants",
-            "lng_audit_user": "admin",
-            "lng_audit_date": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs actifs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T11:51:18.077000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs avec transactions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:05:46.462000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs sans transactions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:06:04.505000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs non déclarés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:06:21.099000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Afficher les modules avec transactions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:06:40.108000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 6,
-            "lng_id": "fr",
-            "lng_label": "Afficher les modules autorisés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:06:57.685000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 7,
-            "lng_id": "fr",
-            "lng_label": "Afficher le détail des transactions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:07:14.069000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 8,
-            "lng_id": "fr",
-            "lng_label": "Afficher les objets autorisés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T12:07:29.267000"
-        },
-        {
-            "ctx_id": 9,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les licences requises",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2023-11-27T13:06:00.126000"
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:33:41.934000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "JD Edwards",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:34:06.083000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "LDAP",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:34:17.586000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "OUT - Utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:34:38.906000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 2,
-            "lng_id": "fr",
-            "lng_label": "OUT - Objets",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:34:55.474000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "OUT - Détails",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T08:35:10.368000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Suivi d'activité",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-11T15:54:01.034000"
-        },
-        {
-            "ctx_id": 12,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les employées",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-22T13:27:46.724000"
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-11-14T15:22:21.081000"
-        },
-        {
-            "ctx_id": 14,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-11-14T15:55:37.290000"
-        }
-    ],
-    "ly_ctx_val": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Roles",
-            "val_component": "FormsTable",
-            "val_component_id": 3,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Rights",
-            "val_component": "FormsTable",
-            "val_component_id": 50,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 4,
-            "val_seq": 4,
-            "val_label": "Display Details",
-            "val_component": "FormsTable",
-            "val_component_id": 51,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Users",
-            "val_component": "FormsTable",
-            "val_component_id": 3,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Rights",
-            "val_component": "FormsTable",
-            "val_component_id": 52,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 3,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Users",
-            "val_component": "FormsTable",
-            "val_component_id": 53,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Users",
-            "val_component": "FormsTable",
-            "val_component_id": 54,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Roles",
-            "val_component": "FormsTable",
-            "val_component_id": 55,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Users",
-            "val_component": "FormsTable",
-            "val_component_id": 56,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Roles",
-            "val_component": "FormsTable",
-            "val_component_id": 57,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 3,
-            "val_seq": 3,
-            "val_label": "Display Objects",
-            "val_component": "FormsTable",
-            "val_component_id": 58,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 4,
-            "val_seq": 4,
-            "val_label": "Display Details",
-            "val_component": "FormsTable",
-            "val_component_id": 59,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Users",
-            "val_component": "FormsTable",
-            "val_component_id": 1,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Options",
-            "val_component": "FormsTable",
-            "val_component_id": 60,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 3,
-            "val_seq": 3,
-            "val_label": "Display Features",
-            "val_component": "FormsTable",
-            "val_component_id": 61,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 4,
-            "val_seq": 4,
-            "val_label": "Display Partitions",
-            "val_component": "FormsTable",
-            "val_component_id": 62,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Applications",
-            "val_component": "FormsTable",
-            "val_component_id": 63,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Components",
-            "val_component": "FormsTable",
-            "val_component_id": 64,
-            "val_audit_user": "admin",
-            "val_audit_date": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Enabled Users",
-            "val_component": "FormsTable",
-            "val_component_id": 65,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T11:52:27.665000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "Display Users with transaction",
-            "val_component": "FormsTable",
-            "val_component_id": 66,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:02:48.672000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 3,
-            "val_seq": 3,
-            "val_label": "Display Users without transactions",
-            "val_component": "FormsTable",
-            "val_component_id": 67,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:03:14.884000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 4,
-            "val_seq": 4,
-            "val_label": "Display Users not declared",
-            "val_component": "FormsTable",
-            "val_component_id": 68,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:03:33.346000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 5,
-            "val_seq": 5,
-            "val_label": "Display Modules with transactions",
-            "val_component": "FormsTable",
-            "val_component_id": 69,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:03:56.953000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 6,
-            "val_seq": 6,
-            "val_label": "Display Modules allowed",
-            "val_component": "FormsTable",
-            "val_component_id": 70,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:04:14.122000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 7,
-            "val_seq": 7,
-            "val_label": "Display Transactions details",
-            "val_component": "FormsTable",
-            "val_component_id": 71,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:04:36.839000"
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 8,
-            "val_seq": 8,
-            "val_label": "Display Objects allowed",
-            "val_component": "FormsTable",
-            "val_component_id": 72,
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T12:04:52.384000"
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 3,
-            "val_seq": 3,
-            "val_label": "Display Properties",
-            "val_component": "FormsDialog",
-            "val_component_id": 2,
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2024-01-05T19:38:11.063000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "JD Edwards",
-            "val_component": "FormsDialog",
-            "val_component_id": 8,
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-12-13T23:24:13.955000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 2,
-            "val_seq": 2,
-            "val_label": "LDAP",
-            "val_component": "FormsDialog",
-            "val_component_id": 9,
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-12-14T00:30:48.073000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "OUT - Users",
-            "val_component": "FormsTable",
-            "val_component_id": 78,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-04-03T15:08:00.157000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 2,
-            "val_seq": 1,
-            "val_label": "OUT - Objects",
-            "val_component": "FormsTable",
-            "val_component_id": 79,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-04-03T15:20:31.272000"
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 3,
-            "val_seq": 1,
-            "val_label": "OUT - Details",
-            "val_component": "FormsTable",
-            "val_component_id": 80,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-04-03T15:35:06.943000"
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 3,
-            "val_seq": 3,
-            "val_label": "Activity Log",
-            "val_component": "FormsTable",
-            "val_component_id": 84,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-11T15:53:39.885000"
-        },
-        {
-            "ctx_id": 12,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Employees",
-            "val_component": "FormsTable",
-            "val_component_id": 88,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-22T13:44:07.014000"
-        },
-        {
-            "ctx_id": 9,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Required Licenses",
-            "val_component": "FormsTable",
-            "val_component_id": 73,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-20T21:16:36.411000"
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Query",
-            "val_component": "FormsTable",
-            "val_component_id": 93,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-11-14T15:20:55.717000"
-        },
-        {
-            "ctx_id": 14,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Values",
-            "val_component": "FormsTable",
-            "val_component_id": 94,
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-11-14T15:55:17.219000"
-        }
-    ],
-    "ly_ctxmenus": [
-        {
-            "ctx_id": 7,
-            "ctx_description": "License - Contracts",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.530000"
-        },
-        {
-            "ctx_id": 8,
-            "ctx_description": "License- JD Edwards",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.538000"
-        },
-        {
-            "ctx_id": 9,
-            "ctx_description": "License - Oracle",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.544000"
-        },
-        {
-            "ctx_id": 1,
-            "ctx_description": "Security - Users",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.550000"
-        },
-        {
-            "ctx_id": 2,
-            "ctx_description": "Security - Roles",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.555000"
-        },
-        {
-            "ctx_id": 3,
-            "ctx_description": "Security - Matrix",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.561000"
-        },
-        {
-            "ctx_id": 4,
-            "ctx_description": "Applications.- Menus",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.568000"
-        },
-        {
-            "ctx_id": 5,
-            "ctx_description": "SOD - Summary",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.574000"
-        },
-        {
-            "ctx_id": 6,
-            "ctx_description": "Database - Oracle",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:01.581000"
-        },
-        {
-            "ctx_id": 10,
-            "ctx_description": "Settings - Applications",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-13T18:56:11.899000"
-        },
-        {
-            "ctx_id": 11,
-            "ctx_description": "License - OUT",
-            "ctx_audit_user": "admin",
-            "ctx_audit_date": "2024-04-03T15:03:37.957000"
-        },
-        {
-            "ctx_id": 12,
-            "ctx_description": "License - Employees",
-            "ctx_audit_user": "admin",
-            "ctx_audit_date": "2024-07-22T13:13:18.316000"
-        },
-        {
-            "ctx_id": 13,
-            "ctx_description": "Audit - Header",
-            "ctx_audit_user": "admin",
-            "ctx_audit_date": "2024-11-14T15:20:35.857000"
-        },
-        {
-            "ctx_id": 14,
-            "ctx_description": "Audit - Query",
-            "ctx_audit_user": "admin",
-            "ctx_audit_date": "2024-11-14T15:54:57.856000"
-        }
-    ],
-    "ly_api": [],
-    "ly_api_header": [],
-    "ly_api_params": [],
-    "ly_ctx_filters": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "USR_ID",
-            "flt_target": "RLU_USER_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 2,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "USR_ID",
-            "flt_target": "SER_USER_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "ROL_ID",
-            "flt_target": "RLU_ROLE_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 2,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "ROL_ID",
-            "flt_target": "SER_ROLE_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 3,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "RLU_ROLE_ID",
-            "flt_target": "RLU_ROLE_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "MENU_SEQ_UKID",
-            "flt_target": "SER_MENU_SEQUKID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 2,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "MENU_SEQ_UKID",
-            "flt_target": "SER_MENU_SEQUKID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CFS_PROCESS_ID",
-            "flt_target": "CFD_PROCESS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 1,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "CFS_RISK_ID",
-            "flt_target": "CFD_RISK_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 2,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CFS_PROCESS_ID",
-            "flt_target": "CFD_PROCESS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 2,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "CFS_RISK_ID",
-            "flt_target": "CFD_RISK_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 3,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CFS_PROCESS_ID",
-            "flt_target": "CFD_PROCESS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 3,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "CFS_RISK_ID",
-            "flt_target": "CFD_RISK_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 4,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CFS_PROCESS_ID",
-            "flt_target": "CFD_PROCESS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 4,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "CFS_RISK_ID",
-            "flt_target": "CFD_RISK_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": null,
-            "flt_value": null
-        },
-        {
-            "ctx_id": 9,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2023-11-27T13:05:43.932000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-13T19:02:25.006000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-14T00:38:45.683000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CPT_ID",
-            "flt_target": "CPT_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-04-03T15:06:54.972000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 2,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CPT_ID",
-            "flt_target": "CPT_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-04-03T15:20:50.863000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 3,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "CPT_ID",
-            "flt_target": "CPT_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-04-03T15:35:25.781000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 10,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "ACL_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-06-11T15:53:49.682000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 3,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "USR_ID",
-            "flt_target": "USRP_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-06-17T13:26:01.166000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CSI_ID",
-            "flt_target": "LCA_CSI_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-06-17T14:19:38.906000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 7,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CSI_ID",
-            "flt_target": "LCC_CSI_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-06-17T14:35:45.938000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:06:15.651000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:09:34.989000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 12,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "LEMP_GROUP",
-            "flt_target": "LEMP_GROUP",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-07-22T13:41:53.292000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 12,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "LEMP_APPS_ID",
-            "flt_target": "LEMP_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-07-22T13:44:01.168000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 12,
-            "val_id": 1,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "LEMP_DT_EXTRACT",
-            "flt_target": "LEMP_DT_EXTRACT",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-07-22T14:00:22.549000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "USR_APPS_ID",
-            "flt_target": "USRP_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T10:26:58.701000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "USR_APPS_ID",
-            "flt_target": "RLU_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T10:31:52.899000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:11:32.130000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 4,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "LUSR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:13:45.143000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ROL_APPS_ID",
-            "flt_target": "RLU_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T11:01:27.149000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 4,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "USR_APPS_ID",
-            "flt_target": "USRD_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T15:22:49.685000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 4,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "USR_ID",
-            "flt_target": "USRD_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T15:22:58.964000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 5,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "LUSR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:20:49.379000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 2,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ROL_APPS_ID",
-            "flt_target": "SER_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T15:45:30.308000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "USR_APPS_ID",
-            "flt_target": "SER_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T15:45:55.875000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 3,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T15:51:23.473000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 6,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "SER_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:25:22.531000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "MENU_APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T16:09:41.855000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 4,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "MENU_APPS_ID",
-            "flt_target": "SER_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-01T16:28:15.716000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CFS_APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T09:27:28.432000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 7,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "LUSR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:33:01.700000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CFS_APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T09:47:00.020000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CFS_APPS_ID",
-            "flt_target": "CFD_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T09:52:48.556000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 5,
-            "val_id": 4,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "CFS_APPS_ID",
-            "flt_target": "CFD_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:05:33.686000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "LOUT_APPS_ID",
-            "flt_target": "LOUT_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:28:11.480000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "LOUT_APPS_ID",
-            "flt_target": "LOUT_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:37:47.846000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ORAP_APPS_ID",
-            "flt_target": "USR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:49:41.707000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ORAP_APPS_ID",
-            "flt_target": "APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:53:06.319000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 3,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ORAP_APPS_ID",
-            "flt_target": "ORAF_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T10:58:17.394000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 6,
-            "val_id": 4,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "ORAP_APPS_ID",
-            "flt_target": "OPAR_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:00:53.294000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 11,
-            "val_id": 2,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "LOUT_APPS_ID",
-            "flt_target": "LOUT_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T11:47:28.014000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 8,
-            "val_id": 8,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "APPS_ID",
-            "flt_target": "SER_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-09-02T12:00:22.017000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "AUD_APPS_ID",
-            "flt_target": "AUD_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:21:43.868000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "AUD_OPERATION",
-            "flt_target": "AUD_OPERATION",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:23:39.115000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "AUD_USER",
-            "flt_target": "AUD_USERNAME",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:29:31.981000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 4,
-            "flt_type": "DD",
-            "flt_source": "AUD_SEG_NAME",
-            "flt_target": "AUD_SEG_NAME",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:33:00.450000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 5,
-            "flt_type": "DD",
-            "flt_source": "AUD_SEG_OWNER",
-            "flt_target": "AUD_SEG_OWNER",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:33:11.910000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 13,
-            "val_id": 1,
-            "flt_id": 6,
-            "flt_type": "DD",
-            "flt_source": "AUD_DT_TRANSACTION",
-            "flt_target": "AUD_DT_TRANSACTION",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:37:31.250000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 14,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "AUD_APPS_ID",
-            "flt_target": "AUD_APPS_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:56:10.243000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 14,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "AUD_ROW_ID",
-            "flt_target": "AUD_ROW_ID",
-            "flt_audit_user": "admin",
-            "flt_audit_date": "2024-11-14T15:56:19.756000",
-            "flt_value": null
-        }
-    ],
     "ly_dlg_col_cdn": [],
     "ly_dlg_frm": [
         {
@@ -4214,6 +2733,1487 @@
             "col_cdn_id": null
         }
     ],
+    "ly_act_tasks": [],
+    "ly_actions": [],
+    "ly_act_params_filters": [],
+    "ly_act_params": [],
+    "ly_act_tasks_params": [],
+    "ly_ctx_val_l": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Afficher les propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Afficher les détails",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 3,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Afficher les objets",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Afficher les détails",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les options",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Afficher les caractéristiques",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Afficher les partitions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les applications",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les composants",
+            "lng_audit_user": "admin",
+            "lng_audit_date": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs actifs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T11:51:18.077000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs avec transactions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:05:46.462000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs sans transactions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:06:04.505000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs non déclarés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:06:21.099000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Afficher les modules avec transactions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:06:40.108000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 6,
+            "lng_id": "fr",
+            "lng_label": "Afficher les modules autorisés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:06:57.685000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 7,
+            "lng_id": "fr",
+            "lng_label": "Afficher le détail des transactions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:07:14.069000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 8,
+            "lng_id": "fr",
+            "lng_label": "Afficher les objets autorisés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T12:07:29.267000"
+        },
+        {
+            "ctx_id": 9,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les licences requises",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2023-11-27T13:06:00.126000"
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:33:41.934000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "JD Edwards",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:34:06.083000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "LDAP",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:34:17.586000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "OUT - Utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:34:38.906000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 2,
+            "lng_id": "fr",
+            "lng_label": "OUT - Objets",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:34:55.474000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "OUT - Détails",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T08:35:10.368000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Suivi d'activité",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-11T15:54:01.034000"
+        },
+        {
+            "ctx_id": 12,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les employées",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-22T13:27:46.724000"
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-11-14T15:22:21.081000"
+        },
+        {
+            "ctx_id": 14,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-11-14T15:55:37.290000"
+        }
+    ],
+    "ly_ctx_val": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Roles",
+            "val_component": "FormsTable",
+            "val_component_id": 3,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Rights",
+            "val_component": "FormsTable",
+            "val_component_id": 50,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 4,
+            "val_seq": 4,
+            "val_label": "Display Details",
+            "val_component": "FormsTable",
+            "val_component_id": 51,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Users",
+            "val_component": "FormsTable",
+            "val_component_id": 3,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Rights",
+            "val_component": "FormsTable",
+            "val_component_id": 52,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 3,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Users",
+            "val_component": "FormsTable",
+            "val_component_id": 53,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Users",
+            "val_component": "FormsTable",
+            "val_component_id": 54,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Roles",
+            "val_component": "FormsTable",
+            "val_component_id": 55,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Users",
+            "val_component": "FormsTable",
+            "val_component_id": 56,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Roles",
+            "val_component": "FormsTable",
+            "val_component_id": 57,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 3,
+            "val_seq": 3,
+            "val_label": "Display Objects",
+            "val_component": "FormsTable",
+            "val_component_id": 58,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 4,
+            "val_seq": 4,
+            "val_label": "Display Details",
+            "val_component": "FormsTable",
+            "val_component_id": 59,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Users",
+            "val_component": "FormsTable",
+            "val_component_id": 1,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Options",
+            "val_component": "FormsTable",
+            "val_component_id": 60,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 3,
+            "val_seq": 3,
+            "val_label": "Display Features",
+            "val_component": "FormsTable",
+            "val_component_id": 61,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 4,
+            "val_seq": 4,
+            "val_label": "Display Partitions",
+            "val_component": "FormsTable",
+            "val_component_id": 62,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Applications",
+            "val_component": "FormsTable",
+            "val_component_id": 63,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Components",
+            "val_component": "FormsTable",
+            "val_component_id": 64,
+            "val_audit_user": "admin",
+            "val_audit_date": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Enabled Users",
+            "val_component": "FormsTable",
+            "val_component_id": 65,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T11:52:27.665000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "Display Users with transaction",
+            "val_component": "FormsTable",
+            "val_component_id": 66,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:02:48.672000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 3,
+            "val_seq": 3,
+            "val_label": "Display Users without transactions",
+            "val_component": "FormsTable",
+            "val_component_id": 67,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:03:14.884000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 4,
+            "val_seq": 4,
+            "val_label": "Display Users not declared",
+            "val_component": "FormsTable",
+            "val_component_id": 68,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:03:33.346000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 5,
+            "val_seq": 5,
+            "val_label": "Display Modules with transactions",
+            "val_component": "FormsTable",
+            "val_component_id": 69,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:03:56.953000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 6,
+            "val_seq": 6,
+            "val_label": "Display Modules allowed",
+            "val_component": "FormsTable",
+            "val_component_id": 70,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:04:14.122000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 7,
+            "val_seq": 7,
+            "val_label": "Display Transactions details",
+            "val_component": "FormsTable",
+            "val_component_id": 71,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:04:36.839000"
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 8,
+            "val_seq": 8,
+            "val_label": "Display Objects allowed",
+            "val_component": "FormsTable",
+            "val_component_id": 72,
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T12:04:52.384000"
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 3,
+            "val_seq": 3,
+            "val_label": "Display Properties",
+            "val_component": "FormsDialog",
+            "val_component_id": 2,
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2024-01-05T19:38:11.063000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "JD Edwards",
+            "val_component": "FormsDialog",
+            "val_component_id": 8,
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-12-13T23:24:13.955000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 2,
+            "val_seq": 2,
+            "val_label": "LDAP",
+            "val_component": "FormsDialog",
+            "val_component_id": 9,
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-12-14T00:30:48.073000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "OUT - Users",
+            "val_component": "FormsTable",
+            "val_component_id": 78,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-04-03T15:08:00.157000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 2,
+            "val_seq": 1,
+            "val_label": "OUT - Objects",
+            "val_component": "FormsTable",
+            "val_component_id": 79,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-04-03T15:20:31.272000"
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 3,
+            "val_seq": 1,
+            "val_label": "OUT - Details",
+            "val_component": "FormsTable",
+            "val_component_id": 80,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-04-03T15:35:06.943000"
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 3,
+            "val_seq": 3,
+            "val_label": "Activity Log",
+            "val_component": "FormsTable",
+            "val_component_id": 84,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-11T15:53:39.885000"
+        },
+        {
+            "ctx_id": 12,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Employees",
+            "val_component": "FormsTable",
+            "val_component_id": 88,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-22T13:44:07.014000"
+        },
+        {
+            "ctx_id": 9,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Required Licenses",
+            "val_component": "FormsTable",
+            "val_component_id": 73,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-20T21:16:36.411000"
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Query",
+            "val_component": "FormsTable",
+            "val_component_id": 93,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-11-14T15:20:55.717000"
+        },
+        {
+            "ctx_id": 14,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Values",
+            "val_component": "FormsTable",
+            "val_component_id": 94,
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-11-14T15:55:17.219000"
+        }
+    ],
+    "ly_ctxmenus": [
+        {
+            "ctx_id": 7,
+            "ctx_description": "License - Contracts",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.530000"
+        },
+        {
+            "ctx_id": 8,
+            "ctx_description": "License- JD Edwards",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.538000"
+        },
+        {
+            "ctx_id": 9,
+            "ctx_description": "License - Oracle",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.544000"
+        },
+        {
+            "ctx_id": 1,
+            "ctx_description": "Security - Users",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.550000"
+        },
+        {
+            "ctx_id": 2,
+            "ctx_description": "Security - Roles",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.555000"
+        },
+        {
+            "ctx_id": 3,
+            "ctx_description": "Security - Matrix",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.561000"
+        },
+        {
+            "ctx_id": 4,
+            "ctx_description": "Applications.- Menus",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.568000"
+        },
+        {
+            "ctx_id": 5,
+            "ctx_description": "SOD - Summary",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.574000"
+        },
+        {
+            "ctx_id": 6,
+            "ctx_description": "Database - Oracle",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:01.581000"
+        },
+        {
+            "ctx_id": 10,
+            "ctx_description": "Settings - Applications",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-13T18:56:11.899000"
+        },
+        {
+            "ctx_id": 11,
+            "ctx_description": "License - OUT",
+            "ctx_audit_user": "admin",
+            "ctx_audit_date": "2024-04-03T15:03:37.957000"
+        },
+        {
+            "ctx_id": 12,
+            "ctx_description": "License - Employees",
+            "ctx_audit_user": "admin",
+            "ctx_audit_date": "2024-07-22T13:13:18.316000"
+        },
+        {
+            "ctx_id": 13,
+            "ctx_description": "Audit - Header",
+            "ctx_audit_user": "admin",
+            "ctx_audit_date": "2024-11-14T15:20:35.857000"
+        },
+        {
+            "ctx_id": 14,
+            "ctx_description": "Audit - Query",
+            "ctx_audit_user": "admin",
+            "ctx_audit_date": "2024-11-14T15:54:57.856000"
+        }
+    ],
+    "ly_api": [],
+    "ly_api_header": [],
+    "ly_api_params": [],
+    "ly_ctx_filters": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "USR_ID",
+            "flt_target": "RLU_USER_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 2,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "USR_ID",
+            "flt_target": "SER_USER_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "ROL_ID",
+            "flt_target": "RLU_ROLE_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 2,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "ROL_ID",
+            "flt_target": "SER_ROLE_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 3,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "RLU_ROLE_ID",
+            "flt_target": "RLU_ROLE_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "MENU_SEQ_UKID",
+            "flt_target": "SER_MENU_SEQUKID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 2,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "MENU_SEQ_UKID",
+            "flt_target": "SER_MENU_SEQUKID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CFS_PROCESS_ID",
+            "flt_target": "CFD_PROCESS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 1,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "CFS_RISK_ID",
+            "flt_target": "CFD_RISK_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 2,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CFS_PROCESS_ID",
+            "flt_target": "CFD_PROCESS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 2,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "CFS_RISK_ID",
+            "flt_target": "CFD_RISK_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 3,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CFS_PROCESS_ID",
+            "flt_target": "CFD_PROCESS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 3,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "CFS_RISK_ID",
+            "flt_target": "CFD_RISK_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 4,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CFS_PROCESS_ID",
+            "flt_target": "CFD_PROCESS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 4,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "CFS_RISK_ID",
+            "flt_target": "CFD_RISK_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": null,
+            "flt_value": null
+        },
+        {
+            "ctx_id": 9,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2023-11-27T13:05:43.932000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-13T19:02:25.006000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-14T00:38:45.683000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CPT_ID",
+            "flt_target": "CPT_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-04-03T15:06:54.972000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 2,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CPT_ID",
+            "flt_target": "CPT_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-04-03T15:20:50.863000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 3,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "CPT_ID",
+            "flt_target": "CPT_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-04-03T15:35:25.781000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 10,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "ACL_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-06-11T15:53:49.682000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 3,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "USR_ID",
+            "flt_target": "USRP_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-06-17T13:26:01.166000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CSI_ID",
+            "flt_target": "LCA_CSI_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-06-17T14:19:38.906000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 7,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CSI_ID",
+            "flt_target": "LCC_CSI_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-06-17T14:35:45.938000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:06:15.651000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:09:34.989000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 12,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "LEMP_GROUP",
+            "flt_target": "LEMP_GROUP",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-07-22T13:41:53.292000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 12,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "LEMP_APPS_ID",
+            "flt_target": "LEMP_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-07-22T13:44:01.168000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 12,
+            "val_id": 1,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "LEMP_DT_EXTRACT",
+            "flt_target": "LEMP_DT_EXTRACT",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-07-22T14:00:22.549000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "USR_APPS_ID",
+            "flt_target": "USRP_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T10:26:58.701000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "USR_APPS_ID",
+            "flt_target": "RLU_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T10:31:52.899000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:11:32.130000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 4,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "LUSR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:13:45.143000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ROL_APPS_ID",
+            "flt_target": "RLU_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T11:01:27.149000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 4,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "USR_APPS_ID",
+            "flt_target": "USRD_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T15:22:49.685000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 4,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "USR_ID",
+            "flt_target": "USRD_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T15:22:58.964000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 5,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "LUSR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:20:49.379000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 2,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ROL_APPS_ID",
+            "flt_target": "SER_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T15:45:30.308000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "USR_APPS_ID",
+            "flt_target": "SER_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T15:45:55.875000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 3,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T15:51:23.473000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 6,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "SER_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:25:22.531000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "MENU_APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T16:09:41.855000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 4,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "MENU_APPS_ID",
+            "flt_target": "SER_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-01T16:28:15.716000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CFS_APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T09:27:28.432000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 7,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "LUSR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:33:01.700000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CFS_APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T09:47:00.020000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CFS_APPS_ID",
+            "flt_target": "CFD_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T09:52:48.556000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 5,
+            "val_id": 4,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "CFS_APPS_ID",
+            "flt_target": "CFD_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:05:33.686000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "LOUT_APPS_ID",
+            "flt_target": "LOUT_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:28:11.480000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "LOUT_APPS_ID",
+            "flt_target": "LOUT_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:37:47.846000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ORAP_APPS_ID",
+            "flt_target": "USR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:49:41.707000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ORAP_APPS_ID",
+            "flt_target": "APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:53:06.319000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 3,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ORAP_APPS_ID",
+            "flt_target": "ORAF_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T10:58:17.394000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 6,
+            "val_id": 4,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "ORAP_APPS_ID",
+            "flt_target": "OPAR_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:00:53.294000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 11,
+            "val_id": 2,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "LOUT_APPS_ID",
+            "flt_target": "LOUT_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T11:47:28.014000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 8,
+            "val_id": 8,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "APPS_ID",
+            "flt_target": "SER_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-09-02T12:00:22.017000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "AUD_APPS_ID",
+            "flt_target": "AUD_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:21:43.868000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "AUD_OPERATION",
+            "flt_target": "AUD_OPERATION",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:23:39.115000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "AUD_USER",
+            "flt_target": "AUD_USERNAME",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:29:31.981000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 4,
+            "flt_type": "DD",
+            "flt_source": "AUD_SEG_NAME",
+            "flt_target": "AUD_SEG_NAME",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:33:00.450000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 5,
+            "flt_type": "DD",
+            "flt_source": "AUD_SEG_OWNER",
+            "flt_target": "AUD_SEG_OWNER",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:33:11.910000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 13,
+            "val_id": 1,
+            "flt_id": 6,
+            "flt_type": "DD",
+            "flt_source": "AUD_DT_TRANSACTION",
+            "flt_target": "AUD_DT_TRANSACTION",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:37:31.250000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 14,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "AUD_APPS_ID",
+            "flt_target": "AUD_APPS_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:56:10.243000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 14,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "AUD_ROW_ID",
+            "flt_target": "AUD_ROW_ID",
+            "flt_audit_user": "admin",
+            "flt_audit_date": "2024-11-14T15:56:19.756000",
+            "flt_value": null
+        }
+    ],
     "ly_charts": [
         {
             "crt_id": 1,
@@ -4350,308 +4350,6 @@
             "flt_value": null
         }
     ],
-    "ly_dlg_tab_cdn": [
-        {
-            "frm_id": 1,
-            "tab_id": 3,
-            "cdn_id": 1,
-            "cdn_type": "DD",
-            "cdn_source": "APPS_TYPE",
-            "cdn_target": "APPS_TYPE",
-            "cdn_audit_user": "admin",
-            "cdn_audit_date": "2024-06-27T22:32:25.373000",
-            "cdn_value": null
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 4,
-            "cdn_id": 1,
-            "cdn_type": "DD",
-            "cdn_source": "APPS_TYPE",
-            "cdn_target": "APPS_TYPE",
-            "cdn_audit_user": "admin",
-            "cdn_audit_date": "2024-06-27T22:32:51.451000",
-            "cdn_value": null
-        }
-    ],
-    "ly_dlg_tab": [
-        {
-            "frm_id": 1,
-            "tab_id": 2,
-            "tab_seq": 2,
-            "tab_label": "Connexion",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2023-11-27T20:31:35.975000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Application",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2023-11-28T16:44:09.424000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Edit Properties",
-            "tab_cdn_id": null,
-            "tab_cols": 2,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2023-11-28T18:10:58.629000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 6,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Reclassification",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "anonymous",
-            "tab_audit_date": "2023-12-17T01:53:56.454000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Settings",
-            "tab_cdn_id": null,
-            "tab_cols": 3,
-            "tab_audit_user": "anonymous",
-            "tab_audit_date": "2024-01-07T18:10:22.956000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Properties",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-02-20T13:35:51.077000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 2,
-            "tab_seq": 2,
-            "tab_label": "Database",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-02-20T13:39:39.504000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 3,
-            "tab_seq": 3,
-            "tab_label": "Query",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-02-20T13:39:50.080000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Task Views",
-            "tab_cdn_id": null,
-            "tab_cols": 2,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-04T16:41:40.274000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Contract Support",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-05T08:50:02.766000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 9,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "LDAP",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T15:30:47.112000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 12,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Activity Log",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T15:31:37.543000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 4,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Applications",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T15:34:07.677000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Components",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T15:35:16.866000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 7,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Department",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T15:59:54.298000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 3,
-            "tab_seq": 3,
-            "tab_label": "JD Edwards",
-            "tab_cdn_id": 1,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:29:51.693000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 5,
-            "tab_seq": 5,
-            "tab_label": "Activity Log",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:30:02.512000",
-            "tab_disable_add": "Y",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 4,
-            "tab_seq": 4,
-            "tab_label": "LDAP",
-            "tab_cdn_id": 2,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:32:35.209000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 2,
-            "tab_seq": 2,
-            "tab_label": "Task Views",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:33:34.007000",
-            "tab_disable_add": "Y",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 2,
-            "tab_seq": 2,
-            "tab_label": "Applications",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:34:08.034000",
-            "tab_disable_add": "Y",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 3,
-            "tab_seq": 3,
-            "tab_label": "Components",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-06-27T22:34:12.736000",
-            "tab_disable_add": "Y",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 13,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Default",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-11-14T12:57:55.172000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 6,
-            "tab_seq": 6,
-            "tab_label": "Audit Trail",
-            "tab_cdn_id": null,
-            "tab_cols": 1,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-11-14T13:52:10.052000",
-            "tab_disable_add": "Y",
-            "tab_disable_edit": "N"
-        }
-    ],
     "ly_applications": [
         {
             "apps_id": 1,
@@ -4664,9 +4362,9 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "nomasx1",
-            "apps_password": "ENC:D4I/Mgmchx/cOb8HaqyGiPGrDU6imFQiac2cOwFSwFlLzX5zD56q/xX/ZsX4xFPmugweJ7g5n89b8yEPDTOFLMPpwD2ydE/bNZVM1dAHvlBGWtKdRS39BdK93wvne3jmJymbXO+0",
+            "apps_password": "ENC:LGjXiollqvrRkyvT8RU0DqxXOPXMtrpLuIXixiILwxKp37RVGuR/qQvgnXTMsrz0KmVQ9bde0uOLttIpg7t4j312hmHL5jU0AbKeH6O01KMw8dDlrg71Cv4U8haDxFfnw+hG5u4u",
             "apps_host": "localhost",
-            "apps_port": 5432,
+            "apps_port": 5433,
             "apps_database": "nomasx1",
             "apps_offset": 5000,
             "apps_limit": 15000,
@@ -13492,6 +13190,308 @@
             "lkp_tbl_id": null
         }
     ],
+    "ly_dlg_tab_cdn": [
+        {
+            "frm_id": 1,
+            "tab_id": 3,
+            "cdn_id": 1,
+            "cdn_type": "DD",
+            "cdn_source": "APPS_TYPE",
+            "cdn_target": "APPS_TYPE",
+            "cdn_audit_user": "admin",
+            "cdn_audit_date": "2024-06-27T22:32:25.373000",
+            "cdn_value": null
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 4,
+            "cdn_id": 1,
+            "cdn_type": "DD",
+            "cdn_source": "APPS_TYPE",
+            "cdn_target": "APPS_TYPE",
+            "cdn_audit_user": "admin",
+            "cdn_audit_date": "2024-06-27T22:32:51.451000",
+            "cdn_value": null
+        }
+    ],
+    "ly_dlg_tab": [
+        {
+            "frm_id": 1,
+            "tab_id": 2,
+            "tab_seq": 2,
+            "tab_label": "Connexion",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2023-11-27T20:31:35.975000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Application",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2023-11-28T16:44:09.424000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Edit Properties",
+            "tab_cdn_id": null,
+            "tab_cols": 2,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2023-11-28T18:10:58.629000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 6,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Reclassification",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "anonymous",
+            "tab_audit_date": "2023-12-17T01:53:56.454000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Settings",
+            "tab_cdn_id": null,
+            "tab_cols": 3,
+            "tab_audit_user": "anonymous",
+            "tab_audit_date": "2024-01-07T18:10:22.956000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Properties",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-02-20T13:35:51.077000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 2,
+            "tab_seq": 2,
+            "tab_label": "Database",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-02-20T13:39:39.504000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 3,
+            "tab_seq": 3,
+            "tab_label": "Query",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-02-20T13:39:50.080000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Task Views",
+            "tab_cdn_id": null,
+            "tab_cols": 2,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-04T16:41:40.274000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Contract Support",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-05T08:50:02.766000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 9,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "LDAP",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T15:30:47.112000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 12,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Activity Log",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T15:31:37.543000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 4,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Applications",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T15:34:07.677000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Components",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T15:35:16.866000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 7,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Department",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T15:59:54.298000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 3,
+            "tab_seq": 3,
+            "tab_label": "JD Edwards",
+            "tab_cdn_id": 1,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:29:51.693000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 5,
+            "tab_seq": 5,
+            "tab_label": "Activity Log",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:30:02.512000",
+            "tab_disable_add": "Y",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 4,
+            "tab_seq": 4,
+            "tab_label": "LDAP",
+            "tab_cdn_id": 2,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:32:35.209000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 2,
+            "tab_seq": 2,
+            "tab_label": "Task Views",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:33:34.007000",
+            "tab_disable_add": "Y",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 2,
+            "tab_seq": 2,
+            "tab_label": "Applications",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:34:08.034000",
+            "tab_disable_add": "Y",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 3,
+            "tab_seq": 3,
+            "tab_label": "Components",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-06-27T22:34:12.736000",
+            "tab_disable_add": "Y",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 13,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Default",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-11-14T12:57:55.172000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 6,
+            "tab_seq": 6,
+            "tab_label": "Audit Trail",
+            "tab_cdn_id": null,
+            "tab_cols": 1,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-11-14T13:52:10.052000",
+            "tab_disable_add": "Y",
+            "tab_disable_edit": "N"
+        }
+    ],
     "ly_menus_l": [
         {
             "lng_id": "fr",
@@ -14778,8 +14778,24 @@
             "menu_audit_date": "2024-11-14T15:10:52.255000"
         }
     ],
-    "ly_menus_filters": [],
     "ly_modules": [],
+    "ly_users": [
+        {
+            "usr_id": "admin",
+            "usr_password": "ENC:gqarUC/AKr/c/KyCak7urAeUPNKeUCydLQEjf9NxGGkgmuw34Gm3nujcf7yGfJE9bGVzWOdP9JVAcAekzGpAmxDr/g/YScEs7PFvgtWuLvmERBz8KZmcxwnVULCuBNwffg6mbnCR",
+            "usr_name": "Franck Blettner",
+            "usr_email": "franck.blettner@nomana-it.fr",
+            "usr_status": "Y",
+            "usr_admin": "Y",
+            "usr_language": "en",
+            "usr_mode": "dark",
+            "usr_readonly": "N",
+            "usr_audit_user": "admin",
+            "usr_audit_date": "2024-12-18T13:52:27.806000",
+            "usr_dashboard": 1,
+            "usr_theme": "boldRedBlack"
+        }
+    ],
     "ly_qry_fmw": [],
     "ly_tree": [
         {
@@ -32188,36 +32204,31 @@
             "col_cdn_id": null
         }
     ],
-    "ly_users": [
+    "ly_usr_roles": [],
+    "ly_roles": [
         {
-            "usr_id": "admin",
-            "usr_password": "ENC:g966a6oWF4sLdn/ckS1JE1MvEdCdz/HVg8Z4FcFRC1hnt2RGBoQrH3EP1s88TIDxVwaB4xSi0BD8J1Y4G4Vq3mQV2smQ0kgTBaJh3YbCEJpJFc4YEU0rMJtl7Ic4fnrybDGmLADn",
-            "usr_name": "Franck Blettner",
-            "usr_email": "franck.blettner@nomana-it.fr",
-            "usr_status": "Y",
-            "usr_admin": "Y",
-            "usr_language": "en",
-            "usr_mode": "dark",
-            "usr_readonly": "N",
-            "usr_audit_user": "admin",
-            "usr_audit_date": "2024-12-18T13:52:27.806000",
-            "usr_dashboard": 1,
-            "usr_theme": "boldRedBlack"
+            "rol_id": "R-SECURITY",
+            "rol_name": "Security Menus",
+            "rol_audit_user": "admin",
+            "rol_audit_date": "2024-02-20T09:06:24.503000"
         },
         {
-            "usr_id": "demo",
-            "usr_password": "ENC:pATT/IjNTsS+azPoUXAQmPB8mkZSq95z7oHM+J6u0yBlpIDRvFgg2b9raX/OygyWN2Tn05v07iGWkmgrxeikTKuu/VkV2X1pVKSikTVaV1uukFG7XTP24nSFzbl4R3Szgv6QjmLA",
-            "usr_name": "Demo User",
-            "usr_email": "contact@nomana-it.fr",
-            "usr_status": "Y",
-            "usr_admin": "N",
-            "usr_language": "fr",
-            "usr_mode": "light",
-            "usr_readonly": "Y",
-            "usr_audit_user": "demo",
-            "usr_audit_date": "2025-01-08T15:13:37.918000",
-            "usr_dashboard": 1,
-            "usr_theme": "boldRedBlack"
+            "rol_id": "R-DATABASE",
+            "rol_name": "Database Menus",
+            "rol_audit_user": "admin",
+            "rol_audit_date": "2024-02-20T09:31:13.761000"
+        },
+        {
+            "rol_id": "R-LICENSES",
+            "rol_name": "Licenses Menus",
+            "rol_audit_user": "admin",
+            "rol_audit_date": "2024-02-20T09:31:29.830000"
+        },
+        {
+            "rol_id": "R-SETTINGS",
+            "rol_name": "Settings Menus",
+            "rol_audit_user": "admin",
+            "rol_audit_date": "2024-02-20T09:32:06.861000"
         }
     ],
     "ly_tbl_filters": [
@@ -33443,46 +33454,6 @@
             "flt_value": null
         }
     ],
-    "ly_roles": [
-        {
-            "rol_id": "R-SECURITY",
-            "rol_name": "Security Menus",
-            "rol_audit_user": "admin",
-            "rol_audit_date": "2024-02-20T09:06:24.503000"
-        },
-        {
-            "rol_id": "R-DATABASE",
-            "rol_name": "Database Menus",
-            "rol_audit_user": "admin",
-            "rol_audit_date": "2024-02-20T09:31:13.761000"
-        },
-        {
-            "rol_id": "R-LICENSES",
-            "rol_name": "Licenses Menus",
-            "rol_audit_user": "admin",
-            "rol_audit_date": "2024-02-20T09:31:29.830000"
-        },
-        {
-            "rol_id": "R-SETTINGS",
-            "rol_name": "Settings Menus",
-            "rol_audit_user": "admin",
-            "rol_audit_date": "2024-02-20T09:32:06.861000"
-        }
-    ],
-    "ly_usr_roles": [
-        {
-            "usr_id": "demo",
-            "rol_id": "R-SECURITY",
-            "rlu_audit_user": "admin",
-            "rlu_audit_date": "2024-02-20T09:03:36.317000"
-        },
-        {
-            "usr_id": "demo",
-            "rol_id": "R-LICENSES",
-            "rlu_audit_user": "admin",
-            "rlu_audit_date": "2024-04-11T14:34:17.137000"
-        }
-    ],
     "ly_rol_auth": [
         {
             "rol_id": "R-SECURITY",
@@ -33745,6 +33716,7 @@
             "cdn_grp_label": null
         }
     ],
+    "ly_menus_filters": [],
     "ly_dlg_tab_l": [
         {
             "frm_id": 1,
