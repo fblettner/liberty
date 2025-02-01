@@ -1,4 +1,5 @@
 {
+    "alembic_version": [],
     "ly_act_tasks": [],
     "ly_actions": [],
     "ly_act_params_filters": [],
@@ -991,7 +992,106 @@
     "ly_cdn_grp": [],
     "ly_condition": [],
     "ly_db_schema": [],
+    "ly_dashboard": [],
     "ly_dlg_filters": [],
+    "ly_ctx_filters": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "DWH_APPS_ID",
+            "flt_target": "DWH_APPS_ID",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:22:48.665000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "DWH_TYPE",
+            "flt_target": "DWH_TYPE",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:06.536000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "DWH_INSTANCE",
+            "flt_target": "DWH_INSTANCE",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:14.078000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 4,
+            "flt_type": "DD",
+            "flt_source": "DWH_TARGET",
+            "flt_target": "DWH_TARGET",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:20.914000",
+            "flt_value": null
+        }
+    ],
+    "ly_applications": [
+        {
+            "apps_id": 1,
+            "apps_name": "NOMAETL",
+            "apps_description": "Light ETL to transfer tables between database",
+            "apps_version": null,
+            "apps_pool": "nomaetl",
+            "apps_pool_min": 10,
+            "apps_pool_max": 10,
+            "apps_dbtype": "postgres",
+            "apps_jdbc": null,
+            "apps_user": "nomasx1",
+            "apps_password": "ENC:D4I/Mgmchx/cOb8HaqyGiPGrDU6imFQiac2cOwFSwFlLzX5zD56q/xX/ZsX4xFPmugweJ7g5n89b8yEPDTOFLMPpwD2ydE/bNZVM1dAHvlBGWtKdRS39BdK93wvne3jmJymbXO+0",
+            "apps_host": "pg",
+            "apps_port": 5432,
+            "apps_database": "nomasx1",
+            "apps_offset": 5000,
+            "apps_limit": 15000,
+            "apps_audit_user": "admin",
+            "apps_audit_date": "2024-02-27T19:08:49.113000",
+            "apps_dashboard": null,
+            "apps_type": null,
+            "apps_theme": null,
+            "apps_replace_null": "N"
+        }
+    ],
+    "ly_dsh_col": [],
+    "ly_enum_val_l": [],
+    "ly_enum_val": [],
+    "ly_enum": [],
+    "ly_function": [],
+    "ly_lkp_params": [],
+    "ly_lookup": [],
+    "ly_events": [],
+    "ly_evt_cpt": [],
+    "ly_evt_dd": [],
+    "ly_links": [],
+    "ly_language": [
+        {
+            "lng_id": "fr",
+            "lng_name": "Français",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "lng_id": "en",
+            "lng_name": "Anglais",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        }
+    ],
+    "ly_dlg_tab_cdn": [],
     "ly_dlg_tab": [
         {
             "frm_id": 1,
@@ -1042,136 +1142,7 @@
             "tab_disable_edit": "N"
         }
     ],
-    "ly_ctx_filters": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "DWH_APPS_ID",
-            "flt_target": "DWH_APPS_ID",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:22:48.665000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "DWH_TYPE",
-            "flt_target": "DWH_TYPE",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:06.536000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "DWH_INSTANCE",
-            "flt_target": "DWH_INSTANCE",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:14.078000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 4,
-            "flt_type": "DD",
-            "flt_source": "DWH_TARGET",
-            "flt_target": "DWH_TARGET",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:20.914000",
-            "flt_value": null
-        }
-    ],
-    "ly_dashboard": [],
-    "ly_dsh_col": [],
-    "ly_enum_val_l": [],
-    "ly_enum_val": [],
-    "ly_enum": [],
-    "ly_function": [],
-    "ly_lkp_params": [],
-    "ly_lookup": [],
-    "ly_events": [],
-    "ly_evt_cpt": [],
-    "ly_evt_dd": [],
-    "ly_links": [],
-    "ly_language": [
-        {
-            "lng_id": "fr",
-            "lng_name": "Français",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "lng_id": "en",
-            "lng_name": "Anglais",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        }
-    ],
-    "ly_dlg_tab_cdn": [],
-    "ly_dlg_tab_l": [
-        {
-            "frm_id": 1,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Erreurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:59:34.877000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:59:57.049000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Ordonnancement",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T12:00:16.972000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T12:00:31.106000"
-        }
-    ],
-    "ly_menus_l": [
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100001.",
-            "lng_label": "Tableau de bord",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:37.604000"
-        },
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100002.",
-            "lng_label": "Supervision",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:49.396000"
-        },
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100003.",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:59.580000"
-        }
-    ],
+    "ly_menus_filters": [],
     "ly_menus": [
         {
             "menu_seq_ukid": "100001.",
@@ -1207,8 +1178,9 @@
             "menu_audit_date": "2024-01-09T13:19:35.516000"
         }
     ],
-    "ly_lnk_val_l": [],
     "ly_lnk_val": [],
+    "ly_modules": [],
+    "ly_sequence": [],
     "ly_tbl_col_cdn": [],
     "ly_tables": [
         {
@@ -1748,15 +1720,12 @@
             "col_cdn_id": null
         }
     ],
-    "ly_modules": [],
     "ly_qry_fmw": [],
-    "ly_tree": [],
     "ly_seq_params": [],
-    "ly_sequence": [],
     "ly_users": [
         {
             "usr_id": "admin",
-            "usr_password": "ENC:n42NqGiLflgNYvvKhi263iRYR+g7kgMCkXZ7eJXByj5fohZ29LU/gasXd+QTZl04NIxzx/yf274mdBAHLzfZEySGOF5QcYghyWFEHM4AclBvFegqz5Ck5gDeT9Fjfmlca5KJfXRS",
+            "usr_password": "ENC:ZJ+wDjeCX518tg6Jf5erdg6EKqH6m4jBSo16RhyD3qS0RzFPUKZdhfn3UMCFGpvFeGoc1+oMWsrY/28glcfIXgqkCBLIvUh8Z1MT5mZgRYls+Z5F8kz09KbIDIpISSthWqNHD71N",
             "usr_name": "Franck Blettner",
             "usr_email": "franck.blettner@nomana-it.fr",
             "usr_status": "Y",
@@ -1770,10 +1739,86 @@
             "usr_theme": null
         }
     ],
+    "ly_tree": [],
     "ly_tbl_filters": [],
     "ly_roles": [],
     "ly_usr_roles": [],
     "ly_rol_auth": [],
+    "ly_query": [
+        {
+            "query_id": 1,
+            "query_label": "Get all columns from SETTINGS_DWH",
+            "query_type": "CRUD",
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-19T17:10:58.372000"
+        },
+        {
+            "query_id": 2,
+            "query_label": "Get details of errors",
+            "query_type": "CRUD",
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-19T17:36:15.422000"
+        }
+    ],
+    "ly_cdn_params": [],
+    "ly_dlg_tab_l": [
+        {
+            "frm_id": 1,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Erreurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:59:34.877000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:59:57.049000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Ordonnancement",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T12:00:16.972000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T12:00:31.106000"
+        }
+    ],
+    "ly_lnk_val_l": [],
+    "ly_menus_l": [
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100001.",
+            "lng_label": "Tableau de bord",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:37.604000"
+        },
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100002.",
+            "lng_label": "Supervision",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:49.396000"
+        },
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100003.",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:59.580000"
+        }
+    ],
     "ly_nextnum": [
         {
             "nn_id": "APPS_ID",
@@ -1782,34 +1827,6 @@
             "nn_audit_date": "2024-04-03T10:46:33.765000"
         }
     ],
-    "ly_menus_filters": [],
-    "ly_applications": [
-        {
-            "apps_id": 1,
-            "apps_name": "NOMAETL",
-            "apps_description": "Light ETL to transfer tables between database",
-            "apps_version": null,
-            "apps_pool": "nomaetl",
-            "apps_pool_min": 10,
-            "apps_pool_max": 10,
-            "apps_dbtype": "postgres",
-            "apps_jdbc": null,
-            "apps_user": "nomasx1",
-            "apps_password": "ENC:D4I/Mgmchx/cOb8HaqyGiPGrDU6imFQiac2cOwFSwFlLzX5zD56q/xX/ZsX4xFPmugweJ7g5n89b8yEPDTOFLMPpwD2ydE/bNZVM1dAHvlBGWtKdRS39BdK93wvne3jmJymbXO+0",
-            "apps_host": "pg",
-            "apps_port": 5432,
-            "apps_database": "nomasx1",
-            "apps_offset": 5000,
-            "apps_limit": 15000,
-            "apps_audit_user": "admin",
-            "apps_audit_date": "2024-02-27T19:08:49.113000",
-            "apps_dashboard": null,
-            "apps_type": null,
-            "apps_theme": null,
-            "apps_replace_null": "N"
-        }
-    ],
-    "ly_cdn_params": [],
     "ly_qry_sql": [
         {
             "query_id": 1,
@@ -1830,22 +1847,6 @@
             "query_orderby": null,
             "query_audit_user": "anonymous",
             "query_audit_date": "2023-12-19T17:35:06.325000"
-        }
-    ],
-    "ly_query": [
-        {
-            "query_id": 1,
-            "query_label": "Get all columns from SETTINGS_DWH",
-            "query_type": "CRUD",
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-19T17:10:58.372000"
-        },
-        {
-            "query_id": 2,
-            "query_label": "Get details of errors",
-            "query_type": "CRUD",
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-19T17:36:15.422000"
         }
     ]
 }

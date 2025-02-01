@@ -1,4 +1,5 @@
 {
+    "alembic_version": [],
     "ly_act_params": [],
     "ly_actions": [],
     "ly_act_params_filters": [],
@@ -11,7 +12,6 @@
     "ly_api": [],
     "ly_api_header": [],
     "ly_api_params": [],
-    "ly_charts": [],
     "ly_applications": [
         {
             "apps_id": 1,
@@ -48,9 +48,9 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "nomajde",
-            "apps_password": "ENC:9J6SEWLW3ynFv5eihtDfH7Lj0yixa+wrZ4xcezAyLCowUfC/xfEXn0hbRG1fpidlUFwatzyA0XitfFSaSAIFVoAHcWNv3h3cdrj7nrLtqOwAk84m53VnZlKhXKxW1MqWB+hk+gQT",
-            "apps_host": "localhost",
-            "apps_port": 5433,
+            "apps_password": "ENC:Jk/xfND0h9JwvD0yLNd87tVSi7MBoiurYvQWZaSu44Q/VD2odppX13JXL9gXjYvyTWcScpkV/cN6UV/DN9lKAEHmM5PaGfpr4Zcb9baSqcIPS35Zey9kkM/08NNzS5WFVY05VjZB",
+            "apps_host": "pg",
+            "apps_port": 5432,
             "apps_database": "nomajde",
             "apps_offset": 10000,
             "apps_limit": 100000,
@@ -1153,6 +1153,7 @@
             "col_cdn_id": null
         }
     ],
+    "ly_charts": [],
     "ly_components": [],
     "ly_ctx_val_l": [],
     "ly_dictionary": [
@@ -5871,20 +5872,7 @@
             "sch_audit_date": "2024-09-04T22:02:08.268000"
         }
     ],
-    "ly_dlg_tab": [
-        {
-            "frm_id": 1,
-            "tab_id": 1,
-            "tab_seq": 1,
-            "tab_label": "Default",
-            "tab_cdn_id": null,
-            "tab_cols": 3,
-            "tab_audit_user": "admin",
-            "tab_audit_date": "2024-09-19T22:52:49.875000",
-            "tab_disable_add": "N",
-            "tab_disable_edit": "N"
-        }
-    ],
+    "ly_dashboard": [],
     "ly_dictionary_l": [
         {
             "dd_id": "UPMJ",
@@ -5971,7 +5959,6 @@
             "flt_value": null
         }
     ],
-    "ly_dashboard": [],
     "ly_dsh_col": [],
     "ly_enum": [
         {
@@ -6203,7 +6190,6 @@
             "lkp_tbl_id": 14
         }
     ],
-    "ly_lnk_val": [],
     "ly_links": [],
     "ly_events": [],
     "ly_evt_cpt": [],
@@ -6211,7 +6197,20 @@
     "ly_language": [],
     "ly_function": [],
     "ly_dlg_tab_cdn": [],
-    "ly_dlg_tab_l": [],
+    "ly_dlg_tab": [
+        {
+            "frm_id": 1,
+            "tab_id": 1,
+            "tab_seq": 1,
+            "tab_label": "Default",
+            "tab_cdn_id": null,
+            "tab_cols": 3,
+            "tab_audit_user": "admin",
+            "tab_audit_date": "2024-09-19T22:52:49.875000",
+            "tab_disable_add": "N",
+            "tab_disable_edit": "N"
+        }
+    ],
     "ly_menus": [
         {
             "menu_seq_ukid": "100001.100001.",
@@ -6302,307 +6301,145 @@
             "menu_audit_date": "2024-09-11T13:15:42.957000"
         }
     ],
-    "ly_lnk_val_l": [],
-    "ly_menus_l": [
+    "ly_menus_filters": [],
+    "ly_lnk_val": [],
+    "ly_query": [
         {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100002.",
-            "lng_label": "Gestion des utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-04T13:02:17.593000"
+            "query_id": 1,
+            "query_label": "F0005",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-08-30T13:03:05.422000"
         },
         {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100002.100001.",
-            "lng_label": "Gestion des Utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-04T13:13:59.034000"
+            "query_id": 2,
+            "query_label": "Get UDC Description",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-08-31T15:21:07.976000"
         },
         {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100002.100002.",
-            "lng_label": "Affectations Rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-04T13:15:27.807000"
+            "query_id": 3,
+            "query_label": "Get Product Code",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-03T19:50:04.679000"
+        },
+        {
+            "query_id": 4,
+            "query_label": "Get System Code",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-03T20:06:30.150000"
+        },
+        {
+            "query_id": 5,
+            "query_label": "F0004",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-04T06:35:02.524000"
+        },
+        {
+            "query_id": 6,
+            "query_label": "F0004",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-04T08:14:29.715000"
+        },
+        {
+            "query_id": 7,
+            "query_label": "F0092",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-04T22:00:29.557000"
+        },
+        {
+            "query_id": 8,
+            "query_label": "User Management",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-04T22:23:43.226000"
+        },
+        {
+            "query_id": 9,
+            "query_label": "F95921",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T08:55:58.153000"
+        },
+        {
+            "query_id": 10,
+            "query_label": "Get User Name",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T09:07:46.472000"
+        },
+        {
+            "query_id": 11,
+            "query_label": "F00926",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T09:44:40.742000"
+        },
+        {
+            "query_id": 12,
+            "query_label": "Get Role Description",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T09:47:23.460000"
+        },
+        {
+            "query_id": 13,
+            "query_label": "F00950",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T10:00:15.018000"
+        },
+        {
+            "query_id": 14,
+            "query_label": "Get User / Role Name",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-05T10:29:44.051000"
+        },
+        {
+            "query_id": 15,
+            "query_label": "Get Security Type",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-09-20T18:19:24.945000"
+        },
+        {
+            "query_id": 16,
+            "query_label": "Get Data Item",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-16T08:54:28.189000"
+        },
+        {
+            "query_id": 17,
+            "query_label": "Dictionary Data Items",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-17T12:17:30.106000"
+        },
+        {
+            "query_id": 18,
+            "query_label": "Object Librarian",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-17T18:57:10.941000"
+        },
+        {
+            "query_id": 19,
+            "query_label": "Get Object Name",
+            "query_type": "LOOKUP",
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-17T19:02:16.833000"
         }
     ],
     "ly_modules": [],
     "ly_nextnum": [],
-    "ly_tables": [
-        {
-            "tbl_id": 1,
-            "tbl_db_name": "F0005",
-            "tbl_label": "User Defined Code",
-            "tbl_query_id": 1,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-08-31T16:12:34.370000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 2,
-            "tbl_db_name": "F0004",
-            "tbl_label": "User Defined Code Types",
-            "tbl_query_id": 5,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T08:02:17.314000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 3,
-            "tbl_db_name": "F0004",
-            "tbl_label": "UDC Types Search&Select",
-            "tbl_query_id": 6,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T09:09:57.287000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 4,
-            "tbl_db_name": "F0092",
-            "tbl_label": "Users / Roles",
-            "tbl_query_id": 7,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:00:29.580000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 5,
-            "tbl_db_name": "F00921",
-            "tbl_label": "User Display Preferences",
-            "tbl_query_id": null,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:18:48.491000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 6,
-            "tbl_db_name": "F0092L",
-            "tbl_label": "Long User ID mapping table",
-            "tbl_query_id": null,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:20:01.089000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 7,
-            "tbl_db_name": "F0101",
-            "tbl_label": "Address Book Master",
-            "tbl_query_id": null,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:20:43.375000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 8,
-            "tbl_db_name": "F01151",
-            "tbl_label": "Electronic Address",
-            "tbl_query_id": null,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:22:09.464000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 9,
-            "tbl_db_name": null,
-            "tbl_label": "User Management",
-            "tbl_query_id": 8,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-04T22:29:46.393000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 11,
-            "tbl_db_name": "F00926",
-            "tbl_label": "Role Description",
-            "tbl_query_id": 11,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-09-05T09:44:40.765000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 10,
-            "tbl_db_name": "F95921",
-            "tbl_label": "Role Relationships Table",
-            "tbl_query_id": 9,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-10-11T14:16:53.411000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 12,
-            "tbl_db_name": "F00950",
-            "tbl_label": "Security Workbench Table",
-            "tbl_query_id": 13,
-            "tbl_editable": "Y",
-            "tbl_uploadable": "Y",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": 1,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-10-16T15:47:31.609000",
-            "tbl_auto_load": "N"
-        },
-        {
-            "tbl_id": 13,
-            "tbl_db_name": "",
-            "tbl_label": "Dictionary Data Items",
-            "tbl_query_id": 17,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-10-17T12:18:00.710000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 14,
-            "tbl_db_name": null,
-            "tbl_label": "Object Librarian",
-            "tbl_query_id": 18,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2024-10-17T19:04:36.522000",
-            "tbl_auto_load": "Y"
-        },
-        {
-            "tbl_id": 15,
-            "tbl_db_name": "F0004",
-            "tbl_label": "TEST",
-            "tbl_query_id": 5,
-            "tbl_editable": "N",
-            "tbl_uploadable": "N",
-            "tbl_audit": "N",
-            "tbl_burst": "N",
-            "tbl_workbook": null,
-            "tbl_sheet": null,
-            "tbl_ctx_id": null,
-            "tbl_tree_id": null,
-            "tbl_frm_id": null,
-            "tbl_audit_user": "admin",
-            "tbl_audit_date": "2025-01-04T11:23:10.786000",
-            "tbl_auto_load": "N"
-        }
-    ],
-    "ly_qry_fmw": [],
-    "ly_sequence": [],
-    "ly_seq_params": [],
     "ly_tbl_col_cdn": [
         {
             "tbl_id": 12,
@@ -6889,6 +6726,278 @@
             "cdn_audit_user": "admin",
             "cdn_audit_date": "2024-11-18T13:47:25.730000",
             "cdn_value": null
+        }
+    ],
+    "ly_tables": [
+        {
+            "tbl_id": 1,
+            "tbl_db_name": "F0005",
+            "tbl_label": "User Defined Code",
+            "tbl_query_id": 1,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-08-31T16:12:34.370000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 2,
+            "tbl_db_name": "F0004",
+            "tbl_label": "User Defined Code Types",
+            "tbl_query_id": 5,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T08:02:17.314000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 3,
+            "tbl_db_name": "F0004",
+            "tbl_label": "UDC Types Search&Select",
+            "tbl_query_id": 6,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T09:09:57.287000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 4,
+            "tbl_db_name": "F0092",
+            "tbl_label": "Users / Roles",
+            "tbl_query_id": 7,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:00:29.580000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 5,
+            "tbl_db_name": "F00921",
+            "tbl_label": "User Display Preferences",
+            "tbl_query_id": null,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:18:48.491000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 6,
+            "tbl_db_name": "F0092L",
+            "tbl_label": "Long User ID mapping table",
+            "tbl_query_id": null,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:20:01.089000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 7,
+            "tbl_db_name": "F0101",
+            "tbl_label": "Address Book Master",
+            "tbl_query_id": null,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:20:43.375000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 8,
+            "tbl_db_name": "F01151",
+            "tbl_label": "Electronic Address",
+            "tbl_query_id": null,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:22:09.464000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 9,
+            "tbl_db_name": null,
+            "tbl_label": "User Management",
+            "tbl_query_id": 8,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-04T22:29:46.393000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 11,
+            "tbl_db_name": "F00926",
+            "tbl_label": "Role Description",
+            "tbl_query_id": 11,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-09-05T09:44:40.765000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 10,
+            "tbl_db_name": "F95921",
+            "tbl_label": "Role Relationships Table",
+            "tbl_query_id": 9,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-10-11T14:16:53.411000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 12,
+            "tbl_db_name": "F00950",
+            "tbl_label": "Security Workbench Table",
+            "tbl_query_id": 13,
+            "tbl_editable": "Y",
+            "tbl_uploadable": "Y",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": 1,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-10-16T15:47:31.609000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 13,
+            "tbl_db_name": "",
+            "tbl_label": "Dictionary Data Items",
+            "tbl_query_id": 17,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-10-17T12:18:00.710000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 14,
+            "tbl_db_name": null,
+            "tbl_label": "Object Librarian",
+            "tbl_query_id": 18,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2024-10-17T19:04:36.522000",
+            "tbl_auto_load": "Y"
+        },
+        {
+            "tbl_id": 15,
+            "tbl_db_name": "F0004",
+            "tbl_label": "TEST",
+            "tbl_query_id": 5,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": null,
+            "tbl_sheet": null,
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2025-01-04T11:23:10.786000",
+            "tbl_auto_load": "N"
         }
     ],
     "ly_tbl_col": [
@@ -14053,10 +14162,13 @@
             "col_cdn_id": null
         }
     ],
+    "ly_qry_fmw": [],
+    "ly_sequence": [],
+    "ly_seq_params": [],
     "ly_users": [
         {
             "usr_id": "admin",
-            "usr_password": "ENC:M8xvCUctKmqFozLS5zxHDUKFQpSRu+GJ4dBH4P6t4t9FNMi8MSCYOQGuewWnPvPMXukOvOfSvHtp9DE6WSxl7ifzyR1rjrIQZFFWXsmSMzFoGk1Q+7uoGe5JC48iNC/v9lsIgwl3",
+            "usr_password": "ENC:2YxPDl6nWm1LU8jnb1krQFsyAVvWK/QdikVgOaqU2AagvzlKLkNEIUdVKk2HK/AyuLqQMHXR39siqYMlD5bScn51SN5HJT2ObPoGQWtaYl/pQX5qRdVIxcKMLvj2CXjiEZAJ/BIQ",
             "usr_name": "Administrateur",
             "usr_email": "franck.blettner@nomana-it.fr",
             "usr_status": "Y",
@@ -16597,140 +16709,29 @@
             "cdn_grp_label": null
         }
     ],
-    "ly_menus_filters": [],
-    "ly_query": [
+    "ly_dlg_tab_l": [],
+    "ly_lnk_val_l": [],
+    "ly_menus_l": [
         {
-            "query_id": 1,
-            "query_label": "F0005",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-08-30T13:03:05.422000"
+            "lng_id": "fr",
+            "lng_seq_ukid": "100002.",
+            "lng_label": "Gestion des utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-04T13:02:17.593000"
         },
         {
-            "query_id": 2,
-            "query_label": "Get UDC Description",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-08-31T15:21:07.976000"
+            "lng_id": "fr",
+            "lng_seq_ukid": "100002.100001.",
+            "lng_label": "Gestion des Utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-04T13:13:59.034000"
         },
         {
-            "query_id": 3,
-            "query_label": "Get Product Code",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-03T19:50:04.679000"
-        },
-        {
-            "query_id": 4,
-            "query_label": "Get System Code",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-03T20:06:30.150000"
-        },
-        {
-            "query_id": 5,
-            "query_label": "F0004",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-04T06:35:02.524000"
-        },
-        {
-            "query_id": 6,
-            "query_label": "F0004",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-04T08:14:29.715000"
-        },
-        {
-            "query_id": 7,
-            "query_label": "F0092",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-04T22:00:29.557000"
-        },
-        {
-            "query_id": 8,
-            "query_label": "User Management",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-04T22:23:43.226000"
-        },
-        {
-            "query_id": 9,
-            "query_label": "F95921",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T08:55:58.153000"
-        },
-        {
-            "query_id": 10,
-            "query_label": "Get User Name",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T09:07:46.472000"
-        },
-        {
-            "query_id": 11,
-            "query_label": "F00926",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T09:44:40.742000"
-        },
-        {
-            "query_id": 12,
-            "query_label": "Get Role Description",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T09:47:23.460000"
-        },
-        {
-            "query_id": 13,
-            "query_label": "F00950",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T10:00:15.018000"
-        },
-        {
-            "query_id": 14,
-            "query_label": "Get User / Role Name",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-05T10:29:44.051000"
-        },
-        {
-            "query_id": 15,
-            "query_label": "Get Security Type",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-20T18:19:24.945000"
-        },
-        {
-            "query_id": 16,
-            "query_label": "Get Data Item",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-10-16T08:54:28.189000"
-        },
-        {
-            "query_id": 17,
-            "query_label": "Dictionary Data Items",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-10-17T12:17:30.106000"
-        },
-        {
-            "query_id": 18,
-            "query_label": "Object Librarian",
-            "query_type": "CRUD",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-10-17T18:57:10.941000"
-        },
-        {
-            "query_id": 19,
-            "query_label": "Get Object Name",
-            "query_type": "LOOKUP",
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-10-17T19:02:16.833000"
+            "lng_id": "fr",
+            "lng_seq_ukid": "100002.100002.",
+            "lng_label": "Affectations Rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-04T13:15:27.807000"
         }
     ],
     "ly_qry_sql": [

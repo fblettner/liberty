@@ -1,9 +1,14 @@
 """Auto-generated SQLAlchemy models."""
 
-from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
+from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint, Index, UniqueConstraint
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
+
+class AlembicVersion(Base):
+    __tablename__ = 'alembic_version'
+    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
+
 
 class Databasechangeloglock(Base):
     __tablename__ = 'databasechangeloglock'

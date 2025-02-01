@@ -26,32 +26,17 @@ class Models:
         except Exception as e:
             logging.error(f"Error connecting to database: {str(e)}")
             raise e
-
-    def fetch_materialized_views(self):
-        """Retrieve materialized views from PostgreSQL."""
-        with self.engine.connect() as conn:
-            result = conn.execute(text("SELECT matviewname FROM pg_matviews"))
-            return [row[0] for row in result.scalars().all()]
-
-    def fetch_stored_procedures(self):
-        """Retrieve stored procedures from PostgreSQL."""
-        with self.engine.connect() as conn:
-            result = conn.execute(
-                text(
-                    """
-                    SELECT nspname, proname 
-                    FROM pg_proc 
-                    JOIN pg_namespace ON pg_proc.pronamespace = pg_namespace.oid 
-                    WHERE nspname NOT IN ('pg_catalog', 'information_schema')
-                    """
-                )
-            )
-            return [(row[0], row[1]) for row in result.fetchall()]  # Return schema + procedure name
-        
+       
     def to_valid_class_name(self, table_name):
         """Convert table name to a valid class name."""
-        table_name = re.sub(r'[^a-zA-Z0-9]', '_', table_name)  # Replace invalid characters
-        return ''.join(word.capitalize() for word in table_name.split('_'))  # PascalCase
+        # Handle special characters explicitly
+        table_name = table_name.replace("$", "_Dollar")  # Replace `$` uniquely
+        # Replace remaining invalid characters
+        table_name = re.sub(r'[^a-zA-Z0-9]', '_', table_name)
+        # Convert to PascalCase (CamelCase with first letter capitalized)
+        class_name = ''.join(word.capitalize() for word in table_name.split('_'))
+
+        return class_name
 
     def get_table_dependencies(self, inspector):
         """Build a dependency map where each table lists the tables it depends on (foreign keys)."""
@@ -115,13 +100,9 @@ class Models:
         # Sort tables properly (ensuring referenced tables appear before dependent tables)
         sorted_table_objects = self.topological_sort_tables(dependencies, tables)
 
-        # Fetch Materialized Views & Stored Procedures
-        materialized_views = self.fetch_materialized_views()
-        stored_procedures = self.fetch_stored_procedures()
-
         # Start writing to `models.py`
         model_content = """\"\"\"Auto-generated SQLAlchemy models.\"\"\"\n
-from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
+from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint, Index, UniqueConstraint
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()\n\n"""
@@ -137,8 +118,8 @@ Base = declarative_base()\n\n"""
             column_definitions = []
             foreign_key_constraints = []
             relationships = []
-            unique_constraints = {u["column_names"][0]: u["name"] for u in inspector.get_unique_constraints(table_name)}
             existing_fks = inspector.get_foreign_keys(table_name)
+            index_definitions = []
 
             # Extract and define columns
             for column in table.__table__.columns:
@@ -146,7 +127,6 @@ Base = declarative_base()\n\n"""
                 column_type = column.type
                 nullable = column.nullable
                 primary_key = column.primary_key
-                unique_key = unique_constraints.get(column_name, None) 
 
                 # Check for Foreign Keys
                 foreign_keys = list(column.foreign_keys)
@@ -169,14 +149,34 @@ Base = declarative_base()\n\n"""
                 
                 # Generate column definition
                 column_def = f"    {column_name} = Column({column_type}, primary_key={primary_key}, nullable={nullable}"
-                if unique_key:
-                    column_def += ", unique=True"  # Add unique constraint flag
                 column_def += ")"
                 
                 column_definitions.append(column_def)
 
             # Add Columns
             table_definitions[class_name] += "\n".join(column_definitions) + "\n"
+
+            # Extract Indexes for the Table
+            table_indexes = inspector.get_indexes(table_name)
+            if table_indexes:
+                index_def = "    __table_args__ = (\n"
+                for idx in table_indexes:
+                    index_name = idx["name"]
+                    index_columns = ", ".join(f'"{col}"' for col in idx["column_names"])
+                    is_unique = idx.get("unique", False)  # Detect if index is unique
+
+                    # If index is unique, use UniqueConstraint, otherwise use Index()
+                    if is_unique:
+                        index_def += f'        UniqueConstraint({index_columns}, name="{index_name}"),\n'
+                    else:
+                        index_def += f'        Index("{index_name}", {index_columns}),\n'
+                
+                index_def += "    )\n"
+                index_definitions.append(index_def)
+
+            # Add Index Definitions (after Columns but before Relationships)
+            if index_definitions:
+                table_definitions[class_name] += "\n".join(index_definitions) + "\n"
 
             # Handle Composite Foreign Keys Correctly
             if foreign_key_constraints:

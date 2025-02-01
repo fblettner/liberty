@@ -1,6 +1,6 @@
 """Auto-generated SQLAlchemy models."""
 
-from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
+from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint, Index, UniqueConstraint
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
@@ -904,9 +904,13 @@ class LyTblFilters(Base):
 class LyThemes(Base):
     __tablename__ = 'ly_themes'
     thm_id = Column(INTEGER, primary_key=True, nullable=False)
-    thm_name = Column(VARCHAR(50), primary_key=False, nullable=False, unique=True)
+    thm_name = Column(VARCHAR(50), primary_key=False, nullable=False)
     thm_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     thm_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    __table_args__ = (
+        UniqueConstraint("thm_name", name="ly_themes_thm_name_key"),
+    )
+
 
 
 class LyThmColors(Base):

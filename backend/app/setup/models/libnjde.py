@@ -1,9 +1,14 @@
 """Auto-generated SQLAlchemy models."""
 
-from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
+from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint, Index, UniqueConstraint
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
+
+class AlembicVersion(Base):
+    __tablename__ = 'alembic_version'
+    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
+
 
 class Databasechangeloglock(Base):
     __tablename__ = 'databasechangeloglock'
@@ -479,7 +484,8 @@ class LyDlgTabCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk2", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgtab_rel = relationship('ly_dlg_tab')

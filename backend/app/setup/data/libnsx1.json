@@ -1,4 +1,5 @@
 {
+    "alembic_version": [],
     "ly_dlg_col_cdn": [],
     "ly_dlg_frm": [
         {
@@ -4362,7 +4363,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "nomasx1",
-            "apps_password": "ENC:LGjXiollqvrRkyvT8RU0DqxXOPXMtrpLuIXixiILwxKp37RVGuR/qQvgnXTMsrz0KmVQ9bde0uOLttIpg7t4j312hmHL5jU0AbKeH6O01KMw8dDlrg71Cv4U8haDxFfnw+hG5u4u",
+            "apps_password": "ENC:EiAkkyXinR1ZxMe15hYYv6MCFGkRM0VYyYn5hORAy7+Z8Nhtg19bhdKjYdvC8KzhZlyofMrPdMSjwUxu5gQUGceDMNQuipukIL7oiZlPBWUQn15NJIohXvc8pbMJ1w4tMUihdlsC",
             "apps_host": "localhost",
             "apps_port": 5433,
             "apps_database": "nomasx1",
@@ -14782,7 +14783,7 @@
     "ly_users": [
         {
             "usr_id": "admin",
-            "usr_password": "ENC:gqarUC/AKr/c/KyCak7urAeUPNKeUCydLQEjf9NxGGkgmuw34Gm3nujcf7yGfJE9bGVzWOdP9JVAcAekzGpAmxDr/g/YScEs7PFvgtWuLvmERBz8KZmcxwnVULCuBNwffg6mbnCR",
+            "usr_password": "ENC:3o+sG5PHyp7mkT/J6qQ2QTgVnawiFJYhzCl7BuSBscmo8LPpDpqqDTWdNyD7bKSeUNFcTSx7IRg8suqfb8J21EqKi0dBD7cBFq/De044LTk46c6idroaWb9q8UWXW+UsEF2PqnCx",
             "usr_name": "Franck Blettner",
             "usr_email": "franck.blettner@nomana-it.fr",
             "usr_status": "Y",

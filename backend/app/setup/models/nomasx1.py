@@ -1,9 +1,14 @@
 """Auto-generated SQLAlchemy models."""
 
-from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint
+from sqlalchemy import BOOLEAN, INTEGER, TEXT, TIMESTAMP, VARCHAR, BIGINT, DATE, REAL, Column, Integer, String, ForeignKey, Boolean, DateTime, Float, Text, ForeignKeyConstraint, Index, UniqueConstraint
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
+
+class AlembicVersion(Base):
+    __tablename__ = 'alembic_version'
+    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
+
 
 class AuditTrail(Base):
     __tablename__ = 'audit_trail'
@@ -63,6 +68,19 @@ class DbAudit(Base):
 
 
 class DbOraFeatures(Base):
+    __tablename__ = 'db_ora_features'
+    oraf_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    oraf_inst_id = Column(INTEGER, primary_key=True, nullable=False)
+    oraf_feature = Column(VARCHAR(255), primary_key=True, nullable=False)
+    oraf_usage = Column(INTEGER, primary_key=False, nullable=True)
+    oraf_first_usage = Column(DATE, primary_key=False, nullable=True)
+    oraf_last_usage = Column(DATE, primary_key=False, nullable=True)
+    oraf_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    oraf_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    oraf_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class DbOraFeaturesDollar(Base):
     __tablename__ = 'db_ora_features$'
     oraf_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     oraf_inst_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -85,7 +103,28 @@ class DbOraLicenses(Base):
     oral_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
+class DbOraLicensesDollar(Base):
+    __tablename__ = 'db_ora_licenses$'
+    oral_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    oral_component = Column(VARCHAR(255), primary_key=True, nullable=False)
+    oral_used = Column(VARCHAR(1), primary_key=False, nullable=True)
+    oral_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    oral_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    oral_ukid = Column(INTEGER, primary_key=True, nullable=False)
+
+
 class DbOraOptions(Base):
+    __tablename__ = 'db_ora_options'
+    orao_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    orao_inst_id = Column(INTEGER, primary_key=True, nullable=False)
+    orao_parameter = Column(VARCHAR(255), primary_key=True, nullable=False)
+    orao_value = Column(VARCHAR(1), primary_key=False, nullable=True)
+    orao_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    orao_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    orao_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class DbOraOptionsDollar(Base):
     __tablename__ = 'db_ora_options$'
     orao_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     orao_inst_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -97,6 +136,19 @@ class DbOraOptions(Base):
 
 
 class DbOraPartitions(Base):
+    __tablename__ = 'db_ora_partitions'
+    opar_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    opar_owner = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_segment_type = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_segment_name = Column(VARCHAR(255), primary_key=True, nullable=False)
+    opar_min_created = Column(DATE, primary_key=False, nullable=True)
+    opar_min_last_ddl = Column(DATE, primary_key=False, nullable=True)
+    opar_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    opar_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    opar_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class DbOraPartitionsDollar(Base):
     __tablename__ = 'db_ora_partitions$'
     opar_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     opar_owner = Column(VARCHAR(255), primary_key=True, nullable=False)
@@ -110,6 +162,27 @@ class DbOraPartitions(Base):
 
 
 class DbOraProperties(Base):
+    __tablename__ = 'db_ora_properties'
+    orap_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    orap_dbid = Column(INTEGER, primary_key=False, nullable=True)
+    orap_product = Column(VARCHAR(255), primary_key=False, nullable=True)
+    orap_full_version = Column(VARCHAR(20), primary_key=False, nullable=True)
+    orap_version = Column(INTEGER, primary_key=False, nullable=True)
+    orap_hostname = Column(VARCHAR(60), primary_key=False, nullable=True)
+    orap_name = Column(VARCHAR(30), primary_key=False, nullable=True)
+    orap_count_inst = Column(INTEGER, primary_key=False, nullable=True)
+    orap_cpu = Column(INTEGER, primary_key=False, nullable=True)
+    orap_active_users = Column(INTEGER, primary_key=False, nullable=True)
+    orap_total_users = Column(INTEGER, primary_key=False, nullable=True)
+    orap_dg = Column(VARCHAR(1), primary_key=False, nullable=True)
+    orap_pack = Column(VARCHAR(30), primary_key=False, nullable=True)
+    orap_size_gb = Column(INTEGER, primary_key=False, nullable=True)
+    orap_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    orap_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    orap_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class DbOraPropertiesDollar(Base):
     __tablename__ = 'db_ora_properties$'
     orap_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     orap_dbid = Column(INTEGER, primary_key=False, nullable=True)
@@ -151,7 +224,7 @@ class DbOraPropertiesTmp(Base):
     orap_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
-class ILicenseJdeOut(Base):
+class IDollarLicenseJdeOut(Base):
     __tablename__ = 'i$_license_jde_out'
     lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     lout_object = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -161,7 +234,7 @@ class ILicenseJdeOut(Base):
     lout_usage = Column(DATE, primary_key=False, nullable=False)
 
 
-class IRolSecurityRights(Base):
+class IDollarRolSecurityRights(Base):
     __tablename__ = 'i$_rol_security_rights'
     ser_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     ser_root_id = Column(VARCHAR(40), primary_key=True, nullable=False)
@@ -181,7 +254,7 @@ class IRolSecurityRights(Base):
     ser_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
-class ISecurityActivityLog(Base):
+class IDollarSecurityActivityLog(Base):
     __tablename__ = 'i$_security_activity_log'
     acl_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     acl_user_id = Column(VARCHAR(30), primary_key=True, nullable=False)
@@ -192,7 +265,7 @@ class ISecurityActivityLog(Base):
     acl_object_id = Column(VARCHAR(50), primary_key=True, nullable=False)
 
 
-class ISecurityRights(Base):
+class IDollarSecurityRights(Base):
     __tablename__ = 'i$_security_rights'
     ser_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     ser_root_id = Column(VARCHAR(40), primary_key=True, nullable=False)
@@ -210,6 +283,11 @@ class ISecurityRights(Base):
     ser_del = Column(VARCHAR(1), primary_key=False, nullable=True)
     ser_refresh = Column(DATE, primary_key=False, nullable=True)
     ser_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("i$_security_rights_idx1", "ser_apps_id", "ser_menu_sequkid"),
+        Index("i$_security_rights_idx2", "ser_apps_id", "ser_user_id", "ser_run"),
+    )
+
 
 
 class JdeMenus(Base):
@@ -267,6 +345,10 @@ class JdeSecObjects(Base):
     jdeso_chg = Column(VARCHAR(1), primary_key=False, nullable=True)
     jdeso_del = Column(VARCHAR(1), primary_key=False, nullable=True)
     jdeso_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("jde_sec_objects_idx1", "jdeso_apps_id", "jdeso_type", "jdeso_role_user_id", "jdeso_object"),
+    )
+
 
 
 class JdeTasks(Base):
@@ -343,6 +425,10 @@ class LicenseJdeOut(Base):
     lout_user = Column(VARCHAR(40), primary_key=True, nullable=False)
     lout_type = Column(VARCHAR(10), primary_key=False, nullable=True)
     lout_usage = Column(DATE, primary_key=False, nullable=False)
+    __table_args__ = (
+        Index("license_jde_out_idx1", "lout_apps_id", "lout_user"),
+    )
+
 
 
 class LicenseJdeUsers(Base):
@@ -375,6 +461,21 @@ class SecurityAssignments(Base):
     rlu_dt_expiration = Column(DATE, primary_key=False, nullable=True)
     rlu_dt_refresh = Column(DATE, primary_key=False, nullable=True)
     rlu_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("security_assignments_idx1", "rlu_apps_id", "rlu_role_id", "rlu_user_id"),
+    )
+
+
+
+class SecurityAssignmentsDollar(Base):
+    __tablename__ = 'security_assignments$'
+    rlu_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    rlu_user_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    rlu_role_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    rlu_dt_effective = Column(DATE, primary_key=False, nullable=True)
+    rlu_dt_expiration = Column(DATE, primary_key=False, nullable=True)
+    rlu_dt_refresh = Column(DATE, primary_key=False, nullable=True)
+    rlu_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityAudit(Base):
@@ -447,6 +548,12 @@ class SecurityMenus(Base):
     menu_seq_ukid = Column(VARCHAR(150), primary_key=True, nullable=False)
     menu_refresh = Column(DATE, primary_key=False, nullable=True)
     menu_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("security_menus_idx1", "menu_seq_ukid"),
+        Index("security_menus_idx2", "menu_root_id"),
+        Index("security_menus_idx3", "menu_apps_id", "menu_root_id", "menu_parent_id", "menu_child_id"),
+    )
+
 
 
 class SecurityRights(Base):
@@ -466,6 +573,11 @@ class SecurityRights(Base):
     ser_del = Column(VARCHAR(1), primary_key=False, nullable=True)
     ser_refresh = Column(DATE, primary_key=False, nullable=True)
     ser_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("security_rights_idx1", "ser_apps_id", "ser_role_id", "ser_menu_sequkid"),
+        Index("security_rights_idx2", "ser_apps_id", "ser_user_id", "ser_role_id", "ser_run"),
+    )
+
 
 
 class SecurityRoles(Base):
@@ -476,6 +588,16 @@ class SecurityRoles(Base):
     rol_seq = Column(INTEGER, primary_key=False, nullable=True)
     rol_dt_refresh = Column(DATE, primary_key=False, nullable=True)
     rol_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SecurityRolesDollar(Base):
+    __tablename__ = 'security_roles$'
+    rol_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    rol_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    rol_name = Column(VARCHAR(255), primary_key=False, nullable=True)
+    rol_seq = Column(INTEGER, primary_key=False, nullable=True)
+    rol_dt_refresh = Column(DATE, primary_key=False, nullable=True)
+    rol_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityUsers(Base):
@@ -493,6 +615,36 @@ class SecurityUsers(Base):
 
 
 class SecurityUsersData(Base):
+    __tablename__ = 'security_users_data'
+    usrd_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    usrd_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    usrd_an8 = Column(INTEGER, primary_key=False, nullable=True)
+    usrd_ac01 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_ac01_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_ac02 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_ac02_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_ac03 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_ac03_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_ac04 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_ac04_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_ac05 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_ac05_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_dt_refresh = Column(DATE, primary_key=False, nullable=True)
+    usrd_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    usrd_abat1 = Column(VARCHAR(10), primary_key=False, nullable=True)
+    usrd_abat1_desc = Column(VARCHAR(40), primary_key=False, nullable=True)
+    usrd_ullngp = Column(VARCHAR(2), primary_key=False, nullable=True)
+    usrd_ulfrmt = Column(VARCHAR(3), primary_key=False, nullable=True)
+    usrd_ulctr = Column(VARCHAR(3), primary_key=False, nullable=True)
+    usrd_ulluser = Column(VARCHAR(254), primary_key=False, nullable=True)
+    usrd_mcco = Column(VARCHAR(5), primary_key=False, nullable=True)
+    usrd_mcmcu = Column(VARCHAR(12), primary_key=False, nullable=True)
+    usrd_mcrp09 = Column(VARCHAR(3), primary_key=False, nullable=True)
+    usrd_mcrp08 = Column(VARCHAR(3), primary_key=False, nullable=True)
+    usrd_eaemal = Column(VARCHAR(256), primary_key=False, nullable=True)
+
+
+class SecurityUsersDataDollar(Base):
     __tablename__ = 'security_users_data$'
     usrd_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrd_id = Column(VARCHAR(30), primary_key=True, nullable=False)
@@ -522,7 +674,43 @@ class SecurityUsersData(Base):
     usrd_eaemal = Column(VARCHAR(256), primary_key=False, nullable=True)
 
 
+class SecurityUsersDollar(Base):
+    __tablename__ = 'security_users$'
+    usr_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    usr_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    usr_name = Column(VARCHAR(255), primary_key=False, nullable=True)
+    usr_registration = Column(VARCHAR(50), primary_key=False, nullable=True)
+    usr_status = Column(VARCHAR(2), primary_key=False, nullable=True)
+    usr_dt_login = Column(DATE, primary_key=False, nullable=True)
+    usr_dt_creation = Column(DATE, primary_key=False, nullable=True)
+    usr_privileged = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usr_dt_refresh = Column(DATE, primary_key=False, nullable=True)
+    usr_ukid = Column(INTEGER, primary_key=True, nullable=False)
+
+
 class SecurityUsersProp(Base):
+    __tablename__ = 'security_users_prop'
+    usrp_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    usrp_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    usrp_name = Column(VARCHAR(255), primary_key=False, nullable=True)
+    usrp_privileged = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usrp_technical = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usrp_generic = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usrp_generic_count = Column(INTEGER, primary_key=False, nullable=True)
+    usrp_is_linked = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usrp_id_linked = Column(VARCHAR(30), primary_key=False, nullable=True)
+    usrp_is_previous = Column(VARCHAR(1), primary_key=False, nullable=True)
+    usrp_id_previous = Column(VARCHAR(30), primary_key=False, nullable=True)
+    usrp_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    usrp_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    usrp_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    __table_args__ = (
+        Index("security_users_prop_idx1", "usrp_apps_id", "usrp_technical", "usrp_is_linked"),
+    )
+
+
+
+class SecurityUsersPropDollar(Base):
     __tablename__ = 'security_users_prop$'
     usrp_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrp_id = Column(VARCHAR(30), primary_key=True, nullable=False)
@@ -821,6 +1009,17 @@ class SettingsUsers(Base):
 
 
 class SodActivities(Base):
+    __tablename__ = 'sod_activities'
+    act_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    act_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    act_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    act_name = Column(VARCHAR(100), primary_key=False, nullable=True)
+    act_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    act_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    act_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SodActivitiesDollar(Base):
     __tablename__ = 'sod_activities$'
     act_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     act_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -849,6 +1048,19 @@ class SodConflictDetails(Base):
 
 
 class SodConflictSummary(Base):
+    __tablename__ = 'sod_conflict_summary'
+    cfs_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    cfs_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    cfs_act1_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    cfs_act2_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    cfs_risk_id = Column(VARCHAR(10), primary_key=False, nullable=True)
+    cfs_privileged = Column(VARCHAR(1), primary_key=True, nullable=False)
+    cfs_count = Column(INTEGER, primary_key=False, nullable=True)
+    cfs_refresh = Column(DATE, primary_key=False, nullable=True)
+    cfs_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SodConflictSummaryDollar(Base):
     __tablename__ = 'sod_conflict_summary$'
     cfs_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     cfs_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -862,6 +1074,19 @@ class SodConflictSummary(Base):
 
 
 class SodMatrix(Base):
+    __tablename__ = 'sod_matrix'
+    matrix_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    matrix_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    matrix_act1_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    matrix_act2_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    matrix_risk_id = Column(VARCHAR(10), primary_key=False, nullable=True)
+    matrix_risk_level = Column(INTEGER, primary_key=False, nullable=True)
+    matrix_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    matrix_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    matrix_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SodMatrixDollar(Base):
     __tablename__ = 'sod_matrix$'
     matrix_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     matrix_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -875,6 +1100,19 @@ class SodMatrix(Base):
 
 
 class SodObjects(Base):
+    __tablename__ = 'sod_objects'
+    object_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    object_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    object_act_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    object_row_id = Column(INTEGER, primary_key=True, nullable=False)
+    object_id = Column(VARCHAR(50), primary_key=False, nullable=True)
+    object_name = Column(VARCHAR(100), primary_key=False, nullable=True)
+    object_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    object_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    object_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SodObjectsDollar(Base):
     __tablename__ = 'sod_objects$'
     object_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     object_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
@@ -897,6 +1135,16 @@ class SodProcess(Base):
     process_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
+class SodProcessDollar(Base):
+    __tablename__ = 'sod_process$'
+    process_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    process_name = Column(VARCHAR(100), primary_key=False, nullable=True)
+    process_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    process_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    process_ukid = Column(INTEGER, primary_key=True, nullable=False)
+
+
 class SodRisks(Base):
     __tablename__ = 'sod_risks'
     risk_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -907,5 +1155,17 @@ class SodRisks(Base):
     risk_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     risk_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     risk_ukid = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class SodRisksDollar(Base):
+    __tablename__ = 'sod_risks$'
+    risk_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    risk_process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    risk_id = Column(VARCHAR(10), primary_key=True, nullable=False)
+    risk_name = Column(VARCHAR(250), primary_key=False, nullable=True)
+    risk_level = Column(VARCHAR(1), primary_key=False, nullable=True)
+    risk_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    risk_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    risk_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 

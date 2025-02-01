@@ -1,13 +1,18 @@
+import configparser
 import logging
 from logging.config import fileConfig
+import os
 import re
 
-from sqlalchemy import engine_from_config
+from sqlalchemy import create_engine, engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from app.setup.models import liberty
-from app.setup.models import libnsx1
+from backend.app.config import get_db_properties_path
+from backend.app.config.config import get_config_path
+from backend.app.setup.models import liberty, libnsx1, libnetl, libnjde, nomasx1
+from backend.app.utils.encrypt import Encryption
+from backend.app.utils.jwt import JWT
 
 USE_TWOPHASE = False
 
@@ -24,6 +29,7 @@ logger = logging.getLogger("alembic.env")
 # gather section names referring to different
 # databases.  These are named "engine1", "engine2"
 # in the sample .ini file.
+
 db_names = config.get_main_option("databases", "")
 
 # add your model's MetaData objects here
@@ -39,12 +45,34 @@ db_names = config.get_main_option("databases", "")
 # }
 target_metadata = {
     "liberty": liberty.Base.metadata,
+    "libnsx1": libnsx1.Base.metadata,
+    "libnjde": libnjde.Base.metadata,
+    "libnetl": libnetl.Base.metadata,
+    "nomasx1": nomasx1.Base.metadata,
 }
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+
+db_properties_path = get_db_properties_path()
+config_parser = configparser.ConfigParser()
+config_parser.read(db_properties_path)
+
+# Extract database configuration
+db_config = config_parser["framework"] 
+jwt = JWT()
+encryption = Encryption(jwt)
+# Return as a dictionary
+
+database_url ={
+    "liberty": f"postgresql+psycopg2://liberty:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/liberty",
+    "libnsx1": f"postgresql+psycopg2://libnsx1:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnsx1",
+    "libnjde": f"postgresql+psycopg2://libnjde:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnjde",
+    "libnetl": f"postgresql+psycopg2://libnetl:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnetl",
+    "nomasx1": f"postgresql+psycopg2://nomasx1:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/nomasx1",
+}
 
 
 def run_migrations_offline() -> None:
@@ -65,7 +93,7 @@ def run_migrations_offline() -> None:
     engines = {}
     for name in re.split(r",\s*", db_names):
         engines[name] = rec = {}
-        rec["url"] = context.config.get_section_option(name, "sqlalchemy.url")
+        rec["url"] = database_url[name]
 
     for name, rec in engines.items():
         logger.info("Migrating database %s" % name)
@@ -97,12 +125,8 @@ def run_migrations_online() -> None:
     engines = {}
     for name in re.split(r",\s*", db_names):
         engines[name] = rec = {}
-        rec["engine"] = engine_from_config(
-            context.config.get_section(name, {}),
-            prefix="sqlalchemy.",
-            poolclass=pool.NullPool,
-        )
-
+        rec["engine"] = create_engine(database_url[name], poolclass=pool.NullPool)
+    
     for name, rec in engines.items():
         engine = rec["engine"]
         rec["connection"] = conn = engine.connect()
