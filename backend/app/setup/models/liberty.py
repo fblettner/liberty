@@ -5,6 +5,11 @@ from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
+class AlembicVersion(Base):
+    __tablename__ = 'alembic_version'
+    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
+
+
 class Databasechangeloglock(Base):
     __tablename__ = 'databasechangeloglock'
     id = Column(INTEGER, primary_key=True, nullable=False)
@@ -21,7 +26,7 @@ class LyActBranch(Base):
     brc_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     brc_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"]),
+        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"], name="ly_act_evt_id_fkey", ondelete="CASCADE"),
     )
     lyactions_rel = relationship('ly_actions')
 
@@ -38,7 +43,7 @@ class LyActParams(Base):
     map_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     map_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"]),
+        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"], name="ly_act_map_id_fkey", ondelete="CASCADE"),
     )
     lyactions_rel = relationship('ly_actions')
 
@@ -55,7 +60,7 @@ class LyActParamsFilters(Base):
     flt_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["act_id", "map_var"], ["ly_act_params.act_id", "ly_act_params.map_var"]),
+        ForeignKeyConstraint(["act_id", "map_var"], ["ly_act_params.act_id", "ly_act_params.map_var"], name="ly_act_params_filters_act_id_map_var_fkey", ondelete="CASCADE"),
     )
     lyactparams_rel = relationship('ly_act_params')
 
@@ -82,7 +87,7 @@ class LyActTasks(Base):
     evt_loop = Column(VARCHAR(1), primary_key=False, nullable=True)
     evt_loop_array = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"]),
+        ForeignKeyConstraint(["act_id"], ["ly_actions.act_id"], name="ly_act_evt_id_fkey", ondelete="CASCADE"),
     )
     lyactions_rel = relationship('ly_actions')
 
@@ -104,7 +109,7 @@ class LyActTasksParams(Base):
     map_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     map_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["act_id", "evt_id"], ["ly_act_tasks.act_id", "ly_act_tasks.evt_id"]),
+        ForeignKeyConstraint(["act_id", "evt_id"], ["ly_act_tasks.act_id", "ly_act_tasks.evt_id"], name="ly_act_taks_act_id_evt_id_fkey", ondelete="CASCADE"),
     )
     lyacttasks_rel = relationship('ly_act_tasks')
 
@@ -186,7 +191,7 @@ class LyCdnGrp(Base):
     cdn_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["cdn_id"], ["ly_condition.cdn_id"]),
+        ForeignKeyConstraint(["cdn_id"], ["ly_condition.cdn_id"], name="lycdngrp_fk1", ondelete="CASCADE"),
     )
     lycondition_rel = relationship('ly_condition')
 
@@ -208,7 +213,7 @@ class LyCdnParams(Base):
     cdn_type = Column(VARCHAR(20), primary_key=False, nullable=True)
     cdn_grp_label = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["cdn_id"], ["ly_condition.cdn_id"]),
+        ForeignKeyConstraint(["cdn_id"], ["ly_condition.cdn_id"], name="llycdnval_fk1", ondelete="CASCADE"),
     )
     lycondition_rel = relationship('ly_condition')
 
@@ -258,7 +263,7 @@ class LyCtxFilters(Base):
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     flt_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["ctx_id", "val_id"], ["ly_ctx_val.ctx_id", "ly_ctx_val.val_id"]),
+        ForeignKeyConstraint(["val_id", "ctx_id"], ["ly_ctx_val.val_id", "ly_ctx_val.ctx_id"], name="ly_ctx_filters_val_id_ctx_id_fkey", ondelete="CASCADE"),
     )
     lyctxval_rel = relationship('ly_ctx_val')
 
@@ -274,7 +279,7 @@ class LyCtxVal(Base):
     val_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     val_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["ctx_id"], ["ly_ctxmenus.ctx_id"]),
+        ForeignKeyConstraint(["ctx_id"], ["ly_ctxmenus.ctx_id"], name="ly_ctx_val_ctx_id_fkey", ondelete="CASCADE"),
     )
     lyctxmenus_rel = relationship('ly_ctxmenus')
 
@@ -288,7 +293,7 @@ class LyCtxValL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["ctx_id", "val_id"], ["ly_ctx_val.ctx_id", "ly_ctx_val.val_id"]),
+        ForeignKeyConstraint(["ctx_id", "val_id"], ["ly_ctx_val.ctx_id", "ly_ctx_val.val_id"], name="ly_ctx_val_l_ctx_id_val_id_fkey", ondelete="CASCADE"),
     )
     lyctxval_rel = relationship('ly_ctx_val')
 
@@ -352,7 +357,7 @@ class LyDictionaryFilters(Base):
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     flt_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["dd_id"], ["ly_dictionary.dd_id"]),
+        ForeignKeyConstraint(["dd_id"], ["ly_dictionary.dd_id"], name="ly_dictionary_filters_d_id_fkey", ondelete="CASCADE"),
     )
     lydictionary_rel = relationship('ly_dictionary')
 
@@ -365,7 +370,7 @@ class LyDictionaryL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["dd_id"], ["ly_dictionary.dd_id"]),
+        ForeignKeyConstraint(["dd_id"], ["ly_dictionary.dd_id"], name="ly_dictionary_l_dd_id_fkey", ondelete="CASCADE"),
     )
     lydictionary_rel = relationship('ly_dictionary')
 
@@ -394,7 +399,7 @@ class LyDlgCol(Base):
     col_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     col_cdn_id = Column(INTEGER, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
+        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="ly_dlg_col_frm_id_fkey", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
 
@@ -411,7 +416,7 @@ class LyDlgColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"]),
+        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"], name="lydlgcolcdn_fk1", ondelete="CASCADE"),
     )
     lydlgcol_rel = relationship('ly_dlg_col')
 
@@ -428,7 +433,7 @@ class LyDlgFilters(Base):
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     flt_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"]),
+        ForeignKeyConstraint(["col_id", "frm_id"], ["ly_dlg_col.col_id", "ly_dlg_col.frm_id"], name="ly_dlg_filters_col_id_frm_id_fkey", ondelete="CASCADE"),
     )
     lydlgcol_rel = relationship('ly_dlg_col')
 
@@ -442,7 +447,7 @@ class LyDlgFrm(Base):
     frm_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     frm_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["dlg_id"], ["ly_dialogs.dlg_id"]),
+        ForeignKeyConstraint(["dlg_id"], ["ly_dialogs.dlg_id"], name="ly_dlg_frm_dlg_id_fkey", ondelete="CASCADE"),
     )
     lydialogs_rel = relationship('ly_dialogs')
 
@@ -460,7 +465,7 @@ class LyDlgTab(Base):
     tab_disable_add = Column(VARCHAR(1), primary_key=False, nullable=True)
     tab_disable_edit = Column(VARCHAR(1), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"]),
+        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="lydlgtab_fk1", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
 
@@ -477,7 +482,7 @@ class LyDlgTabCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"]),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="ly_dlg_tab_cdn_frm_id_tab_id_fkey", ondelete="CASCADE"),
     )
     lydlgtab_rel = relationship('ly_dlg_tab')
 
@@ -491,7 +496,7 @@ class LyDlgTabL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"]),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="ly_dlg_tab_l_frm_id_tab_id_fkey", ondelete="CASCADE"),
     )
     lydlgtab_rel = relationship('ly_dlg_tab')
 
@@ -509,7 +514,7 @@ class LyDshCol(Base):
     dsh_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     dsh_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["dsh_id"], ["ly_dashboard.dsh_id"]),
+        ForeignKeyConstraint(["dsh_id"], ["ly_dashboard.dsh_id"], name="ly_dsh_col_dsh_id_fkey", ondelete="CASCADE"),
     )
     lydashboard_rel = relationship('ly_dashboard')
 
@@ -531,7 +536,7 @@ class LyEnumVal(Base):
     val_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     val_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["enum_id"], ["ly_enum.enum_id"]),
+        ForeignKeyConstraint(["enum_id"], ["ly_enum.enum_id"], name="ly_enum_val_enum_id_fkey", ondelete="CASCADE"),
     )
     lyenum_rel = relationship('ly_enum')
 
@@ -545,7 +550,7 @@ class LyEnumValL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["enum_id", "val_enum"], ["ly_enum_val.enum_id", "ly_enum_val.val_enum"]),
+        ForeignKeyConstraint(["enum_id", "val_enum"], ["ly_enum_val.enum_id", "ly_enum_val.val_enum"], name="ly_enum_val_l_enum_id_val_id_fkey", ondelete="CASCADE"),
     )
     lyenumval_rel = relationship('ly_enum_val')
 
@@ -617,7 +622,7 @@ class LyLkpParams(Base):
     audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     lkp_dir = Column(VARCHAR(20), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lkp_id"], ["ly_lookup.lkp_id"]),
+        ForeignKeyConstraint(["lkp_id"], ["ly_lookup.lkp_id"], name="ly_lkp_params_lkp_id_fkey", ondelete="CASCADE"),
     )
     lylookup_rel = relationship('ly_lookup')
 
@@ -632,7 +637,7 @@ class LyLnkVal(Base):
     val_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     val_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lnk_id"], ["ly_links.lnk_id"]),
+        ForeignKeyConstraint(["lnk_id"], ["ly_links.lnk_id"], name="ly_lnk_val_lnk_id_fkey", ondelete="CASCADE"),
     )
     lylinks_rel = relationship('ly_links')
 
@@ -647,7 +652,7 @@ class LyLnkValL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lnk_id", "val_id"], ["ly_lnk_val.lnk_id", "ly_lnk_val.val_id"]),
+        ForeignKeyConstraint(["lnk_id", "val_id"], ["ly_lnk_val.lnk_id", "ly_lnk_val.val_id"], name="ly_lnk_val_l_lnk_id_val_id_fkey", ondelete="CASCADE"),
     )
     lylnkval_rel = relationship('ly_lnk_val')
 
@@ -692,7 +697,7 @@ class LyMenusFilters(Base):
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     flt_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["menu_seq_ukid"], ["ly_menus.menu_seq_ukid"]),
+        ForeignKeyConstraint(["menu_seq_ukid"], ["ly_menus.menu_seq_ukid"], name="ly_menu_filters_menu_seq_ukid_fkey", ondelete="CASCADE"),
     )
     lymenus_rel = relationship('ly_menus')
 
@@ -705,7 +710,7 @@ class LyMenusL(Base):
     lng_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lng_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lng_seq_ukid"], ["ly_menus.menu_seq_ukid"]),
+        ForeignKeyConstraint(["lng_seq_ukid"], ["ly_menus.menu_seq_ukid"], name="ly_menus_l_lng_seq_ukid_fkey", ondelete="CASCADE"),
     )
     lymenus_rel = relationship('ly_menus')
 
@@ -752,7 +757,7 @@ class LyQrySql(Base):
     query_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     query_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["query_id"], ["ly_query.query_id"]),
+        ForeignKeyConstraint(["query_id"], ["ly_query.query_id"], name="ly_qry_sql_query_id_fkey", ondelete="CASCADE"),
     )
     lyquery_rel = relationship('ly_query')
 
@@ -781,7 +786,7 @@ class LyRolAuth(Base):
     aut_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     aut_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["rol_id"], ["ly_roles.rol_id"]),
+        ForeignKeyConstraint(["rol_id"], ["ly_roles.rol_id"], name="lyrolauth_fk1", ondelete="CASCADE"),
     )
     lyroles_rel = relationship('ly_roles')
 
@@ -801,7 +806,7 @@ class LySeqParams(Base):
     audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["seq_id"], ["ly_sequence.seq_id"]),
+        ForeignKeyConstraint(["seq_id"], ["ly_sequence.seq_id"], name="ly_seq_params_seq_id_fkey", ondelete="CASCADE"),
     )
     lysequence_rel = relationship('ly_sequence')
 
@@ -857,7 +862,7 @@ class LyTblCol(Base):
     col_filter = Column(VARCHAR(1), primary_key=False, nullable=True)
     col_cdn_id = Column(INTEGER, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tbl_id"], ["ly_tables.tbl_id"]),
+        ForeignKeyConstraint(["tbl_id"], ["ly_tables.tbl_id"], name="ly_tbl_col_tbl_id_fkey", ondelete="CASCADE"),
     )
     lytables_rel = relationship('ly_tables')
 
@@ -874,7 +879,7 @@ class LyTblColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"]),
+        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="lytblcolcdn_fk1", ondelete="CASCADE"),
     )
     lytblcol_rel = relationship('ly_tbl_col')
 
@@ -891,7 +896,7 @@ class LyTblFilters(Base):
     flt_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     flt_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"]),
+        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="ly_tbl_filters_col_id_tbl_id_fkey", ondelete="CASCADE"),
     )
     lytblcol_rel = relationship('ly_tbl_col')
 
@@ -899,7 +904,7 @@ class LyTblFilters(Base):
 class LyThemes(Base):
     __tablename__ = 'ly_themes'
     thm_id = Column(INTEGER, primary_key=True, nullable=False)
-    thm_name = Column(VARCHAR(50), primary_key=False, nullable=False)
+    thm_name = Column(VARCHAR(50), primary_key=False, nullable=False, unique=True)
     thm_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     thm_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
 
@@ -914,7 +919,7 @@ class LyThmColors(Base):
     tcl_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     tcl_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["thm_id"], ["ly_themes.thm_id"]),
+        ForeignKeyConstraint(["thm_id"], ["ly_themes.thm_id"], name="ly_thm_colors_thm_id_fkey", ondelete="CASCADE"),
     )
     lythemes_rel = relationship('ly_themes')
 
@@ -957,8 +962,8 @@ class LyUsrRoles(Base):
     rlu_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     rlu_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["usr_id"], ["ly_users.usr_id"]),
-        ForeignKeyConstraint(["rol_id"], ["ly_roles.rol_id"]),
+        ForeignKeyConstraint(["usr_id"], ["ly_users.usr_id"], name="lyusrroles_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["rol_id"], ["ly_roles.rol_id"], name="lyusrroles_fk2", ondelete="CASCADE"),
     )
     lyusers_rel = relationship('ly_users')
     lyroles_rel = relationship('ly_roles')

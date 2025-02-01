@@ -40,7 +40,7 @@ class AuditTrailValues(Base):
     aud_name = Column(VARCHAR(50), primary_key=False, nullable=False)
     aud_value = Column(TEXT, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["aud_apps_id", "aud_row_id"], ["audit_trail_query.aud_apps_id", "audit_trail_query.aud_row_id"]),
+        ForeignKeyConstraint(["aud_apps_id", "aud_row_id"], ["audit_trail_query.aud_apps_id", "audit_trail_query.aud_row_id"], name="audittrailvalues_fk1", ondelete="CASCADE"),
     )
     audittrailquery_rel = relationship('audit_trail_query')
 
@@ -86,18 +86,18 @@ class DbOraLicenses(Base):
 
 
 class DbOraOptions(Base):
-    __tablename__ = 'db_ora_options'
+    __tablename__ = 'db_ora_options$'
     orao_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     orao_inst_id = Column(INTEGER, primary_key=True, nullable=False)
     orao_parameter = Column(VARCHAR(255), primary_key=True, nullable=False)
     orao_value = Column(VARCHAR(1), primary_key=False, nullable=True)
     orao_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     orao_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    orao_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    orao_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class DbOraPartitions(Base):
-    __tablename__ = 'db_ora_partitions'
+    __tablename__ = 'db_ora_partitions$'
     opar_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     opar_owner = Column(VARCHAR(255), primary_key=True, nullable=False)
     opar_segment_type = Column(VARCHAR(255), primary_key=True, nullable=False)
@@ -106,7 +106,7 @@ class DbOraPartitions(Base):
     opar_min_last_ddl = Column(DATE, primary_key=False, nullable=True)
     opar_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     opar_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    opar_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    opar_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class DbOraProperties(Base):
@@ -302,7 +302,7 @@ class LicenseCsiApps(Base):
     lca_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     lca_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lca_csi_id"], ["license_csi.csi_id"]),
+        ForeignKeyConstraint(["lca_csi_id"], ["license_csi.csi_id"], name="licensecsiapps_fk1", ondelete="CASCADE"),
     )
     licensecsi_rel = relationship('license_csi')
 
@@ -317,7 +317,7 @@ class LicenseCsiComponents(Base):
     lcc_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     lcc_ukid = Column(INTEGER, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["lcc_csi_id"], ["license_csi.csi_id"]),
+        ForeignKeyConstraint(["lcc_csi_id"], ["license_csi.csi_id"], name="licensecsicomponents_fk1", ondelete="CASCADE"),
     )
     licensecsi_rel = relationship('license_csi')
 
@@ -523,7 +523,7 @@ class SecurityUsersData(Base):
 
 
 class SecurityUsersProp(Base):
-    __tablename__ = 'security_users_prop'
+    __tablename__ = 'security_users_prop$'
     usrp_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     usrp_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     usrp_name = Column(VARCHAR(255), primary_key=False, nullable=True)
@@ -537,7 +537,7 @@ class SecurityUsersProp(Base):
     usrp_id_previous = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     usrp_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    usrp_ukid = Column(INTEGER, primary_key=False, nullable=True)
+    usrp_ukid = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityXref(Base):
@@ -562,7 +562,7 @@ class SettingsActivityLog(Base):
     acl_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     acl_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["acl_apps_id"], ["settings_applications.apps_id"]),
+        ForeignKeyConstraint(["acl_apps_id"], ["settings_applications.apps_id"], name="settingsactivitylog_fk1", ondelete="CASCADE"),
     )
     settingsapplications_rel = relationship('settings_applications')
 
@@ -722,7 +722,7 @@ class SettingsJdeTv(Base):
     tv_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     tv_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tv_apps_id"], ["settings_applications.apps_id"]),
+        ForeignKeyConstraint(["tv_apps_id"], ["settings_applications.apps_id"], name="settingsjdetv_fk1", ondelete="CASCADE"),
     )
     settingsapplications_rel = relationship('settings_applications')
 
@@ -743,7 +743,7 @@ class SettingsJdedwards(Base):
     jde_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     jde_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["apps_id"], ["settings_applications.apps_id"]),
+        ForeignKeyConstraint(["apps_id"], ["settings_applications.apps_id"], name="settingsjdedwards_fk1", ondelete="CASCADE"),
     )
     settingsapplications_rel = relationship('settings_applications')
 
@@ -757,7 +757,7 @@ class SettingsLdap(Base):
     ldap_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     ldap_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["ldap_apps_id"], ["settings_applications.apps_id"]),
+        ForeignKeyConstraint(["ldap_apps_id"], ["settings_applications.apps_id"], name="settingsldap_fk1", ondelete="CASCADE"),
     )
     settingsapplications_rel = relationship('settings_applications')
 
@@ -888,13 +888,13 @@ class SodObjects(Base):
 
 
 class SodProcess(Base):
-    __tablename__ = 'sod_process$'
+    __tablename__ = 'sod_process'
     process_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     process_id = Column(VARCHAR(10), primary_key=True, nullable=False)
     process_name = Column(VARCHAR(100), primary_key=False, nullable=True)
     process_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     process_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    process_ukid = Column(INTEGER, primary_key=True, nullable=False)
+    process_ukid = Column(INTEGER, primary_key=False, nullable=True)
 
 
 class SodRisks(Base):

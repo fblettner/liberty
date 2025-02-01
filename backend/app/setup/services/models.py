@@ -137,6 +137,8 @@ Base = declarative_base()\n\n"""
             column_definitions = []
             foreign_key_constraints = []
             relationships = []
+            unique_constraints = {u["column_names"][0]: u["name"] for u in inspector.get_unique_constraints(table_name)}
+            existing_fks = inspector.get_foreign_keys(table_name)
 
             # Extract and define columns
             for column in table.__table__.columns:
@@ -144,21 +146,34 @@ Base = declarative_base()\n\n"""
                 column_type = column.type
                 nullable = column.nullable
                 primary_key = column.primary_key
+                unique_key = unique_constraints.get(column_name, None) 
 
                 # Check for Foreign Keys
                 foreign_keys = list(column.foreign_keys)
+
+                on_delete_action = None
                 if foreign_keys:
                     referenced_table = foreign_keys[0].column.table.name
-                    referenced_class = self.to_valid_class_name(referenced_table)
                     referenced_column = foreign_keys[0].column.name
 
-                    # Store composite foreign key references
-                    foreign_key_constraints.append((column_name, referenced_table, referenced_column))
+                    fk_name = None
+                    for fk in existing_fks:
+                        if column_name in fk["constrained_columns"] and referenced_column in fk["referred_columns"]:
+                            fk_name = fk["name"]
+                            on_delete_action = fk.get("options", {}).get("ondelete", None)
+                            
+                            break  # Stop searching once FK is found
 
+                    # Store composite foreign key references
+                    foreign_key_constraints.append((column_name, referenced_table, referenced_column, fk_name, on_delete_action))
+                
                 # Generate column definition
-                column_definitions.append(
-                    f"    {column_name} = Column({column_type}, primary_key={primary_key}, nullable={nullable})"
-                )
+                column_def = f"    {column_name} = Column({column_type}, primary_key={primary_key}, nullable={nullable}"
+                if unique_key:
+                    column_def += ", unique=True"  # Add unique constraint flag
+                column_def += ")"
+                
+                column_definitions.append(column_def)
 
             # Add Columns
             table_definitions[class_name] += "\n".join(column_definitions) + "\n"
@@ -167,13 +182,22 @@ Base = declarative_base()\n\n"""
             if foreign_key_constraints:
                 composite_fk_def = "    __table_args__ = (\n"
                 fk_groups = defaultdict(list)
-                for col_name, ref_table, ref_col in foreign_key_constraints:
-                    fk_groups[ref_table].append((col_name, ref_col))
+
+                for col_name, ref_table, ref_col, fk_name, on_delete_action in foreign_key_constraints:
+                    fk_groups[ref_table].append((col_name, ref_col, fk_name, on_delete_action))
 
                 for ref_table, fk_columns in fk_groups.items():
-                    col_names = ", ".join(f'"{col}"' for col, _ in fk_columns)
-                    ref_cols = ", ".join(f'"{ref_table}.{ref_col}"' for _, ref_col in fk_columns)
-                    composite_fk_def += f"        ForeignKeyConstraint([{col_names}], [{ref_cols}]),\n"
+                    # Match the exact order from the database
+                    db_fk = next(fk for fk in existing_fks if fk["referred_table"] == ref_table)
+                    ordered_columns = list(zip(db_fk["constrained_columns"], db_fk["referred_columns"]))
+
+                    col_names = ", ".join(f'"{col}"' for col, _ in ordered_columns)
+                    ref_cols = ", ".join(f'"{ref_table}.{ref_col}"' for _, ref_col in ordered_columns)
+                    fk_name = fk_columns[0][2]  # Use existing FK name from database
+                    fk_on_delete = fk_columns[0][3]  # Extract on_delete behavior
+
+                    fk_on_delete_clause = f', ondelete="{fk_on_delete}"' if fk_on_delete else ""
+                    composite_fk_def += f'        ForeignKeyConstraint([{col_names}], [{ref_cols}], name="{fk_name}"{fk_on_delete_clause}),\n'
 
                 composite_fk_def += "    )\n"
                 table_definitions[class_name] += composite_fk_def
