@@ -40,19 +40,31 @@ class Setup:
                 "libnsx1": data.get("enterprise", False),
                 "libnjde": data.get("enterprise", False),
                 "libnetl": data.get("enterprise", False),
+            }
+            databases_to_install = [db for db, status in databases_to_install.items() if status]
+            for db_name in databases_to_install:
+                logging.warning(f"Installing {db_name} database...")
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt)
+                db_init.restore_postgres_dump(db_name)
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt)
+                db_password.update_database_settings(db_name)
+                logging.warning(f"{db_name} database restored successfully!")
+            
+            features_to_install = {
                 "nomasx1": data.get("enterprise", False),
                 "nomajde": data.get("enterprise", False),
                 "airflow": data.get("airflow", False),
                 "keycloak": data.get("keycloak", False),
                 "gitea": data.get("gitea", False),
             }
-            databases_to_install = [db for db, status in databases_to_install.items() if status]
-            for db_name in databases_to_install:
-                print(f"Installing {db_name} database...")
-                db_init = Install(user, password, host, port, db_name, admin_database)
+            features_to_install = [db for db, status in features_to_install.items() if status]
+            for db_name in features_to_install:
+                logging.warning(f"Installing {db_name} database...")
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt)
                 db_init.restore_postgres_dump(db_name)
-                print(f"{db_name} database restored successfully!")
-            
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt)
+                logging.warning(f"{db_name} database restored successfully!")
+
             db_properties_path = get_db_properties_path()
             encryption = Encryption(self.jwt)
             encrypted_password = encryption.encrypt_text(password)

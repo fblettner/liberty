@@ -12,7 +12,7 @@ from typing import Dict, List
 
 class OracleDAO(BaseDAO):
     def __init__(self, debug_mode: bool, config: PoolConfig):
-        super().__init__(config)
+        self.config=config
         self.debug_mode = debug_mode
         # self.create_engine()
         # self.init_session()
@@ -25,7 +25,6 @@ class OracleDAO(BaseDAO):
             f"oracle+oracledb://{self.config['user']}:{self.config['password']}@"
             f"{self.config['host']}:{self.config['port']}/?service_name={self.config['database']}"
         )
-
         # Create the SQLAlchemy engine
         self.engine = create_async_engine(
             database_url,
@@ -39,6 +38,7 @@ class OracleDAO(BaseDAO):
         try:
             async with self.async_session() as session:
                 await session.execute(text("SELECT 1 FROM DUAL"))
+                
         except Exception as e:
             raise RuntimeError(f"Error creating pool: {str(e)}")
         

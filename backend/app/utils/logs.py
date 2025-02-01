@@ -112,10 +112,10 @@ class LogHandler:
             )
 
         except FileNotFoundError:
-            print(f"Error: File not found - {log_file_path}")
+            logging.error(f"Error: File not found - {log_file_path}")
             raise
         except Exception as e:
-            print(f"Error reading log file: {e}")
+            logging.error(f"Error reading log file: {e}")
             raise
         
     async def load_logs_cache_text(self, log_file_path: str):

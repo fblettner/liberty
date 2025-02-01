@@ -71,7 +71,6 @@ class Dump:
 
         try:
             all_data = {}
-            print(self.metadata.tables.items())
             for table_name in tables:
                 logging.warning(f"Extracting data from table: {table_name}")
                 normalized_metadata_tables = {name.lower(): name for name in self.metadata.tables.keys()}

@@ -3,11 +3,13 @@ import subprocess
 
 from backend.app.postgres.dump.dump import get_dump_path
 from backend.app.setup.data.data import get_data_path
+from backend.app.utils.encrypt import Encryption
+from backend.app.utils.jwt import JWT
 logger = logging.getLogger(__name__)
 import json
 import datetime
 import os
-from sqlalchemy import create_engine, MetaData, Table, text
+from sqlalchemy import create_engine, MetaData, Table, text, update
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.dialects.postgresql import insert
 
@@ -21,7 +23,8 @@ class DateTimeEncoder(json.JSONEncoder):
         return super().default(obj)
     
 class Install: 
-    def __init__(self, user, password, host, port, database, admin_database):
+    def __init__(self, user, password, host, port, database, admin_database, jwt: JWT):
+        self.jwt = jwt
         self.database = database
         self.admin_database = admin_database
         self.user = user
@@ -131,3 +134,31 @@ class Install:
 
         except subprocess.CalledProcessError as e:
             logging.error(f"Restore failed: {e}")
+
+    def update_database_settings(self, database):     
+        DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
+        engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
+
+        databases_to_update = ["liberty", "libnsx1", "libnjde", "libnetl", "nomajde", "nomasx1"]
+        
+        """Update a row in the table using SQLAlchemy ORM"""
+        try:
+            metadata = MetaData()
+            table = Table("ly_applications", metadata, autoload_with=engine)
+            encryption = Encryption(self.jwt)
+            encrypted_password = encryption.encrypt_text(self.password)
+
+            """Update a row using SQLAlchemy Core"""
+            with engine.connect() as connection:
+                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_password=encrypted_password)
+                connection.execute(stmt)
+                logging.warning(f"Paswword updated successfully for database {database}!")
+                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_host=self.host)
+                connection.execute(stmt)
+                logging.warning(f"Hostname updated successfully for database {database}!")
+                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_port=self.port)
+                connection.execute(stmt)
+                logging.warning(f"Port updated successfully for database {database}!")                
+        except Exception as e:
+            logging.error(f"Update failed: {e}")
+

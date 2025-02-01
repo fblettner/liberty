@@ -51,8 +51,8 @@ class DBPool:
                 self.db_dao = OracleDAO(self.debug_mode, config)
             else:
                 raise ValueError(f"Unsupported database type: {db_type}")
-
             await self.db_dao.create_engine()
+
         except Exception as e:
             raise RuntimeError(f"Error creating pool: {str(e)}")
 

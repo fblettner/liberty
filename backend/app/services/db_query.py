@@ -371,7 +371,6 @@ class Query:
                         "pool_alias": app_pool,
                         "replace_null": results["rows"][0]["APPS_REPLACE_NULL"],
                     }
-                    
                     # Create the pool
                     await new_pool.create_pool(results["rows"][0]["APPS_DBTYPE"], pool_config)
                     self.db_pools.add_pool(app_pool, new_pool)

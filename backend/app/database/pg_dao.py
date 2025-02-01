@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 class PostgresDAO(BaseDAO):
     def __init__(self, debug_mode: bool, config: dict):
-        super().__init__(config)
+        self.config=config
         self.debug_mode = debug_mode
         # self.create_engine()
         # self.init_session()
@@ -20,21 +20,22 @@ class PostgresDAO(BaseDAO):
         """
         Create a SQLAlchemy engine for PostgreSQL.
         """
-        database_url = f"postgresql+asyncpg://{self.config['user']}:{self.config['password']}@{self.config['host']}:{self.config['port']}/{self.config['database']}"
-        
-        self.engine = create_async_engine(
-            database_url,
-            echo=False,  # Debug mode, can be set to False in production
-            pool_size=self.config["poolMax"],  # Max connections in the pool
-            max_overflow=0,  # No additional connections beyond pool_size
-            pool_recycle=30,  # Recycle idle connections (seconds)
-            pool_pre_ping=True,  # Check connection liveness
-        )
-        self.async_session = sessionmaker(self.engine, class_=AsyncSession, expire_on_commit=False)
 
         try:
+            database_url = f"postgresql+asyncpg://{self.config['user']}:{self.config['password']}@{self.config['host']}:{self.config['port']}/{self.config['database']}"
+            self.engine = create_async_engine(
+                database_url,
+                echo=False,  # Debug mode, can be set to False in production
+                pool_size=self.config["poolMax"],  # Max connections in the pool
+                max_overflow=0,  # No additional connections beyond pool_size
+                pool_recycle=30,  # Recycle idle connections (seconds)
+                pool_pre_ping=True,  # Check connection liveness
+            )
+            self.async_session = sessionmaker(self.engine, class_=AsyncSession, expire_on_commit=False)
+
             async with self.async_session() as session:
                 await session.execute(text("SELECT 1"))
+                
         except Exception as e:
             raise RuntimeError(f"Error creating pool: {str(e)}")
 

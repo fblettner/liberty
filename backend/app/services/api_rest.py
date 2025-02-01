@@ -44,8 +44,7 @@ class Rest:
 
             # JSON log
             json_log = json.dumps({"timestamp": timestamp, **log_data})
-            print(json_log)
-            with open(get_logs_json_path, "a") as json_file:
+            with open(get_logs_json_path(), "a") as json_file:
                 json_file.write(json_log + "\n")
 
         except Exception as e:

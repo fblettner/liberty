@@ -86,8 +86,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "PUT",
+        transactionName: "QueryDAO.columns",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -147,8 +147,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "PUT",
+        transactionName: "QueryDAO.get",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -204,8 +204,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "PUT",
+        transactionName: "QueryDAO.post",
+        method: "POST",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -314,7 +314,7 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
+        transactionName: "QueryDAO.delete",
         method: "DELETE",
         url: queryAPI,
         data: errorData,
@@ -349,7 +349,7 @@ export class QueryDAO {
       const result = axionsRes.data;
 
       const logger = new Logger({
-        transactionName: "QueryDAO.login",
+        transactionName: "QueryDAO.token",
         method: "POST",
         url: queryAPI,
         data: result,
@@ -373,8 +373,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.token",
+        method: "POST",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -427,8 +427,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.login",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -478,8 +478,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.open",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -526,8 +526,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.modules",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -549,7 +549,7 @@ export class QueryDAO {
       const result = axionsRes.data;
 
       const logger = new Logger({
-        transactionName: "QueryDAO.modules",
+        transactionName: "QueryDAO.applications",
         method: "GET",
         url: queryAPI,
         data: result,
@@ -574,8 +574,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.applications",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -599,7 +599,7 @@ export class QueryDAO {
       const result = axionsRes.data;
 
       const logger = new Logger({
-        transactionName: "QueryDAO.modules",
+        transactionName: "QueryDAO.themes",
         method: "GET",
         url: queryAPI,
         data: result,
@@ -624,8 +624,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.themes",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -674,8 +674,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.close",
+        method: "GET",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -723,8 +723,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.encrypt",
+        method: "POST",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,
@@ -781,8 +781,8 @@ export class QueryDAO {
       }
 
       const logger = new Logger({
-        transactionName: "QueryDAO.put",
-        method: "DELETE",
+        transactionName: "QueryDAO.audit",
+        method: "POST",
         url: queryAPI,
         data: errorData,
         modulesProperties: this.modulesProperties,

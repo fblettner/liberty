@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 from fastapi import  Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 import jwt  # PyJWT
@@ -37,7 +39,7 @@ class JWT:
         if not Path(ENCRYPTED_SECRETS_FILE).exists():
             self.encrypt_secrets(SECRETS_FILE, ENCRYPTED_SECRETS_FILE, key)
         else:
-            print("Encrypted secrets already exist. Decrypting...")
+            logging.warning("Encrypted secrets already exist. Decrypting...")
 
     # Set file permissions (Read/Write for owner only: 600)
     def set_secure_permissions(self, file_path: str):
@@ -49,7 +51,7 @@ class JWT:
         with open(key_file, "wb") as f:
             f.write(key)
         self.set_secure_permissions(key_file)
-        print(f"Encryption key saved and permissions secured: {key_file}")
+        logging.warning(f"Encryption key saved and permissions secured: {key_file}")
         return key
 
     # Step 2: Create secrets.json if it doesn't exist
@@ -61,8 +63,7 @@ class JWT:
         with open(secrets_file, "w") as f:
             json.dump(default_secrets, f, indent=4)
         self.set_secure_permissions(secrets_file)
-        print(f"Created default secrets file: {secrets_file}")
-
+        logging.warning(f"Created default secrets file: {secrets_file}")
 
     # Step 3: Encrypt secrets file
     def encrypt_secrets(self, secrets_file: str, encrypted_file: str, key: bytes):
@@ -73,7 +74,7 @@ class JWT:
         with open(encrypted_file, "wb") as f:
             f.write(encrypted_secrets)
         self.set_secure_permissions(encrypted_file)
-        print(f"Secrets encrypted and saved: {encrypted_file}")
+        logging.warning(f"Secrets encrypted and saved: {encrypted_file}")
 
     # Step 4: Decrypt secrets at runtime
     def decrypt_secrets(self, encrypted_file: str, key_file: str):

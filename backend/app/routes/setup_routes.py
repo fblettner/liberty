@@ -50,7 +50,7 @@ def setup_setup_routes(app, controller: SetupController):
             500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
         },
     )
-    async def models(
+    async def repository(
         req: Request,
     ):
         return await controller.repository(req)
