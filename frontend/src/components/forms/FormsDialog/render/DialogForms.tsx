@@ -40,7 +40,6 @@ interface IDialogForms {
     onActionEnd: OnActionEndFunction;
     parentActiveTab?: string
     parentTabIndex?: string;
-
 }
 
 export const DialogForms = ({ tabs, activeTab, dialogDetailsRef, onTabChange, componentProperties, reserveStatus, maxRows, onAutocompleteChange, onInputChange, onCheckboxChange

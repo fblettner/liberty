@@ -19,7 +19,6 @@ interface ITabContainerProps {
 }
 
 export const TabContainer = ({ tabs, activeTab, onTabChange }: ITabContainerProps) => {
-  
   return (
     <Tabs_Dialogs 
         variant="scrollable" 

@@ -25,6 +25,7 @@ export interface IDialogHelp {
     dialogHeaderRef: React.MutableRefObject<IDialogHeader>;
 }
 
+
 export const DialogHelp = (props: IDialogHelp) => {
     const { open, setOpen, componentProperties, dialogHeaderRef } = props;
 

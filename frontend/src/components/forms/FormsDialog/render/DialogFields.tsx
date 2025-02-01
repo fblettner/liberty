@@ -28,7 +28,6 @@ interface IDialogFields {
     onAutocompleteChange: OnAutocompleteChangeFunction;
     onInputChange: OnInputChangeFunction;
     onCheckboxChange: OnCheckboxChangeFunction;
-
 }
 
 export const DialogFields = ({ item, dialogContent, reserveStatus, maxRows, onAutocompleteChange, onInputChange, onCheckboxChange }: IDialogFields) => {

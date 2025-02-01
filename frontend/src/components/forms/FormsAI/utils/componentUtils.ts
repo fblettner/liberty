@@ -23,7 +23,6 @@ export interface IComponentAnalysisProps {
     isMarkdown: boolean;
     }
 
-
 export const handleComponentAnalysis = async (params: IComponentAnalysisProps) => {
     const { appsProperties, userProperties, modulesProperties, sendPrompt, addMessageToHistory, setIsLoading, setError, handleError, content, isMarkdown } = params;
     setIsLoading(true);

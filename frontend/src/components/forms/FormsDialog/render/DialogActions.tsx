@@ -22,6 +22,7 @@ interface IDialogActions {
     onActionEnd: OnActionEndFunction;
 }
 
+
 export const DialogActions = ({ item, dialogContent, reserveStatus, component, componentContent, onActionEnd }: IDialogActions) => {
     return (
         <InputAction

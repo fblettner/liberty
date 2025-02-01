@@ -28,6 +28,7 @@ interface IDialogWidget {
     sendAction?: IDialogAction
 }
 
+
 export const DialogWidget = ({
     open,
     componentProperties,

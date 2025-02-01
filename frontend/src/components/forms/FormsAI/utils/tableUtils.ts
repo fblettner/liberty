@@ -44,6 +44,7 @@ export interface ITableAIProps {
   isMarkdown: boolean;
 }
 
+
 const insertOrUpdateData = async (params: IInsertOrUpdateDataProps) => {
   const { appsProperties, userProperties, modulesProperties, sendPrompt, addMessageToHistory, setIsLoading, setError, handleError, userInput, isMarkdown, matchedTableID, matchedQueryID, response_json } = params;
 

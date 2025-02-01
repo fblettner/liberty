@@ -14,6 +14,7 @@ export const updateUserData = (prevData: Record<string, string>, id: string, val
     return { ...prevData, [id]: value };
 };
 
+
 interface IGetRestDataParams {
     updatedUserData: IUsersProps;
     userProperties: IUsersProps;

@@ -29,7 +29,7 @@ for DB in $DATABASES; do
   docker exec $DB_CONTAINER pg_dump -U $DB_USER --data-only $DB > $DUMP_DIR/${DB}_data.dump
   
     # Step 3b: Dump the data-only from the PostgreSQL database inside the Docker container
-  echo "Dumping data-only for $DB..."
+  echo "Dumping schema and data for $DB..."
   docker exec $DB_CONTAINER pg_dump -U $DB_USER $DB > $DUMP_DIR/${DB}.sql
   
 done

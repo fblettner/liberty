@@ -29,7 +29,6 @@ import { ResultStatus } from "@ly_types/lyQuery";
 import { Paper_Dialogs } from "@ly_components/styles/Paper";
 import { Stack_Dialogs } from "@ly_components/styles/Stack";
 
-
 type Props = Readonly<{
     componentProperties: ComponentProperties;
     sendAction?: IDialogAction;

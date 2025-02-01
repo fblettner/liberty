@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import axios from "axios";
@@ -7,13 +7,13 @@ import { Div_AppsSetup, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Pape
 import { LYLogoIcon } from "@ly_styles/icons";
 import { Input } from '@ly_components/common/Input';
 import { Button } from "@ly_components/common/Button";
+import { Checkbox } from "@ly_components/common/Checkbox";
 
 // Styles
-
 const Form_Setup = styled('form')(({ theme }) => ({
-  width: '100%', // Fix IE 11 issue.
+  width: '100%',
   marginTop: theme.spacing(1),
-}))
+}));
 
 const Title = styled.h2`
   text-align: center;
@@ -22,16 +22,14 @@ const Title = styled.h2`
 `;
 
 export const Button_Setup = styled(Button)(({ theme, variant }) => ({
-
   marginTop: theme.spacing(2),
   color: theme.palette.text.primary,
-  "&:hover":  {
+  "&:hover": {
     boxShadow: theme.shadows[4],
     background: theme.palette.primary.main,
-    transform: "scale(1.03)", 
-},
+    transform: "scale(1.03)",
+  },
 }));
-
 
 const progressBarAnimation = keyframes`
   from { width: 0; }
@@ -62,12 +60,16 @@ const Spinner = styled.div`
 `;
 
 export default function SetupDialog() {
+  const [step, setStep] = useState(1); // Track form step
   const [formData, setFormData] = useState({
     host: "localhost",
     port: "5433",
     database: "liberty",
     user: "liberty",
     password: "change_on_install",
+    keycloak: false,
+    airflow: false,
+    gitea: false,
   });
 
   const [progress, setProgress] = useState(0);
@@ -75,7 +77,12 @@ export default function SetupDialog() {
   const [logs, setLogs] = useState<string[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const { id, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const logMessage = (message: string) => {
@@ -125,75 +132,104 @@ export default function SetupDialog() {
           <Paper_Setup>
             <LYLogoIcon width="75px" height="75px" />
             <Form_Setup>
-              <Title>Installation</Title>
-              <Div_AppsSetup>
-                <Input
-                  id="host"
-                  name="host"
-                  label="Database Host"
-                  value={formData.host}
-                  onChange={handleChange}
-                  required
-                  fullWidth
-                  variant="standard"
-                />
-              </Div_AppsSetup>
-              <Div_AppsSetup>
-                <Input
-                  id="port"
-                  name="port"
-                  label="Port"
-                  value={formData.port}
-                  onChange={handleChange}
-                  required
-                  fullWidth
-                  variant="standard"
-                />
-              </Div_AppsSetup>
-              <Div_AppsSetup>
-                <Input
-                  id="database"
-                  name="database"
-                  label="Database Name"
-                  value={formData.database}
-                  onChange={handleChange}
-                  required
-                  fullWidth
-                  variant="standard"
-                />
-              </Div_AppsSetup>
-              <Div_AppsSetup>
-                <Input 
-                  id="user" 
-                  name="user" 
-                  label="User" 
-                  value={formData.user} 
-                  onChange={handleChange}
-                  required
-                  fullWidth
-                  variant="standard" 
-                />
-              </Div_AppsSetup>
-              <Div_AppsSetup>
-                <Input 
-                  id="password" 
-                  name="password" 
-                  label="Password" 
-                  type="password" 
-                  value={formData.password} 
-                  onChange={handleChange} 
-                  required
-                  fullWidth
-                  variant="standard"
-                />
-              </Div_AppsSetup>
+              <Title>Installation - Step {step} of 2</Title>
 
-              {loading && (
+              {step === 1 && (
                 <>
-                  <ProgressBar progress={progress} />
-                  <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                    <Spinner />
-                  </div>
+                  <Div_AppsSetup>
+                    <Input
+                      id="host"
+                      name="host"
+                      label="Database Host"
+                      value={formData.host}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Input
+                      id="port"
+                      name="port"
+                      label="Port"
+                      value={formData.port}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Input
+                      id="database"
+                      name="database"
+                      label="Database Name"
+                      value={formData.database}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Input
+                      id="user"
+                      name="user"
+                      label="User"
+                      value={formData.user}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Input
+                      id="password"
+                      name="password"
+                      label="Password"
+                      type="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                </>
+              )}
+
+              {step === 2 && (
+                <>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="keycloak"
+                      checked={formData.keycloak}
+                      onChange={handleChange}
+                      label="Do you want to install Keycloak?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="airflow"
+                      checked={formData.airflow}
+                      onChange={handleChange}
+                      label="Do you want to install Airflow?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="gitea"
+                      checked={formData.gitea}
+                      onChange={handleChange}
+                      label="Do you want to install Gitea?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
                 </>
               )}
 
@@ -203,9 +239,22 @@ export default function SetupDialog() {
                 ))}
               </Div_Logs>
 
-              <Button_Setup fullWidth variant="contained" onClick={handleInstall} disabled={loading}>
-                Proceed
-              </Button_Setup>
+              {step === 1 && (
+                <Button_Setup fullWidth variant="contained" onClick={() => setStep(2)}>
+                  Next
+                </Button_Setup>
+              )}
+
+              {step === 2 && (
+                <Fragment>
+                  <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)}>
+                    Previous
+                  </Button_Setup>
+                  <Button_Setup fullWidth variant="contained" onClick={handleInstall} disabled={loading}>
+                    Install
+                  </Button_Setup>
+                </Fragment>
+              )}
             </Form_Setup>
           </Paper_Setup>
         </Div_Setup>
