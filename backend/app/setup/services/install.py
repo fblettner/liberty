@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 import json
 import datetime
 import os
-from sqlalchemy import create_engine, MetaData, Table, text, update
+from sqlalchemy import create_engine, MetaData, Table, delete, text, update
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.dialects.postgresql import insert
 
@@ -23,12 +23,13 @@ class DateTimeEncoder(json.JSONEncoder):
         return super().default(obj)
     
 class Install: 
-    def __init__(self, user, password, host, port, database, admin_database, jwt: JWT):
+    def __init__(self, user, password, host, port, database, admin_database, jwt: JWT, admin_password):
         self.jwt = jwt
         self.database = database
         self.admin_database = admin_database
         self.user = user
         self.password = password
+        self.admin_password = admin_password
         self.host = host
         self.port = port
 
@@ -158,7 +159,22 @@ class Install:
                 logging.warning(f"Hostname updated successfully for database {database}!")
                 stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_port=self.port)
                 connection.execute(stmt)
-                logging.warning(f"Port updated successfully for database {database}!")                
+                logging.warning(f"Port updated successfully for database {database}!")            
+
+            table = Table("ly_users", metadata, autoload_with=engine)
+            encryption = Encryption(self.jwt)
+            encrypted_admin_password = encryption.encrypt_text(self.admin_password)
+
+            """Update a row using SQLAlchemy Core"""
+            with engine.connect() as connection:
+                stmt = update(table).where(table.c.usr_id=="admin").values(usr_password=encrypted_admin_password)
+                connection.execute(stmt)
+                logging.warning(f"Admin paswword updated successfully for database {database}!")
+                stmt = delete(table).where(table.c.usr_id=="demo")
+                connection.execute(stmt)
+                logging.warning(f"Demo user deleted successfully for database {database}!")                
+
+
         except Exception as e:
             logging.error(f"Update failed: {e}")
 

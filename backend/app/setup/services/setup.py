@@ -27,6 +27,7 @@ class Setup:
             admin_database = data.get("database")
             user = data.get("user")
             password = data.get("password")
+            admin_password = data.get("admin_password")
 
             # Create all tables in the database
 #            for table in Base.metadata.tables.values():
@@ -44,9 +45,9 @@ class Setup:
             databases_to_install = [db for db, status in databases_to_install.items() if status]
             for db_name in databases_to_install:
                 logging.warning(f"Installing {db_name} database...")
-                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt)
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
                 db_init.restore_postgres_dump(db_name)
-                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt)
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
                 db_password.update_database_settings(db_name)
                 logging.warning(f"{db_name} database restored successfully!")
             
@@ -60,9 +61,9 @@ class Setup:
             features_to_install = [db for db, status in features_to_install.items() if status]
             for db_name in features_to_install:
                 logging.warning(f"Installing {db_name} database...")
-                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt)
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
                 db_init.restore_postgres_dump(db_name)
-                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt)
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
                 logging.warning(f"{db_name} database restored successfully!")
 
             db_properties_path = get_db_properties_path()

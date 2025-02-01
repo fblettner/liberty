@@ -67,6 +67,7 @@ export default function SetupDialog() {
     database: "liberty",
     user: "liberty",
     password: "nomana",
+    admin_password: "nomana",
     enterprise: false,
     keycloak: false,
     airflow: false,
@@ -204,11 +205,24 @@ export default function SetupDialog() {
               {step === 2 && (
                 <>
                   <Div_AppsSetup>
+                    <Input
+                      id="admin_password"
+                      name="admin_password"
+                      label="Admin Password"
+                      type="password"
+                      value={formData.admin_password}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
                     <Checkbox
                       id="enterprise"
                       checked={formData.enterprise}
                       onChange={handleChange}
-                      label="Do you want to install enterprise features?"
+                      label="Do you want to install enterprise features? (license is required)"
                       labelPlacement="end"
                     />
 
