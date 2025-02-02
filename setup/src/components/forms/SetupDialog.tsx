@@ -265,7 +265,7 @@ export default function SetupDialog() {
                       labelPlacement="end"
                     />
 
-                  </Div_AppsSetup>                
+                  </Div_AppsSetup>
                   <Div_AppsSetup>
                     <Checkbox
                       id="keycloak"
@@ -302,7 +302,7 @@ export default function SetupDialog() {
                       label="Do you want to load data (this will erase all current database)?"
                       labelPlacement="end"
                     />
-                  </Div_AppsSetup>                  
+                  </Div_AppsSetup>
                 </>
               )}
               {loading && (
@@ -326,19 +326,24 @@ export default function SetupDialog() {
               )}
 
               {step === 2 && (
-                <Div_DialogToolbar>
-                  <Div_DialogToolbarButtons>
-                    <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)} disabled={loading}>
-                      Previous
-                    </Button_Setup>
-                    <Button_Setup fullWidth variant="contained"  disabled={loading} onClick={handleInstall}>
-                      Install
-                    </Button_Setup>
-                    <Button_Setup fullWidth variant="contained"  disabled={loading} onClick={handleUpgrade}>
-                      Upgrade
-                    </Button_Setup>                    
-                  </Div_DialogToolbarButtons>
-                </Div_DialogToolbar>
+                <Fragment>
+                  <Div_DialogToolbar>
+                    <Div_DialogToolbarButtons>
+                      <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)} disabled={loading}>
+                        Previous
+                      </Button_Setup>
+                      <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
+                        Update Settings
+                      </Button_Setup>
+                    </Div_DialogToolbarButtons>
+                  </Div_DialogToolbar>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
+                    Install
+                  </Button_Setup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleUpgrade}>
+                    Upgrade
+                  </Button_Setup>
+                </Fragment>
               )}
             </Form_Setup>
           </Paper_Setup>
