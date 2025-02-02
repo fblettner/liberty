@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install the Python package
-COPY ./backend/dist/liberty_framework-1.0.0.tar.gz /app
-RUN pip install --no-cache-dir /app/liberty_framework-1.0.0.tar.gz
+COPY ./backend/dist/*.tar.gz /app/liberty-framework-latest.tar.gz
+RUN pip install --no-cache-dir /app/liberty-framework-latest.tar.gz
 
 # Expose FastAPI's default port
 EXPOSE 8000
