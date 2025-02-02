@@ -1,6 +1,5 @@
 import logging
-
-
+import sys
 
 # Configure global logging
 logging.basicConfig(
@@ -23,6 +22,7 @@ from app.routes.socket_routes import setup_socket_routes
 from app.routes.setup_routes import setup_setup_routes
 from app.config import get_db_properties_path
 from contextlib import asynccontextmanager
+import uvicorn
 
 class BackendAPI:
     def __init__(self):
@@ -208,8 +208,20 @@ async def lifespan(app: FastAPI):
 
         yield
 
+def main():
+    """Entry point for running the application."""
+    config = uvicorn.Config("app.main:app", host="0.0.0.0", port=8000, reload=True, log_level="warning")
+    server = uvicorn.Server(config)
+    
+    try:
+        print("Starting FastAPI server... Press Ctrl+C to stop.")
+        server.run()
+    except KeyboardInterrupt:
+        print("\nServer shutting down gracefully...")
+        sys.exit(0)  # Exit without error
 
-
+if __name__ == "__main__":
+    main()
 
 # Set the lifespan handler
 app.router.lifespan_context = lifespan

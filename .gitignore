@@ -40,8 +40,6 @@ node_modules
 # Testing
 coverage
 
-# Production
-dist
 
 # Miscellaneous
 *.local
@@ -69,7 +67,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
