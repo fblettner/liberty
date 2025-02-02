@@ -29,7 +29,7 @@ services:
       - pg-data-test:/var/lib/postgresql/data:Z
     environment:
       - POSTGRES_USER=liberty
-      - POSTGRES_PASSWORD=nomana
+      - POSTGRES_PASSWORD=change_on_install
 volumes:
   pg-data-test:
     name: pg-data-test

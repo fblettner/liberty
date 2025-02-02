@@ -7,7 +7,7 @@ services:
       dockerfile: ./docker/framework/Dockerfile
     image: ghcr.io/fblettner/liberty-framework:latest
     #command: ["fastapi", "run", "main.py"]
-    command: ["uvicorn", "app.main:app", "--host", "fastapi", "--port", "8000"]
+    command: [liberty-start]
     security_opt:
       - "label:disable"
     cap_drop:
