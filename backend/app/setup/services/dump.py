@@ -7,8 +7,8 @@ from app.setup.data.data import get_data_path
 import json
 import datetime
 import os
-from sqlalchemy import create_engine, MetaData, Table
-
+from sqlalchemy import create_engine, MetaData, Table, text
+from sqlalchemy.dialects.postgresql import insert
 
 EXCLUDED_TABLES = {"databasechangelog", "databasechangeloglock"}  # Add tables to exclude
 
@@ -24,12 +24,13 @@ class Dump:
         db_properties_path = get_db_properties_path()
         config = apiController.queryRest.load_db_properties(db_properties_path)
         self.database = database
+        self.apiController = apiController
 
         # Database configuration
         DATABASE_URL = f"postgresql+psycopg2://{database}:{config["password"]}@{config["host"]}:{config["port"]}/{database}"
 
         try:
-            self.engine = create_engine(DATABASE_URL, echo=False)
+            self.engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT")
             self.metadata = MetaData()
             self.metadata.reflect(bind=self.engine)
             self.database = database
@@ -43,10 +44,10 @@ class Dump:
 
         for table_name, table in self.metadata.tables.items():
             if table_name in EXCLUDED_TABLES:
-                logging.warning(f"Skipping table: {table_name}")
+                logging.debug(f"Skipping table: {table_name}")
                 continue  # Skip this iteration
 
-            logging.warning(f"Extracting data from table: {table_name}")
+            logging.debug(f"Extracting data from table: {table_name}")
             
             # Reflect table
             mapped_table = Table(table_name, self.metadata, autoload_with=self.engine)
@@ -72,7 +73,7 @@ class Dump:
         try:
             all_data = {}
             for table_name in tables:
-                logging.warning(f"Extracting data from table: {table_name}")
+                logging.debug(f"Extracting data from table: {table_name}")
                 normalized_metadata_tables = {name.lower(): name for name in self.metadata.tables.keys()}
                 
                 if table_name.lower() not in normalized_metadata_tables:
@@ -98,3 +99,55 @@ class Dump:
 
         except Exception as e:
             logging.error(f"Error processing table {table_name}: {str(e)}")
+
+
+    def upload_json_to_database(self):     
+        """Upload JSON data to the database."""
+        logging.warning(f"Uploading database: {self.database}")
+
+        # Create an engine for the admin database
+        db_properties_path = get_db_properties_path()
+        config = self.apiController.queryRest.load_db_properties(db_properties_path)
+        # Database configuration
+        ADMIN_DATABASE_URL = f"postgresql+psycopg2://{config["user"]}:{config["password"]}@{config["host"]}:{config["port"]}/{self.database}"
+        admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+
+        # Step 1: Disable foreign key checks
+        with admin_engine.connect() as conn:
+            conn.execute(text("SET session_replication_role = 'replica';"))
+
+
+        # Load JSON data
+        with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        with self.engine.begin() as conn:
+            # Step 2: Insert Data into Tables
+            for table_name, records in data.items():
+                if table_name in EXCLUDED_TABLES:
+                    logging.debug(f"Skipping table: {table_name}")
+                    continue  # Skip this iteration
+
+                logging.debug(f"Uploading data to table: {table_name}")
+
+                table = Table(table_name, self.metadata, autoload_with=self.engine)
+                primary_keys = [col.name for col in table.primary_key.columns]  # Get primary keys
+
+                if not primary_keys:
+                    logging.debug("Skipping {table_name}, no primary key detected!")
+                    continue
+
+                for record in records:
+                    stmt = insert(table).values(**record)
+                    upsert_stmt = stmt.on_conflict_do_update(
+                        index_elements=primary_keys,  # Conflict resolution based on primary keys
+                        set_={col.name: stmt.excluded[col.name] for col in table.columns if col.name not in primary_keys}
+                    )
+
+                    conn.execute(upsert_stmt)  # Execute UPSERT           
+
+        # Step 3: Enable foreign key checks
+        with admin_engine.connect() as conn:
+            conn.execute(text("SET session_replication_role = 'origin';"))
+
+        logging.warning("Data upload completed successfully!")

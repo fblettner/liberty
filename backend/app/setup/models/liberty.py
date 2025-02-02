@@ -10,14 +10,6 @@ class AlembicVersion(Base):
     version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
 
 
-class Databasechangeloglock(Base):
-    __tablename__ = 'databasechangeloglock'
-    id = Column(INTEGER, primary_key=True, nullable=False)
-    locked = Column(BOOLEAN, primary_key=False, nullable=False)
-    lockgranted = Column(TIMESTAMP, primary_key=False, nullable=True)
-    lockedby = Column(VARCHAR(255), primary_key=False, nullable=True)
-
-
 class LyActBranch(Base):
     __tablename__ = 'ly_act_branch'
     act_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -201,7 +193,7 @@ class LyCdnParams(Base):
     cdn_id = Column(INTEGER, primary_key=True, nullable=False)
     cdn_params_id = Column(INTEGER, primary_key=True, nullable=False)
     cdn_seq = Column(INTEGER, primary_key=False, nullable=False)
-    cdn_dd_id = Column(VARCHAR(50), primary_key=False, nullable=False)
+    cdn_dd_id = Column(VARCHAR(50), primary_key=False, nullable=True)
     cdn_operator = Column(VARCHAR(20), primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     cdn_enum_id = Column(INTEGER, primary_key=False, nullable=True)

@@ -203,7 +203,7 @@ async def lifespan(app: FastAPI):
         logging.warning("Database initialized successfully.")
         yield
     except Exception as e:
-        logging.warning(f"Database is not available: {str(e)}")
+        logging.error(f"Database is not available: {str(e)}")
         app.state.offline_mode = True
 
         yield

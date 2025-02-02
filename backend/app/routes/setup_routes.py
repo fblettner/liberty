@@ -3,7 +3,6 @@ logger = logging.getLogger(__name__)
 
 import json
 from app.config import get_db_properties_path
-from app.services.alembic import alembic_current, alembic_downgrade, alembic_revision, alembic_upgrade
 import os
 from fastapi import APIRouter, Request
 
@@ -41,8 +40,8 @@ def setup_setup_routes(app, controller: SetupController):
 
     @router.get(
         "/export/repository",
-        summary="EXPORT - Repository for new installations",
-        description="Export all tables models to Alchemy.",
+        summary="EXPORT - Repository for Deployment",
+        description="Export all tables models and data.",
         tags=["Export"], 
         response_model=SuccessResponse,
         responses={
@@ -68,24 +67,71 @@ def setup_setup_routes(app, controller: SetupController):
         return {"message": "Setup still required."}
 
 
-    @router.post("/setup/upgrade")
-    async def upgrade_db():
+    @router.post("/setup/upgrade",
+        summary="SETUP - Upgrade",
+        description="Upgrade databases to latest version",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def upgrade(        
+        req: Request
+        ):
         """Upgrade the database to the latest Alembic migration."""
-        return alembic_upgrade()
+        return controller.upgrade(req)
 
-    @router.post("/setup/downgrade/{version}")
-    async def downgrade_db(version: str):
+    @router.post("/setup/downgrade/{version}",
+        summary="SETUP - Downgrade",
+        description="Downgrade databases to a specific version",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def downgrade(        
+        req: Request
+        ):
         """Downgrade the database to a specific Alembic version."""
-        return alembic_downgrade(version)
+        return controller.downgrade(req)
 
-    @router.post("/setup/revision")
-    async def create_migration(message: str):
-        """Create a new Alembic migration with a message."""
-        return alembic_revision(message)
+    @router.post("/setup/revision",
+        summary="SETUP - Revision",
+        description="Create a new revision for the database",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def revision(        
+        req: Request
+        ):
+        return controller.revision(req)
 
-    @router.get("/setup/current")
-    async def get_current_version():
+    @router.get("/setup/current",
+        summary="SETUP - Current",
+        description="Get the current version deployed",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def current(        
+        req: Request
+        ):
         """Get the current Alembic migration version."""
-        return alembic_current()
+        return controller.current(req)
 
     app.include_router(router, prefix="/api")

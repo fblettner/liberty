@@ -5,11 +5,6 @@ from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
-class AlembicVersion(Base):
-    __tablename__ = 'alembic_version'
-    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
-
-
 class AuditTrail(Base):
     __tablename__ = 'audit_trail'
     aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -48,14 +43,6 @@ class AuditTrailValues(Base):
         ForeignKeyConstraint(["aud_apps_id", "aud_row_id"], ["audit_trail_query.aud_apps_id", "audit_trail_query.aud_row_id"], name="audittrailvalues_fk1", ondelete="CASCADE"),
     )
     audittrailquery_rel = relationship('audit_trail_query')
-
-
-class Databasechangeloglock(Base):
-    __tablename__ = 'databasechangeloglock'
-    id = Column(INTEGER, primary_key=True, nullable=False)
-    locked = Column(BOOLEAN, primary_key=False, nullable=False)
-    lockgranted = Column(TIMESTAMP, primary_key=False, nullable=True)
-    lockedby = Column(VARCHAR(255), primary_key=False, nullable=True)
 
 
 class DbAudit(Base):

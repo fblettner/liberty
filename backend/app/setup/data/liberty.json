@@ -64,7 +64,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnetl",
-            "apps_password": "ENC:Ro8Bkm5oV69ffSMR9jtqHmObHAgqALUdEdJOFALBJwgi5ImRnMeV9aXOPh1d8UnvJjD7kH6OhdB6RMOBBcuubGW2wNrulf5Q4XrxXSR4NYuJQKoQkdjZl6CxTa+rD7SbWqWLW4bT",
+            "apps_password": "ENC:hGIKuSLcJCK9Dj2GPtqDrlVIoq1JvAWzK2PybcyPzsXDvC6IclLUuuWeoX6PVfUDfloo/RulhSelMJ1gPWSJYjtWNGZzAwi9nTmLS9SJ7f9E8Dnof8F1nNZUThcFpZo6o9C4iPgu",
             "apps_host": "localhost",
             "apps_port": 5433,
             "apps_database": "libnetl",
@@ -88,7 +88,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnsx1",
-            "apps_password": "ENC:Ro8Bkm5oV69ffSMR9jtqHmObHAgqALUdEdJOFALBJwgi5ImRnMeV9aXOPh1d8UnvJjD7kH6OhdB6RMOBBcuubGW2wNrulf5Q4XrxXSR4NYuJQKoQkdjZl6CxTa+rD7SbWqWLW4bT",
+            "apps_password": "ENC:hGIKuSLcJCK9Dj2GPtqDrlVIoq1JvAWzK2PybcyPzsXDvC6IclLUuuWeoX6PVfUDfloo/RulhSelMJ1gPWSJYjtWNGZzAwi9nTmLS9SJ7f9E8Dnof8F1nNZUThcFpZo6o9C4iPgu",
             "apps_host": "localhost",
             "apps_port": 5433,
             "apps_database": "libnsx1",
@@ -112,7 +112,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnjde",
-            "apps_password": "ENC:Ro8Bkm5oV69ffSMR9jtqHmObHAgqALUdEdJOFALBJwgi5ImRnMeV9aXOPh1d8UnvJjD7kH6OhdB6RMOBBcuubGW2wNrulf5Q4XrxXSR4NYuJQKoQkdjZl6CxTa+rD7SbWqWLW4bT",
+            "apps_password": "ENC:hGIKuSLcJCK9Dj2GPtqDrlVIoq1JvAWzK2PybcyPzsXDvC6IclLUuuWeoX6PVfUDfloo/RulhSelMJ1gPWSJYjtWNGZzAwi9nTmLS9SJ7f9E8Dnof8F1nNZUThcFpZo6o9C4iPgu",
             "apps_host": "localhost",
             "apps_port": 5433,
             "apps_database": "libnjde",
@@ -28989,6 +28989,912 @@
             "cdn_value": null
         }
     ],
+    "ly_dlg_tab_l": [
+        {
+            "frm_id": 1,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Connexions",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 6,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "SQL",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Rôles",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-06T09:24:28.885000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:02.571000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Onglets",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:18.399000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:28.823000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:44.816000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:17:55.980000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:04.757000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:33.116000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Composant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:18:51.336000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:00.949000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire spécifique",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:13.517000"
+        },
+        {
+            "frm_id": 9,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:36.491000"
+        },
+        {
+            "frm_id": 9,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Ecrans",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:19:52.259000"
+        },
+        {
+            "frm_id": 6,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:20:23.583000"
+        },
+        {
+            "frm_id": 7,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:20:42.493000"
+        },
+        {
+            "frm_id": 7,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Méthodes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:02.679000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:20.594000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:31.364000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Colonnes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:40.400000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:21:54.116000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire spécifique",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:06.684000"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:24.612000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:22:50.071000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Utilisateurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:23:00.513000"
+        },
+        {
+            "frm_id": 51,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-28T05:36:42.866000"
+        },
+        {
+            "frm_id": 36,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:23:58.326000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Type",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:11.987000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Menus",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:24.364000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Composants",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:35.104000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:45.554000"
+        },
+        {
+            "frm_id": 38,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Droits",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:24:54.235000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:12.131000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:24.313000"
+        },
+        {
+            "frm_id": 12,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:25:44.690000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:17.133000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:30.107000"
+        },
+        {
+            "frm_id": 18,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:26:50.343000"
+        },
+        {
+            "frm_id": 18,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:02.636000"
+        },
+        {
+            "frm_id": 19,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:15.594000"
+        },
+        {
+            "frm_id": 19,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:26.116000"
+        },
+        {
+            "frm_id": 20,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:46.428000"
+        },
+        {
+            "frm_id": 20,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Script",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:27:58.696000"
+        },
+        {
+            "frm_id": 21,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:15.335000"
+        },
+        {
+            "frm_id": 23,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "En-tête",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:49.222000"
+        },
+        {
+            "frm_id": 23,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:28:58.330000"
+        },
+        {
+            "frm_id": 24,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:10.608000"
+        },
+        {
+            "frm_id": 24,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:20.379000"
+        },
+        {
+            "frm_id": 25,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:46.749000"
+        },
+        {
+            "frm_id": 25,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Valeurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:29:55.709000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:30:07.962000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Menus",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-28T07:49:17.045000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:30:37.791000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:05.607000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Groupe",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:17.418000"
+        },
+        {
+            "frm_id": 29,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Parent / Enfant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T10:31:30.833000"
+        },
+        {
+            "frm_id": 5,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:28:23.355000"
+        },
+        {
+            "frm_id": 12,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:31:35.058000"
+        },
+        {
+            "frm_id": 21,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:32:48.412000"
+        },
+        {
+            "frm_id": 26,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T15:33:57.367000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:56:05.183000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Tâches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:56:53.292000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Requêtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T16:59:36.724000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-19T20:03:34.224000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T07:39:11.544000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Dictionnaire personnalisé",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T07:39:44.842000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-25T22:32:44.519000"
+        },
+        {
+            "frm_id": 40,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Branches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-26T09:32:01.133000"
+        },
+        {
+            "frm_id": 45,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-26T14:36:44.417000"
+        },
+        {
+            "frm_id": 47,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T13:58:34.377000"
+        },
+        {
+            "frm_id": 45,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T14:57:00.059000"
+        },
+        {
+            "frm_id": 4,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:03:38.742000"
+        },
+        {
+            "frm_id": 16,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:06:08.867000"
+        },
+        {
+            "frm_id": 37,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Affectations Rôles",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:07:52.140000"
+        },
+        {
+            "frm_id": 34,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:08:56.073000"
+        },
+        {
+            "frm_id": 14,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:11:47.357000"
+        },
+        {
+            "frm_id": 15,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:12:45.623000"
+        },
+        {
+            "frm_id": 39,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Filtres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:13:35.838000"
+        },
+        {
+            "frm_id": 31,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:15:07.325000"
+        },
+        {
+            "frm_id": 32,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:19:11.510000"
+        },
+        {
+            "frm_id": 27,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:19:57.936000"
+        },
+        {
+            "frm_id": 30,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Traductions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:20:47.769000"
+        },
+        {
+            "frm_id": 28,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Numéros suivants",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:21:21.861000"
+        },
+        {
+            "frm_id": 33,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Langue",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:21:53.736000"
+        },
+        {
+            "frm_id": 35,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Modules",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:22:26.275000"
+        },
+        {
+            "frm_id": 44,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Branches",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:23:03.923000"
+        },
+        {
+            "frm_id": 43,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:23:44.641000"
+        },
+        {
+            "frm_id": 46,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Groupes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:24:33.347000"
+        },
+        {
+            "frm_id": 48,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T15:25:06.302000"
+        },
+        {
+            "frm_id": 49,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T16:23:33.981000"
+        },
+        {
+            "frm_id": 50,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Règles Affichage",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T17:23:56.980000"
+        },
+        {
+            "frm_id": 3,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Paramètres Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-27T17:46:45.856000"
+        },
+        {
+            "frm_id": 52,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-11T07:56:49.218000"
+        },
+        {
+            "frm_id": 54,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-15T16:20:15.247000"
+        },
+        {
+            "frm_id": 54,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Contenu",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-15T16:33:50.927000"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "UI",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-16T07:57:44.247000"
+        },
+        {
+            "frm_id": 10,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "UI",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-16T08:26:45.966000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-07-24T15:20:02.559000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Propriétés",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T16:25:54.829000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "En-Têtes",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T16:26:29.550000"
+        },
+        {
+            "frm_id": 56,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Body",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-09T17:09:49.747000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "API",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-13T07:51:32.888000"
+        },
+        {
+            "frm_id": 42,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-19T20:56:59.969000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-27T16:30:46.556000"
+        },
+        {
+            "frm_id": 41,
+            "tab_id": 6,
+            "lng_id": "fr",
+            "lng_label": "Composant",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-30T06:25:06.708000"
+        },
+        {
+            "frm_id": 1,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Schemas",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-08-30T12:16:54.821000"
+        },
+        {
+            "frm_id": 11,
+            "tab_id": 3,
+            "lng_id": "fr",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-05T08:29:58.294000"
+        },
+        {
+            "frm_id": 17,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Conditions",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-09-18T15:50:30.379000"
+        },
+        {
+            "frm_id": 8,
+            "tab_id": 5,
+            "lng_id": "fr",
+            "lng_label": "Evénements",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-11T12:58:04.029000"
+        },
+        {
+            "frm_id": 2,
+            "tab_id": 4,
+            "lng_id": "fr",
+            "lng_label": "Evénements",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-11T13:20:47.067000"
+        },
+        {
+            "frm_id": 68,
+            "tab_id": 2,
+            "lng_id": "fr",
+            "lng_label": "Couleurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-12-17T11:54:42.526000"
+        }
+    ],
     "ly_dashboard": [
         {
             "dsh_id": 1,
@@ -28997,6 +29903,822 @@
             "dsh_column": 1,
             "dsh_audit_user": "admin",
             "dsh_audit_date": "2024-10-29T19:01:52.438000"
+        }
+    ],
+    "ly_dsh_col": [
+        {
+            "dsh_id": 1,
+            "dsh_col_id": 1,
+            "dsh_display_title": "N",
+            "dsh_title": "Liberty Tools",
+            "dsh_row": 1,
+            "dsh_column": 1,
+            "dsh_component": "FormsTools",
+            "dsh_component_id": null,
+            "dsh_audit_user": "admin",
+            "dsh_audit_date": "2024-10-29T19:02:29.077000"
+        }
+    ],
+    "ly_enum": [
+        {
+            "enum_id": 5,
+            "enum_label": "Dictionary Rules",
+            "enum_audit_user": "anonymous",
+            "enum_audit_date": "2023-01-03T13:20:55.859000",
+            "enum_display_add": null
+        },
+        {
+            "enum_id": 8,
+            "enum_label": "Links Components",
+            "enum_audit_user": "anonymous",
+            "enum_audit_date": "2023-01-04T11:04:39.480000",
+            "enum_display_add": null
+        },
+        {
+            "enum_id": 9,
+            "enum_label": "Tree Type",
+            "enum_audit_user": "anonymous",
+            "enum_audit_date": "2023-01-05T11:11:11.726000",
+            "enum_display_add": null
+        },
+        {
+            "enum_id": 10,
+            "enum_label": "Display Mode",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-01-08T21:51:29.898000",
+            "enum_display_add": null
+        },
+        {
+            "enum_id": 12,
+            "enum_label": "Actions Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-06-18T12:03:15.544000",
+            "enum_display_add": null
+        },
+        {
+            "enum_id": 13,
+            "enum_label": "Parameters Direction",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-06-26T12:00:54.732000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 14,
+            "enum_label": "Operator",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-06-27T16:15:33.381000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 15,
+            "enum_label": "Logical",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-06-27T16:54:56.929000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 3,
+            "enum_label": "Application Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-07-03T07:19:48.916000",
+            "enum_display_add": "Y"
+        },
+        {
+            "enum_id": 11,
+            "enum_label": "Boolean Values",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-07-03T07:20:25.165000",
+            "enum_display_add": "Y"
+        },
+        {
+            "enum_id": 16,
+            "enum_label": "Chart Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-07-15T09:03:46.401000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 4,
+            "enum_label": "Datasource Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-07-16T13:00:12.498000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 7,
+            "enum_label": "Parameter Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-07-17T22:00:04.279000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 17,
+            "enum_label": "API Source",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-08-09T17:03:26.896000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 18,
+            "enum_label": "API Method",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-08-09T17:05:34.857000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 2,
+            "enum_label": "Query Definition",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-08-29T11:16:27.501000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 19,
+            "enum_label": "Condition Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-09-19T08:08:51.916000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 6,
+            "enum_label": "Dictionary Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-08-26T15:20:34.727000",
+            "enum_display_add": "Y"
+        },
+        {
+            "enum_id": 20,
+            "enum_label": "Themes",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-12-17T11:33:54.623000",
+            "enum_display_add": "Y"
+        },
+        {
+            "enum_id": 21,
+            "enum_label": "Theme Color Key",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2024-12-17T11:45:41.785000",
+            "enum_display_add": "N"
+        },
+        {
+            "enum_id": 1,
+            "enum_label": "Query Type",
+            "enum_audit_user": "admin",
+            "enum_audit_date": "2025-01-19T12:05:05.828000",
+            "enum_display_add": "N"
+        }
+    ],
+    "ly_enum_val": [
+        {
+            "enum_id": 1,
+            "val_enum": "LOOKUP",
+            "val_label": "Query for lookup tables",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 1,
+            "val_enum": "SEQUENCE",
+            "val_label": "Query for sequence",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 2,
+            "val_enum": "GET",
+            "val_label": "Select",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 2,
+            "val_enum": "POST",
+            "val_label": "Insert",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 2,
+            "val_enum": "PUT",
+            "val_label": "Update",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "JDE",
+            "val_label": "JD Edwards",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "DATABASE",
+            "val_label": "Database",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "LDAP",
+            "val_label": "LDAP",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "WEBLOGIC",
+            "val_label": "Weblogic",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "CUSTOM",
+            "val_label": "Custom Application",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "oracle",
+            "val_label": "Oracle",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "mysql",
+            "val_label": "My SQL",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "db2",
+            "val_label": "IBM DB2",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "mssql",
+            "val_label": "Microsoft SQL Server",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "ldap",
+            "val_label": "LDAP",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "postgres",
+            "val_label": "Postgres",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "generic",
+            "val_label": "Generic",
+            "val_audit_user": null,
+            "val_audit_date": null
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "ENUM",
+            "val_label": "Enumeration",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:14:29.349000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "LOOKUP",
+            "val_label": "Lookup Table",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:14:48.040000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "PASSWORD",
+            "val_label": "Password (mask and encryption)",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:15:10.146000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "SEQUENCE",
+            "val_label": "Sequence",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:15:18.440000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "NN",
+            "val_label": "Next Number",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:15:26.755000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "SYSDATE",
+            "val_label": "Date Today",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:15:41.007000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "BOOLEAN",
+            "val_label": "Boolean (Y/N)",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:15:50.980000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "LOGIN",
+            "val_label": "User connected",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:16:04.523000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "DEFAULT",
+            "val_label": "Default value",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:16:14.717000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "text",
+            "val_label": "Text",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:37:04.825000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "date",
+            "val_label": "Date",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:37:22.995000"
+        },
+        {
+            "enum_id": 7,
+            "val_enum": "DD",
+            "val_label": "Dictionary Column",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:47:06.248000"
+        },
+        {
+            "enum_id": 7,
+            "val_enum": "VALUE",
+            "val_label": "Fixed Value",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T13:47:49.776000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "textarea",
+            "val_label": "Long text",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-03T16:28:47.111000"
+        },
+        {
+            "enum_id": 8,
+            "val_enum": "AppsFooter",
+            "val_label": "Links for Application Footer",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-04T11:06:21.276000"
+        },
+        {
+            "enum_id": 8,
+            "val_enum": "AppsLoginMenu",
+            "val_label": "Links for User Menus",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-04T11:06:35.985000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "DISABLED",
+            "val_label": "Disable Dictionary Rule",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-05T07:59:43.506000"
+        },
+        {
+            "enum_id": 9,
+            "val_enum": "GROUP",
+            "val_label": "Display Tree (Group by columns)",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-05T11:11:37.829000"
+        },
+        {
+            "enum_id": 9,
+            "val_enum": "PARENT",
+            "val_label": "Display Tree (Parent / Child)",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-01-05T11:11:54.396000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "boolean",
+            "val_label": "Boolean",
+            "val_audit_user": "admin",
+            "val_audit_date": "2023-11-27T17:40:11.374000"
+        },
+        {
+            "enum_id": 2,
+            "val_enum": "DELETE",
+            "val_label": "Delete",
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-12-16T02:14:44.763000"
+        },
+        {
+            "enum_id": 10,
+            "val_enum": "dark",
+            "val_label": "Dark Mode",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-01-08T21:51:44.219000"
+        },
+        {
+            "enum_id": 10,
+            "val_enum": "light",
+            "val_label": "Light Mode",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-01-08T21:51:57.346000"
+        },
+        {
+            "enum_id": 4,
+            "val_enum": "mariadb",
+            "val_label": "Maria DB",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-03-07T16:16:57.324000"
+        },
+        {
+            "enum_id": 11,
+            "val_enum": "01",
+            "val_label": "Enable (01)",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-17T12:05:21.484000"
+        },
+        {
+            "enum_id": 11,
+            "val_enum": "Y",
+            "val_label": "Enable (Y)",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-17T12:05:29.968000"
+        },
+        {
+            "enum_id": 13,
+            "val_enum": "IN",
+            "val_label": "Input",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-22T09:48:51.951000"
+        },
+        {
+            "enum_id": 13,
+            "val_enum": "OUT",
+            "val_label": "Output",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-22T09:49:37.280000"
+        },
+        {
+            "enum_id": 13,
+            "val_enum": "BOTH",
+            "val_label": "Input / Output",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-22T09:50:36.405000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "LESS",
+            "val_label": "Less than",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:16:40.706000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "GREATER",
+            "val_label": "Greater than",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:17:03.417000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "CONTAINS",
+            "val_label": "Contains",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:17:25.843000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "LOOKUP",
+            "val_label": "Lookup",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:18:39.165000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "ENUM",
+            "val_label": "Enums",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:19:11.672000"
+        },
+        {
+            "enum_id": 15,
+            "val_enum": "AND",
+            "val_label": "And",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:55:04.072000"
+        },
+        {
+            "enum_id": 15,
+            "val_enum": "OR",
+            "val_label": "Or",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T16:55:23.706000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "NOT_EQUAL",
+            "val_label": "Not equal to",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T20:47:34.842000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "EQUAL",
+            "val_label": "Equal to",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-27T20:47:51.371000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "EMPTY",
+            "val_label": "Empty",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-28T07:53:47.555000"
+        },
+        {
+            "enum_id": 14,
+            "val_enum": "NOT_EMPTY",
+            "val_label": "Not Empty",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-28T07:54:50.884000"
+        },
+        {
+            "enum_id": 1,
+            "val_enum": "CRUD",
+            "val_label": "Query for tables and dialogs",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-03T07:19:02.823000"
+        },
+        {
+            "enum_id": 16,
+            "val_enum": "BarChart",
+            "val_label": "Bars",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-15T09:04:19.450000"
+        },
+        {
+            "enum_id": 16,
+            "val_enum": "PieChart",
+            "val_label": "Pie",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-15T15:31:43.915000"
+        },
+        {
+            "enum_id": 7,
+            "val_enum": "POOL",
+            "val_label": "Database Pool",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-17T22:00:16.671000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "jdedate",
+            "val_label": "JD Edwards Date",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-15T14:27:43.320000"
+        },
+        {
+            "enum_id": 7,
+            "val_enum": "OUT",
+            "val_label": "Output",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-16T08:49:16.830000"
+        },
+        {
+            "enum_id": 13,
+            "val_enum": "POOL",
+            "val_label": "Query Pool",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-20T19:45:31.514000"
+        },
+        {
+            "enum_id": 7,
+            "val_enum": "ARRAY",
+            "val_label": "Array",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-22T07:18:33.011000"
+        },
+        {
+            "enum_id": 16,
+            "val_enum": "LineChart",
+            "val_label": "Lines",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-22T15:23:48.729000"
+        },
+        {
+            "enum_id": 12,
+            "val_enum": "IF",
+            "val_label": "If statement",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-07-24T15:05:29.322000"
+        },
+        {
+            "enum_id": 12,
+            "val_enum": "QUERY",
+            "val_label": "Call a predefined query",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-06-19T16:24:41.485000"
+        },
+        {
+            "enum_id": 17,
+            "val_enum": "EXTERNAL",
+            "val_label": "External API",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-09T17:04:03.733000"
+        },
+        {
+            "enum_id": 18,
+            "val_enum": "GET",
+            "val_label": "GET",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-09T17:05:44.902000"
+        },
+        {
+            "enum_id": 18,
+            "val_enum": "POST",
+            "val_label": "POST",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-09T17:05:51.261000"
+        },
+        {
+            "enum_id": 17,
+            "val_enum": "INTERNAL",
+            "val_label": "Internal API",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-12T15:23:20.044000"
+        },
+        {
+            "enum_id": 12,
+            "val_enum": "API",
+            "val_label": "Call API",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-12T15:23:57.914000"
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "NOMASX1",
+            "val_label": "NOMASX-1",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-19T19:24:23.045000"
+        },
+        {
+            "enum_id": 3,
+            "val_enum": "LIBERTY",
+            "val_label": "Liberty Framework",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-19T19:26:09.283000"
+        },
+        {
+            "enum_id": 12,
+            "val_enum": "RETURN",
+            "val_label": "Set Return Values",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-20T11:23:37.854000"
+        },
+        {
+            "enum_id": 12,
+            "val_enum": "COMPONENT",
+            "val_label": "Display Component",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-30T06:19:03.047000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "CURRENT_DATE",
+            "val_label": "Date Today",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-08-30T07:34:32.424000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "JDEDATE",
+            "val_label": "JD Edwards Date",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-03T17:39:06.341000"
+        },
+        {
+            "enum_id": 6,
+            "val_enum": "number",
+            "val_label": "Number",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-16T08:55:04.838000"
+        },
+        {
+            "enum_id": 19,
+            "val_enum": "GROUP",
+            "val_label": "Group",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-19T08:09:04.231000"
+        },
+        {
+            "enum_id": 19,
+            "val_enum": "DD",
+            "val_label": "Dictionary Item",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-19T08:09:23.614000"
+        },
+        {
+            "enum_id": 9,
+            "val_enum": "CHILD",
+            "val_label": "Display Tree (Parent / Child) - Two Columns",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-09-19T18:20:01.357000"
+        },
+        {
+            "enum_id": 20,
+            "val_enum": "liberty",
+            "val_label": "Liberty Theme (Default)",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-02T12:33:58.544000"
+        },
+        {
+            "enum_id": 20,
+            "val_enum": "modernBluePurple",
+            "val_label": "Modern Blue & Purple: Tech-inspired, sleek blue and purple tones.",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-02T12:35:35.879000"
+        },
+        {
+            "enum_id": 20,
+            "val_enum": "natureGreen",
+            "val_label": "Nature Green: Eco-friendly green with refreshing earth tones.",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-02T12:35:59.280000"
+        },
+        {
+            "enum_id": 20,
+            "val_enum": "boldRedBlack",
+            "val_label": "Bold Red & Black: Bold and energetic red with sleek black accents.",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-02T12:36:21.656000"
+        },
+        {
+            "enum_id": 20,
+            "val_enum": "luxuryDarkGold",
+            "val_label": "Luxury Dark & Gold: Elegant gold and grey for luxury brands.",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-10-02T12:36:47.080000"
+        },
+        {
+            "enum_id": 21,
+            "val_enum": "background",
+            "val_label": "Background",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-12-17T11:47:49.754000"
+        },
+        {
+            "enum_id": 5,
+            "val_enum": "COLOR",
+            "val_label": "Color Picker",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-12-17T14:10:36.973000"
+        },
+        {
+            "enum_id": 21,
+            "val_enum": "color",
+            "val_label": "Text Color",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-12-17T16:31:13.553000"
+        },
+        {
+            "enum_id": 21,
+            "val_enum": "primary",
+            "val_label": "Button Color",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-12-17T17:20:33.502000"
+        },
+        {
+            "enum_id": 21,
+            "val_enum": "secondary",
+            "val_label": "Text Hover",
+            "val_audit_user": "admin",
+            "val_audit_date": "2024-12-17T17:20:53.091000"
         }
     ],
     "ly_cdn_grp": [],
@@ -29665,20 +31387,6 @@
             "lng_audit_date": null
         }
     ],
-    "ly_dsh_col": [
-        {
-            "dsh_id": 1,
-            "dsh_col_id": 1,
-            "dsh_display_title": "N",
-            "dsh_title": "Liberty Tools",
-            "dsh_row": 1,
-            "dsh_column": 1,
-            "dsh_component": "FormsTools",
-            "dsh_component_id": null,
-            "dsh_audit_user": "admin",
-            "dsh_audit_date": "2024-10-29T19:02:29.077000"
-        }
-    ],
     "ly_enum_val_l": [
         {
             "enum_id": 1,
@@ -30337,1554 +32045,6 @@
             "lng_audit_date": "2024-12-17T17:21:18.138000"
         }
     ],
-    "ly_enum_val": [
-        {
-            "enum_id": 1,
-            "val_enum": "LOOKUP",
-            "val_label": "Query for lookup tables",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 1,
-            "val_enum": "SEQUENCE",
-            "val_label": "Query for sequence",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 2,
-            "val_enum": "GET",
-            "val_label": "Select",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 2,
-            "val_enum": "POST",
-            "val_label": "Insert",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 2,
-            "val_enum": "PUT",
-            "val_label": "Update",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "JDE",
-            "val_label": "JD Edwards",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "DATABASE",
-            "val_label": "Database",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "LDAP",
-            "val_label": "LDAP",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "WEBLOGIC",
-            "val_label": "Weblogic",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "CUSTOM",
-            "val_label": "Custom Application",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "oracle",
-            "val_label": "Oracle",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "mysql",
-            "val_label": "My SQL",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "db2",
-            "val_label": "IBM DB2",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "mssql",
-            "val_label": "Microsoft SQL Server",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "ldap",
-            "val_label": "LDAP",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "postgres",
-            "val_label": "Postgres",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "generic",
-            "val_label": "Generic",
-            "val_audit_user": null,
-            "val_audit_date": null
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "ENUM",
-            "val_label": "Enumeration",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:14:29.349000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "LOOKUP",
-            "val_label": "Lookup Table",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:14:48.040000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "PASSWORD",
-            "val_label": "Password (mask and encryption)",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:15:10.146000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "SEQUENCE",
-            "val_label": "Sequence",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:15:18.440000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "NN",
-            "val_label": "Next Number",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:15:26.755000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "SYSDATE",
-            "val_label": "Date Today",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:15:41.007000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "BOOLEAN",
-            "val_label": "Boolean (Y/N)",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:15:50.980000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "LOGIN",
-            "val_label": "User connected",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:16:04.523000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "DEFAULT",
-            "val_label": "Default value",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:16:14.717000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "text",
-            "val_label": "Text",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:37:04.825000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "date",
-            "val_label": "Date",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:37:22.995000"
-        },
-        {
-            "enum_id": 7,
-            "val_enum": "DD",
-            "val_label": "Dictionary Column",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:47:06.248000"
-        },
-        {
-            "enum_id": 7,
-            "val_enum": "VALUE",
-            "val_label": "Fixed Value",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T13:47:49.776000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "textarea",
-            "val_label": "Long text",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-03T16:28:47.111000"
-        },
-        {
-            "enum_id": 8,
-            "val_enum": "AppsFooter",
-            "val_label": "Links for Application Footer",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-04T11:06:21.276000"
-        },
-        {
-            "enum_id": 8,
-            "val_enum": "AppsLoginMenu",
-            "val_label": "Links for User Menus",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-04T11:06:35.985000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "DISABLED",
-            "val_label": "Disable Dictionary Rule",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-05T07:59:43.506000"
-        },
-        {
-            "enum_id": 9,
-            "val_enum": "GROUP",
-            "val_label": "Display Tree (Group by columns)",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-05T11:11:37.829000"
-        },
-        {
-            "enum_id": 9,
-            "val_enum": "PARENT",
-            "val_label": "Display Tree (Parent / Child)",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-01-05T11:11:54.396000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "boolean",
-            "val_label": "Boolean",
-            "val_audit_user": "admin",
-            "val_audit_date": "2023-11-27T17:40:11.374000"
-        },
-        {
-            "enum_id": 2,
-            "val_enum": "DELETE",
-            "val_label": "Delete",
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-12-16T02:14:44.763000"
-        },
-        {
-            "enum_id": 10,
-            "val_enum": "dark",
-            "val_label": "Dark Mode",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-01-08T21:51:44.219000"
-        },
-        {
-            "enum_id": 10,
-            "val_enum": "light",
-            "val_label": "Light Mode",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-01-08T21:51:57.346000"
-        },
-        {
-            "enum_id": 4,
-            "val_enum": "mariadb",
-            "val_label": "Maria DB",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-03-07T16:16:57.324000"
-        },
-        {
-            "enum_id": 11,
-            "val_enum": "01",
-            "val_label": "Enable (01)",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-17T12:05:21.484000"
-        },
-        {
-            "enum_id": 11,
-            "val_enum": "Y",
-            "val_label": "Enable (Y)",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-17T12:05:29.968000"
-        },
-        {
-            "enum_id": 13,
-            "val_enum": "IN",
-            "val_label": "Input",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-22T09:48:51.951000"
-        },
-        {
-            "enum_id": 13,
-            "val_enum": "OUT",
-            "val_label": "Output",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-22T09:49:37.280000"
-        },
-        {
-            "enum_id": 13,
-            "val_enum": "BOTH",
-            "val_label": "Input / Output",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-22T09:50:36.405000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "LESS",
-            "val_label": "Less than",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:16:40.706000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "GREATER",
-            "val_label": "Greater than",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:17:03.417000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "CONTAINS",
-            "val_label": "Contains",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:17:25.843000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "LOOKUP",
-            "val_label": "Lookup",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:18:39.165000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "ENUM",
-            "val_label": "Enums",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:19:11.672000"
-        },
-        {
-            "enum_id": 15,
-            "val_enum": "AND",
-            "val_label": "And",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:55:04.072000"
-        },
-        {
-            "enum_id": 15,
-            "val_enum": "OR",
-            "val_label": "Or",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T16:55:23.706000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "NOT_EQUAL",
-            "val_label": "Not equal to",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T20:47:34.842000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "EQUAL",
-            "val_label": "Equal to",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-27T20:47:51.371000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "EMPTY",
-            "val_label": "Empty",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-28T07:53:47.555000"
-        },
-        {
-            "enum_id": 14,
-            "val_enum": "NOT_EMPTY",
-            "val_label": "Not Empty",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-28T07:54:50.884000"
-        },
-        {
-            "enum_id": 1,
-            "val_enum": "CRUD",
-            "val_label": "Query for tables and dialogs",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-03T07:19:02.823000"
-        },
-        {
-            "enum_id": 16,
-            "val_enum": "BarChart",
-            "val_label": "Bars",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-15T09:04:19.450000"
-        },
-        {
-            "enum_id": 16,
-            "val_enum": "PieChart",
-            "val_label": "Pie",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-15T15:31:43.915000"
-        },
-        {
-            "enum_id": 7,
-            "val_enum": "POOL",
-            "val_label": "Database Pool",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-17T22:00:16.671000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "jdedate",
-            "val_label": "JD Edwards Date",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-15T14:27:43.320000"
-        },
-        {
-            "enum_id": 7,
-            "val_enum": "OUT",
-            "val_label": "Output",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-16T08:49:16.830000"
-        },
-        {
-            "enum_id": 13,
-            "val_enum": "POOL",
-            "val_label": "Query Pool",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-20T19:45:31.514000"
-        },
-        {
-            "enum_id": 7,
-            "val_enum": "ARRAY",
-            "val_label": "Array",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-22T07:18:33.011000"
-        },
-        {
-            "enum_id": 16,
-            "val_enum": "LineChart",
-            "val_label": "Lines",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-22T15:23:48.729000"
-        },
-        {
-            "enum_id": 12,
-            "val_enum": "IF",
-            "val_label": "If statement",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-07-24T15:05:29.322000"
-        },
-        {
-            "enum_id": 12,
-            "val_enum": "QUERY",
-            "val_label": "Call a predefined query",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-06-19T16:24:41.485000"
-        },
-        {
-            "enum_id": 17,
-            "val_enum": "EXTERNAL",
-            "val_label": "External API",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-09T17:04:03.733000"
-        },
-        {
-            "enum_id": 18,
-            "val_enum": "GET",
-            "val_label": "GET",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-09T17:05:44.902000"
-        },
-        {
-            "enum_id": 18,
-            "val_enum": "POST",
-            "val_label": "POST",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-09T17:05:51.261000"
-        },
-        {
-            "enum_id": 17,
-            "val_enum": "INTERNAL",
-            "val_label": "Internal API",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-12T15:23:20.044000"
-        },
-        {
-            "enum_id": 12,
-            "val_enum": "API",
-            "val_label": "Call API",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-12T15:23:57.914000"
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "NOMASX1",
-            "val_label": "NOMASX-1",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-19T19:24:23.045000"
-        },
-        {
-            "enum_id": 3,
-            "val_enum": "LIBERTY",
-            "val_label": "Liberty Framework",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-19T19:26:09.283000"
-        },
-        {
-            "enum_id": 12,
-            "val_enum": "RETURN",
-            "val_label": "Set Return Values",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-20T11:23:37.854000"
-        },
-        {
-            "enum_id": 12,
-            "val_enum": "COMPONENT",
-            "val_label": "Display Component",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-30T06:19:03.047000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "CURRENT_DATE",
-            "val_label": "Date Today",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-08-30T07:34:32.424000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "JDEDATE",
-            "val_label": "JD Edwards Date",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-03T17:39:06.341000"
-        },
-        {
-            "enum_id": 6,
-            "val_enum": "number",
-            "val_label": "Number",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-16T08:55:04.838000"
-        },
-        {
-            "enum_id": 19,
-            "val_enum": "GROUP",
-            "val_label": "Group",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-19T08:09:04.231000"
-        },
-        {
-            "enum_id": 19,
-            "val_enum": "DD",
-            "val_label": "Dictionary Item",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-19T08:09:23.614000"
-        },
-        {
-            "enum_id": 9,
-            "val_enum": "CHILD",
-            "val_label": "Display Tree (Parent / Child) - Two Columns",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-09-19T18:20:01.357000"
-        },
-        {
-            "enum_id": 20,
-            "val_enum": "liberty",
-            "val_label": "Liberty Theme (Default)",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-02T12:33:58.544000"
-        },
-        {
-            "enum_id": 20,
-            "val_enum": "modernBluePurple",
-            "val_label": "Modern Blue & Purple: Tech-inspired, sleek blue and purple tones.",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-02T12:35:35.879000"
-        },
-        {
-            "enum_id": 20,
-            "val_enum": "natureGreen",
-            "val_label": "Nature Green: Eco-friendly green with refreshing earth tones.",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-02T12:35:59.280000"
-        },
-        {
-            "enum_id": 20,
-            "val_enum": "boldRedBlack",
-            "val_label": "Bold Red & Black: Bold and energetic red with sleek black accents.",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-02T12:36:21.656000"
-        },
-        {
-            "enum_id": 20,
-            "val_enum": "luxuryDarkGold",
-            "val_label": "Luxury Dark & Gold: Elegant gold and grey for luxury brands.",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-10-02T12:36:47.080000"
-        },
-        {
-            "enum_id": 21,
-            "val_enum": "background",
-            "val_label": "Background",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-12-17T11:47:49.754000"
-        },
-        {
-            "enum_id": 5,
-            "val_enum": "COLOR",
-            "val_label": "Color Picker",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-12-17T14:10:36.973000"
-        },
-        {
-            "enum_id": 21,
-            "val_enum": "color",
-            "val_label": "Text Color",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-12-17T16:31:13.553000"
-        },
-        {
-            "enum_id": 21,
-            "val_enum": "primary",
-            "val_label": "Button Color",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-12-17T17:20:33.502000"
-        },
-        {
-            "enum_id": 21,
-            "val_enum": "secondary",
-            "val_label": "Text Hover",
-            "val_audit_user": "admin",
-            "val_audit_date": "2024-12-17T17:20:53.091000"
-        }
-    ],
-    "ly_enum": [
-        {
-            "enum_id": 5,
-            "enum_label": "Dictionary Rules",
-            "enum_audit_user": "anonymous",
-            "enum_audit_date": "2023-01-03T13:20:55.859000",
-            "enum_display_add": null
-        },
-        {
-            "enum_id": 8,
-            "enum_label": "Links Components",
-            "enum_audit_user": "anonymous",
-            "enum_audit_date": "2023-01-04T11:04:39.480000",
-            "enum_display_add": null
-        },
-        {
-            "enum_id": 9,
-            "enum_label": "Tree Type",
-            "enum_audit_user": "anonymous",
-            "enum_audit_date": "2023-01-05T11:11:11.726000",
-            "enum_display_add": null
-        },
-        {
-            "enum_id": 10,
-            "enum_label": "Display Mode",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-01-08T21:51:29.898000",
-            "enum_display_add": null
-        },
-        {
-            "enum_id": 12,
-            "enum_label": "Actions Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-06-18T12:03:15.544000",
-            "enum_display_add": null
-        },
-        {
-            "enum_id": 13,
-            "enum_label": "Parameters Direction",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-06-26T12:00:54.732000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 14,
-            "enum_label": "Operator",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-06-27T16:15:33.381000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 15,
-            "enum_label": "Logical",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-06-27T16:54:56.929000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 3,
-            "enum_label": "Application Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-07-03T07:19:48.916000",
-            "enum_display_add": "Y"
-        },
-        {
-            "enum_id": 11,
-            "enum_label": "Boolean Values",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-07-03T07:20:25.165000",
-            "enum_display_add": "Y"
-        },
-        {
-            "enum_id": 16,
-            "enum_label": "Chart Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-07-15T09:03:46.401000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 4,
-            "enum_label": "Datasource Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-07-16T13:00:12.498000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 7,
-            "enum_label": "Parameter Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-07-17T22:00:04.279000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 17,
-            "enum_label": "API Source",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-08-09T17:03:26.896000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 18,
-            "enum_label": "API Method",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-08-09T17:05:34.857000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 2,
-            "enum_label": "Query Definition",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-08-29T11:16:27.501000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 19,
-            "enum_label": "Condition Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-09-19T08:08:51.916000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 6,
-            "enum_label": "Dictionary Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-08-26T15:20:34.727000",
-            "enum_display_add": "Y"
-        },
-        {
-            "enum_id": 20,
-            "enum_label": "Themes",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-12-17T11:33:54.623000",
-            "enum_display_add": "Y"
-        },
-        {
-            "enum_id": 21,
-            "enum_label": "Theme Color Key",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2024-12-17T11:45:41.785000",
-            "enum_display_add": "N"
-        },
-        {
-            "enum_id": 1,
-            "enum_label": "Query Type",
-            "enum_audit_user": "admin",
-            "enum_audit_date": "2025-01-19T12:05:05.828000",
-            "enum_display_add": "N"
-        }
-    ],
-    "ly_lookup": [
-        {
-            "lkp_id": 32,
-            "lkp_description": "Get Table ID",
-            "lkp_query_id": 118,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T08:59:13.764000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "TBL_ID",
-            "lkp_dd_label": "TBL_DB_NAME",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 2,
-            "lkp_description": "Get component from LY_COMPONENTS",
-            "lkp_query_id": 12,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-03T12:37:25.529000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "CPT_NAME",
-            "lkp_dd_label": "CPT_DESCRIPTION",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 18,
-            "lkp_description": "Get Rule ID for a Rule Type",
-            "lkp_query_id": 79,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-03T14:32:08.673000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "DD_RULES_VALUES",
-            "lkp_dd_label": "LKP_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 6,
-            "lkp_description": "Get Functions from LY_FUNCTION",
-            "lkp_query_id": 40,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T09:47:56.334000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "FCT_ID",
-            "lkp_dd_label": "FCT_NAME",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 7,
-            "lkp_description": "Get Context ID from LY_CTXMENUS",
-            "lkp_query_id": 54,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T09:48:54.212000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 25,
-            "lkp_dd_id": "CTX_ID",
-            "lkp_dd_label": "CTX_DESCRIPTION",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 8,
-            "lkp_description": "Get Tree ID from LY_TREE",
-            "lkp_query_id": 55,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T09:50:03.984000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "TREE_ID",
-            "lkp_dd_label": "TREE_DESCRIPTION",
-            "lkp_dd_group": "TREE_TYPE",
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 9,
-            "lkp_description": "Get Form ID from LY_DLG_FRM",
-            "lkp_query_id": 56,
-            "lkp_audit_user": "anonymous",
-            "lkp_audit_date": "2023-01-05T12:58:11.309000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "FRM_ID",
-            "lkp_dd_label": "FRM_LABEL",
-            "lkp_dd_group": "DLG_LABEL",
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 10,
-            "lkp_description": "Get APPS_POOL from LY_APPLICATIONS",
-            "lkp_query_id": 66,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:01:04.408000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "APPS_POOL",
-            "lkp_dd_label": "APPS_DESCRIPTION",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 11,
-            "lkp_description": "Get Language from LY_LANGUAGE",
-            "lkp_query_id": 67,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:03:00.719000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "LNG_ID",
-            "lkp_dd_label": "LNG_NAME",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 12,
-            "lkp_description": "Get Roles from LY_ROLES",
-            "lkp_query_id": 70,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:03:57.003000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "ROL_ID",
-            "lkp_dd_label": "ROL_NAME",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 13,
-            "lkp_description": "Get Menus from LY_MENUS",
-            "lkp_query_id": 73,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:04:47.476000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "MENU_SEQ_UKID",
-            "lkp_dd_label": "MENU_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 21,
-            "lkp_description": "Get User ID",
-            "lkp_query_id": 80,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:12:31.641000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "USR_ID",
-            "lkp_dd_label": "USR_NAME",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 24,
-            "lkp_description": "Get Dialog ID",
-            "lkp_query_id": 95,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:13:22.754000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 9,
-            "lkp_dd_id": "DLG_ID",
-            "lkp_dd_label": "DLG_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 25,
-            "lkp_description": "Get Branch ID for Actions",
-            "lkp_query_id": 99,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:14:16.033000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 44,
-            "lkp_dd_id": "BRC_ID",
-            "lkp_dd_label": "BRC_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 26,
-            "lkp_description": "Get Enum ID from LY_ENUM",
-            "lkp_query_id": 106,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:14:54.862000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "ENUM_ID",
-            "lkp_dd_label": "ENUM_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 27,
-            "lkp_description": "Get Lookup ID from LY_LOOKUP",
-            "lkp_query_id": 107,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-30T10:16:01.065000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "LKP_ID",
-            "lkp_dd_label": "LKP_DESCRIPTION",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 3,
-            "lkp_description": "Get Tab inside a form (LY_DLG_TAB)",
-            "lkp_query_id": 17,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-01T21:35:38.317000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "TAB_ID",
-            "lkp_dd_label": "TAB_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 1,
-            "lkp_description": "Get queries from LY_QUERY (GET)",
-            "lkp_query_id": 7,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-02T07:47:53.389000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 7,
-            "lkp_dd_id": "QUERY_ID",
-            "lkp_dd_label": "QUERY_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "Y",
-            "lkp_tbl_id": 8
-        },
-        {
-            "lkp_id": 4,
-            "lkp_description": "Get Lookup from LY_QUERY (GET)",
-            "lkp_query_id": 7,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-02T07:48:41.910000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 7,
-            "lkp_dd_id": "QUERY_ID",
-            "lkp_dd_label": "QUERY_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "Y",
-            "lkp_tbl_id": 8
-        },
-        {
-            "lkp_id": 16,
-            "lkp_description": "Get Component ID for Component type ",
-            "lkp_query_id": 78,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-06-26T16:05:15.514000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "LKP_ID",
-            "lkp_dd_label": "LKP_LABEL",
-            "lkp_dd_group": "LKP_GROUP",
-            "lkp_display_search": null,
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 14,
-            "lkp_description": "Get Dictionary ID from LY_DICTIONARY",
-            "lkp_query_id": 76,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-02T10:24:20.089000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 11,
-            "lkp_dd_id": "DD_ID",
-            "lkp_dd_label": "DD_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "Y",
-            "lkp_tbl_id": 6
-        },
-        {
-            "lkp_id": 5,
-            "lkp_description": "Get Sequence from LY_QUERY (GET)",
-            "lkp_query_id": 7,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-15T09:22:22.354000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 7,
-            "lkp_dd_id": "QUERY_ID",
-            "lkp_dd_label": "QUERY_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 30,
-            "lkp_description": "Get Params ID for Conditions (LY_CDN_PARAMS)",
-            "lkp_query_id": 115,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-20T16:21:11.532000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "CDN_DD_ID",
-            "lkp_dd_label": "DD_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 33,
-            "lkp_description": "Get Params for Action (LY_ACT_PARAMS)",
-            "lkp_query_id": 128,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-07-20T16:23:22.890000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "MAP_DD_ID",
-            "lkp_dd_label": "MAP_DD_ID",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 34,
-            "lkp_description": "Get API ID",
-            "lkp_query_id": 138,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-08-13T07:55:31.243000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "API_ID",
-            "lkp_dd_label": "API_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 35,
-            "lkp_description": "Get List of Schema for a database",
-            "lkp_query_id": 140,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-08-19T19:53:20.992000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "TBL_SCHEMA",
-            "lkp_dd_label": null,
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 29,
-            "lkp_description": "Get Condition ID from LY_CONDITION",
-            "lkp_query_id": 112,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-08-30T14:48:05.615000",
-            "lkp_display_add": "Y",
-            "lkp_frm_id": 45,
-            "lkp_dd_id": "CDN_ID",
-            "lkp_dd_label": "CDN_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 15,
-            "lkp_description": "Get Target ID for a Table from LY_TBL_COL",
-            "lkp_query_id": 77,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-01T11:44:10.332000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "COL_TARGET",
-            "lkp_dd_label": "DD_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 36,
-            "lkp_description": "Get Dictionary ID for a Table from LY_TBL_COL",
-            "lkp_query_id": 152,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-01T11:45:05.376000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "COL_DD_ID",
-            "lkp_dd_label": "DD_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 37,
-            "lkp_description": "Get Menu Parent ID from Menus (LY_MENUS)",
-            "lkp_query_id": 153,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-04T11:11:59.530000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "MENU_PARENT_ID",
-            "lkp_dd_label": "MENU_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 38,
-            "lkp_description": "Get List of Dictionary Schema for a database",
-            "lkp_query_id": 155,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-04T17:04:40.280000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "DD_SCHEMA",
-            "lkp_dd_label": null,
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 39,
-            "lkp_description": "Get Results ID for an Action (LY_ACT_TASKS)",
-            "lkp_query_id": 156,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-04T20:57:06.294000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "EVT_LOOP_ARRAY",
-            "lkp_dd_label": "EVT_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 40,
-            "lkp_description": "Get Filters Column ID for a Table from LY_TBL_COL",
-            "lkp_query_id": 161,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-18T16:16:31.166000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "COL_DD_ID",
-            "lkp_dd_label": "COL_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 41,
-            "lkp_description": "Get Group ID for Conditions (LY_CDN_PARAMS)",
-            "lkp_query_id": 163,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-09-19T18:45:42.505000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "CDN_GROUP",
-            "lkp_dd_label": "CDN_GRP_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 31,
-            "lkp_description": "Get Params for a Component",
-            "lkp_query_id": 116,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-12-03T10:57:15.317000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "COL_TARGET",
-            "lkp_dd_label": "COL_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 28,
-            "lkp_description": "Get Column ID for a Form from LY_DLG_COL",
-            "lkp_query_id": 109,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-12-03T11:01:14.455000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "COL_TARGET",
-            "lkp_dd_label": "COL_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 42,
-            "lkp_description": "Get Event ID from LY_EVENTS",
-            "lkp_query_id": 172,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-12-11T13:05:05.950000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "EVT_ID",
-            "lkp_dd_label": "EVT_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        },
-        {
-            "lkp_id": 43,
-            "lkp_description": "Get Actions ID from LY_ACTIONS",
-            "lkp_query_id": 173,
-            "lkp_audit_user": "admin",
-            "lkp_audit_date": "2024-12-11T13:08:51.107000",
-            "lkp_display_add": "N",
-            "lkp_frm_id": null,
-            "lkp_dd_id": "ACT_ID",
-            "lkp_dd_label": "ACT_LABEL",
-            "lkp_dd_group": null,
-            "lkp_display_search": "N",
-            "lkp_tbl_id": null
-        }
-    ],
-    "ly_lkp_params": [
-        {
-            "lkp_id": 15,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:09.970000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 16,
-            "dd_id": "COL_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:26.996000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 18,
-            "dd_id": "DD_RULES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:34:47.325000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 25,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:04.227000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 3,
-            "dd_id": "FRM_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:18.119000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 4,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:31.046000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 5,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T16:35:45.890000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 28,
-            "dd_id": "FRM_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-27T17:21:25.933000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 30,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T11:37:24.100000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T11:51:02.277000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_COMPONENT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:38.211000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_RULES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:47.822000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 31,
-            "dd_id": "COL_RULES_VALUES",
-            "audit_user": "admin",
-            "audit_date": "2024-06-28T12:16:55.922000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 1,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-06-29T23:13:08.155000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 1,
-            "dd_id": "QUERY_TYPE",
-            "audit_user": "admin",
-            "audit_date": "2024-07-01T11:18:07.863000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 4,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-01T16:37:18.782000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 24,
-            "dd_id": "DLG_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:34.090000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 14,
-            "dd_id": "DD_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:47.258000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 7,
-            "dd_id": "CTX_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:14:59.044000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 25,
-            "dd_id": "BRC_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-02T07:15:08.676000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 2,
-            "dd_id": "CPT_NAME",
-            "audit_user": "admin",
-            "audit_date": "2024-07-03T13:31:42.577000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 18,
-            "dd_id": "DD_RULES_VALUES",
-            "audit_user": "admin",
-            "audit_date": "2024-07-03T14:31:21.664000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 33,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-07-20T16:23:33.077000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 5,
-            "dd_id": "QUERY_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-08-13T08:17:28.983000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 36,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-01T11:45:18.663000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 29,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-02T20:03:59.503000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 39,
-            "dd_id": "ACT_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-04T20:44:34.253000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 40,
-            "dd_id": "TBL_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-18T16:16:38.979000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 41,
-            "dd_id": "CDN_ID",
-            "audit_user": "admin",
-            "audit_date": "2024-09-18T22:36:56.498000",
-            "lkp_dir": "IN"
-        },
-        {
-            "lkp_id": 42,
-            "dd_id": "EVT_COMPONENT",
-            "audit_user": "admin",
-            "audit_date": "2024-12-11T13:06:15.585000",
-            "lkp_dir": "IN"
-        }
-    ],
     "ly_lnk_val": [
         {
             "lnk_id": 2,
@@ -32338,57 +32498,7 @@
             "menu_audit_date": "2024-12-17T11:29:59.472000"
         }
     ],
-    "ly_modules": [
-        {
-            "module_id": "menus",
-            "module_description": "Enable Drawer Menus",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2024-07-11T07:55:02.643000",
-            "module_params": null
-        },
-        {
-            "module_id": "dev",
-            "module_description": "Enable Development Mode",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2024-12-05T18:06:42.527000",
-            "module_params": null
-        },
-        {
-            "module_id": "sentry",
-            "module_description": "Enable Sentry",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-07T17:33:37.747000",
-            "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
-        },
-        {
-            "module_id": "debug",
-            "module_description": "Enable Debug",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-26T14:00:29.665000",
-            "module_params": null
-        },
-        {
-            "module_id": "login",
-            "module_description": "Enable Embedded Login",
-            "module_enabled": "Y",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T00:32:18.346000",
-            "module_params": null
-        },
-        {
-            "module_id": "grafana",
-            "module_description": "Enable Grafana Dashboard",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T12:09:06.946000",
-            "module_params": null
-        }
-    ],
-    "ly_nextnum": [],
+    "ly_menus_filters": [],
     "ly_menus_l": [
         {
             "lng_id": "fr",
@@ -32594,6 +32704,57 @@
             "lng_audit_date": "2024-12-17T11:30:08.202000"
         }
     ],
+    "ly_modules": [
+        {
+            "module_id": "menus",
+            "module_description": "Enable Drawer Menus",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2024-07-11T07:55:02.643000",
+            "module_params": null
+        },
+        {
+            "module_id": "dev",
+            "module_description": "Enable Development Mode",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2024-12-05T18:06:42.527000",
+            "module_params": null
+        },
+        {
+            "module_id": "sentry",
+            "module_description": "Enable Sentry",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-07T17:33:37.747000",
+            "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
+        },
+        {
+            "module_id": "debug",
+            "module_description": "Enable Debug",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-26T14:00:29.665000",
+            "module_params": null
+        },
+        {
+            "module_id": "login",
+            "module_description": "Enable Embedded Login",
+            "module_enabled": "Y",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-28T00:32:18.346000",
+            "module_params": null
+        },
+        {
+            "module_id": "grafana",
+            "module_description": "Enable Grafana Dashboard",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-28T12:09:06.946000",
+            "module_params": null
+        }
+    ],
+    "ly_nextnum": [],
     "ly_qry_fmw": [
         {
             "fmw_id": 13,
@@ -47409,7 +47570,7 @@
     "ly_users": [
         {
             "usr_id": "admin",
-            "usr_password": "ENC:A5S/3Ltmd2oPvemT6NNpev2b2V/FSf4uusec4i63/Vg6SEthAv9QeVwhTyThbxpbzZ30O0cqfSfnPXwS0+sXN7i2iTYKBUxsm6LpyLw8Gpr1gBX1UyEV7s8AGSaKS50lrFpOJxqq",
+            "usr_password": "ENC:adbFOaYG7n+OlEZr+rAf9GKjyTbz6O9ZLMRJzSC3ToIGEVbTWBPG9DYEAQtkPmWKP4nYjn/HSMxelhbSbpliadHH/i61fKUuoxLxK282Oc7Xc5alx5ul8VPocW5+EPcV2Q6coJ9S",
             "usr_name": "Administrator",
             "usr_email": "admin@liberty.fr",
             "usr_status": "Y",
@@ -48002,913 +48163,752 @@
             "cdn_grp_label": null
         }
     ],
-    "ly_dlg_tab_l": [
-        {
-            "frm_id": 1,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Connexions",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 6,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "SQL",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Rôles",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-06T09:24:28.885000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:02.571000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Onglets",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:18.399000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:28.823000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:44.816000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:17:55.980000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:04.757000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:33.116000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Composant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:18:51.336000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:00.949000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire spécifique",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:13.517000"
-        },
-        {
-            "frm_id": 9,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:36.491000"
-        },
-        {
-            "frm_id": 9,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Ecrans",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:19:52.259000"
-        },
-        {
-            "frm_id": 6,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:20:23.583000"
-        },
-        {
-            "frm_id": 7,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:20:42.493000"
-        },
-        {
-            "frm_id": 7,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Méthodes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:02.679000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:20.594000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:31.364000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Colonnes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:40.400000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:21:54.116000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire spécifique",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:06.684000"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:24.612000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:22:50.071000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Utilisateurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:23:00.513000"
-        },
-        {
-            "frm_id": 51,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-28T05:36:42.866000"
-        },
-        {
-            "frm_id": 36,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:23:58.326000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Type",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:11.987000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Menus",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:24.364000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Composants",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:35.104000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:45.554000"
-        },
-        {
-            "frm_id": 38,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Droits",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:24:54.235000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:12.131000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:24.313000"
-        },
-        {
-            "frm_id": 12,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:25:44.690000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:17.133000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:30.107000"
-        },
-        {
-            "frm_id": 18,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:26:50.343000"
-        },
-        {
-            "frm_id": 18,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:02.636000"
-        },
-        {
-            "frm_id": 19,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:15.594000"
-        },
-        {
-            "frm_id": 19,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:26.116000"
-        },
-        {
-            "frm_id": 20,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:46.428000"
-        },
-        {
-            "frm_id": 20,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Script",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:27:58.696000"
-        },
-        {
-            "frm_id": 21,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:15.335000"
-        },
-        {
-            "frm_id": 23,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "En-tête",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:49.222000"
-        },
-        {
-            "frm_id": 23,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:28:58.330000"
-        },
-        {
-            "frm_id": 24,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:10.608000"
-        },
-        {
-            "frm_id": 24,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:20.379000"
-        },
-        {
-            "frm_id": 25,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:46.749000"
-        },
-        {
-            "frm_id": 25,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Valeurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:29:55.709000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:30:07.962000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Menus",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-28T07:49:17.045000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:30:37.791000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:05.607000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Groupe",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:17.418000"
-        },
-        {
-            "frm_id": 29,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Parent / Enfant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T10:31:30.833000"
-        },
-        {
-            "frm_id": 5,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:28:23.355000"
-        },
-        {
-            "frm_id": 12,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:31:35.058000"
-        },
-        {
-            "frm_id": 21,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:32:48.412000"
-        },
-        {
-            "frm_id": 26,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T15:33:57.367000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:56:05.183000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Tâches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:56:53.292000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Requêtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T16:59:36.724000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-19T20:03:34.224000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T07:39:11.544000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Dictionnaire personnalisé",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T07:39:44.842000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-25T22:32:44.519000"
-        },
-        {
-            "frm_id": 40,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Branches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-26T09:32:01.133000"
-        },
-        {
-            "frm_id": 45,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-26T14:36:44.417000"
-        },
-        {
-            "frm_id": 47,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T13:58:34.377000"
-        },
-        {
-            "frm_id": 45,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T14:57:00.059000"
-        },
-        {
-            "frm_id": 4,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:03:38.742000"
-        },
-        {
-            "frm_id": 16,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:06:08.867000"
-        },
-        {
-            "frm_id": 37,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Affectations Rôles",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:07:52.140000"
-        },
-        {
-            "frm_id": 34,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:08:56.073000"
-        },
-        {
-            "frm_id": 14,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:11:47.357000"
-        },
-        {
-            "frm_id": 15,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:12:45.623000"
-        },
-        {
-            "frm_id": 39,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Filtres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:13:35.838000"
-        },
-        {
-            "frm_id": 31,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:15:07.325000"
-        },
-        {
-            "frm_id": 32,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:19:11.510000"
-        },
-        {
-            "frm_id": 27,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:19:57.936000"
-        },
-        {
-            "frm_id": 30,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Traductions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:20:47.769000"
-        },
-        {
-            "frm_id": 28,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Numéros suivants",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:21:21.861000"
-        },
-        {
-            "frm_id": 33,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Langue",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:21:53.736000"
-        },
-        {
-            "frm_id": 35,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Modules",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:22:26.275000"
-        },
-        {
-            "frm_id": 44,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Branches",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:23:03.923000"
-        },
-        {
-            "frm_id": 43,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:23:44.641000"
-        },
-        {
-            "frm_id": 46,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Groupes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:24:33.347000"
-        },
-        {
-            "frm_id": 48,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T15:25:06.302000"
-        },
-        {
-            "frm_id": 49,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T16:23:33.981000"
-        },
-        {
-            "frm_id": 50,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Règles Affichage",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T17:23:56.980000"
-        },
-        {
-            "frm_id": 3,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Paramètres Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-27T17:46:45.856000"
-        },
-        {
-            "frm_id": 52,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-11T07:56:49.218000"
-        },
-        {
-            "frm_id": 54,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-15T16:20:15.247000"
-        },
-        {
-            "frm_id": 54,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Contenu",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-15T16:33:50.927000"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "UI",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-16T07:57:44.247000"
-        },
-        {
-            "frm_id": 10,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "UI",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-16T08:26:45.966000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-07-24T15:20:02.559000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Propriétés",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T16:25:54.829000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "En-Têtes",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T16:26:29.550000"
-        },
-        {
-            "frm_id": 56,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Body",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-09T17:09:49.747000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "API",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-13T07:51:32.888000"
-        },
-        {
-            "frm_id": 42,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-19T20:56:59.969000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-27T16:30:46.556000"
-        },
-        {
-            "frm_id": 41,
-            "tab_id": 6,
-            "lng_id": "fr",
-            "lng_label": "Composant",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-30T06:25:06.708000"
-        },
-        {
-            "frm_id": 1,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Schemas",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-08-30T12:16:54.821000"
-        },
-        {
-            "frm_id": 11,
-            "tab_id": 3,
-            "lng_id": "fr",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-05T08:29:58.294000"
-        },
-        {
-            "frm_id": 17,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Conditions",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-09-18T15:50:30.379000"
-        },
-        {
-            "frm_id": 8,
-            "tab_id": 5,
-            "lng_id": "fr",
-            "lng_label": "Evénements",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-11T12:58:04.029000"
-        },
-        {
-            "frm_id": 2,
-            "tab_id": 4,
-            "lng_id": "fr",
-            "lng_label": "Evénements",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-11T13:20:47.067000"
-        },
-        {
-            "frm_id": 68,
-            "tab_id": 2,
-            "lng_id": "fr",
-            "lng_label": "Couleurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-12-17T11:54:42.526000"
+    "ly_lookup": [
+        {
+            "lkp_id": 32,
+            "lkp_description": "Get Table ID",
+            "lkp_query_id": 118,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T08:59:13.764000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "TBL_ID",
+            "lkp_dd_label": "TBL_DB_NAME",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 2,
+            "lkp_description": "Get component from LY_COMPONENTS",
+            "lkp_query_id": 12,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-03T12:37:25.529000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "CPT_NAME",
+            "lkp_dd_label": "CPT_DESCRIPTION",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 18,
+            "lkp_description": "Get Rule ID for a Rule Type",
+            "lkp_query_id": 79,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-03T14:32:08.673000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "DD_RULES_VALUES",
+            "lkp_dd_label": "LKP_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 6,
+            "lkp_description": "Get Functions from LY_FUNCTION",
+            "lkp_query_id": 40,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T09:47:56.334000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "FCT_ID",
+            "lkp_dd_label": "FCT_NAME",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 7,
+            "lkp_description": "Get Context ID from LY_CTXMENUS",
+            "lkp_query_id": 54,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T09:48:54.212000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 25,
+            "lkp_dd_id": "CTX_ID",
+            "lkp_dd_label": "CTX_DESCRIPTION",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 8,
+            "lkp_description": "Get Tree ID from LY_TREE",
+            "lkp_query_id": 55,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T09:50:03.984000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "TREE_ID",
+            "lkp_dd_label": "TREE_DESCRIPTION",
+            "lkp_dd_group": "TREE_TYPE",
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 9,
+            "lkp_description": "Get Form ID from LY_DLG_FRM",
+            "lkp_query_id": 56,
+            "lkp_audit_user": "anonymous",
+            "lkp_audit_date": "2023-01-05T12:58:11.309000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "FRM_ID",
+            "lkp_dd_label": "FRM_LABEL",
+            "lkp_dd_group": "DLG_LABEL",
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 10,
+            "lkp_description": "Get APPS_POOL from LY_APPLICATIONS",
+            "lkp_query_id": 66,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:01:04.408000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "APPS_POOL",
+            "lkp_dd_label": "APPS_DESCRIPTION",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 11,
+            "lkp_description": "Get Language from LY_LANGUAGE",
+            "lkp_query_id": 67,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:03:00.719000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "LNG_ID",
+            "lkp_dd_label": "LNG_NAME",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 12,
+            "lkp_description": "Get Roles from LY_ROLES",
+            "lkp_query_id": 70,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:03:57.003000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "ROL_ID",
+            "lkp_dd_label": "ROL_NAME",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 13,
+            "lkp_description": "Get Menus from LY_MENUS",
+            "lkp_query_id": 73,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:04:47.476000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "MENU_SEQ_UKID",
+            "lkp_dd_label": "MENU_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 21,
+            "lkp_description": "Get User ID",
+            "lkp_query_id": 80,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:12:31.641000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "USR_ID",
+            "lkp_dd_label": "USR_NAME",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 24,
+            "lkp_description": "Get Dialog ID",
+            "lkp_query_id": 95,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:13:22.754000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 9,
+            "lkp_dd_id": "DLG_ID",
+            "lkp_dd_label": "DLG_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 25,
+            "lkp_description": "Get Branch ID for Actions",
+            "lkp_query_id": 99,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:14:16.033000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 44,
+            "lkp_dd_id": "BRC_ID",
+            "lkp_dd_label": "BRC_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 26,
+            "lkp_description": "Get Enum ID from LY_ENUM",
+            "lkp_query_id": 106,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:14:54.862000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "ENUM_ID",
+            "lkp_dd_label": "ENUM_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 27,
+            "lkp_description": "Get Lookup ID from LY_LOOKUP",
+            "lkp_query_id": 107,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-30T10:16:01.065000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "LKP_ID",
+            "lkp_dd_label": "LKP_DESCRIPTION",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 3,
+            "lkp_description": "Get Tab inside a form (LY_DLG_TAB)",
+            "lkp_query_id": 17,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-01T21:35:38.317000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "TAB_ID",
+            "lkp_dd_label": "TAB_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 1,
+            "lkp_description": "Get queries from LY_QUERY (GET)",
+            "lkp_query_id": 7,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-02T07:47:53.389000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 7,
+            "lkp_dd_id": "QUERY_ID",
+            "lkp_dd_label": "QUERY_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "Y",
+            "lkp_tbl_id": 8
+        },
+        {
+            "lkp_id": 4,
+            "lkp_description": "Get Lookup from LY_QUERY (GET)",
+            "lkp_query_id": 7,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-02T07:48:41.910000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 7,
+            "lkp_dd_id": "QUERY_ID",
+            "lkp_dd_label": "QUERY_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "Y",
+            "lkp_tbl_id": 8
+        },
+        {
+            "lkp_id": 16,
+            "lkp_description": "Get Component ID for Component type ",
+            "lkp_query_id": 78,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-06-26T16:05:15.514000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "LKP_ID",
+            "lkp_dd_label": "LKP_LABEL",
+            "lkp_dd_group": "LKP_GROUP",
+            "lkp_display_search": null,
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 14,
+            "lkp_description": "Get Dictionary ID from LY_DICTIONARY",
+            "lkp_query_id": 76,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-02T10:24:20.089000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 11,
+            "lkp_dd_id": "DD_ID",
+            "lkp_dd_label": "DD_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "Y",
+            "lkp_tbl_id": 6
+        },
+        {
+            "lkp_id": 5,
+            "lkp_description": "Get Sequence from LY_QUERY (GET)",
+            "lkp_query_id": 7,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-15T09:22:22.354000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 7,
+            "lkp_dd_id": "QUERY_ID",
+            "lkp_dd_label": "QUERY_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 30,
+            "lkp_description": "Get Params ID for Conditions (LY_CDN_PARAMS)",
+            "lkp_query_id": 115,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-20T16:21:11.532000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "CDN_DD_ID",
+            "lkp_dd_label": "DD_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 33,
+            "lkp_description": "Get Params for Action (LY_ACT_PARAMS)",
+            "lkp_query_id": 128,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-07-20T16:23:22.890000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "MAP_DD_ID",
+            "lkp_dd_label": "MAP_DD_ID",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 34,
+            "lkp_description": "Get API ID",
+            "lkp_query_id": 138,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-08-13T07:55:31.243000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "API_ID",
+            "lkp_dd_label": "API_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 35,
+            "lkp_description": "Get List of Schema for a database",
+            "lkp_query_id": 140,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-08-19T19:53:20.992000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "TBL_SCHEMA",
+            "lkp_dd_label": null,
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 29,
+            "lkp_description": "Get Condition ID from LY_CONDITION",
+            "lkp_query_id": 112,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-08-30T14:48:05.615000",
+            "lkp_display_add": "Y",
+            "lkp_frm_id": 45,
+            "lkp_dd_id": "CDN_ID",
+            "lkp_dd_label": "CDN_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 15,
+            "lkp_description": "Get Target ID for a Table from LY_TBL_COL",
+            "lkp_query_id": 77,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-01T11:44:10.332000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "COL_TARGET",
+            "lkp_dd_label": "DD_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 36,
+            "lkp_description": "Get Dictionary ID for a Table from LY_TBL_COL",
+            "lkp_query_id": 152,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-01T11:45:05.376000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "COL_DD_ID",
+            "lkp_dd_label": "DD_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 37,
+            "lkp_description": "Get Menu Parent ID from Menus (LY_MENUS)",
+            "lkp_query_id": 153,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-04T11:11:59.530000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "MENU_PARENT_ID",
+            "lkp_dd_label": "MENU_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 38,
+            "lkp_description": "Get List of Dictionary Schema for a database",
+            "lkp_query_id": 155,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-04T17:04:40.280000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "DD_SCHEMA",
+            "lkp_dd_label": null,
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 39,
+            "lkp_description": "Get Results ID for an Action (LY_ACT_TASKS)",
+            "lkp_query_id": 156,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-04T20:57:06.294000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "EVT_LOOP_ARRAY",
+            "lkp_dd_label": "EVT_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 40,
+            "lkp_description": "Get Filters Column ID for a Table from LY_TBL_COL",
+            "lkp_query_id": 161,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-18T16:16:31.166000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "COL_DD_ID",
+            "lkp_dd_label": "COL_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 41,
+            "lkp_description": "Get Group ID for Conditions (LY_CDN_PARAMS)",
+            "lkp_query_id": 163,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-09-19T18:45:42.505000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "CDN_GROUP",
+            "lkp_dd_label": "CDN_GRP_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 31,
+            "lkp_description": "Get Params for a Component",
+            "lkp_query_id": 116,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-12-03T10:57:15.317000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "COL_TARGET",
+            "lkp_dd_label": "COL_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 28,
+            "lkp_description": "Get Column ID for a Form from LY_DLG_COL",
+            "lkp_query_id": 109,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-12-03T11:01:14.455000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "COL_TARGET",
+            "lkp_dd_label": "COL_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 42,
+            "lkp_description": "Get Event ID from LY_EVENTS",
+            "lkp_query_id": 172,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-12-11T13:05:05.950000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "EVT_ID",
+            "lkp_dd_label": "EVT_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
+        },
+        {
+            "lkp_id": 43,
+            "lkp_description": "Get Actions ID from LY_ACTIONS",
+            "lkp_query_id": 173,
+            "lkp_audit_user": "admin",
+            "lkp_audit_date": "2024-12-11T13:08:51.107000",
+            "lkp_display_add": "N",
+            "lkp_frm_id": null,
+            "lkp_dd_id": "ACT_ID",
+            "lkp_dd_label": "ACT_LABEL",
+            "lkp_dd_group": null,
+            "lkp_display_search": "N",
+            "lkp_tbl_id": null
         }
     ],
-    "ly_menus_filters": [],
+    "ly_lkp_params": [
+        {
+            "lkp_id": 15,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:09.970000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 16,
+            "dd_id": "COL_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:26.996000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 18,
+            "dd_id": "DD_RULES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:34:47.325000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 25,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:04.227000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 3,
+            "dd_id": "FRM_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:18.119000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 4,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:31.046000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 5,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T16:35:45.890000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 28,
+            "dd_id": "FRM_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-27T17:21:25.933000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 30,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T11:37:24.100000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T11:51:02.277000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_COMPONENT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:38.211000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_RULES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:47.822000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 31,
+            "dd_id": "COL_RULES_VALUES",
+            "audit_user": "admin",
+            "audit_date": "2024-06-28T12:16:55.922000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 1,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-06-29T23:13:08.155000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 1,
+            "dd_id": "QUERY_TYPE",
+            "audit_user": "admin",
+            "audit_date": "2024-07-01T11:18:07.863000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 4,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-01T16:37:18.782000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 24,
+            "dd_id": "DLG_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:34.090000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 14,
+            "dd_id": "DD_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:47.258000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 7,
+            "dd_id": "CTX_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:14:59.044000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 25,
+            "dd_id": "BRC_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-02T07:15:08.676000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 2,
+            "dd_id": "CPT_NAME",
+            "audit_user": "admin",
+            "audit_date": "2024-07-03T13:31:42.577000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 18,
+            "dd_id": "DD_RULES_VALUES",
+            "audit_user": "admin",
+            "audit_date": "2024-07-03T14:31:21.664000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 33,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-07-20T16:23:33.077000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 5,
+            "dd_id": "QUERY_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-08-13T08:17:28.983000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 36,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-01T11:45:18.663000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 29,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-02T20:03:59.503000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 39,
+            "dd_id": "ACT_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-04T20:44:34.253000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 40,
+            "dd_id": "TBL_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-18T16:16:38.979000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 41,
+            "dd_id": "CDN_ID",
+            "audit_user": "admin",
+            "audit_date": "2024-09-18T22:36:56.498000",
+            "lkp_dir": "IN"
+        },
+        {
+            "lkp_id": 42,
+            "dd_id": "EVT_COMPONENT",
+            "audit_user": "admin",
+            "audit_date": "2024-12-11T13:06:15.585000",
+            "lkp_dir": "IN"
+        }
+    ],
     "ly_query": [
         {
             "query_id": 2,

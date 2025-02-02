@@ -10,7 +10,7 @@ from sqlalchemy import pool
 from alembic import context
 from app.config import get_db_properties_path
 from app.config.config import get_config_path
-from app.setup.models import liberty, libnsx1, libnetl, libnjde, nomasx1
+from app.setup.models import liberty, nomasx1
 from app.utils.encrypt import Encryption
 from app.utils.jwt import JWT
 
@@ -45,9 +45,9 @@ db_names = config.get_main_option("databases", "")
 # }
 target_metadata = {
     "liberty": liberty.Base.metadata,
-    "libnsx1": libnsx1.Base.metadata,
-    "libnjde": libnjde.Base.metadata,
-    "libnetl": libnetl.Base.metadata,
+    "libnsx1": liberty.Base.metadata,
+    "libnjde": liberty.Base.metadata,
+    "libnetl": liberty.Base.metadata,
     "nomasx1": nomasx1.Base.metadata,
 }
 
