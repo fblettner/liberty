@@ -1,5 +1,8 @@
+import logging
+logger = logging.getLogger(__name__)
+
 from fastapi import APIRouter, Request
-from backend.app.controllers.socket_controller import SocketController
+from app.controllers.socket_controller import SocketController
 
 def setup_socket_routes(app, controller: SocketController):
     router = APIRouter()

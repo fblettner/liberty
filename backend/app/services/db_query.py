@@ -2,13 +2,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 from enum import Enum
-from backend.app.utils.jwt import JWT
-from backend.app.utils.encrypt import Encryption
 import configparser
-import os
-from backend.app.services.db_pool import DBPool, PoolConfig, DBType, PoolInterface
 from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
+
+from app.services.db_pool import DBPool, PoolConfig, DBType, PoolInterface
+from app.utils.jwt import JWT
+from app.utils.encrypt import Encryption
+
 
 class QueryType(str, Enum):
     Table = "table",

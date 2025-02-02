@@ -1,14 +1,15 @@
-import json
 import logging
-
-from backend.app.config import get_db_properties_path
 logger = logging.getLogger(__name__)
+
+import json
+from app.config import get_db_properties_path
+from app.services.alembic import alembic_current, alembic_downgrade, alembic_revision, alembic_upgrade
 import os
 from fastapi import APIRouter, Request
 
-from backend.app.controllers.setup_controller import SetupController
-from backend.app.models.base import ErrorResponse, SuccessResponse, response_200, response_422, response_500
-from backend.app.models.setup import SETUP_ERROR_MESSAGE, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE, SetupRequest
+from app.controllers.setup_controller import SetupController
+from app.models.base import ErrorResponse, SuccessResponse, response_200, response_422, response_500
+from app.models.setup import SETUP_ERROR_MESSAGE, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE, SetupRequest
 
 
 def setup_setup_routes(app, controller: SetupController):
@@ -65,5 +66,26 @@ def setup_setup_routes(app, controller: SetupController):
         except Exception as e:
             logging.error(f"Error refreshing status: {e}")
         return {"message": "Setup still required."}
-    
+
+
+    @router.post("/setup/upgrade")
+    async def upgrade_db():
+        """Upgrade the database to the latest Alembic migration."""
+        return alembic_upgrade()
+
+    @router.post("/setup/downgrade/{version}")
+    async def downgrade_db(version: str):
+        """Downgrade the database to a specific Alembic version."""
+        return alembic_downgrade(version)
+
+    @router.post("/setup/revision")
+    async def create_migration(message: str):
+        """Create a new Alembic migration with a message."""
+        return alembic_revision(message)
+
+    @router.get("/setup/current")
+    async def get_current_version():
+        """Get the current Alembic migration version."""
+        return alembic_current()
+
     app.include_router(router, prefix="/api")

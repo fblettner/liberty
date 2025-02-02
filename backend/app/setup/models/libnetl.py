@@ -882,8 +882,7 @@ class LyTblColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tbl_id"], ["ly_tables.tbl_id"], name="lytblcolcdn_fk1", ondelete="CASCADE"),
-        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="lytblcolcdn_fk2", ondelete="CASCADE"),
+        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="lytblcolcdn_fk1", ondelete="CASCADE"),
     )
     lytables_rel = relationship('ly_tables')
     lytblcol_rel = relationship('ly_tbl_col')

@@ -9,7 +9,7 @@ from cryptography.fernet import Fernet
 import os
 import json
 
-from backend.app.config.config import get_config_path
+from app.config.config import get_config_path
 
 SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json")
 ENCRYPTED_SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json.enc")

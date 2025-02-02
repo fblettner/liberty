@@ -8,11 +8,11 @@ from sqlalchemy import create_engine, engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from backend.app.config import get_db_properties_path
-from backend.app.config.config import get_config_path
-from backend.app.setup.models import liberty, libnsx1, libnetl, libnjde, nomasx1
-from backend.app.utils.encrypt import Encryption
-from backend.app.utils.jwt import JWT
+from app.config import get_db_properties_path
+from app.config.config import get_config_path
+from app.setup.models import liberty, libnsx1, libnetl, libnjde, nomasx1
+from app.utils.encrypt import Encryption
+from app.utils.jwt import JWT
 
 USE_TWOPHASE = False
 

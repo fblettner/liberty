@@ -1,8 +1,8 @@
-from backend.app.services.api_rest import Rest
 from fastapi import HTTPException, Request
-from backend.app.utils.encrypt import Encryption
-from backend.app.utils.jwt import JWT
-from backend.app.services.db_query import Query
+from app.utils.encrypt import Encryption
+from app.utils.jwt import JWT
+from app.services.db_query import Query
+from app.services.api_rest import Rest
 
 class ApiController:
     def __init__(self, jwt: JWT):

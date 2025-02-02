@@ -1,6 +1,6 @@
 import logging
 
-from backend.app.config import get_db_properties_path
+
 
 # Configure global logging
 logging.basicConfig(
@@ -13,14 +13,15 @@ from fastapi.responses import JSONResponse
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi_socketio import SocketManager
-from backend.app.utils.jwt import JWT
-from backend.app.controllers.setup_controller import SetupController
-from backend.app.controllers.api_controller import ApiController
-from backend.app.controllers.socket_controller import SocketController
-from backend.app.routes.api_routes import setup_api_routes
-from backend.app.routes.react_routes import setup_react_routes
-from backend.app.routes.socket_routes import setup_socket_routes
-from backend.app.routes.setup_routes import setup_setup_routes
+from app.utils.jwt import JWT
+from app.controllers.setup_controller import SetupController
+from app.controllers.api_controller import ApiController
+from app.controllers.socket_controller import SocketController
+from app.routes.api_routes import setup_api_routes
+from app.routes.react_routes import setup_react_routes
+from app.routes.socket_routes import setup_socket_routes
+from app.routes.setup_routes import setup_setup_routes
+from app.config import get_db_properties_path
 from contextlib import asynccontextmanager
 
 class BackendAPI:

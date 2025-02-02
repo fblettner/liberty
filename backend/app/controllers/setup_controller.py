@@ -1,16 +1,10 @@
 import logging
-
-from backend.app.utils.jwt import JWT
 logger = logging.getLogger(__name__)
 
-from backend.app.setup.services.setup import Setup
-import json
-from fastapi import APIRouter, HTTPException, Query, Request
-from fastapi.responses import JSONResponse, HTMLResponse
-from typing import Optional
-from socketio import ASGIApp, AsyncServer
-from fastapi import FastAPI
-from backend.app.controllers.api_controller import ApiController
+from fastapi import Request
+from app.controllers.api_controller import ApiController
+from app.utils.jwt import JWT
+from app.setup.services.setup import Setup
 
 class SetupController:
     def __init__(self, apiController: ApiController,  jwt: JWT):

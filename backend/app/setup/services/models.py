@@ -1,7 +1,4 @@
 import logging
-
-from backend.app.config import get_db_properties_path
-from backend.app.controllers.api_controller import ApiController
 logger = logging.getLogger(__name__)
 
 from collections import defaultdict, deque
@@ -9,8 +6,9 @@ import os
 import re
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.ext.automap import automap_base
-from backend.app.setup.models.models import get_models_path
-   
+from app.setup.models.models import get_models_path
+from app.config import get_db_properties_path
+from app.controllers.api_controller import ApiController   
     
 class Models:
     def __init__(self, apiController: ApiController, database):

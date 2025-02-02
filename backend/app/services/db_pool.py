@@ -1,6 +1,8 @@
-from backend.app.database.pg_dao import PostgresDAO
-from backend.app.database.ora_dao import OracleDAO
-from backend.app.utils.common import PoolConfig
+import logging
+logger = logging.getLogger(__name__)
+from app.database.pg_dao import PostgresDAO
+from app.database.ora_dao import OracleDAO
+from app.utils.common import PoolConfig
 
 class DBType:
     ORACLE = "oracle"

@@ -1,18 +1,19 @@
-import configparser
 import logging
-
-from backend.app.config.config import get_config_path
 logger = logging.getLogger(__name__)
-from backend.app.config import get_db_properties_path
-from backend.app.setup.services.install import Install
-from backend.app.setup.services.models import Models
-from backend.app.utils.encrypt import Encryption
-from backend.app.utils.jwt import JWT
+
+import configparser
 import os
 from fastapi import Request
 from fastapi.responses import JSONResponse
-from backend.app.setup.services.dump import Dump
-from backend.app.controllers.api_controller import ApiController  
+
+from app.setup.services.dump import Dump
+from app.controllers.api_controller import ApiController  
+from app.config.config import get_config_path
+from app.config import get_db_properties_path
+from app.setup.services.install import Install
+from app.setup.services.models import Models
+from app.utils.encrypt import Encryption
+from app.utils.jwt import JWT
 
 class Setup:
     def __init__(self, apiController: ApiController, jwt: JWT):

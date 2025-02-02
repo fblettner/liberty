@@ -4,9 +4,9 @@ import re
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.ext.asyncio import AsyncSession
-from backend.app.database.base_dao import BaseDAO
-from backend.app.utils.common import PoolConfig
-from backend.app.business.oracle import OracleQuery
+from app.database.base_dao import BaseDAO
+from app.utils.common import PoolConfig
+from app.business.oracle import OracleQuery
 from sqlalchemy.orm import sessionmaker
 from typing import Dict, List
 

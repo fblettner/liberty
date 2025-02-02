@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse, HTMLResponse
 from typing import Optional
 from socketio import ASGIApp, AsyncServer
 from fastapi import FastAPI
-from backend.app.controllers.api_controller import ApiController
+from app.controllers.api_controller import ApiController
 
 class SocketController:
     def __init__(self, io: Optional[AsyncServer] = None):

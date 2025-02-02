@@ -1,13 +1,14 @@
-import configparser
 import logging
-import subprocess
-
-from backend.app.config.config import get_config_path
-from backend.app.postgres.dump.dump import get_dump_path
-from backend.app.setup.data.data import get_data_path
-from backend.app.utils.encrypt import Encryption
-from backend.app.utils.jwt import JWT
 logger = logging.getLogger(__name__)
+
+import subprocess
+import configparser
+from app.config.config import get_config_path
+from app.postgres.dump.dump import get_dump_path
+from app.setup.data.data import get_data_path
+from app.utils.encrypt import Encryption
+from app.utils.jwt import JWT
+
 import json
 import datetime
 import os

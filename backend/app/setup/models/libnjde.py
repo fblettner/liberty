@@ -484,8 +484,7 @@ class LyDlgTabCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
-        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk2", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgtab_rel = relationship('ly_dlg_tab')

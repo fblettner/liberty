@@ -1,14 +1,12 @@
 # Description: API REST service for handling REST API requests.
 import logging
-
-from backend.app.logs.logs import get_logs_json_path, get_logs_text_path
 logger = logging.getLogger(__name__)
 
 import json
-import os
 from fastapi import Request, HTTPException
 from datetime import datetime, timezone
-from backend.app.utils.logs import LogHandler
+from app.utils.logs import LogHandler
+from app.logs.logs import get_logs_json_path, get_logs_text_path
 
 class ApiType:
     internal = "INTERNAL"

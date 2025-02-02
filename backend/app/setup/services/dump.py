@@ -1,9 +1,9 @@
 import logging
 logger = logging.getLogger(__name__)
 
-from backend.app.config import get_db_properties_path
-from backend.app.controllers.api_controller import ApiController
-from backend.app.setup.data.data import get_data_path
+from app.config import get_db_properties_path
+from app.controllers.api_controller import ApiController
+from app.setup.data.data import get_data_path
 import json
 import datetime
 import os

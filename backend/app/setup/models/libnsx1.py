@@ -416,8 +416,7 @@ class LyDlgColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="lydlgcolcdn_fk1", ondelete="CASCADE"),
-        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"], name="lydlgcolcdn_fk2", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id", "col_id"], ["ly_dlg_col.frm_id", "ly_dlg_col.col_id"], name="lydlgcolcdn_fk1", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgcol_rel = relationship('ly_dlg_col')
@@ -484,7 +483,8 @@ class LyDlgTabCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id"], ["ly_dlg_frm.frm_id"], name="lydlgtabcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["frm_id", "tab_id"], ["ly_dlg_tab.frm_id", "ly_dlg_tab.tab_id"], name="lydlgtabcdn_fk2", ondelete="CASCADE"),
     )
     lydlgfrm_rel = relationship('ly_dlg_frm')
     lydlgtab_rel = relationship('ly_dlg_tab')
@@ -882,7 +882,8 @@ class LyTblColCdn(Base):
     cdn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
     cdn_value = Column(VARCHAR(50), primary_key=False, nullable=True)
     __table_args__ = (
-        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="lytblcolcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["tbl_id"], ["ly_tables.tbl_id"], name="lytblcolcdn_fk1", ondelete="CASCADE"),
+        ForeignKeyConstraint(["tbl_id", "col_id"], ["ly_tbl_col.tbl_id", "ly_tbl_col.col_id"], name="lytblcolcdn_fk2", ondelete="CASCADE"),
     )
     lytables_rel = relationship('ly_tables')
     lytblcol_rel = relationship('ly_tbl_col')
