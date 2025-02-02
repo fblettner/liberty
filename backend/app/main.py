@@ -1,10 +1,11 @@
+import asyncio
 import logging
 import sys
 
 # Configure global logging
 logging.basicConfig(
-    level=logging.WARN,  # Default logging level
-    format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
+    level=logging.WARN,  
+    format="%(asctime)s - %(levelname)s - %(message)s",  
 )
 
 import os
@@ -174,39 +175,40 @@ backend_api.setup_sockets(app)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     query_instance = backend_api.api_controller.queryRest
-    try:
-        app.mount(
-            "/offline/assets",
-            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/offline/assets"), html=True),
-            name="assets",
-        )
-        app.mount(
-            "/setup/assets",
-            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/setup/assets"), html=True),
-            name="assets",
-        )   
-        app.mount(
-            "/assets",
-            StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/frontend/assets"), html=True),
-            name="assets",
-        )        
+    app.mount(
+        "/offline/assets",
+        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/offline/assets"), html=True),
+        name="assets",
+    )
+    app.mount(
+        "/setup/assets",
+        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/setup/assets"), html=True),
+        name="assets",
+    )   
+    app.mount(
+        "/assets",
+        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/frontend/assets"), html=True),
+        name="assets",
+    )        
 
-        app.state.setup_required = False
-        app.state.offline_mode = False
-        db_properties_path = get_db_properties_path()
-        if not os.path.exists(db_properties_path):
-            logging.warning("Database properties file is missing. Setup required.")
-            app.state.setup_required = True
-            yield
+    app.state.setup_required = False
+    app.state.offline_mode = False
+    db_properties_path = get_db_properties_path()
+    if not os.path.exists(db_properties_path):
+        logging.debug("Database properties file is missing. Setup required.")
+        app.state.setup_required = True
+
+    try:        
         config = query_instance.load_db_properties(db_properties_path)
         await query_instance.default_pool(config)
-        logging.warning("Database initialized successfully.")
-        yield
     except Exception as e:
-        logging.error(f"Database is not available: {str(e)}")
+        logging.error(f"Database is not available")
         app.state.offline_mode = True
+    yield
+    print("Shutting down...")
+    await asyncio.sleep(0) 
 
-        yield
+
 
 def main():
     """Entry point for running the application."""
@@ -214,7 +216,8 @@ def main():
     server = uvicorn.Server(config)
     
     try:
-        print("Starting FastAPI server... Press Ctrl+C to stop.")
+        print("Starting Liberty Framework... Press Ctrl+C to stop.")
+        print(f"Liberty Framework started at: http://0.0.0.0:8000")
         server.run()
     except KeyboardInterrupt:
         print("\nServer shutting down gracefully...")

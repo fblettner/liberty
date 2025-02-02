@@ -220,5 +220,5 @@ Base = declarative_base()\n\n"""
         with open(models_file, "w", encoding="utf-8") as file:
             file.write(model_content)
 
-        logging.warning(f"Models have been successfully written to {models_file}")
+        logging.debug(f"Models have been successfully written to {models_file}")
 

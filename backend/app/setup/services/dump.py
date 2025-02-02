@@ -64,7 +64,7 @@ class Dump:
         with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "w", encoding="utf-8") as json_file:
             json.dump(all_data, json_file, indent=4, ensure_ascii=False, cls=DateTimeEncoder)
 
-        logging.warning(f"Data successfully exported to {f"{self.database}.json"}")
+        logging.debug(f"Data successfully exported to {f"{self.database}.json"}")
 
 
     def extract_table_to_json(self, tables):
@@ -95,7 +95,7 @@ class Dump:
             with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "w", encoding="utf-8") as json_file:
                 json.dump(all_data, json_file, indent=4, ensure_ascii=False, cls=DateTimeEncoder)
 
-            logging.warning(f"Data successfully exported to {f"{self.database}.json"}")
+            logging.debug(f"Data successfully exported to {f"{self.database}.json"}")
 
         except Exception as e:
             logging.error(f"Error processing table {table_name}: {str(e)}")

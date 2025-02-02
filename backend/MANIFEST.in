@@ -1,3 +1,4 @@
 include requirements.txt
 recursive-include app *
 recursive-include tests *   
+exclude app/config/db.properties
