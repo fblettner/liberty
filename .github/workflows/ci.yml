@@ -104,7 +104,7 @@ jobs:
 
       - name: Build Python package (sdist & wheel)
         run: |
-          python setup.py sdist bdist_wheel
+          python backend/setup.py sdist bdist_wheel
           ls -lh dist/  # Check the generated package
 
       - name: Set up Docker Buildx
