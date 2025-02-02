@@ -100,11 +100,11 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --upgrade setuptools wheel
+        run: pip install --upgrade setuptools wheel build
 
       - name: Build Python package (sdist & wheel)
         run: |
-          python backend/setup.py sdist bdist_wheel
+          python -m build backend
           ls -lh dist/  # Check the generated package
 
       - name: Set up Docker Buildx
