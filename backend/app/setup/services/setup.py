@@ -30,6 +30,7 @@ class Setup:
             user = data.get("user")
             password = data.get("password")
             admin_password = data.get("admin_password")
+            load_data = data.get("load_data", False)
 
             # Create all tables in the database
 #            for table in Base.metadata.tables.values():
@@ -47,11 +48,13 @@ class Setup:
             databases_to_install = [db for db, status in databases_to_install.items() if status]
             for db_name in databases_to_install:
                 logging.warning(f"Installing {db_name} database...")
-                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
-                db_init.restore_postgres_dump(db_name)
+                if (load_data):
+                    db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                    db_init.restore_postgres_dump(db_name)
+                    logging.warning(f"{db_name} database restored successfully!")
                 db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
                 db_password.update_database_settings(db_name)
-                logging.warning(f"{db_name} database restored successfully!")
+                logging.warning(f"{db_name} settings updated successfully!")
             
             features_to_install = {
                 "nomasx1": data.get("enterprise", False),
@@ -63,10 +66,10 @@ class Setup:
             features_to_install = [db for db, status in features_to_install.items() if status]
             for db_name in features_to_install:
                 logging.warning(f"Installing {db_name} database...")
-                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
-                db_init.restore_postgres_dump(db_name)
-                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
-                logging.warning(f"{db_name} database restored successfully!")
+                if load_data:
+                    db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                    db_init.restore_postgres_dump(db_name)
+                    logging.warning(f"{db_name} database restored successfully!")
 
             db_properties_path = get_db_properties_path()
             encryption = Encryption(self.jwt)
@@ -90,7 +93,7 @@ pool_alias=default
             if os.path.exists(db_properties_path):
                 config = self.apiController.queryRest.load_db_properties(db_properties_path)
                 await self.apiController.queryRest.default_pool(config)
-
+                
                 # Return the response
                 return JSONResponse({
                         "items": [],

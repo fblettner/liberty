@@ -11,16 +11,15 @@ def setup_react_routes(app):
         """
         Serve the React app, but redirect to installation if the database is not set up.
         """
+        if getattr(app.state, "setup_required", False):
+            return RedirectResponse(url="/setup")
+    
         if getattr(app.state, "offline_mode", False):
             return RedirectResponse(url="/offline")
-        setup_required = getattr(app.state, "setup_required", True)
         
         accept = request.headers.get("accept", "")
         if "text/html" in accept:
-            if setup_required:
-                return RedirectResponse(url="/setup")
-            else:
-                return FileResponse(os.path.join(os.path.dirname(os.path.dirname(__file__)), "public/frontend", "index.html"))
+            return FileResponse(os.path.join(os.path.dirname(os.path.dirname(__file__)), "public/frontend", "index.html"))
                 
         return {"detail": "Not Found"}, 404
 

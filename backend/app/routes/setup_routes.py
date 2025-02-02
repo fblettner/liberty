@@ -35,6 +35,7 @@ def setup_setup_routes(app, controller: SetupController):
 
         if result_data.get("status") == "success":
             app.state.setup_required = False  
+            app.state.offline_mode = False
         return result  
     
 

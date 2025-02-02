@@ -18,6 +18,11 @@ services:
     working_dir: /
     ports:
       - 8000:8000
+    volumes:
+      - liberty-framework:/app/liberty-framework
+volumes:
+  liberty-framework:
+    name: liberty-framework    
 networks:
   liberty-network:
     name: liberty-network

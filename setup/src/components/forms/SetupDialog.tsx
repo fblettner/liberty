@@ -63,7 +63,7 @@ export default function SetupDialog() {
   const [step, setStep] = useState(1); // Track form step
   const [formData, setFormData] = useState({
     host: "localhost",
-    port: "5433",
+    port: "5432",
     database: "liberty",
     user: "liberty",
     password: "nomana",
@@ -72,6 +72,7 @@ export default function SetupDialog() {
     keycloak: false,
     airflow: false,
     gitea: false,
+    load_data: false,
   });
 
   const [progress, setProgress] = useState(0);
@@ -255,6 +256,15 @@ export default function SetupDialog() {
                       labelPlacement="end"
                     />
                   </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="load_data"
+                      checked={formData.load_data}
+                      onChange={handleChange}
+                      label="Do you want to load data (this will erase all current database)?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>                  
                 </>
               )}
               {loading && (
