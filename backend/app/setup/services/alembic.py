@@ -2,6 +2,7 @@ import configparser
 import os
 import subprocess
 from fastapi import HTTPException, Request
+from fastapi.responses import JSONResponse
 
 from app.controllers.api_controller import ApiController
 from app.utils.jwt import JWT
@@ -38,8 +39,11 @@ class Alembic:
                 dump = Dump(self.apiController, database)
                 dump.upload_json_to_database()
             return {"message": "Database upgraded successfully!", "status": "success"}
-        except subprocess.CalledProcessError as e:
-            raise HTTPException(status_code=500, detail=f"Alembic upgrade failed: {e.stderr}")
+        except Exception as err:
+            return JSONResponse({
+                "status": "error",
+                "message": f"{str(err)}"
+            })
 
     def downgrade(self, req: Request):
         """Downgrade the database to a specific version."""
@@ -47,8 +51,11 @@ class Alembic:
             version = req.path_params["version"]
             result = command.downgrade(self.alembic_cfg, revision=version)
             return {"message": f"Database downgraded to {version}!", "status": "success"}
-        except subprocess.CalledProcessError as e:
-            raise HTTPException(status_code=500, detail=f"Alembic downgrade failed: {e.stderr}")
+        except Exception as err:
+            return JSONResponse({
+                "status": "error",
+                "message": f"{str(err)}"
+            })
 
     def revision(self, req: Request):
         """Generate a new Alembic migration with a message."""
@@ -56,8 +63,11 @@ class Alembic:
             message = req.query_params["message"]
             result = command.revision(self.alembic_cfg, message=message, autogenerate=True)
             return {"message": f"Alembic migration created: {result}", "status": "success"}
-        except subprocess.CalledProcessError as e:
-            raise HTTPException(status_code=500, detail=f"Alembic revision failed: {e.stderr}")
+        except Exception as err:
+            return JSONResponse({
+                "status": "error",
+                "message": f"{str(err)}"
+            })
 
     def current(self, req: Request):
         """Get the current Alembic migration version."""
@@ -67,5 +77,8 @@ class Alembic:
                 "message": f"Current Alembic versions: {result}",
                 "status": "success", 
             }
-        except subprocess.CalledProcessError as e:
-            raise HTTPException(status_code=500, detail=f"Alembic current failed: {e.stderr}")
+        except Exception as err:
+            return JSONResponse({
+                "status": "error",
+                "message": f"{str(err)}"
+            })
