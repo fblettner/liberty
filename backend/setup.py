@@ -1,6 +1,4 @@
-import os
 from pathlib import Path
-import shutil
 from setuptools import setup, find_packages
 from setuptools.command.sdist import sdist as _sdist
 from setuptools.command.bdist_wheel import bdist_wheel as _bdist_wheel
@@ -24,7 +22,7 @@ setup(
     description="Liberty Framework",
     author="Franck Blettner",
     author_email="franck.blettner@nomana-it.fr",
-    packages=find_packages(),  # Automatically finds all Python packages
+    packages=find_packages(),  
     include_package_data=True,
     install_requires=read_requirements(),
     entry_points={
