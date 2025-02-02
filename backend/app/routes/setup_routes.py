@@ -82,8 +82,13 @@ def setup_setup_routes(app, controller: SetupController):
     async def upgrade(        
         req: Request
         ):
-        """Upgrade the database to the latest Alembic migration."""
-        return controller.upgrade(req)
+        result = await controller.upgrade(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result  
 
     @router.post("/setup/downgrade/{version}",
         summary="SETUP - Downgrade",
@@ -99,8 +104,13 @@ def setup_setup_routes(app, controller: SetupController):
     async def downgrade(        
         req: Request
         ):
-        """Downgrade the database to a specific Alembic version."""
-        return controller.downgrade(req)
+        result = await controller.downgrade(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result  
 
     @router.post("/setup/revision",
         summary="SETUP - Revision",

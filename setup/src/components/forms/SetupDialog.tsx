@@ -92,7 +92,7 @@ export default function SetupDialog() {
     setLogs((prevLogs) => [...prevLogs, message]);
   };
 
-  const handleInstall = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleInstall = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setLoading(true);
     setLogs([]);
@@ -128,13 +128,51 @@ export default function SetupDialog() {
     }
   };
 
+  const handleUpgrade = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setLogs([]);
+    logMessage("Starting upgrade...");
+    setProgress(20);
+
+    try {
+      let queryAPI = window.location.origin + "/api/setup/upgrade"
+      logMessage("Upgrading database...");
+      setProgress(50);
+      const response = await axios.post(queryAPI, JSON.stringify(formData), {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.data;
+      if (data.status === "success") {
+        setProgress(100);
+        logMessage("Upgrade complete! Redirecting...");
+
+        // 🔄 Refresh the page after a short delay (1.5s)
+        setTimeout(() => {
+          window.location.href = window.location.origin;
+        }, 1500);
+      } else {
+        logMessage(`Error: ${data.items[0].message}`);
+        setLoading(false);
+      }
+    } catch (error) {
+      logMessage("Failed to install. Check your details.");
+      setLoading(false);
+    }
+  };
+
+
+
   return (
     <Div_SetupLayout>
       <Main_Content>
         <Div_Setup>
           <Paper_Setup>
             <LYLogoIcon width="75px" height="75px" />
-            <Form_Setup noValidate onSubmit={handleInstall}>
+            <Form_Setup noValidate >
               <Title>Installation - Step {step} of 2</Title>
 
               {step === 1 && (
@@ -293,9 +331,12 @@ export default function SetupDialog() {
                     <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)} disabled={loading}>
                       Previous
                     </Button_Setup>
-                    <Button_Setup type="submit" fullWidth variant="contained"  disabled={loading}>
+                    <Button_Setup fullWidth variant="contained"  disabled={loading} onClick={handleInstall}>
                       Install
                     </Button_Setup>
+                    <Button_Setup fullWidth variant="contained"  disabled={loading} onClick={handleUpgrade}>
+                      Upgrade
+                    </Button_Setup>                    
                   </Div_DialogToolbarButtons>
                 </Div_DialogToolbar>
               )}
