@@ -19,10 +19,10 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - liberty-framework:/app/liberty-framework
+      - liberty-config:/liberty-framework/app/database/config
 volumes:
-  liberty-framework:
-    name: liberty-framework    
+  liberty-config:
+    name: liberty-config    
 networks:
   liberty-network:
     name: liberty-network

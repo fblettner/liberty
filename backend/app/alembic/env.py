@@ -8,8 +8,7 @@ from sqlalchemy import create_engine, engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from app.config import get_db_properties_path
-from app.config.config import get_config_path
+from app.database.config import get_db_properties_path
 from app.setup.models import liberty, nomasx1
 from app.utils.encrypt import Encryption
 from app.utils.jwt import JWT

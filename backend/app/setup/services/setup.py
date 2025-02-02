@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from app.setup.services.dump import Dump
 from app.controllers.api_controller import ApiController  
 from app.config.config import get_config_path
-from app.config import get_db_properties_path
+from app.database.config import get_db_properties_path
 from app.setup.services.install import Install
 from app.setup.services.models import Models
 from app.utils.encrypt import Encryption

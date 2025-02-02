@@ -1,7 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
 
-from app.config import get_db_properties_path
+from app.database.config import get_db_properties_path
 from app.controllers.api_controller import ApiController
 from app.setup.data.data import get_data_path
 import json

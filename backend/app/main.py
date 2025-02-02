@@ -21,7 +21,7 @@ from app.routes.api_routes import setup_api_routes
 from app.routes.react_routes import setup_react_routes
 from app.routes.socket_routes import setup_socket_routes
 from app.routes.setup_routes import setup_setup_routes
-from app.config import get_db_properties_path
+from app.database.config import get_db_properties_path
 from contextlib import asynccontextmanager
 import uvicorn
 

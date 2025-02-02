@@ -6,14 +6,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-VOLUME /app/liberty-framework
-ENV PIP_TARGET=/app/liberty-framework
+ENV PIP_TARGET=liberty-framework
 ENV PYTHONPATH=$PIP_TARGET
-ENV PATH="/app/liberty-framework/bin:$PATH"
+ENV PATH="/liberty-framework/bin:$PATH"
 
 # Copy and install the Python package
-COPY ./backend/dist/*.tar.gz /app/liberty-framework-latest.tar.gz
-RUN pip install --target=$PIP_TARGET --no-cache-dir /app/liberty-framework-latest.tar.gz
+COPY ./backend/dist/*.tar.gz liberty-framework-latest.tar.gz
+RUN pip install --target=$PIP_TARGET --no-cache-dir liberty-framework-latest.tar.gz
+VOLUME /liberty-framework/app/database/config
+
 
 # Expose FastAPI's default port
 EXPOSE 8000

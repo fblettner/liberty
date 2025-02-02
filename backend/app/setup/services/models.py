@@ -7,7 +7,7 @@ import re
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.ext.automap import automap_base
 from app.setup.models.models import get_models_path
-from app.config import get_db_properties_path
+from app.database.config import get_db_properties_path
 from app.controllers.api_controller import ApiController   
     
 class Models:

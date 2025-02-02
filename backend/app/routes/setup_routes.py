@@ -2,7 +2,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 import json
-from app.config import get_db_properties_path
+from app.database.config import get_db_properties_path
 import os
 from fastapi import APIRouter, Request
 
