@@ -3,8 +3,8 @@
 
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
-Online demo is available at [https://liberty.nomana-it.fr](https://liberty.nomana-it.fr)
-Web page at: [https://nomana-it.fr](https://nomana-it.fr)
+- Online demo is available at [https://liberty.nomana-it.fr](https://liberty.nomana-it.fr)
+- Web page at: [https://nomana-it.fr](https://nomana-it.fr)
 
 ---
 
