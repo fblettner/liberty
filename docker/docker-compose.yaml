@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      platforms: 
+        - linux/arm64      
+      context: ../.
+      dockerfile: ./docker/Dockerfile
+    image: ghcr.io/fblettner/liberty-framework:latest
+    command: [liberty-start]
+    security_opt:
+      - "label:disable"
+    cap_drop:
+      - MKNOD
+      - AUDIT_WRITE
+    networks:
+      - liberty-network
+    working_dir: /
+    ports:
+      - 8000:8000
+    volumes:
+      - liberty-config:/liberty-framework/app/database/config
+      - liberty-logs:/liberty-framework/app/logs/files
+volumes:
+  liberty-config:
+    name: liberty-config    
+  liberty-logs:
+    name: liberty-logs     
+networks:
+  liberty-network:
+    name: liberty-network
+    external: true
