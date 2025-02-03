@@ -20,11 +20,47 @@ services:
     volumes:
       - liberty-config:/liberty-framework/app/config/files
       - liberty-logs:/liberty-framework/app/logs/files
+  pg:
+    build:
+      platforms: 
+        - linux/arm64      
+      context: ../../.
+      dockerfile: ./docker/pg/Dockerfile    
+    image:  postgres:16
+    shm_size: 512mb
+    ports:
+      - 5432:5432    
+    command: |
+      postgres
+        -c shared_buffers=2GB
+        -c track_activity_query_size=1MB
+        -c work_mem=256MB
+        -c maintenance_work_mem=128MB
+        -c max_wal_size=8GB
+        -c wal_level=minimal
+        -c max_wal_senders=0
+        -c synchronous_commit=off
+        -c checkpoint_timeout=20min
+        -c seq_page_cost=1
+        -c random_page_cost=4
+        -c cpu_tuple_cost=0.03
+        -c cpu_index_tuple_cost=0.005
+        -c cpu_operator_cost=0.0025
+    volumes:
+      - pg-data:/var/lib/postgresql/data:Z
+      - pg-logs:/var/log/postgresql
+    environment:
+      - POSTGRES_USER=liberty
+      - POSTGRES_PASSWORD=change_on_install      
 volumes:
   liberty-config:
     name: liberty-config    
   liberty-logs:
-    name: liberty-logs     
+    name: liberty-logs    
+  pg-data:
+    name: pg-data     
+  pg-logs:
+    name: pg-logs       
 networks:
   liberty-network:
     name: liberty-network
