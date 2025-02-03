@@ -18,7 +18,7 @@
 ✅ **Easy Installation & Deployment** – Available as a **Python package** and **Docker image**.  
 ✅ **Extensible** – Plugin-based architecture to support future enhancements.  
 
-## ✨ Additional features in the enteprise versions 
+## ✨ Enterprise additional features
   - 🌐 **Traefik**: A powerful reverse proxy for routing and load balancing.
   - ⚙️ **AirFlow**: Automate and manage workflows effortlessly.
   - 🐘 **pgAdmin**: Manage your PostgreSQL database visually with ease.
