@@ -5,6 +5,11 @@ from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
+class AlembicVersion(Base):
+    __tablename__ = 'alembic_version'
+    version_num = Column(VARCHAR(32), primary_key=True, nullable=False)
+
+
 class AuditTrail(Base):
     __tablename__ = 'audit_trail'
     aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -43,15 +48,6 @@ class AuditTrailValues(Base):
         ForeignKeyConstraint(["aud_apps_id", "aud_row_id"], ["audit_trail_query.aud_apps_id", "audit_trail_query.aud_row_id"], name="audittrailvalues_fk1", ondelete="CASCADE"),
     )
     audittrailquery_rel = relationship('audit_trail_query')
-
-
-class DbAudit(Base):
-    __tablename__ = 'db_audit'
-    aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
-    aud_table = Column(VARCHAR(30), primary_key=False, nullable=True)
-    aud_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
-    aud_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    aud_id = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class DbOraFeatures(Base):
@@ -463,15 +459,6 @@ class SecurityAssignmentsDollar(Base):
     rlu_dt_expiration = Column(DATE, primary_key=False, nullable=True)
     rlu_dt_refresh = Column(DATE, primary_key=False, nullable=True)
     rlu_ukid = Column(INTEGER, primary_key=True, nullable=False)
-
-
-class SecurityAudit(Base):
-    __tablename__ = 'security_audit'
-    aud_apps_id = Column(INTEGER, primary_key=True, nullable=False)
-    aud_table = Column(VARCHAR(30), primary_key=False, nullable=True)
-    aud_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
-    aud_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
-    aud_id = Column(INTEGER, primary_key=True, nullable=False)
 
 
 class SecurityLdap(Base):
