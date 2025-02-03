@@ -4,24 +4,16 @@
  * *
  */
 import axios, { AxiosError } from 'axios';
-import OpenAI from 'openai';
 
 // Custom Import
 import Logger from '@ly_services/lyLogging';
 import { IModulesProps } from '@ly_types/lyModules';
 
-
-const apiKey = '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';
-// Set up OpenAI API configuration with your API key
-const openai = new OpenAI({
-  apiKey: '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',
-  dangerouslyAllowBrowser: true
-});
+const api_key = ""
 
 const estimateTokens = (text: string): number => {
   return Math.ceil(text.length / 4);
 };
-
 
 export const sendPrompt = async (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => {
   try {
@@ -34,7 +26,7 @@ export const sendPrompt = async (conversationHistory: Array<{ role: string; cont
       },
       {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${api_key}`,
           'Content-Type': 'application/json',
         },
       }
@@ -66,29 +58,3 @@ export const sendPrompt = async (conversationHistory: Array<{ role: string; cont
   }
 }
 
-// Function to generate an image from a prompt
-export const generateImageFromPrompt = async (prompt: string, modulesProperties: IModulesProps): Promise<string> => {
-  try {
-    const response = await openai.images.generate({
-      prompt: prompt,
-      n: 1, // Number of images to generate
-      size: "1024x1024", // Size of the generated image
-    });
-
-    const imageUrl = response.data[0]?.url; // Optional chaining to handle undefined
-
-    if (!imageUrl) {
-      throw new Error('Image URL is undefined');
-    }
-
-    return imageUrl; // Return the image URL
-  } catch (error) {
-    const logger = new Logger({
-      transactionName: "openai.generateImageFromPrompt",
-      modulesProperties: modulesProperties,
-      data: error
-    });
-    logger.logException("AI: Error generating image:");
-    throw new Error('Image generation failed');
-  }
-};
