@@ -3,6 +3,8 @@
 
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
+Online demo is available at [https://liberty.nomana-it.fr](liberty.nomana-it.fr)
+
 ---
 
 ## ✨ Features  
@@ -14,6 +16,13 @@
 ✅ **Automated Database Migrations** – Alembic versioning for multiple databases.  
 ✅ **Easy Installation & Deployment** – Available as a **Python package** and **Docker image**.  
 ✅ **Extensible** – Plugin-based architecture to support future enhancements.  
+
+## ✨ Additional features in the enteprise versions 
+  - 🌐 **Traefik**: A powerful reverse proxy for routing and load balancing.
+  - ⚙️ **AirFlow**: Automate and manage workflows effortlessly.
+  - 🐘 **pgAdmin**: Manage your PostgreSQL database visually with ease.
+  - 🔐 **KeyCloak**: OIDC Service for authentication
+  - 📂 **Gitea**: Git Repository to manage dags, plugins, backup
 
 ---
 
@@ -47,22 +56,19 @@ or manually:
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-Access the API at: **[https://docs.nomana-it.fr](https://docs.nomana-it.fr)**  
-
 ---
 
 ## ⚙️ URL
 
 - Setup: `http://<your_host>:<your_port>/setup`
 - Application: `http://<your_host>:<your_port>`
+- API Documentation: `http://<your_host>:<your_port>/api`
+- Swagger: `http://<your_host>:<your_port>/test`
 
 ---
 
 ## 📖 Documentation  
-- **API Reference**: [https://docs.nomana-it.fr/liberty/api/liberty-api](https://docs.nomana-it.fr/liberty/api/liberty-api)  
-- **WebSocket API**: Supports real-time event handling using **Socket.IO**  
-- **Alembic Migrations**: Multiple database support  
-- **Authentication**: JWT-based auth system  
+- **Reference**: [https://docs.nomana-it.fr/liberty](https://docs.nomana-it.fr/liberty)
 
 ---
 
