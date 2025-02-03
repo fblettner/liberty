@@ -419,7 +419,7 @@ class Query:
         try: 
             if req.query_params.get("type") == LoginType.database:
                 result = await self.login(req)
-
+            
                 if result["status"] == "success":
                     user = result["items"][0]["USR_ID"]
                 else:

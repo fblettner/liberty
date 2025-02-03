@@ -7,11 +7,9 @@ import json
 import datetime
 import os
 from sqlalchemy import create_engine, MetaData, Table, delete, text, update
-from sqlalchemy.dialects.postgresql import insert
 
-from app.config.config import get_config_path
-from app.postgres.dump.dump import get_dump_path
-from app.setup.data.data import get_data_path
+from app.config import get_ini_path
+from app.postgres.dump import get_dump_path
 from app.utils.encrypt import Encryption
 from app.utils.jwt import JWT
 
@@ -98,7 +96,7 @@ class Install:
         engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
 
         self.config = configparser.ConfigParser()
-        self.config.read(os.path.join(get_config_path(), "liberty.ini"))
+        self.config.read(get_ini_path())
         databases_to_update = self.config["repository"]["databases"].split(", ")    
 
         """Update a row in the table using SQLAlchemy ORM"""

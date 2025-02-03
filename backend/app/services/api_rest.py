@@ -6,7 +6,7 @@ import json
 from fastapi import Request, HTTPException
 from datetime import datetime, timezone
 from app.utils.logs import LogHandler
-from app.logs.logs import get_logs_json_path, get_logs_text_path
+from app.logs import get_logs_json_path, get_logs_text_path
 
 class ApiType:
     internal = "INTERNAL"

@@ -1,4 +1,6 @@
 import logging
+
+from app.config import get_encrypted_path, get_key_path, get_secrets_path
 logger = logging.getLogger(__name__)
 from fastapi import  Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
@@ -9,11 +11,9 @@ from cryptography.fernet import Fernet
 import os
 import json
 
-from app.config.config import get_config_path
-
-SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json")
-ENCRYPTED_SECRETS_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/secrets.json.enc")
-KEY_FILE = os.path.join(os.path.dirname(__file__), f"{get_config_path()}/encryption.key")
+SECRETS_FILE = get_secrets_path()
+ENCRYPTED_SECRETS_FILE = get_encrypted_path()
+KEY_FILE = get_key_path()
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 240
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -25,7 +25,7 @@ class JWT:
         self.init_encryption_files()
 
     def init_encryption_files(self):
-        if not Path(SECRETS_FILE).exists():
+        if not Path(ENCRYPTED_SECRETS_FILE).exists():
             self.create_secrets_file(SECRETS_FILE)
 
         # Generate the encryption key if it doesn't exist
@@ -38,8 +38,9 @@ class JWT:
         # Encrypt the secrets file if the encrypted file doesn’t exist
         if not Path(ENCRYPTED_SECRETS_FILE).exists():
             self.encrypt_secrets(SECRETS_FILE, ENCRYPTED_SECRETS_FILE, key)
+            os.remove(SECRETS_FILE)
         else:
-            logging.debug("Encrypted secrets already exist. Decrypting...")
+            logging.warning("Encrypted secrets already exist. Decrypting...")
 
     # Set file permissions (Read/Write for owner only: 600)
     def set_secure_permissions(self, file_path: str):
@@ -51,7 +52,7 @@ class JWT:
         with open(key_file, "wb") as f:
             f.write(key)
         self.set_secure_permissions(key_file)
-        logging.debug(f"Encryption key saved and permissions secured: {key_file}")
+        logging.warning(f"Encryption key saved and permissions secured: {key_file}")
         return key
 
     # Step 2: Create secrets.json if it doesn't exist
@@ -63,7 +64,7 @@ class JWT:
         with open(secrets_file, "w") as f:
             json.dump(default_secrets, f, indent=4)
         self.set_secure_permissions(secrets_file)
-        logging.debug(f"Created default secrets file: {secrets_file}")
+        logging.warning(f"Created default secrets file: {secrets_file}")
 
     # Step 3: Encrypt secrets file
     def encrypt_secrets(self, secrets_file: str, encrypted_file: str, key: bytes):
@@ -74,7 +75,7 @@ class JWT:
         with open(encrypted_file, "wb") as f:
             f.write(encrypted_secrets)
         self.set_secure_permissions(encrypted_file)
-        logging.debug(f"Secrets encrypted and saved: {encrypted_file}")
+        logging.warning(f"Secrets encrypted and saved: {encrypted_file}")
 
     # Step 4: Decrypt secrets at runtime
     def decrypt_secrets(self, encrypted_file: str, key_file: str):
@@ -98,6 +99,7 @@ class JWT:
         to_encode = data.copy()
         expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
         to_encode.update({"exp": expire})
+
         return jwt.encode(to_encode, self.get_secret_key("SECRET_KEY"), algorithm=ALGORITHM)
 
 

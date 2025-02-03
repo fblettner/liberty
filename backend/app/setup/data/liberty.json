@@ -36844,11 +36844,19 @@
             "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
         },
         {
+            "module_id": "grafana",
+            "module_description": "Enable Grafana Dashboard",
+            "module_enabled": "N",
+            "module_audit_user": "admin",
+            "module_audit_date": "2025-01-28T12:09:06.946000",
+            "module_params": null
+        },
+        {
             "module_id": "debug",
             "module_description": "Enable Debug",
             "module_enabled": "N",
             "module_audit_user": "admin",
-            "module_audit_date": "2025-01-26T14:00:29.665000",
+            "module_audit_date": "2025-02-03T10:07:48.606000",
             "module_params": null
         },
         {
@@ -36856,15 +36864,7 @@
             "module_description": "Enable Embedded Login",
             "module_enabled": "Y",
             "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T00:32:18.346000",
-            "module_params": null
-        },
-        {
-            "module_id": "grafana",
-            "module_description": "Enable Grafana Dashboard",
-            "module_enabled": "N",
-            "module_audit_user": "admin",
-            "module_audit_date": "2025-01-28T12:09:06.946000",
+            "module_audit_date": "2025-02-03T11:03:54.538000",
             "module_params": null
         }
     ],
@@ -39354,7 +39354,7 @@
     "ly_users": [
         {
             "usr_id": "admin",
-            "usr_password": "ENC:NnSrYQZAWlxBLg9MsJw5bpZezNS4/2M1XyE/j2GidrUiHtCBAwiQPUCymj4PHVuRqsnTjnbH3xoebb8r6IAlHI7irfA97wFsWjlt5WowxvSK2tgEDB3qqgmCbSxIzrjpo4GhjliZ",
+            "usr_password": "ENC:NaKWeIvMNBUj25me0+j16+vwcI9evdE76EwGYWXrhA/FdGafpVpXhfjQXwZNdP1053EgzhWZS0DQmQGKto+z8F+B872SkjRNKonpNtxhwF4s8Y92g2IbllG7TKv7wmD+p8DIbg/J",
             "usr_name": "Administrator",
             "usr_email": "admin@liberty.fr",
             "usr_status": "Y",
@@ -50926,7 +50926,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnetl",
-            "apps_password": "ENC:lO5P8OQqwEX4N5Q+g+87lHyH9nku0r/IPZxzfwmyDI9HvfMdiHPFvNKK4qiYPp+c7CqbMx5xeqOln83v1dZbS+95D9veWVuTMhCgS7a+ZuRUlAhHW9LWof5sa9C+fPd85c0CCA5Y",
+            "apps_password": "ENC:himArWh6ttmGvoT/K6TVjUqWfrOqaoKWS5rvEmiEbZIUt8ptCrmyTvufGFkjD+Gezf632kJ7ahn7VxtEFODpHjeCooQWJz/bPo54Y08+Blr1MFHCmVQESH5m2ts10TtLEVbPVBN6",
             "apps_host": "localhost",
             "apps_port": 5432,
             "apps_database": "libnetl",
@@ -50950,7 +50950,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnsx1",
-            "apps_password": "ENC:lO5P8OQqwEX4N5Q+g+87lHyH9nku0r/IPZxzfwmyDI9HvfMdiHPFvNKK4qiYPp+c7CqbMx5xeqOln83v1dZbS+95D9veWVuTMhCgS7a+ZuRUlAhHW9LWof5sa9C+fPd85c0CCA5Y",
+            "apps_password": "ENC:himArWh6ttmGvoT/K6TVjUqWfrOqaoKWS5rvEmiEbZIUt8ptCrmyTvufGFkjD+Gezf632kJ7ahn7VxtEFODpHjeCooQWJz/bPo54Y08+Blr1MFHCmVQESH5m2ts10TtLEVbPVBN6",
             "apps_host": "localhost",
             "apps_port": 5432,
             "apps_database": "libnsx1",
@@ -50974,7 +50974,7 @@
             "apps_dbtype": "postgres",
             "apps_jdbc": null,
             "apps_user": "libnjde",
-            "apps_password": "ENC:lO5P8OQqwEX4N5Q+g+87lHyH9nku0r/IPZxzfwmyDI9HvfMdiHPFvNKK4qiYPp+c7CqbMx5xeqOln83v1dZbS+95D9veWVuTMhCgS7a+ZuRUlAhHW9LWof5sa9C+fPd85c0CCA5Y",
+            "apps_password": "ENC:himArWh6ttmGvoT/K6TVjUqWfrOqaoKWS5rvEmiEbZIUt8ptCrmyTvufGFkjD+Gezf632kJ7ahn7VxtEFODpHjeCooQWJz/bPo54Y08+Blr1MFHCmVQESH5m2ts10TtLEVbPVBN6",
             "apps_host": "localhost",
             "apps_port": 5432,
             "apps_database": "libnjde",

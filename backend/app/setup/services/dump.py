@@ -3,9 +3,9 @@ import logging
 from app.setup.services.install import Install
 logger = logging.getLogger(__name__)
 
-from app.database.config import get_db_properties_path
+from app.config import get_db_properties_path
 from app.controllers.api_controller import ApiController
-from app.setup.data.data import get_data_path
+from app.setup.data import get_data_path
 import json
 import datetime
 import os
@@ -63,7 +63,7 @@ class Dump:
             all_data[table_name] = rows
 
         # Save to JSON file with DateTimeEncoder
-        with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "w", encoding="utf-8") as json_file:
+        with open(get_data_path(self.database), "w", encoding="utf-8") as json_file:
             json.dump(all_data, json_file, indent=4, ensure_ascii=False, cls=DateTimeEncoder)
 
         logging.debug(f"Data successfully exported to {f"{self.database}.json"}")
@@ -94,7 +94,7 @@ class Dump:
 
 
             # Save to JSON file with DateTimeEncoder
-            with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "w", encoding="utf-8") as json_file:
+            with open(get_data_path(self.database), "w", encoding="utf-8") as json_file:
                 json.dump(all_data, json_file, indent=4, ensure_ascii=False, cls=DateTimeEncoder)
 
             logging.debug(f"Data successfully exported to {f"{self.database}.json"}")
@@ -124,7 +124,7 @@ class Dump:
             print("Foreign key constraints disabled.")
 
         # Load JSON data
-        with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "r", encoding="utf-8") as file:
+        with open(get_data_path(self.database), "r", encoding="utf-8") as file:
             data = json.load(file)
 
         with self.engine.begin() as conn:

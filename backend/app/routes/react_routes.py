@@ -2,6 +2,8 @@ import os
 from fastapi import APIRouter, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
+from app.public import get_frontend_path, get_offline_path, get_setup_path
+
 
 def setup_react_routes(app):
     router = APIRouter()
@@ -19,7 +21,7 @@ def setup_react_routes(app):
         
         accept = request.headers.get("accept", "")
         if "text/html" in accept:
-            return FileResponse(os.path.join(os.path.dirname(os.path.dirname(__file__)), "public/frontend", "index.html"))
+            return FileResponse(get_frontend_path())
                 
         return {"detail": "Not Found"}, 404
 
@@ -29,7 +31,7 @@ def setup_react_routes(app):
         """
         Serve the React app, but redirect to offline if the database is not set up.
         """
-        return FileResponse(os.path.join(os.path.dirname(os.path.dirname(__file__)), "public/offline", "offline.html"))
+        return FileResponse(get_offline_path())
 
 
     @app.get("/setup", include_in_schema=False)
@@ -37,6 +39,6 @@ def setup_react_routes(app):
         """
         Serve the React app, but redirect to offline if the database is not set up.
         """
-        return FileResponse(os.path.join(os.path.dirname(os.path.dirname(__file__)), "public/setup", "index.html"))
+        return FileResponse(get_setup_path())
     
     app.include_router(router)

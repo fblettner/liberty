@@ -7,7 +7,7 @@ def run_tests():
     Run all tests and generate Allure reports.
     """
     os.system("pytest --alluredir=tests/results")
-    os.system("allure serve tests/results")
+    os.system("allure serve --host localhost --port 8001 tests/results")
 
 if __name__ == "__main__":
     run_tests()

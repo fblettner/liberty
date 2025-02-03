@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 from app.controllers.api_controller import ApiController
 from app.utils.jwt import JWT
 from app.setup.services.dump import Dump
-from app.config.config import get_config_path
+from app.config import get_ini_path
 import importlib.resources as pkg_resources
 from pathlib import Path
 import app
@@ -32,7 +32,7 @@ class Alembic:
             command.upgrade(self.alembic_cfg, "head")
             # Upload JSON data to the database
             self.config = configparser.ConfigParser()
-            self.config.read(os.path.join(get_config_path(), "liberty.ini"))
+            self.config.read(get_ini_path())
             database_to_upgrade = self.config["repository"]["databases"].split(", ")
             for database in database_to_upgrade:         
                 dump = Dump(self.apiController, database)
