@@ -1,10 +1,36 @@
 {
-    "alembic_version": [],
-    "ly_act_tasks": [],
-    "ly_actions": [],
-    "ly_act_params_filters": [],
     "ly_act_params": [],
-    "ly_act_tasks_params": [],
+    "ly_actions": [],
+    "ly_links": [],
+    "ly_dialogs": [
+        {
+            "dlg_id": 1,
+            "dlg_label": "Display Errors",
+            "dlg_audit_user": "anonymous",
+            "dlg_audit_date": "2023-12-19T17:39:11.026000"
+        },
+        {
+            "dlg_id": 2,
+            "dlg_label": "Settings",
+            "dlg_audit_user": "admin",
+            "dlg_audit_date": "2024-01-09T13:26:28.597000"
+        }
+    ],
+    "ly_language": [
+        {
+            "lng_id": "fr",
+            "lng_name": "Français",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        },
+        {
+            "lng_id": "en",
+            "lng_name": "Anglais",
+            "lng_audit_user": null,
+            "lng_audit_date": null
+        }
+    ],
+    "ly_dlg_filters": [],
     "ly_dlg_col": [
         {
             "frm_id": 1,
@@ -508,490 +534,10 @@
             "frm_audit_date": "2024-01-09T13:26:49.321000"
         }
     ],
-    "ly_dialogs": [
-        {
-            "dlg_id": 1,
-            "dlg_label": "Display Errors",
-            "dlg_audit_user": "anonymous",
-            "dlg_audit_date": "2023-12-19T17:39:11.026000"
-        },
-        {
-            "dlg_id": 2,
-            "dlg_label": "Settings",
-            "dlg_audit_user": "admin",
-            "dlg_audit_date": "2024-01-09T13:26:28.597000"
-        }
-    ],
-    "ly_ctx_val_l": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "lng_id": "fr",
-            "lng_label": "Afficher les erreurs",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T12:00:55.951000"
-        }
-    ],
-    "ly_ctx_val": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "val_seq": 1,
-            "val_label": "Display Errors",
-            "val_component": "FormsDialog",
-            "val_component_id": 1,
-            "val_audit_user": "anonymous",
-            "val_audit_date": "2023-12-19T17:38:27.359000"
-        }
-    ],
-    "ly_ctxmenus": [
-        {
-            "ctx_id": 1,
-            "ctx_description": "Monitoring",
-            "ctx_audit_user": "anonymous",
-            "ctx_audit_date": "2023-12-19T17:38:29.054000"
-        }
-    ],
-    "ly_api": [],
-    "ly_api_header": [],
-    "ly_api_params": [],
-    "ly_dlg_col_cdn": [],
-    "ly_charts": [],
-    "ly_db_schema": [],
-    "ly_components": [],
-    "ly_act_branch": [],
-    "ly_dictionary_l": [
-        {
-            "dd_id": "DWH_APPS_ID",
-            "lng_id": "fr",
-            "lng_label": "Application ID",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:11:30"
-        },
-        {
-            "dd_id": "DWH_TYPE",
-            "lng_id": "fr",
-            "lng_label": "Type (ODS / STA)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:12:06"
-        },
-        {
-            "dd_id": "DWH_INSTANCE",
-            "lng_id": "fr",
-            "lng_label": "Instance",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:12:25"
-        },
-        {
-            "dd_id": "DWH_TARGET",
-            "lng_id": "fr",
-            "lng_label": "Cible",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:12:36"
-        },
-        {
-            "dd_id": "DWH_SEQ",
-            "lng_id": "fr",
-            "lng_label": "Séquence",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:12:51"
-        },
-        {
-            "dd_id": "DWH_SOURCE",
-            "lng_id": "fr",
-            "lng_label": "Source",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:13:01"
-        },
-        {
-            "dd_id": "DWH_SCHEMA",
-            "lng_id": "fr",
-            "lng_label": "Schéma",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:13:10"
-        },
-        {
-            "dd_id": "DWH_MODE",
-            "lng_id": "fr",
-            "lng_label": "Mode (Delta / Full)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:13:52"
-        },
-        {
-            "dd_id": "DWH_QUERY",
-            "lng_id": "fr",
-            "lng_label": "Requête",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:14:40"
-        },
-        {
-            "dd_id": "DWH_DT_UPDATE",
-            "lng_id": "fr",
-            "lng_label": "Date de mise à jour",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:14:57"
-        },
-        {
-            "dd_id": "DWH_STATUS",
-            "lng_id": "fr",
-            "lng_label": "Statut",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:15:08"
-        },
-        {
-            "dd_id": "DWH_AUDIT_DATE",
-            "lng_id": "fr",
-            "lng_label": "Date (Audit)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:15:41"
-        },
-        {
-            "dd_id": "DWH_AUDIT_USER",
-            "lng_id": "fr",
-            "lng_label": "Utilisateur (Audit)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:15:54"
-        },
-        {
-            "dd_id": "DWH_LOG",
-            "lng_id": "fr",
-            "lng_label": "Log",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:16:03"
-        },
-        {
-            "dd_id": "DWH_DT_CTRL",
-            "lng_id": "fr",
-            "lng_label": "Intégrité",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:16:36"
-        },
-        {
-            "dd_id": "DWH_CTRL_STATUS",
-            "lng_id": "fr",
-            "lng_label": "Intégrité (Statut)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:16:53"
-        },
-        {
-            "dd_id": "DWH_CTRL_WHERE",
-            "lng_id": "fr",
-            "lng_label": "Intégrité (Where)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:17:12"
-        },
-        {
-            "dd_id": "DWH_CTRL_LOG",
-            "lng_id": "fr",
-            "lng_label": "Inétgrité (Log)",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:17:26"
-        },
-        {
-            "dd_id": "DWH_BEFORE",
-            "lng_id": "fr",
-            "lng_label": "#Enregistrement avant",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:17:40"
-        },
-        {
-            "dd_id": "DWH_AFTER",
-            "lng_id": "fr",
-            "lng_label": "#Enregistrement après",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:17:53"
-        },
-        {
-            "dd_id": "DWH_GROUP",
-            "lng_id": "fr",
-            "lng_label": "Groupe",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:18:02"
-        },
-        {
-            "dd_id": "DWH_PK",
-            "lng_id": "fr",
-            "lng_label": "Clé primaire",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:18:19"
-        },
-        {
-            "dd_id": "DWH_DELTA",
-            "lng_id": "fr",
-            "lng_label": "Delta Colonne ID",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:18:57"
-        },
-        {
-            "dd_id": "APPS_NAME",
-            "lng_id": "fr",
-            "lng_label": "Nom Applications",
-            "lng_audit_user": "anonymous",
-            "lng_audit_date": "2023-12-19T17:19:29"
-        },
-        {
-            "dd_id": "DWH_DAYS",
-            "lng_id": "fr",
-            "lng_label": "Jours de rétention",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-01-09T13:43:41"
-        }
-    ],
-    "ly_dictionary": [
-        {
-            "dd_id": "DWH_APPS_ID",
-            "dd_label": "Application ID",
-            "dd_type": "number",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:11:30.440000"
-        },
-        {
-            "dd_id": "DWH_TYPE",
-            "dd_label": "Type (ODS / STA)",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:12:06.213000"
-        },
-        {
-            "dd_id": "DWH_INSTANCE",
-            "dd_label": "Instance",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:12:25.731000"
-        },
-        {
-            "dd_id": "DWH_TARGET",
-            "dd_label": "Target",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:12:36.798000"
-        },
-        {
-            "dd_id": "DWH_SEQ",
-            "dd_label": "Sequence",
-            "dd_type": "number",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:12:51.582000"
-        },
-        {
-            "dd_id": "DWH_SOURCE",
-            "dd_label": "Source",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:13:01.249000"
-        },
-        {
-            "dd_id": "DWH_SCHEMA",
-            "dd_label": "Schema",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:13:10.773000"
-        },
-        {
-            "dd_id": "DWH_MODE",
-            "dd_label": "Mode (Delta / Full)",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:13:52.540000"
-        },
-        {
-            "dd_id": "DWH_QUERY",
-            "dd_label": "Query",
-            "dd_type": "textarea",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:14:40.143000"
-        },
-        {
-            "dd_id": "DWH_DT_UPDATE",
-            "dd_label": "Update Date",
-            "dd_type": "date",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:14:57.917000"
-        },
-        {
-            "dd_id": "DWH_STATUS",
-            "dd_label": "Status",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:15:08.586000"
-        },
-        {
-            "dd_id": "DWH_AUDIT_DATE",
-            "dd_label": "Audit Date",
-            "dd_type": "date",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:15:41.396000"
-        },
-        {
-            "dd_id": "DWH_AUDIT_USER",
-            "dd_label": "Audit User",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:15:54.047000"
-        },
-        {
-            "dd_id": "DWH_LOG",
-            "dd_label": "Log",
-            "dd_type": "textarea",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:16:03.364000"
-        },
-        {
-            "dd_id": "DWH_DT_CTRL",
-            "dd_label": "Integrity",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:16:36.817000"
-        },
-        {
-            "dd_id": "DWH_CTRL_STATUS",
-            "dd_label": "Integrity Status",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:16:53.468000"
-        },
-        {
-            "dd_id": "DWH_CTRL_WHERE",
-            "dd_label": "Integrity Where",
-            "dd_type": "textarea",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:17:12.439000"
-        },
-        {
-            "dd_id": "DWH_CTRL_LOG",
-            "dd_label": "Integrity Log",
-            "dd_type": "textarea",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:17:26.569000"
-        },
-        {
-            "dd_id": "DWH_BEFORE",
-            "dd_label": "#Record Before",
-            "dd_type": "number",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:17:40.941000"
-        },
-        {
-            "dd_id": "DWH_AFTER",
-            "dd_label": "#Record After",
-            "dd_type": "number",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:17:53.763000"
-        },
-        {
-            "dd_id": "DWH_GROUP",
-            "dd_label": "Group",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:18:02.846000"
-        },
-        {
-            "dd_id": "DWH_PK",
-            "dd_label": "Primary Key",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:18:19.305000"
-        },
-        {
-            "dd_id": "DWH_DELTA",
-            "dd_label": "Delta Column ID",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:18:57.809000"
-        },
-        {
-            "dd_id": "APPS_NAME",
-            "dd_label": "Application Name",
-            "dd_type": "text",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "anonymous",
-            "dd_audit_date": "2023-12-19T17:19:29.196000"
-        },
-        {
-            "dd_id": "DWH_DAYS",
-            "dd_label": "Days",
-            "dd_type": "number",
-            "dd_rules": null,
-            "dd_rules_values": null,
-            "dd_default": null,
-            "dd_audit_user": "admin",
-            "dd_audit_date": "2024-01-09T13:43:41.115000"
-        }
-    ],
-    "ly_dictionary_filters": [],
-    "ly_cdn_grp": [],
-    "ly_condition": [],
+    "ly_lkp_params": [],
+    "ly_lookup": [],
+    "ly_lnk_val_l": [],
+    "ly_lnk_val": [],
     "ly_dlg_tab_l": [
         {
             "frm_id": 1,
@@ -1076,56 +622,6 @@
             "tab_disable_edit": "N"
         }
     ],
-    "ly_dlg_filters": [],
-    "ly_dlg_tab_cdn": [],
-    "ly_dashboard": [],
-    "ly_ctx_filters": [
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 1,
-            "flt_type": "DD",
-            "flt_source": "DWH_APPS_ID",
-            "flt_target": "DWH_APPS_ID",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:22:48.665000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 2,
-            "flt_type": "DD",
-            "flt_source": "DWH_TYPE",
-            "flt_target": "DWH_TYPE",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:06.536000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 3,
-            "flt_type": "DD",
-            "flt_source": "DWH_INSTANCE",
-            "flt_target": "DWH_INSTANCE",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:14.078000",
-            "flt_value": null
-        },
-        {
-            "ctx_id": 1,
-            "val_id": 1,
-            "flt_id": 4,
-            "flt_type": "DD",
-            "flt_source": "DWH_TARGET",
-            "flt_target": "DWH_TARGET",
-            "flt_audit_user": "anonymous",
-            "flt_audit_date": "2023-12-19T17:23:20.914000",
-            "flt_value": null
-        }
-    ],
-    "ly_dsh_col": [],
     "ly_applications": [
         {
             "apps_id": 1,
@@ -1152,92 +648,6 @@
             "apps_replace_null": "N"
         }
     ],
-    "ly_menus": [
-        {
-            "menu_seq_ukid": "100001.",
-            "menu_parent_id": "0",
-            "menu_child_id": "100001.",
-            "menu_component": "Dashboard",
-            "menu_component_id": 1,
-            "menu_label": "Dashboard",
-            "menu_level": 1,
-            "menu_audit_user": "anonymous",
-            "menu_audit_date": "2023-12-19T16:06:15.451000"
-        },
-        {
-            "menu_seq_ukid": "100002.",
-            "menu_parent_id": "0",
-            "menu_child_id": "100002.",
-            "menu_component": "FormsTable",
-            "menu_component_id": 1,
-            "menu_label": "Monitoring",
-            "menu_level": 1,
-            "menu_audit_user": "anonymous",
-            "menu_audit_date": "2023-12-19T16:06:40.662000"
-        },
-        {
-            "menu_seq_ukid": "100003.",
-            "menu_parent_id": "0",
-            "menu_child_id": "100003.",
-            "menu_component": "FormsTable",
-            "menu_component_id": 3,
-            "menu_label": "Settings",
-            "menu_level": 1,
-            "menu_audit_user": "admin",
-            "menu_audit_date": "2024-01-09T13:19:35.516000"
-        }
-    ],
-    "ly_lkp_params": [],
-    "ly_lookup": [],
-    "ly_events": [],
-    "ly_evt_cpt": [],
-    "ly_evt_dd": [],
-    "ly_links": [],
-    "ly_language": [
-        {
-            "lng_id": "fr",
-            "lng_name": "Français",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        },
-        {
-            "lng_id": "en",
-            "lng_name": "Anglais",
-            "lng_audit_user": null,
-            "lng_audit_date": null
-        }
-    ],
-    "ly_lnk_val_l": [],
-    "ly_lnk_val": [],
-    "ly_enum": [],
-    "ly_enum_val_l": [],
-    "ly_enum_val": [],
-    "ly_menus_filters": [],
-    "ly_modules": [],
-    "ly_menus_l": [
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100001.",
-            "lng_label": "Tableau de bord",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:37.604000"
-        },
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100002.",
-            "lng_label": "Supervision",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:49.396000"
-        },
-        {
-            "lng_id": "fr",
-            "lng_seq_ukid": "100003.",
-            "lng_label": "Paramètres",
-            "lng_audit_user": "admin",
-            "lng_audit_date": "2024-06-05T11:58:59.580000"
-        }
-    ],
-    "ly_tbl_filters": [],
     "ly_tbl_col": [
         {
             "tbl_id": 1,
@@ -1776,14 +1186,187 @@
             "tbl_auto_load": "Y"
         }
     ],
-    "ly_qry_fmw": [],
+    "ly_tree": [],
+    "ly_act_branch": [],
+    "ly_menus": [
+        {
+            "menu_seq_ukid": "100001.",
+            "menu_parent_id": "0",
+            "menu_child_id": "100001.",
+            "menu_component": "Dashboard",
+            "menu_component_id": 1,
+            "menu_label": "Dashboard",
+            "menu_level": 1,
+            "menu_audit_user": "anonymous",
+            "menu_audit_date": "2023-12-19T16:06:15.451000"
+        },
+        {
+            "menu_seq_ukid": "100002.",
+            "menu_parent_id": "0",
+            "menu_child_id": "100002.",
+            "menu_component": "FormsTable",
+            "menu_component_id": 1,
+            "menu_label": "Monitoring",
+            "menu_level": 1,
+            "menu_audit_user": "anonymous",
+            "menu_audit_date": "2023-12-19T16:06:40.662000"
+        },
+        {
+            "menu_seq_ukid": "100003.",
+            "menu_parent_id": "0",
+            "menu_child_id": "100003.",
+            "menu_component": "FormsTable",
+            "menu_component_id": 3,
+            "menu_label": "Settings",
+            "menu_level": 1,
+            "menu_audit_user": "admin",
+            "menu_audit_date": "2024-01-09T13:19:35.516000"
+        }
+    ],
+    "ly_cdn_grp": [],
+    "ly_condition": [],
+    "ly_ctx_filters": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 1,
+            "flt_type": "DD",
+            "flt_source": "DWH_APPS_ID",
+            "flt_target": "DWH_APPS_ID",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:22:48.665000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 2,
+            "flt_type": "DD",
+            "flt_source": "DWH_TYPE",
+            "flt_target": "DWH_TYPE",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:06.536000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 3,
+            "flt_type": "DD",
+            "flt_source": "DWH_INSTANCE",
+            "flt_target": "DWH_INSTANCE",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:14.078000",
+            "flt_value": null
+        },
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "flt_id": 4,
+            "flt_type": "DD",
+            "flt_source": "DWH_TARGET",
+            "flt_target": "DWH_TARGET",
+            "flt_audit_user": "anonymous",
+            "flt_audit_date": "2023-12-19T17:23:20.914000",
+            "flt_value": null
+        }
+    ],
+    "ly_ctx_val": [
+        {
+            "ctx_id": 1,
+            "val_id": 1,
+            "val_seq": 1,
+            "val_label": "Display Errors",
+            "val_component": "FormsDialog",
+            "val_component_id": 1,
+            "val_audit_user": "anonymous",
+            "val_audit_date": "2023-12-19T17:38:27.359000"
+        }
+    ],
+    "ly_ctxmenus": [
+        {
+            "ctx_id": 1,
+            "ctx_description": "Monitoring",
+            "ctx_audit_user": "anonymous",
+            "ctx_audit_date": "2023-12-19T17:38:29.054000"
+        }
+    ],
+    "ly_enum_val": [],
+    "ly_enum": [],
+    "ly_function": [],
+    "ly_dlg_tab_cdn": [],
+    "ly_nextnum": [
+        {
+            "nn_id": "APPS_ID",
+            "nn_current": 1,
+            "nn_audit_user": "admin",
+            "nn_audit_date": "2024-04-03T10:46:33.765000"
+        }
+    ],
+    "ly_menus_l": [
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100001.",
+            "lng_label": "Tableau de bord",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:37.604000"
+        },
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100002.",
+            "lng_label": "Supervision",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:49.396000"
+        },
+        {
+            "lng_id": "fr",
+            "lng_seq_ukid": "100003.",
+            "lng_label": "Paramètres",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T11:58:59.580000"
+        }
+    ],
     "ly_seq_params": [],
     "ly_sequence": [],
-    "ly_tbl_col_cdn": [],
+    "ly_query": [
+        {
+            "query_id": 1,
+            "query_label": "Get all columns from SETTINGS_DWH",
+            "query_type": "CRUD",
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-19T17:10:58.372000"
+        },
+        {
+            "query_id": 2,
+            "query_label": "Get details of errors",
+            "query_type": "CRUD",
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-19T17:36:15.422000"
+        }
+    ],
+    "ly_roles": [],
+    "ly_rol_auth": [],
+    "ly_menus_filters": [],
+    "ly_usr_roles": [],
     "ly_users": [
         {
+            "usr_id": "demo",
+            "usr_password": "ENC:x7G28cZsyIl9LeB1lChPfL7wd8iP63rslMnK0jgG/XFMySeUfJ/GC3zZH50dg570xSqs93Ylc2cdYH+BrT/WS1VfBUpmp4GqvKSuGoiw5IYFRn5JLWHLGC+pIfRcyCI83PUzTq2i",
+            "usr_name": "Demo User",
+            "usr_email": "contact@nomana-it.fr",
+            "usr_status": "Y",
+            "usr_admin": "N",
+            "usr_language": "fr",
+            "usr_mode": "light",
+            "usr_readonly": "Y",
+            "usr_audit_user": "admin",
+            "usr_audit_date": "2024-02-14T17:27:07.931000",
+            "usr_dashboard": null,
+            "usr_theme": null
+        },
+        {
             "usr_id": "admin",
-            "usr_password": "ENC:w4yQqHWj/xEr+V2NbVI4S+AeB5sonRMDWD2rN6k3ey5WT0zl6pMoxjMEw3ua5SZqR+ZGeOhsSk6E+nGwcS7jWeV0bKFcQfQHk9NQjRwD1ILwTM/+dX6gbVhSV3k5FRSajX34sKTK",
+            "usr_password": "ENC:g966a6oWF4sLdn/ckS1JE1MvEdCdz/HVg8Z4FcFRC1hnt2RGBoQrH3EP1s88TIDxVwaB4xSi0BD8J1Y4G4Vq3mQV2smQ0kgTBaJh3YbCEJpJFc4YEU0rMJtl7Ic4fnrybDGmLADn",
             "usr_name": "Franck Blettner",
             "usr_email": "franck.blettner@nomana-it.fr",
             "usr_status": "Y",
@@ -1797,20 +1380,275 @@
             "usr_theme": null
         }
     ],
-    "ly_tree": [],
-    "ly_roles": [],
-    "ly_usr_roles": [],
-    "ly_rol_auth": [],
     "ly_cdn_params": [],
-    "ly_function": [],
-    "ly_nextnum": [
+    "ly_ctx_val_l": [
         {
-            "nn_id": "APPS_ID",
-            "nn_current": 1,
-            "nn_audit_user": "admin",
-            "nn_audit_date": "2024-04-03T10:46:33.765000"
+            "ctx_id": 1,
+            "val_id": 1,
+            "lng_id": "fr",
+            "lng_label": "Afficher les erreurs",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-06-05T12:00:55.951000"
         }
     ],
+    "ly_dsh_col": [],
+    "ly_dashboard": [],
+    "ly_charts": [],
+    "ly_tbl_filters": [],
+    "ly_dictionary_filters": [],
+    "ly_dictionary": [
+        {
+            "dd_id": "DWH_APPS_ID",
+            "dd_label": "Application ID",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:11:30.440000"
+        },
+        {
+            "dd_id": "DWH_TYPE",
+            "dd_label": "Type (ODS / STA)",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:12:06.213000"
+        },
+        {
+            "dd_id": "DWH_INSTANCE",
+            "dd_label": "Instance",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:12:25.731000"
+        },
+        {
+            "dd_id": "DWH_TARGET",
+            "dd_label": "Target",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:12:36.798000"
+        },
+        {
+            "dd_id": "DWH_SEQ",
+            "dd_label": "Sequence",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:12:51.582000"
+        },
+        {
+            "dd_id": "DWH_SOURCE",
+            "dd_label": "Source",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:13:01.249000"
+        },
+        {
+            "dd_id": "DWH_SCHEMA",
+            "dd_label": "Schema",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:13:10.773000"
+        },
+        {
+            "dd_id": "DWH_MODE",
+            "dd_label": "Mode (Delta / Full)",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:13:52.540000"
+        },
+        {
+            "dd_id": "DWH_QUERY",
+            "dd_label": "Query",
+            "dd_type": "textarea",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:14:40.143000"
+        },
+        {
+            "dd_id": "DWH_DT_UPDATE",
+            "dd_label": "Update Date",
+            "dd_type": "date",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:14:57.917000"
+        },
+        {
+            "dd_id": "DWH_STATUS",
+            "dd_label": "Status",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:15:08.586000"
+        },
+        {
+            "dd_id": "DWH_AUDIT_DATE",
+            "dd_label": "Audit Date",
+            "dd_type": "date",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:15:41.396000"
+        },
+        {
+            "dd_id": "DWH_AUDIT_USER",
+            "dd_label": "Audit User",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:15:54.047000"
+        },
+        {
+            "dd_id": "DWH_LOG",
+            "dd_label": "Log",
+            "dd_type": "textarea",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:16:03.364000"
+        },
+        {
+            "dd_id": "DWH_DT_CTRL",
+            "dd_label": "Integrity",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:16:36.817000"
+        },
+        {
+            "dd_id": "DWH_CTRL_STATUS",
+            "dd_label": "Integrity Status",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:16:53.468000"
+        },
+        {
+            "dd_id": "DWH_CTRL_WHERE",
+            "dd_label": "Integrity Where",
+            "dd_type": "textarea",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:17:12.439000"
+        },
+        {
+            "dd_id": "DWH_CTRL_LOG",
+            "dd_label": "Integrity Log",
+            "dd_type": "textarea",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:17:26.569000"
+        },
+        {
+            "dd_id": "DWH_BEFORE",
+            "dd_label": "#Record Before",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:17:40.941000"
+        },
+        {
+            "dd_id": "DWH_AFTER",
+            "dd_label": "#Record After",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:17:53.763000"
+        },
+        {
+            "dd_id": "DWH_GROUP",
+            "dd_label": "Group",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:18:02.846000"
+        },
+        {
+            "dd_id": "DWH_PK",
+            "dd_label": "Primary Key",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:18:19.305000"
+        },
+        {
+            "dd_id": "DWH_DELTA",
+            "dd_label": "Delta Column ID",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:18:57.809000"
+        },
+        {
+            "dd_id": "APPS_NAME",
+            "dd_label": "Application Name",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "anonymous",
+            "dd_audit_date": "2023-12-19T17:19:29.196000"
+        },
+        {
+            "dd_id": "DWH_DAYS",
+            "dd_label": "Days",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2024-01-09T13:43:41.115000"
+        }
+    ],
+    "ly_tbl_col_cdn": [],
     "ly_qry_sql": [
         {
             "query_id": 1,
@@ -1833,20 +1671,197 @@
             "query_audit_date": "2023-12-19T17:35:06.325000"
         }
     ],
-    "ly_query": [
+    "ly_api_header": [],
+    "ly_db_schema": [],
+    "ly_act_params_filters": [],
+    "ly_modules": [],
+    "ly_dlg_col_cdn": [],
+    "ly_components": [],
+    "ly_api_params": [],
+    "ly_api": [],
+    "ly_qry_fmw": [],
+    "ly_act_tasks": [],
+    "ly_act_tasks_params": [],
+    "ly_events": [],
+    "ly_evt_cpt": [],
+    "ly_evt_dd": [],
+    "ly_dictionary_l": [
         {
-            "query_id": 1,
-            "query_label": "Get all columns from SETTINGS_DWH",
-            "query_type": "CRUD",
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-19T17:10:58.372000"
+            "dd_id": "DWH_APPS_ID",
+            "lng_id": "fr",
+            "lng_label": "Application ID",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:11:30"
         },
         {
-            "query_id": 2,
-            "query_label": "Get details of errors",
-            "query_type": "CRUD",
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-19T17:36:15.422000"
+            "dd_id": "DWH_TYPE",
+            "lng_id": "fr",
+            "lng_label": "Type (ODS / STA)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:12:06"
+        },
+        {
+            "dd_id": "DWH_INSTANCE",
+            "lng_id": "fr",
+            "lng_label": "Instance",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:12:25"
+        },
+        {
+            "dd_id": "DWH_TARGET",
+            "lng_id": "fr",
+            "lng_label": "Cible",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:12:36"
+        },
+        {
+            "dd_id": "DWH_SEQ",
+            "lng_id": "fr",
+            "lng_label": "Séquence",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:12:51"
+        },
+        {
+            "dd_id": "DWH_SOURCE",
+            "lng_id": "fr",
+            "lng_label": "Source",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:13:01"
+        },
+        {
+            "dd_id": "DWH_SCHEMA",
+            "lng_id": "fr",
+            "lng_label": "Schéma",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:13:10"
+        },
+        {
+            "dd_id": "DWH_MODE",
+            "lng_id": "fr",
+            "lng_label": "Mode (Delta / Full)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:13:52"
+        },
+        {
+            "dd_id": "DWH_QUERY",
+            "lng_id": "fr",
+            "lng_label": "Requête",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:14:40"
+        },
+        {
+            "dd_id": "DWH_DT_UPDATE",
+            "lng_id": "fr",
+            "lng_label": "Date de mise à jour",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:14:57"
+        },
+        {
+            "dd_id": "DWH_STATUS",
+            "lng_id": "fr",
+            "lng_label": "Statut",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:15:08"
+        },
+        {
+            "dd_id": "DWH_AUDIT_DATE",
+            "lng_id": "fr",
+            "lng_label": "Date (Audit)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:15:41"
+        },
+        {
+            "dd_id": "DWH_AUDIT_USER",
+            "lng_id": "fr",
+            "lng_label": "Utilisateur (Audit)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:15:54"
+        },
+        {
+            "dd_id": "DWH_LOG",
+            "lng_id": "fr",
+            "lng_label": "Log",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:16:03"
+        },
+        {
+            "dd_id": "DWH_DT_CTRL",
+            "lng_id": "fr",
+            "lng_label": "Intégrité",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:16:36"
+        },
+        {
+            "dd_id": "DWH_CTRL_STATUS",
+            "lng_id": "fr",
+            "lng_label": "Intégrité (Statut)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:16:53"
+        },
+        {
+            "dd_id": "DWH_CTRL_WHERE",
+            "lng_id": "fr",
+            "lng_label": "Intégrité (Where)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:17:12"
+        },
+        {
+            "dd_id": "DWH_CTRL_LOG",
+            "lng_id": "fr",
+            "lng_label": "Inétgrité (Log)",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:17:26"
+        },
+        {
+            "dd_id": "DWH_BEFORE",
+            "lng_id": "fr",
+            "lng_label": "#Enregistrement avant",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:17:40"
+        },
+        {
+            "dd_id": "DWH_AFTER",
+            "lng_id": "fr",
+            "lng_label": "#Enregistrement après",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:17:53"
+        },
+        {
+            "dd_id": "DWH_GROUP",
+            "lng_id": "fr",
+            "lng_label": "Groupe",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:18:02"
+        },
+        {
+            "dd_id": "DWH_PK",
+            "lng_id": "fr",
+            "lng_label": "Clé primaire",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:18:19"
+        },
+        {
+            "dd_id": "DWH_DELTA",
+            "lng_id": "fr",
+            "lng_label": "Delta Colonne ID",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:18:57"
+        },
+        {
+            "dd_id": "APPS_NAME",
+            "lng_id": "fr",
+            "lng_label": "Nom Applications",
+            "lng_audit_user": "anonymous",
+            "lng_audit_date": "2023-12-19T17:19:29"
+        },
+        {
+            "dd_id": "DWH_DAYS",
+            "lng_id": "fr",
+            "lng_label": "Jours de rétention",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2024-01-09T13:43:41"
         }
-    ]
+    ],
+    "ly_enum_val_l": [],
+    "alembic_version": []
 }

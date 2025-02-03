@@ -114,8 +114,11 @@ class Dump:
 
         # Step 1: Disable foreign key checks
         with admin_engine.connect() as conn:
-            conn.execute(text("SET session_replication_role = 'replica';"))
-
+            conn.execute(text("SET session_replication_role = 'replica'"))
+            tables = conn.execute(text(f"SELECT tablename FROM pg_tables WHERE schemaname = '{self.database}'")).fetchall()
+            for table in tables:
+                conn.execute(text(f"ALTER TABLE {self.database}.{table[0]} DISABLE TRIGGER ALL"))
+            print("Foreign key constraints disabled.")
 
         # Load JSON data
         with open(os.path.join(os.path.dirname(__file__),f"{get_data_path()}/{self.database}.json"), "r", encoding="utf-8") as file:
@@ -148,6 +151,10 @@ class Dump:
 
         # Step 3: Enable foreign key checks
         with admin_engine.connect() as conn:
-            conn.execute(text("SET session_replication_role = 'origin';"))
-
+            conn.execute(text("SET session_replication_role = 'origin'"))
+            tables = conn.execute(text(f"SELECT tablename FROM pg_tables WHERE schemaname = '{self.database}'")).fetchall()
+            for table in tables:
+                conn.execute(text(f"ALTER TABLE {self.database}.{table[0]} ENABLE TRIGGER ALL"))
+            print("Foreign key constraints enabled.")
+            
         logging.warning("Data upload completed successfully!")

@@ -159,12 +159,42 @@ export default function SetupDialog() {
         setLoading(false);
       }
     } catch (error) {
-      logMessage("Failed to install. Check your details.");
+      logMessage("Failed to upgrade. Check your details.");
       setLoading(false);
     }
   };
 
+  const handlePrepare = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setLogs([]);
+    logMessage("Prepare upgrade...");
+    setProgress(20);
 
+    try {
+      let queryAPI = window.location.origin + "/api/setup/revision?message=upgrade"
+      logMessage("Preparing database...");
+      setProgress(50);
+      const response = await axios.post(queryAPI, {}, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.data;
+      if (data.status === "success") {
+        setProgress(100);
+        logMessage("Preparation complete! You can start the upgrade...");
+
+      } else {
+        logMessage(`Error: ${data.items[0].message}`);
+        setLoading(false);
+      }
+    } catch (error) {
+      logMessage("Failed to prepare. Check your details.");
+      setLoading(false);
+    }
+  };
 
   return (
     <Div_SetupLayout>
@@ -173,6 +203,13 @@ export default function SetupDialog() {
           <Paper_Setup>
             <LYLogoIcon width="75px" height="75px" />
             <Form_Setup noValidate >
+              {step === 2 &&
+              <Div_AppsSetup>
+                <Button_Setup variant="contained" onClick={() => setStep(1)} disabled={loading}>
+                  Previous
+                </Button_Setup>
+                </Div_AppsSetup>
+              }
               <Title>Installation - Step {step} of 2</Title>
 
               {step === 1 && (
@@ -328,21 +365,23 @@ export default function SetupDialog() {
               {step === 2 && (
                 <Fragment>
                   <Div_DialogToolbar>
-                    <Div_DialogToolbarButtons>
-                      <Button_Setup fullWidth variant="contained" onClick={() => setStep(1)} disabled={loading}>
-                        Previous
-                      </Button_Setup>
+
                       <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
                         Update Settings
                       </Button_Setup>
-                    </Div_DialogToolbarButtons>
+
                   </Div_DialogToolbar>
                   <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
                     Install
                   </Button_Setup>
+                  <Div_DialogToolbarButtons>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handlePrepare}>
+                    Prepare
+                  </Button_Setup>
                   <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleUpgrade}>
                     Upgrade
                   </Button_Setup>
+                  </Div_DialogToolbarButtons>
                 </Fragment>
               )}
             </Form_Setup>

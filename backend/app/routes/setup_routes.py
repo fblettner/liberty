@@ -82,12 +82,7 @@ def setup_setup_routes(app, controller: SetupController):
     async def upgrade(        
         req: Request
         ):
-        result = await controller.upgrade(req)
-        result_data = json.loads(result.body.decode("utf-8"))  
-
-        if result_data.get("status") == "success":
-            app.state.setup_required = False  
-            app.state.offline_mode = False
+        result = controller.upgrade(req)
         return result  
 
     @router.post("/setup/downgrade/{version}",
@@ -104,12 +99,7 @@ def setup_setup_routes(app, controller: SetupController):
     async def downgrade(        
         req: Request
         ):
-        result = await controller.downgrade(req)
-        result_data = json.loads(result.body.decode("utf-8"))  
-
-        if result_data.get("status") == "success":
-            app.state.setup_required = False  
-            app.state.offline_mode = False
+        result = controller.downgrade(req)
         return result  
 
     @router.post("/setup/revision",
@@ -142,7 +132,6 @@ def setup_setup_routes(app, controller: SetupController):
     async def current(        
         req: Request
         ):
-        """Get the current Alembic migration version."""
         return controller.current(req)
 
     app.include_router(router, prefix="/api")

@@ -1,6 +1,7 @@
 import configparser
 import os
 import subprocess
+import traceback
 from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 
@@ -27,8 +28,6 @@ class Alembic:
     def upgrade(self, req: Request):
         """Run Alembic upgrade to the latest version."""
         try:
-            # Create a new migration
-            command.revision(self.alembic_cfg, message="upgrade", autogenerate=True)
             # Upgrade the database
             command.upgrade(self.alembic_cfg, "head")
             # Upload JSON data to the database
@@ -44,6 +43,7 @@ class Alembic:
                 "status": "error",
                 "message": f"{str(err)}"
             })
+
 
     def downgrade(self, req: Request):
         """Downgrade the database to a specific version."""
