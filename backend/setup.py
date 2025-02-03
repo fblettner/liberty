@@ -13,7 +13,7 @@ def read_requirements():
 def get_version():
     """Read version from the VERSION file (but don't modify it here)."""
     if not VERSION_FILE.exists():
-        return "6.1.0"  # Default version if file doesn't exist
+        return "6.0.0"  # Default version if file doesn't exist
     return VERSION_FILE.read_text().strip()
 
 setup(
