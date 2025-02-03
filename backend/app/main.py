@@ -2,6 +2,8 @@ import asyncio
 import logging
 import sys
 
+from app.public import get_frontend_assets_path, get_offline_assets_path, get_setup_assets_path
+
 # Configure global logging
 logging.basicConfig(
     level=logging.WARN,  
@@ -21,7 +23,7 @@ from app.routes.api_routes import setup_api_routes
 from app.routes.react_routes import setup_react_routes
 from app.routes.socket_routes import setup_socket_routes
 from app.routes.setup_routes import setup_setup_routes
-from app.database.config import get_db_properties_path
+from app.config import get_db_properties_path
 from contextlib import asynccontextmanager
 import uvicorn
 
@@ -177,17 +179,17 @@ async def lifespan(app: FastAPI):
     query_instance = backend_api.api_controller.queryRest
     app.mount(
         "/offline/assets",
-        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/offline/assets"), html=True),
+        StaticFiles(directory=get_offline_assets_path(), html=True),
         name="assets",
     )
     app.mount(
         "/setup/assets",
-        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/setup/setup/assets"), html=True),
+        StaticFiles(directory=get_setup_assets_path(), html=True),
         name="assets",
     )   
     app.mount(
         "/assets",
-        StaticFiles(directory=os.path.join(os.path.dirname(__file__), "public/frontend/assets"), html=True),
+        StaticFiles(directory=get_frontend_assets_path(), html=True),
         name="assets",
     )        
 
@@ -215,11 +217,11 @@ def main():
     server = uvicorn.Server(config)
     
     try:
-        print("Starting Liberty Framework... Press Ctrl+C to stop.")
-        print(f"Liberty Framework started at: http://0.0.0.0:8000")
+        logging.warning("Starting Liberty Framework... Press Ctrl+C to stop.")
+        logging.warning("Liberty Framework started at: http://0.0.0.0:8000")
         server.run()
     except KeyboardInterrupt:
-        print("\nServer shutting down gracefully...")
+        logging.warning("Server shutting down gracefully...")
         sys.exit(0)  # Exit without error
 
 if __name__ == "__main__":

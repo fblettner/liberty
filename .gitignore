@@ -8,9 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 .DS_Store*
 .VSCodeCounter*
-backend/app/config/*.key
-backend/app/config/*.json
-backend/app/config/*.enc
+backend/app/config/keys/*
 backend/tests/results
 frontend/cypress
 

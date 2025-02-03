@@ -6,8 +6,8 @@ import os
 import re
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.ext.automap import automap_base
-from app.setup.models.models import get_models_path
-from app.database.config import get_db_properties_path
+from app.setup.models import get_models_path
+from app.config import get_db_properties_path
 from app.controllers.api_controller import ApiController   
     
 class Models:
@@ -216,7 +216,7 @@ Base = declarative_base()\n\n"""
             model_content += table_definitions[class_name]
 
         # Write to models.py
-        models_file = os.path.join(os.path.dirname(__file__), f"{get_models_path()}/{self.database}.py")
+        models_file = get_models_path(self.database)
         with open(models_file, "w", encoding="utf-8") as file:
             file.write(model_content)
 

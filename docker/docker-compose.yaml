@@ -18,7 +18,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - liberty-config:/liberty-framework/app/database/config
+      - liberty-config:/liberty-framework/app/config/files
       - liberty-logs:/liberty-framework/app/logs/files
 volumes:
   liberty-config:
