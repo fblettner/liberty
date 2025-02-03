@@ -12,7 +12,7 @@ import os
 from sqlalchemy import create_engine, MetaData, Table, text
 from sqlalchemy.dialects.postgresql import insert
 
-EXCLUDED_TABLES = {"databasechangelog", "databasechangeloglock"}  # Add tables to exclude
+EXCLUDED_TABLES = {"ly_applications", "ly_users"} 
 
 # Custom JSON Encoder to Convert Dates
 class DateTimeEncoder(json.JSONEncoder):
