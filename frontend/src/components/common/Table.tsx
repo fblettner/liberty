@@ -74,7 +74,7 @@ const StyledTableRow = styled.tr<{ isSelected?: boolean }>(({ theme, isSelected 
     background: isSelected ? theme.background.default : "inherit",
     transition: "background-color 0.3s ease",
     cursor: "pointer",
-
+    
     "&:hover": {
         background: isSelected
             ? theme.palette.action.selected

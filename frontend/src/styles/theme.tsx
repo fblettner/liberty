@@ -200,6 +200,7 @@ const GlobalStyles = ({ darkMode, theme }: { darkMode: boolean, theme: any }) =>
       th, td {
         text-align: left; 
         vertical-align: middle; 
+        line-height: 2.2;
         border-bottom: 1px solid ${darkMode ? "rgba(81, 81, 81, 1)" : "rgba(224, 224, 224, 1)"};
         font-size: 0.875rem;
       }
