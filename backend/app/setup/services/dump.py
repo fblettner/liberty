@@ -118,6 +118,7 @@ class Dump:
             tables = conn.execute(text(f"SELECT tablename FROM pg_tables WHERE schemaname = '{self.database}'")).fetchall()
             for table in tables:
                 conn.execute(text(f"ALTER TABLE {self.database}.{table[0]} DISABLE TRIGGER ALL"))
+                conn.execute(text(f"ALTER TABLE {self.database}.{table[0]} OWNER TO {self.database}"))
             print("Foreign key constraints disabled.")
 
         # Load JSON data
