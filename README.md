@@ -1,34 +1,121 @@
-# Liberty Framework 🚀
+# 📖 Liberty Framework  
+### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
-Welcome to **Liberty Framework**, a **no-code development platform** designed for rapid and efficient web application creation using the latest in **React**, **FastAPI**, and **PostgreSQL** technologies. Whether you're a developer or a non-technical user, Liberty Framework empowers you to build robust applications with **zero coding skills** required.
-
-## Why Choose Liberty Framework? 🤔
-
-- **Cutting-Edge Technology**: Built with modern web technologies like **React**, **Node.js**, and **PostgreSQL**, ensuring scalability, flexibility, and performance.
-  
-- **Management Tools Included**: Integrated with essential management tools like:
-  - 🌐 **Traefik**: A powerful reverse proxy for routing and load balancing.
-  - ⚙️ **AirFlow**: Automate and manage workflows effortlessly.
-  - 🐘 **pgAdmin**: Manage your PostgreSQL database visually with ease.
-  
-- **No-Code Development**: Create feature-rich web applications without writing a single line of code, making it accessible to **developers and non-developers** alike.
-
-- **JD Edwards Integration**: **Native connector** for **JD Edwards**, making access management, task segregation, and Oracle license compliance a breeze. Perfect for **enterprise-level** operations.
-
-- **Fast Application Design**: With Liberty Framework’s **modern architecture**, you can design and deploy powerful applications in record time! 🚀
-
-## Explore Liberty Framework 💡
-
-Here are some quick resources to help you dive into the Liberty Framework:
-
-- 🔗 **[Visit the Liberty Framework Repository](https://github.com/fblettner/liberty-public)**: Explore the public repository with all the files you need for deployment.
-  
-- 📚 **[View the Documentation](https://docs.nomana-it.fr/)**: Get detailed information on all our products, access the knowledge base, and explore technical documentation.
-  
-- 💻 **[Check Out the Demo](https://liberty.nomana-it.fr/)**: Experience the Liberty Framework in action with our live demo and test it for yourself.
-
-- 🔍 **[Explore Other Public Resources](https://github.com/fblettner)**: Discover more products available as public resources in our repository.
+🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
 ---
 
-Liberty Framework is the ideal platform for creating **enterprise-grade** web applications with ease and speed. Join us and experience the future of no-code development today! 🌟
+## ✨ Features  
+✅ **FastAPI-based** – High-performance backend with asynchronous capabilities.  
+✅ **React** – Beautiful and responsive frontend without any dependencies to components.  
+✅ **Database Management** – SQLAlchemy, Alembic for migrations, and PostgreSQL support.  
+✅ **Real-Time Communication** – Integrated WebSocket (Socket.IO) for live updates.  
+✅ **Authentication & Security** – JWT authentication, encryption, and role-based access.  
+✅ **Automated Database Migrations** – Alembic versioning for multiple databases.  
+✅ **Easy Installation & Deployment** – Available as a **Python package** and **Docker image**.  
+✅ **Extensible** – Plugin-based architecture to support future enhancements.  
+
+---
+
+## 📦 Installation  
+
+### Requirements
+A postgres database is needed. you can install your own or use the docker image we provide
+
+### **Option 1: Install via `pip`**
+```bash
+git clone https://github.com/fblettner/liberty-framework.git
+go to backend directory and submit build.sh
+pip install liberty-framework
+```
+
+### **Option 2: Run with Docker**
+```bash
+docker pull ghcr.io/fblettner/liberty-framework:latest
+docker run -p 8000:8000 ghcr.io/fblettner/liberty-framework
+```
+
+---
+
+## 🚀 Quick Start  
+After installation, you can **start the framework** with:  
+```bash
+liberty-start
+```
+or manually:  
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Access the API at: **[https://docs.nomana-it.fr](https://docs.nomana-it.fr)**  
+
+---
+
+## ⚙️ URL
+
+Setup: http://<your_host>:<your_port>/setup
+Application: http://<your_host>:<your_port>
+
+---
+
+## 📖 Documentation  
+- **API Reference**: [https://docs.nomana-it.fr/liberty/api/liberty-api](https://docs.nomana-it.fr/liberty/api/liberty-api)  
+- **WebSocket API**: Supports real-time event handling using **Socket.IO**  
+- **Alembic Migrations**: Multiple database support  
+- **Authentication**: JWT-based auth system  
+
+---
+
+## 🤝 Contributing  
+We welcome contributions! Here’s how you can help:  
+1. **Fork** this repository.  
+2. **Clone** your fork:  
+   ```bash
+   git clone https://github.com/fblettner/liberty-framework.git
+   ```
+3. **Create a new branch** for your feature:  
+   ```bash
+   git checkout -b feature-name
+   ```
+4. **Commit your changes**:  
+   ```bash
+   git commit -m "Add new feature"
+   ```
+5. **Push to your fork** and **submit a Pull Request**:  
+   ```bash
+   git push origin feature-name
+   ```
+6. **Join discussions** and help improve the framework!  
+
+---
+
+## 💖 Sponsorship  
+If you find **Liberty Framework** useful and would like to support its development, consider sponsoring us. Your contributions help maintain the project, add new features, and improve the documentation. Every contribution, big or small, is greatly appreciated!  
+
+To sponsor, visit: **[GitHub Sponsors](https://github.com/sponsors/fblettner)** or reach out to us directly.  
+
+---
+
+## 📜 License  
+Liberty Framework is **open-source software** licensed under the **AGPL License**.  
+Enterprise features require a license:
+  - nomasx1 for security management, segregation of duties and licenses compliancy
+  - nomajde for jdedwards integration
+
+---
+
+## 📧 Contact & Support  
+If you have questions or need support:  
+- **Email**: [franck.blettner@nomana-it.fr](mailto:franck.blettner@nomana-it.fr)  
+- **GitHub Issues**: [Report an issue](https://github.com/fblettner/liberty-framework/issues)  
+- **Discussions**: Join the conversation in the **GitHub Discussions** section.  
+
+---
+
+### ⭐ If you find Liberty Framework useful, consider giving it a star on GitHub!  
+```bash
+git clone https://github.com/fblettner/liberty-framework.git
+cd liberty-framework
+```
+
+🚀 **Let's build the future of business applications together!** 🚀  
