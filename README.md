@@ -1,13 +1,13 @@
 # 📖 Liberty Framework  
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
-🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
+🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
 ---
 
 ## ✨ Features  
 ✅ **FastAPI-based** – High-performance backend with asynchronous capabilities.  
-✅ **React** – Beautiful and responsive frontend without any dependencies to components.  
+✅ **React-based** – Beautiful and responsive frontend without any dependencies to components.  
 ✅ **Database Management** – SQLAlchemy, Alembic for migrations, and PostgreSQL support.  
 ✅ **Real-Time Communication** – Integrated WebSocket (Socket.IO) for live updates.  
 ✅ **Authentication & Security** – JWT authentication, encryption, and role-based access.  
@@ -53,8 +53,8 @@ Access the API at: **[https://docs.nomana-it.fr](https://docs.nomana-it.fr)**
 
 ## ⚙️ URL
 
-Setup: http://<your_host>:<your_port>/setup
-Application: http://<your_host>:<your_port>
+- Setup: `http://<your_host>:<your_port>/setup`
+- Application: `http://<your_host>:<your_port>`
 
 ---
 
@@ -99,8 +99,10 @@ To sponsor, visit: **[GitHub Sponsors](https://github.com/sponsors/fblettner)** 
 ## 📜 License  
 Liberty Framework is **open-source software** licensed under the **AGPL License**.  
 Enterprise features require a license:
-  - nomasx1 for security management, segregation of duties and licenses compliancy
-  - nomajde for jdedwards integration
+  - **NOMASX-1**: Security management, Segregation of duties and licenses compliancy
+  - **NOMAJDE** JD-Edwards integration
+  - **Airflow Plugins**: Automatic database backup, database synchronisation...
+  - **Liberty AI**: Currently, OpenAI is set into the configuration, you have to use your own account if you don't subscribe for enterprise feature
 
 ---
 
