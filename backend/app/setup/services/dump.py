@@ -1,4 +1,6 @@
 import logging
+
+from app.setup.services.install import Install
 logger = logging.getLogger(__name__)
 
 from app.database.config import get_db_properties_path
@@ -22,12 +24,12 @@ class DateTimeEncoder(json.JSONEncoder):
 class Dump: 
     def __init__(self, apiController: ApiController, database):
         db_properties_path = get_db_properties_path()
-        config = apiController.queryRest.load_db_properties(db_properties_path)
+        self.config = apiController.queryRest.load_db_properties(db_properties_path)
         self.database = database
         self.apiController = apiController
 
         # Database configuration
-        DATABASE_URL = f"postgresql+psycopg2://{database}:{config["password"]}@{config["host"]}:{config["port"]}/{database}"
+        DATABASE_URL = f"postgresql+psycopg2://{database}:{self.config["password"]}@{self.config["host"]}:{self.config["port"]}/{database}"
 
         try:
             self.engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT")
@@ -158,4 +160,6 @@ class Dump:
                 conn.execute(text(f"ALTER TABLE {self.database}.{table[0]} ENABLE TRIGGER ALL"))
             print("Foreign key constraints enabled.")
             
+        db_password = Install(self.database, self.config["password"], self.config["host"], self.config["port"], self.database, self.config["database"], self.jwt, self.config["password"])
+        db_password.update_database_settings(self.database)            
         logging.warning("Data upload completed successfully!")
