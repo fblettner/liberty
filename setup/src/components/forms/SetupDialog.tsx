@@ -185,7 +185,7 @@ export default function SetupDialog() {
       if (data.status === "success") {
         setProgress(100);
         logMessage("Preparation complete! You can start the upgrade...");
-
+        setLoading(false);
       } else {
         logMessage(`Error: ${data.items[0].message}`);
         setLoading(false);
@@ -365,7 +365,6 @@ export default function SetupDialog() {
               {step === 2 && (
                 <Fragment>
                   <Div_DialogToolbar>
-
                       <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
                         Update Settings
                       </Button_Setup>
