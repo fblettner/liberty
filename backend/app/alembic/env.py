@@ -109,6 +109,15 @@ def run_migrations_offline() -> None:
             with context.begin_transaction():
                 context.run_migrations(engine_name=name)
 
+def include_object(object, name, type_, reflected, compare_to):
+    """
+    Prevent Alembic from dropping tables that exist in the database
+    but are not in the SQLAlchemy models.
+    """
+    if type_ == "table" and reflected and compare_to is None:
+        logger.warning(f"Skipping table {name} (exists in DB but not in models)")
+        return False  # Do NOT drop the table
+    return True  # Allow other objects to be processed
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
@@ -143,6 +152,7 @@ def run_migrations_online() -> None:
                 upgrade_token="%s_upgrades" % name,
                 downgrade_token="%s_downgrades" % name,
                 target_metadata=target_metadata.get(name),
+                include_object=include_object
             )
             context.run_migrations(engine_name=name)
 
