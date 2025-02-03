@@ -1,0 +1,177 @@
+{
+    "loading": "Loading...",
+    "copyToClipboard": "Content copied to clipboard: ",
+    "pasteFromClipoard": "Content read from clipboard: ",
+    "unexpectedError": "Unexpected Error, please contact your admin",
+    "save_ok": "Data saved successfully",
+    "run_ok": "Task executed successfully: ",
+    "run_cancel": "Task canceled",
+    "save_ko": "Your changes are not saved, please cancel or save",
+    "ui_settings": "UI Settings",
+    "users_settings": "User Settings",
+    "notifications_settings": "Notifications Settings",
+    "dashboard": "Dashboard",
+    "signout": "Sign out",
+    "admin": "Framework",
+    "links": "Links",
+    "login": {
+        "userid": "User ID",
+        "username": "Full Name",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "email": "Email",
+        "application": "Application",
+        "loginError": "Invalid Login",
+        "passwordError": "Invalid Password",
+        "applicationError": "Application not selected",
+        "authRequired": "Authentication required",
+        "loginButton": "Sign in",
+        "signin": "Sign in",
+        "connected": "Connected",
+        "anonymous": "Anonymous",
+        "mode": "Admin",
+        "loading": "Get list of available applications"
+    },
+    "filters": {
+        "label": "Filters",
+        "operator": {
+            "eq": "equals",
+            "like": "contains",
+            "sup": ">=",
+            "inf": "<="
+        }
+    },
+    "tables": {
+        "help": "Table Properties",
+        "confirm": "Confirmation",
+        "no_results": "No results found",
+        "rows": "Rows",
+        "search": "Search...",
+        "findSelect": "Search & Select: ",
+        "component": "Component: ",
+        "id": "Table ID: ",
+        "description": "Description: ",
+        "query": "Query ID: ",
+        "delete": "Are you sure you want to delete this row? This action is irreversible and will permanently remove this data.",
+        "SelectedRowsError": "No rows selected",
+        "MultipleRowsError": "You should select only one row",
+        "FilterDefinitionError": "Filters for contextual menus are incorrectly set, please check definition",
+        "copyToClipboard": "Failed to copy to clipboard: ",
+        "pasteFromClipoard": "Failed to read from clipboard: "
+    },
+    "dialogs": {
+        "help": "Dialog Properties",
+        "mappingError": "Check your dialog definition, some columns in the query are not mapped :",
+        "component": "Component: ",
+        "id": "Form ID: ",
+        "mode": "Mode: ",
+        "saveDialog": "Please close the dialog before moving to another application",
+        "dataNotSaved": "Data not saved",
+        "confirmCloseDialog": "Data are not saved, are you sure you want to cancel? Unsaved data will be lost",
+        "export" : {
+            "allColumns" : "All",
+            "visibleColumns" : "Visible",
+            "selectedRows" : "Selected",
+            "allRows" : "All",
+            "visibleRows" : "Visible",
+            "csv" : "Export to CSV",
+            "excel" : "Export to Excel",
+            "pdf" : "Export to PDF",
+            "columnId" : "Column ID",
+            "columnName" : "Column Name",
+            "options": "Export options",
+            "header": "Columns Header",
+            "columns": "Columns",
+            "rows": "Rows"
+        }
+    },
+    "tasks": {
+        "confirm": "Do you want to execute the task? ",
+        "run": "Run",
+        "cancel": "Cancel",
+        "params": "Parameters: "
+    },
+    "button": {
+        "apply": "Apply",
+        "reset": "Reset",
+        "cancel": "Cancel",
+        "yes": "Yes",
+        "no": "No",
+        "help": "Help",
+        "back": "Back to previous",
+        "filters": {
+            "title": "Filters",
+            "add": "Add Filter",
+            "remove_all": "Remove All"
+        },
+        "density": "Density",
+        "columns": "Columns",
+        "displayMode": {
+            "table": "Table View",
+            "tree": "Tree View",
+            "chart": "Chart View"
+        },
+        "dialogsMode": {
+            "add": "Add",
+            "edit": "Edit",
+            "copy": "Copy",
+            "delete": "Delete",
+            "reorder": "Reorder Lines",
+            "edit_lines": "Edit table"
+        },
+        "about": "About",
+        "download": "Data export",
+        "upload": "Data import",
+        "save": "Save",
+        "save_close": "Save and close",
+        "add_value": "Add",
+        "scroll_top": "Scroll to top",
+        "discard": "Discard",
+        "copy": "Copy",
+        "paste": "Paste",
+        "autosize": "Autosize",
+        "close": "Close",
+        "image": "Switch to: Image",
+        "text": "Switch to: Text",
+        "import": "Import",
+        "open": "Open",
+        "sort_asc": "Sort Ascending",
+        "sort_desc": "Sort Descending",
+        "sort_clear": "Clear Sorting",
+        "pin_column": "Pin Column",
+        "unpin_column": "Unpin Column",
+        "pin_left": "Pin Left",
+        "pin_right": "Pin Right",
+        "autosize_column": "Autosize Column",
+        "autosize_all_columns": "Autosize All Columns",
+        "group_by": "Group By",
+        "ungroup_by": "Ungroup",
+        "hide_column": "Hide Column",
+        "manage_columns": "Manage Columns",
+        "properties": "Properties"
+
+    },
+    "ai": {
+        "hello": "Hello",
+        "error": "AI is not responding, please try later",
+        "message": "Message Liberty AI"
+    },
+    "files": {
+        "size": "File is too large. Please select a file smaller than 5 MB.",
+        "type": "Invalid file type. Please select a valid file.",
+        "success": "File uploaded successfully"
+    },
+    "chat": {
+        "message": "Type a message..."
+
+    },
+    "columns": {
+        "help": "Column Properties",
+        "dictionary": "Dictionary ID: ",
+        "target": "Database ID: ",
+        "name": "Column Name: ",
+        "type": "Column Type: ",
+        "rules": "Rules: ",
+        "rulesValues": "Rules ID: "
+    }
+}

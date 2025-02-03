@@ -1,0 +1,8 @@
+include requirements.txt
+include LICENSE
+recursive-include app *
+recursive-include tests *   
+exclude app/config/files/db.properties
+exclude app/config/files/encryption.key
+exclude app/config/files/secrets.json
+exclude app/config/files/secrets.json.enc

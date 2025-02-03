@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@ly_types/*": ["src/types/*"],
+      "@ly_services/*": ["src/services/*"],
+      "@ly_utils/*": ["src/utils/*"],
+      "@ly_features/*": ["src/features/*"],
+      "@ly_translations/*": ["src/translations/*"], 
+      "@ly_app/*": ["src/app/*"], 
+      "@ly_components/*": ["src/components/*"], 
+      "@ly_styles/*": ["src/styles/*"], 
+    },
+
+  },
+  "include": ["src", "src/components/forms/FormsTable/features/.tsx", "react-table-augmentation.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

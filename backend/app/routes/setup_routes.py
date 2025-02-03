@@ -1,0 +1,137 @@
+import logging
+logger = logging.getLogger(__name__)
+
+import json
+from app.config import get_db_properties_path
+import os
+from fastapi import APIRouter, Request
+
+from app.controllers.setup_controller import SetupController
+from app.models.base import ErrorResponse, SuccessResponse, response_200, response_422, response_500
+from app.models.setup import SETUP_ERROR_MESSAGE, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE, SetupRequest
+
+
+def setup_setup_routes(app, controller: SetupController):
+    router = APIRouter()
+
+    @router.post(
+        "/setup/install",
+        summary="SETUP - Installation",
+        description="Configure the postgres database.",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def install(
+        req: Request,
+        body: SetupRequest,
+    ):
+        result = await controller.install(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result  
+    
+
+    @router.get(
+        "/export/repository",
+        summary="EXPORT - Repository for Deployment",
+        description="Export all tables models and data.",
+        tags=["Export"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def repository(
+        req: Request,
+    ):
+        return await controller.repository(req)
+    
+    @router.post("/setup/status", include_in_schema=False)
+    async def status():
+        try:
+            db_properties_path = get_db_properties_path()
+            if os.path.exists(db_properties_path):
+                app.state.setup_required = False
+                return {"message": "Setup completed, database is ready."}
+        except Exception as e:
+            logging.error(f"Error refreshing status: {e}")
+        return {"message": "Setup still required."}
+
+
+    @router.post("/setup/upgrade",
+        summary="SETUP - Upgrade",
+        description="Upgrade databases to latest version",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def upgrade(        
+        req: Request
+        ):
+        result = controller.upgrade(req)
+        return result  
+
+    @router.post("/setup/downgrade/{version}",
+        summary="SETUP - Downgrade",
+        description="Downgrade databases to a specific version",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def downgrade(        
+        req: Request
+        ):
+        result = controller.downgrade(req)
+        return result  
+
+    @router.post("/setup/revision",
+        summary="SETUP - Revision",
+        description="Create a new revision for the database",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def revision(        
+        req: Request
+        ):
+        return controller.revision(req)
+
+    @router.get("/setup/current",
+        summary="SETUP - Current",
+        description="Get the current version deployed",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def current(        
+        req: Request
+        ):
+        return controller.current(req)
+
+    app.include_router(router, prefix="/api")
