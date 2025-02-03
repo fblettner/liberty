@@ -1,3 +1,8 @@
+#
+# Copyright (c) 2025 NOMANA-IT and/or its affiliates.
+# All rights reserved. Use is subject to license terms.
+#
+#
 import json
 from typing import Any, Dict, Optional
 from fastapi import APIRouter, Body, Depends, HTTPException, Query, Request, Path
