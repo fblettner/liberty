@@ -108,7 +108,7 @@ Enterprise features require a license:
   - **NOMASX-1**: Security management, Segregation of duties and licenses compliancy
   - **NOMAJDE** JD-Edwards integration
   - **Airflow Plugins**: Automatic database backup, database synchronisation...
-  - **Liberty AI**: Currently, OpenAI is set into the configuration, you have to use your own account if you don't subscribe for enterprise feature
+  - **Liberty AI**: Currently, OpenAI is set into the configuration, you have to use your own account without enterprise features license
 
 ---
 
