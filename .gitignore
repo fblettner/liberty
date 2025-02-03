@@ -1,8 +1,8 @@
 dist
-backend/app/config/files
-backend/app/setup/data/*.json
-backend/app/setup/models/liberty.py
-backend/app/setup/models/nomasx1.py
+backend/app/config/files/db.properties
+backend/app/config/files/encryption.key
+backend/app/config/files/secrets.json
+backend/app/config/files/secrets.json.enc
 backend/tests
 
 # Logs
