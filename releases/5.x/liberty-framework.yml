@@ -1,0 +1,244 @@
+services:
+  node:
+    image: ghcr.io/fblettner/liberty-node:latest
+    command: ["node", "app.js", "port", "3002"]
+    security_opt:
+      - "label:disable"
+    cap_drop:
+      - MKNOD
+      - AUDIT_WRITE
+    networks:
+      - liberty-network
+    working_dir: /opt/liberty
+    depends_on:
+      - pg
+    labels:
+      - "traefik.enable=true"
+
+      # HTTP Router for API 
+      - "traefik.http.routers.node.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.node.entrypoints=web"
+      - "traefik.http.routers.node.middlewares=error-pages-middleware"
+
+      # HTTPS Router for API
+      - "traefik.http.routers.node-https.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.node-https.entrypoints=websecure"
+      - "traefik.http.routers.node-https.tls=true"
+      - "traefik.http.routers.node-https.middlewares=error-pages-middleware"      
+
+      # HTTP Router for Socket
+      - "traefik.http.routers.socket.rule=PathPrefix(`/socket`)"
+      - "traefik.http.routers.socket.entrypoints=web"
+
+      # HTTPS Router for Socket
+      - "traefik.http.routers.socket-https.rule=PathPrefix(`/socket`)"
+      - "traefik.http.routers.socket-https.entrypoints=websecure"
+      - "traefik.http.routers.socket-https.tls=true"
+ 
+      # HTTP Router for Socket.io
+      - "traefik.http.routers.socketio.rule=PathPrefix(`/socket.io`)"
+      - "traefik.http.routers.socketio.entrypoints=web"
+
+      # HTTPS Router for Socket.io
+      - "traefik.http.routers.socketio-https.rule=PathPrefix(`/socket.io`)"
+      - "traefik.http.routers.socketio-https.entrypoints=websecure"
+      - "traefik.http.routers.socketio-https.tls=true"
+
+      # HTTP Router for REACT (to support redirection)
+      - "traefik.http.routers.react.rule=PathPrefix(`/`)" 
+      - "traefik.http.routers.react.entrypoints=web"
+      - "traefik.http.routers.react.middlewares=error-pages-middleware"      
+  
+      # HTTPS Router for REACT
+      - "traefik.http.routers.react-https.rule=PathPrefix(`/`)" 
+      - "traefik.http.routers.react-https.entrypoints=websecure"
+      - "traefik.http.routers.react-https.tls=true"
+      - "traefik.http.routers.react-https.middlewares=error-pages-middleware"      
+
+      # Node Service (Port 3002)
+      - "traefik.http.services.node.loadbalancer.server.port=3002"
+      - "traefik.http.routers.react.middlewares=compress-middleware"      
+      - "traefik.http.routers.react-https.middlewares=compress-middleware"
+      - "traefik.http.routers.node.middlewares=compress-middleware"      
+      - "traefik.http.routers.node-https.middlewares=compress-middleware"
+  pg:
+    image: ghcr.io/fblettner/liberty-pg:latest
+    shm_size: 512mb
+    command: |
+      postgres
+        -c shared_buffers=2GB
+        -c track_activity_query_size=1MB
+        -c work_mem=256MB
+        -c maintenance_work_mem=128MB
+        -c max_wal_size=8GB
+        -c wal_level=minimal
+        -c max_wal_senders=0
+        -c synchronous_commit=off
+        -c checkpoint_timeout=20min
+        -c seq_page_cost=1
+        -c random_page_cost=4
+        -c cpu_tuple_cost=0.03
+        -c cpu_index_tuple_cost=0.005
+        -c cpu_operator_cost=0.0025
+    volumes:
+      - pg-data:/var/lib/postgresql/data:Z
+    networks:
+      - liberty-network       
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tcp.routers.pg.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.pg.entryPoints=db"
+      - "traefik.http.services.pg.loadbalancer.server.port=5432"
+  pgadmin:
+    image: ghcr.io/fblettner/liberty-pgadmin:latest
+    user: root
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin:Z
+    environment:
+      - SCRIPT_NAME=/pgadmin
+    networks:
+      - liberty-network 
+    depends_on:
+      - pg
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for pgadmin
+      - "traefik.http.routers.pgadmin.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin.entrypoints=web"
+
+      # HTTPS Router for pgadmin
+      - "traefik.http.routers.pgadmin-https.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin-https.entrypoints=websecure" 
+
+      # pgadmin Service (Port 3003)
+      - "traefik.http.services.pgadmin.loadbalancer.server.port=3003"
+  rundeck:
+    image: ghcr.io/fblettner/liberty-rundeck:latest
+    volumes:
+      - rundeck-data:/app/rundeck
+      - talend-config:/opt/config
+      - rundeck-config:/opt/rundeck
+    security_opt:
+      - "label:disable"
+    cap_drop:
+      - MKNOD
+      - AUDIT_WRITE
+    networks:
+      - liberty-network
+    depends_on:
+      - pg   
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for Rundeck 
+      - "traefik.http.routers.rundeck.rule=PathPrefix(`/rundeck`)" 
+      - "traefik.http.routers.rundeck.entrypoints=web"
+      - "traefik.http.routers.rundeck.middlewares=error-pages-middleware"  
+
+      # HTTPS Router for Rundeck
+      - "traefik.http.routers.rundeck-https.rule=PathPrefix(`/rundeck`)" 
+      - "traefik.http.routers.rundeck-https.entrypoints=websecure"
+      - "traefik.http.routers.rundeck-https.tls=true"
+      - "traefik.http.routers.rundeck-https.middlewares=error-pages-middleware" 
+
+      # Rundeck Service (Port 4440)
+      - "traefik.http.services.rundeck.loadbalancer.server.port=4440"
+  oidc:
+    image: ghcr.io/fblettner/liberty-keycloak:latest
+    command: ["start-dev", "--proxy-headers=xforwarded"]
+    environment:
+      PROXY_ADDRESS_FORWARDING: 'true'
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HTTP_ENABLED: 'true'
+      KC_HOSTNAME_PATH: '/oidc'
+      KC_HTTP_RELATIVE_PATH: '/oidc'
+    depends_on:
+      - pg
+    networks:
+      - liberty-network 
+    labels:
+      - "traefik.enable=true"
+
+      # HTTP Router for OIDC
+      - "traefik.http.routers.oidc.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc.entrypoints=web"
+
+      # HTTPS Router for OIDC
+      - "traefik.http.routers.oidc-https.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc-https.entrypoints=websecure" 
+      - "traefik.http.routers.oidc-https.tls=true"
+
+      # OIDC Service (Port 9000)
+      - "traefik.http.services.oidc.loadbalancer.server.port=8080"
+      
+      # CORS Configuration
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowheaders=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolexposeheaders=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowmethods=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.oidc-cors.headers.addvaryheader=true"
+      - "traefik.http.routers.oidc.middlewares=oidc-cors"
+  filebrowser:
+    image: ghcr.io/fblettner/liberty-filebrowser:latest
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://filebrowser/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - rundeck-config:/srv/rundeck
+      - fb-config:/config
+      - fb-data:/srv
+      - talend-config:/srv/talend
+      - traefik-certs:/srv/traefik/certificates
+      - traefik-config:/srv/traefik/config
+      - shared-data:/srv/shared      
+    restart: unless-stopped    
+    networks:
+      - liberty-network 
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for Filebrowser
+      - "traefik.http.routers.filebrowser.rule=PathPrefix(`/filebrowser`)"
+      - "traefik.http.routers.filebrowser.entrypoints=web"
+      - "traefik.http.routers.filebrowser.middlewares=filebrowser-strip"     
+
+      # HTTPS Router for Filebrowser
+      - "traefik.http.routers.filebrowser-https.rule=PathPrefix(`/filebrowser`)"
+      - "traefik.http.routers.filebrowser-https.entrypoints=websecure" 
+      - "traefik.http.routers.filebrowser-https.tls=true"
+      - "traefik.http.routers.filebrowser-https.middlewares=filebrowser-strip"     
+
+      # Filebrowser Service (Port 80)
+      - "traefik.http.middlewares.filebrowser-strip.stripprefix.prefixes=/filebrowser"
+      - "traefik.http.services.filebrowser.loadbalancer.server.port=80"
+volumes:
+  fb-config:
+    name: fb-config
+  fb-data:
+    name: fb-data 
+  pg-data:
+    name: pg-data
+  pgadmin-data:
+    name: pgadmin-data
+  rundeck-data:
+    name: rundeck-data
+  rundeck-config:
+    name: rundeck-config    
+  talend-config:
+    name: talend-config
+  nginx-config:
+    name: nginx-config
+  traefik-certs:
+    name: traefik-certs
+    external: true
+  traefik-config:
+    name: traefik-config
+    external: true  
+  shared-data:
+    name: shared-data
+    external: true
+networks:
+  liberty-network:
+    external: true

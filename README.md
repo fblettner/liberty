@@ -30,7 +30,11 @@
 ## 📦 Installation  
 
 ### Requirements
-A postgres database is needed. you can install your own or use the docker image we provide
+A PostgreSQL 16 database is required. You can either:
+  - Create a Docker image based on postgres:16, or
+  - Install PostgreSQL 16 directly on your host system.
+
+For easier setup and to ensure compatibility with future enterprise features, it is recommended to create a database with a user named liberty.
 
 ### **Option 1: Install via `pip`**
 ```bash
@@ -61,10 +65,17 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 ## ⚙️ URL
 
+### Installation URL
 - Setup: `http://<your_host>:<your_port>/setup`
 - Application: `http://<your_host>:<your_port>`
 - API Documentation: `http://<your_host>:<your_port>/api`
-- Swagger: `http://<your_host>:<your_port>/test`
+- Swagger: `http://<your_host>:<your_port>/api/test`
+
+### Demo URL
+- Setup: [https://liberty.nomana-it.fr/setup](https://liberty.nomana-it.fr/setup)
+- Application: [https://liberty.nomana-it.fr](https://liberty.nomana-it.fr)
+- API Documentation: [https://liberty.nomana-it.fr/api](https://liberty.nomana-it.fr/api)
+- Swagger: [https://liberty.nomana-it.fr/api/test](https://liberty.nomana-it.fr/api/test)
 
 ---
 
