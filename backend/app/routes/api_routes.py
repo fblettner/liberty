@@ -20,6 +20,8 @@ from app.models.pool import OPEN_ERROR_MESSAGE, OPEN_RESPONSE_DESCRIPTION, OPEN_
 from app.models.themes import THEMES_ERROR_MESSAGE, THEMES_RESPONSE_DESCRIPTION, THEMES_RESPONSE_EXAMPLE, ThemesResponse
 from app.services.db_query import LoginType, QuerySource, QueryType, SessionMode
 from app.utils.jwt import JWT
+from app.services.api_rest import AIResponse
+from app.models.ai import AI_ERROR_MESSAGE, AI_RESPONSE_DESCRIPTION, AI_RESPONSE_EXAMPLE
 
 
 def setup_api_routes(app, controller: ApiController, jwt: JWT):
@@ -386,6 +388,24 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
         body: Dict[str, Any] = Body(..., description="JSON object with key-value pairs is required.")
 
         return await controller.audit(req, table, user)
+   
+
+    @router.post("/ai/prompt",
+        response_model=AIResponse,
+        summary="AI - Prompt",
+        description="Ask AI a question.",
+        tags=["Framework"],
+        responses={
+            200: response_200(AIResponse, AI_RESPONSE_DESCRIPTION, AI_RESPONSE_EXAMPLE),
+            400: response_400("Request body cannot be empty. JSON object is required."),
+            422: response_422(),
+            500: response_500(ErrorResponse, AI_ERROR_MESSAGE),
+        },        
+    )
+    async def prompt(
+        req: Request
+    ):  
+        return await controller.prompt(req)
    
 
     app.include_router(router, prefix="/api")

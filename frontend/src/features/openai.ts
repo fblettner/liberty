@@ -8,48 +8,27 @@ import axios, { AxiosError } from 'axios';
 // Custom Import
 import Logger from '@ly_services/lyLogging';
 import { IModulesProps } from '@ly_types/lyModules';
+import { GlobalSettings } from '@ly_utils/GlobalSettings';
+import { QueryRoute } from '@ly_types/lyQuery';
 
-const api_key = ""
-
-const estimateTokens = (text: string): number => {
-  return Math.ceil(text.length / 4);
-};
 
 export const sendPrompt = async (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => {
   try {
-    const response = await axios.post('https://api.openai.com/v1/chat/completions',
-
-      {
-        model: 'gpt-4o-mini',
-        messages: conversationHistory, // Send the entire conversation history
-        max_tokens: 1500,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${api_key}`,
-          'Content-Type': 'application/json',
-        },
-      }
+    const response = await axios.post(GlobalSettings.getBackendURL + QueryRoute.prompt,
+      {history: conversationHistory},
     );
-    const messageContent = response.data.choices[0].message.content.trim();
-    const newContentLength = estimateTokens(messageContent);
-    let isTruncated = false
-    if (newContentLength >= 1500 - 50) { // Threshold and retry limit
-      isTruncated = true
-    }
-
 
     return {
-      message: messageContent,
-      isTruncated,
+      message: response.data.message,
+      isTruncated: response.data.is_truncated,
     };
   } catch (error: unknown) {
     const logger = new Logger({
-      transactionName: 'openai.sendPrompt',
+      transactionName: 'AI.sendPrompt',
       modulesProperties: modulesProperties,
       data: error instanceof AxiosError ? error.response?.data || error.message : 'Unknown error',
     });
-    logger.logException('AI: Error fetching from OpenAI');
+    logger.logException('AI: Error fetching response');
 
     return {
       message: 'Error fetching response',

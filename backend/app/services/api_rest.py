@@ -1,5 +1,11 @@
 # Description: API REST service for handling REST API requests.
 import logging
+import os
+
+import httpx
+from pydantic import BaseModel
+
+from app.services.db_query import Query
 logger = logging.getLogger(__name__)
 
 import json
@@ -12,14 +18,19 @@ class ApiType:
     internal = "INTERNAL"
     external = "EXTERNAL"
 
-
 class ApiFramework:
     CreateFrameworkDatabase = "CreateFrameworkDatabase"
     DropFrameworkDatabase = "DropFrameworkDatabase"
 
+class AIResponse(BaseModel):
+    message: str
+    is_truncated: bool
+    
+
 class Rest:
-    def __init__(self):
+    def __init__(self, queryRest: Query):
         self.logs_handler = LogHandler()
+        self.queryRest = queryRest
 
 
     async def push_log(self, req: Request):
@@ -119,3 +130,75 @@ class Rest:
         except ValueError:
             # Handle cases where `id` is not a valid integer
             raise HTTPException(status_code=400, detail="Invalid log ID provided")
+
+
+    def estimate_tokens(self,text: str) -> int:
+        return (len(text) + 3) // 4
+
+    async def get_ai_module_params(self):
+        """Extracts OpenAI API URL and Key from MODULE_ID = 'AI'."""
+        query = {
+            "QUERY": 3,
+            "POOL": "default",
+            "CRUD": "GET",
+        }
+        context = {
+            "row_offset": 0,
+            "row_limit": 1000,
+        }
+        # Get the target query using the framework query method
+        target_query = await self.queryRest.db_pools.get_pool("default").db_dao.get_framework_query(
+            query, self.queryRest.db_pools.get_pool("default").db_type
+        )
+        results = await self.queryRest.db_pools.get_pool("default").db_dao.get(target_query, context)
+    
+        # Ensure 'rows' exist in the response
+        if not results.get("rows"):
+            raise ValueError("No module data found")
+        
+        # Find the 'AI' module
+        for module in results["rows"]:
+            if module["MODULE_ID"] == "AI" and module["MODULE_ENABLED"] == "Y":
+                module_params = module.get("MODULE_PARAMS")
+                
+                if module_params:
+                    # Convert JSON string to dictionary
+                    params = json.loads(module_params)
+                    return params.get("url"), params.get("key")
+        
+        raise ValueError("AI module not found or not enabled")
+       
+    async def prompt(self, request: Request):
+        try:
+            openai_url, openai_key = await self.get_ai_module_params()
+            message =  await request.json()
+
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                response = await client.post(
+                    openai_url,
+                    json={
+                        "model": "gpt-4o-mini",
+                        "messages": message.get("history"),
+                        "max_tokens": 1500,
+                    },
+                    headers={
+                        "Authorization": f"Bearer {openai_key}",
+                        "Content-Type": "application/json",
+                    },
+                )
+            
+            response_data = response.json()
+
+            if response.status_code != 200:
+                logger.error(f"OpenAI API Error: {response_data}")
+                raise HTTPException(status_code=response.status_code, detail="Error fetching AI response")
+
+            message_content = response_data["choices"][0]["message"]["content"].strip()
+            new_content_length = self.estimate_tokens(message_content)
+            is_truncated = new_content_length >= 1450  # Threshold for truncation
+
+            return AIResponse(message=message_content, is_truncated=is_truncated)
+
+        except Exception as e:
+            logger.exception("AI: Error fetching response from OpenAI")
+            raise HTTPException(status_code=500, detail=f"Error fetching response: {e}")     

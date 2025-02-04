@@ -46,6 +46,7 @@ export enum QueryRoute {
   modules = "api/fmw/modules",
   applications = "api/fmw/applications",
   themes = "api/fmw/themes",
+  prompt = "api/ai/prompt",
 }
 
 export enum QueryMethod {

@@ -7,7 +7,7 @@ from app.services.api_rest import Rest
 class ApiController:
     def __init__(self, jwt: JWT):
         self.queryRest = Query(jwt)
-        self.apiRest = Rest()
+        self.apiRest = Rest(self.queryRest)
         self.jwt = jwt
 
     async def token(self, req: Request):
@@ -65,10 +65,11 @@ class ApiController:
     async def push_log(self, req: Request):
         return await self.apiRest.push_log(req)    
 
-
     async def get_log(self, req: Request):
         return await self.apiRest.get_log(req) 
     
     async def get_log_details(self, req: Request):
         return await self.apiRest.get_log_details(req) 
-    
+
+    async def prompt(self, req: Request):
+        return await self.apiRest.prompt(req)     
