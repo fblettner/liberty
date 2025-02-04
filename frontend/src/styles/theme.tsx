@@ -118,10 +118,6 @@ const GlobalStyles = ({ darkMode, theme }: { darkMode: boolean, theme: any }) =>
         box-sizing: border-box;
       }
 
-      /* Apply touch-action globally */
-      * {
-        touch-action: none;
-      }
                 
       /* Scrollbar customization */
       ::-webkit-scrollbar {

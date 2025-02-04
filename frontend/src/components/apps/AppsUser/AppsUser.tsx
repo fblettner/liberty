@@ -345,7 +345,6 @@ export const AppsUser = () => {
                         right: isFullScreen ? 0 : 'auto',
                         top: isFullScreen ? 0 : '50%',
                         left: isFullScreen ? 0 : '50%',
-
                         touchAction: 'none',
                         zIndex: DefaultZIndex.Component,
                     }}
