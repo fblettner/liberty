@@ -1,0 +1,154 @@
+services:
+  airflow-webserver:
+    image: ghcr.io/fblettner/liberty-enterprise-airflow:latest
+    command: webserver
+    depends_on:
+      - airflow-scheduler 
+    environment:
+      - TZ=Europe/Paris    
+      - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"     
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - airflow-logs:/opt/airflow/logs
+    networks:
+      - liberty-network
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for Filebrowser
+      - "traefik.http.routers.airflow.rule=PathPrefix(`/airflow`)"
+      - "traefik.http.routers.airflow.entrypoints=web"   
+
+      # HTTPS Router for Filebrowser
+      - "traefik.http.routers.airflow-https.rule=PathPrefix(`/airflow`)"
+      - "traefik.http.routers.airflow-https.entrypoints=websecure" 
+      - "traefik.http.routers.airflow-https.tls=true"    
+
+      # Filebrowser Service (Port 80)
+      - "traefik.http.services.airflow.loadbalancer.server.port=8080"
+  airflow-scheduler:
+    image: ghcr.io/fblettner/liberty-enterprise-airflow:latest
+    command: bash -c "airflow scheduler"
+    depends_on:
+      gitea:
+        condition: service_healthy
+    environment:
+      - TZ=Europe/Paris   
+      # - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"
+      # - AIRFLOW__SCHEDULER__STATSD_ON=True
+      # - AIRFLOW__SCHEDULER__STATSD_HOST=statsd-exporter
+      # - AIRFLOW__SCHEDULER__STATSD_PORT=9125
+      # - AIRFLOW__SCHEDULER__STATSD_PREFIX=airflow 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - airflow-logs:/opt/airflow/logs
+    networks:
+      - liberty-network
+  oidc:
+    image: ghcr.io/fblettner/liberty-enterprise-keycloak:latest
+    command: ["start-dev", "--proxy-headers=xforwarded"]
+    environment:
+      PROXY_ADDRESS_FORWARDING: 'true'
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HTTP_ENABLED: 'true'
+      KC_HOSTNAME_PATH: '/oidc'
+      KC_HTTP_RELATIVE_PATH: '/oidc'
+    networks:
+      - liberty-network 
+    labels:
+      - "traefik.enable=true"
+
+      # HTTP Router for OIDC
+      - "traefik.http.routers.oidc.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc.entrypoints=web"
+
+      # HTTPS Router for OIDC
+      - "traefik.http.routers.oidc-https.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc-https.entrypoints=websecure" 
+      - "traefik.http.routers.oidc-https.tls=true"
+
+      # OIDC Service (Port 9000)
+      - "traefik.http.services.oidc.loadbalancer.server.port=8080"
+      
+      # CORS Configuration
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowheaders=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolexposeheaders=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowmethods=*"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.middlewares.oidc-cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.oidc-cors.headers.addvaryheader=true"
+      - "traefik.http.routers.oidc.middlewares=oidc-cors"
+  gitea:
+    image: ghcr.io/fblettner/liberty-enterprise-gitea:latest
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA_CUSTOM=/liberty
+      - ROOT_URL=http://localhost:3000/gitea
+    restart: always
+    networks:
+      - liberty-network
+    volumes:
+      - liberty-gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s   
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for Filebrowser
+      - "traefik.http.routers.gitea.rule=PathPrefix(`/gitea`)"
+      - "traefik.http.routers.gitea.entrypoints=web"
+      - "traefik.http.routers.gitea.middlewares=gitea-stripprefix"
+
+      # HTTPS Router for Filebrowser
+      - "traefik.http.routers.gitea-https.rule=PathPrefix(`/gitea`)"
+      - "traefik.http.routers.gitea-https.entrypoints=websecure" 
+      - "traefik.http.routers.gitea-https.middlewares=gitea-stripprefix"
+      - "traefik.http.routers.gitea-https.tls=true"    
+
+      # Filebrowser Service (Port 80)
+      - "traefik.http.middlewares.gitea-stripprefix.stripprefix.prefixes=/gitea"
+      - "traefik.http.services.gitea.loadbalancer.server.port=3000"  
+  pgadmin:
+    image: ghcr.io/fblettner/liberty-enterprise-pgadmin:latest
+    user: root
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin:Z
+    environment:
+      - SCRIPT_NAME=/pgadmin
+    networks:
+      - liberty-network 
+    depends_on:
+      - pg
+    labels:
+      - "traefik.enable=true"
+      # HTTP Router for pgadmin
+      - "traefik.http.routers.pgadmin.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin.entrypoints=web"
+
+      # HTTPS Router for pgadmin
+      - "traefik.http.routers.pgadmin-https.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin-https.entrypoints=websecure" 
+      - "traefik.http.routers.pgadmin-https.tls=true" 
+
+      # pgadmin Service (Port 3003)
+      - "traefik.http.services.pgadmin.loadbalancer.server.port=3003" 
+volumes:
+  liberty-gitea:
+    name: liberty-gitea  
+  airflow-logs:
+    name: airflow-logs
+  airflow-dags:
+    name: airflow-dags
+  airflow-plugins:
+    name: airflow-plugins    
+  pgadmin-data:
+    name: pgadmin-data
+networks:
+  liberty-network:
+    external: true
