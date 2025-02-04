@@ -205,7 +205,6 @@ const GlobalStyles = ({ darkMode, theme }: { darkMode: boolean, theme: any }) =>
       #root, #app {
         height: 100%;
         width: 100%;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
       }
