@@ -93,7 +93,7 @@ services:
       - pg-logs:/var/log/postgresql 
     environment:
       - POSTGRES_USER=liberty
-      - POSTGRES_PASSWORD=nomana      
+      - POSTGRES_PASSWORD=change_on_install      
     networks:
       - liberty-network       
     labels:
