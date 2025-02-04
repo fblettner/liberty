@@ -71,5 +71,9 @@ class ApiController:
     async def get_log_details(self, req: Request):
         return await self.apiRest.get_log_details(req) 
 
-    async def prompt(self, req: Request):
-        return await self.apiRest.prompt(req)     
+    async def ai_prompt(self, req: Request):
+        return await self.apiRest.ai_prompt(req)     
+    
+    async def ai_welcome(self, req: Request):
+        return await self.apiRest.ai_welcome(req)      
+        

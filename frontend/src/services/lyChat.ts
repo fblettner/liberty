@@ -4,7 +4,7 @@
  * *
  */
 import { IChatMessage } from '@ly_types/lyChat';
-import { sendPrompt } from '@ly_features/openai';
+import { send_to_ai } from '@ly_features/openai';
 import { IModulesProps } from '@ly_types/lyModules';
 import { handleQueryIntent, handleTableDescription } from '@ly_components/forms/FormsAI/utils/tableUtils';
 import { handleComponentAnalysis } from '@ly_components/forms/FormsAI/utils/componentUtils';
@@ -14,6 +14,7 @@ import { IUsersProps } from '@ly_types/lyUsers';
 import documentation from "@ly_components/forms/FormsAI/liberty_documentation.json"; 
 import Logger from "@ly_services/lyLogging";
 import React from 'react';
+import { QueryRoute } from '@ly_types/lyQuery';
 
 // Helper function to read file content
 const readFile = (file: File): Promise<string> => {
@@ -95,7 +96,7 @@ export const handleSendMessage = async (
     User input: "${messageToSend}"
   `;
 
-    const intentResponse = await sendPrompt(
+    const intentResponse = await send_to_ai(QueryRoute.ai_prompt,
       [
         ...chatHistoryForAI,
         { role: "system", content: intentPrompt },
@@ -110,7 +111,7 @@ export const handleSendMessage = async (
         appsProperties,
         userProperties,
         modulesProperties,
-        sendPrompt,
+        send_to_ai,
         addMessageToHistory,
         setIsLoading,
         setError: () => {},
@@ -138,7 +139,7 @@ export const handleSendMessage = async (
         appsProperties,
         userProperties,
         modulesProperties,
-        sendPrompt,
+        send_to_ai,
         addMessageToHistory,
         setIsLoading,
         setError: () => {},
@@ -158,7 +159,7 @@ export const handleSendMessage = async (
         appsProperties,
         userProperties,
         modulesProperties,
-        sendPrompt,
+        send_to_ai,
         addMessageToHistory,
         setIsLoading,
         setError: () => {},
@@ -190,7 +191,7 @@ export const handleSendMessage = async (
           .join("\n\n")}
       `;
 
-      const botResponse = await sendPrompt(
+      const botResponse = await send_to_ai(QueryRoute.ai_prompt,
         [
           ...chatHistoryForAI,
           {
@@ -215,7 +216,7 @@ export const handleSendMessage = async (
       return;
     }
 
-    const botResponse = await sendPrompt(
+    const botResponse = await send_to_ai(QueryRoute.ai_prompt,
       [
         ...chatHistoryForAI,
         {

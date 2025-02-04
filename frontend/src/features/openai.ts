@@ -12,9 +12,9 @@ import { GlobalSettings } from '@ly_utils/GlobalSettings';
 import { QueryRoute } from '@ly_types/lyQuery';
 
 
-export const sendPrompt = async (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => {
+export const send_to_ai = async (query: QueryRoute, conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => {
   try {
-    const response = await axios.post(GlobalSettings.getBackendURL + QueryRoute.prompt,
+    const response = await axios.post(GlobalSettings.getBackendURL + query,
       {history: conversationHistory},
     );
 

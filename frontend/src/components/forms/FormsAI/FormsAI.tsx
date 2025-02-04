@@ -10,7 +10,7 @@ import { t } from 'i18next';
 
 // Custom Import
 import { getAppsProperties, getModules, getUserProperties } from '@ly_features/global';
-import { sendPrompt } from '@ly_features/openai';
+import { send_to_ai } from '@ly_features/openai';
 import { InputChat } from '@ly_components/input/InputChat/InputChat';
 import { handleSendMessage } from '@ly_services/lyChat';
 import { IAppsProps } from '@ly_types/lyApplications';
@@ -27,6 +27,7 @@ import { Paper_FormsAI } from '@ly_components/styles/Paper';
 import { Stack_FormsAI } from '@ly_components/styles/Stack';
 import { CircularProgress } from "@ly_components/common/CircularProgress";
 import { Button } from '@ly_components/common/Button';
+import { QueryRoute } from '@ly_types/lyQuery';
 
 interface IMemoizedFormsChatProps {
   chat: IChatMessage;
@@ -99,19 +100,7 @@ export function FormsAI({ componentProperties }: IFormsAIProps) {
     setError(false); // Reset error before attempting to fetch
     
     try {
-      const botResponse = await sendPrompt(
-        [
-          {
-            role: "system",
-            content: `
-              You are an intelligent assistant capable of understanding natural language and helping users with development or documentation-related tasks. 
-              Greet the user and let them know they can ask for help with any of the following and display a formatted text:
-              - Development tasks, like describing or customizing a table, creating a query, or building a form or dialog.
-              - Finding answers in the documentation.
-              Use natural language to provide assistance. Always respond in the language the user uses.
-            `,
-          },
-        ],
+      const botResponse = await send_to_ai(QueryRoute.ai_welcome,[],
         modulesProperties
       );
 
