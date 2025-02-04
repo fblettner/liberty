@@ -394,7 +394,7 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
         response_model=AIResponse,
         summary="AI - Prompt",
         description="Ask AI a question.",
-        tags=["Framework"],
+        tags=["AI"],
         responses={
             200: response_200(AIResponse, AI_RESPONSE_DESCRIPTION, AI_RESPONSE_EXAMPLE),
             400: response_400("Request body cannot be empty. JSON object is required."),
@@ -402,10 +402,28 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
             500: response_500(ErrorResponse, AI_ERROR_MESSAGE),
         },        
     )
-    async def prompt(
+    async def ai_prompt(
         req: Request
     ):  
-        return await controller.prompt(req)
+        return await controller.ai_prompt(req)
    
+
+    @router.post("/ai/welcome",
+        response_model=AIResponse,
+        summary="AI - Welcome",
+        description="Send a welcome message to AI for initialisation.",
+        tags=["AI"],
+        responses={
+            200: response_200(AIResponse, AI_RESPONSE_DESCRIPTION, AI_RESPONSE_EXAMPLE),
+            400: response_400("Request body cannot be empty. JSON object is required."),
+            422: response_422(),
+            500: response_500(ErrorResponse, AI_ERROR_MESSAGE),
+        },        
+    )
+    async def ai_welcome(
+        req: Request
+    ):  
+        return await controller.ai_welcome(req)   
+
 
     app.include_router(router, prefix="/api")

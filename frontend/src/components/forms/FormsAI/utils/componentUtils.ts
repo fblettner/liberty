@@ -7,6 +7,7 @@
 import { IAppsProps } from "@ly_types/lyApplications";
 import { IChatMessage } from "@ly_types/lyChat";
 import { IModulesProps } from "@ly_types/lyModules";
+import { QueryRoute } from "@ly_types/lyQuery";
 import { IUsersProps } from "@ly_types/lyUsers";
 import React from "react";
 
@@ -14,7 +15,7 @@ export interface IComponentAnalysisProps {
     appsProperties: IAppsProps;
     userProperties: IUsersProps;
     modulesProperties: IModulesProps;
-    sendPrompt:  (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
+    send_to_ai:  (query: QueryRoute, conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
     addMessageToHistory: (message: IChatMessage) => void;
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;  
     setError: React.Dispatch<React.SetStateAction<boolean>>;
@@ -24,7 +25,7 @@ export interface IComponentAnalysisProps {
     }
 
 export const handleComponentAnalysis = async (params: IComponentAnalysisProps) => {
-    const { appsProperties, userProperties, modulesProperties, sendPrompt, addMessageToHistory, setIsLoading, setError, handleError, content, isMarkdown } = params;
+    const { appsProperties, userProperties, modulesProperties, send_to_ai, addMessageToHistory, setIsLoading, setError, handleError, content, isMarkdown } = params;
     setIsLoading(true);
     setError(false); // Reset error before starting
   
@@ -46,7 +47,7 @@ export const handleComponentAnalysis = async (params: IComponentAnalysisProps) =
         Output the analysis in a structured, user-friendly format.
       `;
   
-      const analysisResponse = await sendPrompt(
+      const analysisResponse = await send_to_ai(QueryRoute.ai_prompt,
         [
           {
             role: "system",

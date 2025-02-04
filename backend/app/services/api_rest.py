@@ -167,18 +167,17 @@ class Rest:
                     return params.get("url"), params.get("key")
         
         raise ValueError("AI module not found or not enabled")
-       
-    async def prompt(self, request: Request):
+
+    async def send_message_to_ai(self, message):
         try:
             openai_url, openai_key = await self.get_ai_module_params()
-            message =  await request.json()
 
             async with httpx.AsyncClient(timeout=60.0) as client:
                 response = await client.post(
                     openai_url,
                     json={
                         "model": "gpt-4o-mini",
-                        "messages": message.get("history"),
+                        "messages": message,
                         "max_tokens": 1500,
                     },
                     headers={
@@ -202,3 +201,37 @@ class Rest:
         except Exception as e:
             logger.exception("AI: Error fetching response from OpenAI")
             raise HTTPException(status_code=500, detail=f"Error fetching response: {e}")     
+
+
+    async def ai_prompt(self, request: Request):
+        try:
+            message =  await request.json()
+
+            return await self.send_message_to_ai(message.get("history"))
+
+        except Exception as e:
+            logger.exception("AI: Error fetching response from OpenAI")
+            raise HTTPException(status_code=500, detail=f"Error fetching response: {e}")     
+        
+
+    async def ai_welcome(self, request: Request):
+        try:
+            message =  [
+                {
+                    "role": "system",
+                    "content": """
+                    You are an intelligent assistant capable of understanding natural language and helping users with development or documentation-related tasks. 
+                    Greet the user and let them know they can ask for help with any of the following and display a formatted text:
+                    - Development tasks, like describing or customizing a table, creating a query, or building a form or dialog.
+                    - Finding answers in the documentation.
+                    Use natural language to provide assistance. Always respond in the language the user uses.
+                    """
+                }
+            ]
+            print(message)
+            return await self.send_message_to_ai( message)
+
+        except Exception as e:
+            logger.exception("AI: Error fetching response from OpenAI")
+            raise HTTPException(status_code=500, detail=f"Error fetching response: {e}")   
+        

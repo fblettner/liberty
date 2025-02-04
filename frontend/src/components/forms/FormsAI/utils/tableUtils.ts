@@ -11,7 +11,7 @@ import { IAppsProps, ESessionMode, EApplications } from "@ly_types/lyApplication
 import { IChatAction, IChatMessage } from "@ly_types/lyChat";
 import { CDialogContent, EDialogDetails, IDialogContent } from "@ly_types/lyDialogs";
 import { EDictionaryRules, EDictionaryType } from "@ly_types/lyDictionary";
-import { QueryMethod, QuerySource, ResultStatus } from "@ly_types/lyQuery";
+import { QueryMethod, QueryRoute, QuerySource, ResultStatus } from "@ly_types/lyQuery";
 import { EUsers, IUsersProps } from "@ly_types/lyUsers";
 import Logger from "@ly_services/lyLogging";
 import { EEnumHeader, EEnumValues, IEnumOption } from "@ly_types/lyEnums";
@@ -35,7 +35,7 @@ export interface ITableAIProps {
   appsProperties: IAppsProps;
   userProperties: IUsersProps;
   modulesProperties: IModulesProps;
-  sendPrompt: (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
+  send_to_ai: (query: QueryRoute, conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
   addMessageToHistory: (message: IChatMessage) => void;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setError: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,7 +46,7 @@ export interface ITableAIProps {
 
 
 const insertOrUpdateData = async (params: IInsertOrUpdateDataProps) => {
-  const { appsProperties, userProperties, modulesProperties, sendPrompt, addMessageToHistory, setIsLoading, setError, handleError, userInput, isMarkdown, matchedTableID, matchedQueryID, response_json } = params;
+  const { appsProperties, userProperties, modulesProperties, send_to_ai, addMessageToHistory, setIsLoading, setError, handleError, userInput, isMarkdown, matchedTableID, matchedQueryID, response_json } = params;
 
   // Fetch table properties for the matched table ID
   const tableProperties = await lyGetTableProperties({
@@ -244,7 +244,7 @@ const insertOrUpdateData = async (params: IInsertOrUpdateDataProps) => {
 }
 
 const getDataFromTable = async (params: IInsertOrUpdateDataProps) => {
-  const { appsProperties, userProperties, modulesProperties, sendPrompt, addMessageToHistory, setIsLoading, setError, handleError, userInput, isMarkdown, matchedTableID, matchedQueryID, response_json } = params;
+  const { appsProperties, userProperties, modulesProperties, send_to_ai, addMessageToHistory, setIsLoading, setError, handleError, userInput, isMarkdown, matchedTableID, matchedQueryID, response_json } = params;
 
   // Fetch table properties for the matched table ID
   const tableProperties = await lyGetTableProperties({
@@ -295,7 +295,7 @@ const getDataFromTable = async (params: IInsertOrUpdateDataProps) => {
     3. Ensure the response is user-friendly and avoids excessive technical details.
     `;
       setIsLoading(true)
-      const aiResponse = await sendPrompt(
+      const aiResponse = await send_to_ai(QueryRoute.ai_prompt,
         [
           {
             role: "system",
@@ -332,7 +332,7 @@ export const handleTableDescription = async (params: ITableAIProps) => {
     appsProperties,
     userProperties,
     modulesProperties,
-    sendPrompt,
+    send_to_ai,
     addMessageToHistory,
     setIsLoading,
     setError,
@@ -385,7 +385,7 @@ export const handleTableDescription = async (params: ITableAIProps) => {
         If multiple matches are found, return a unordered plain-text list of the matching tables in the format provided above.
     `;
 
-    const botResponse = await sendPrompt(
+    const botResponse = await send_to_ai(QueryRoute.ai_prompt,
       [
         {
           role: "system",
@@ -468,8 +468,7 @@ export const handleTableDescription = async (params: ITableAIProps) => {
           ${description}
         `;
 
-        const finalBotResponse = await sendPrompt(
-          [
+        const finalBotResponse = await send_to_ai(QueryRoute.ai_prompt,           [
             {
               role: "system",
               content: displayPrompt,
@@ -528,7 +527,7 @@ export const handleQueryIntent = async (params: ITableAIProps) => {
     appsProperties,
     userProperties,
     modulesProperties,
-    sendPrompt,
+    send_to_ai,
     addMessageToHistory,
     setIsLoading,
     setError,
@@ -630,7 +629,7 @@ export const handleQueryIntent = async (params: ITableAIProps) => {
     7. Do not include additional text or deviate from the format.
     `;
 
-    const botResponse = await sendPrompt(
+    const botResponse = await send_to_ai(QueryRoute.ai_prompt,
       [
         {
           role: "system",
@@ -679,7 +678,7 @@ export const handleQueryIntent = async (params: ITableAIProps) => {
       appsProperties,
       userProperties,
       modulesProperties,
-      sendPrompt,
+      send_to_ai,
       addMessageToHistory,
       setIsLoading,
       setError,
@@ -716,7 +715,7 @@ export interface IInsertOrUpdateDataProps {
   appsProperties: IAppsProps;
   userProperties: IUsersProps;
   modulesProperties: IModulesProps;
-  sendPrompt: (conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
+  send_to_ai: (query: QueryRoute, conversationHistory: Array<{ role: string; content: string }>, modulesProperties: IModulesProps) => Promise<{ message: string }>;
   addMessageToHistory: (message: IChatMessage) => void;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setError: React.Dispatch<React.SetStateAction<boolean>>;
