@@ -1,6 +1,8 @@
 import logging
 logger = logging.getLogger(__name__)
 
+from sqlalchemy import create_engine, text
+
 import configparser
 import os
 from fastapi import Request
@@ -29,8 +31,10 @@ class Setup:
             admin_database = data.get("database")
             user = data.get("user")
             password = data.get("password")
+            current_password = data.get("current_password")
             admin_password = data.get("admin_password")
             load_data = data.get("load_data", False)
+            load_features = data.get("load_features", False)
 
             # Create all tables in the database
 #            for table in Base.metadata.tables.values():
@@ -39,6 +43,16 @@ class Setup:
 #            Base.metadata.create_all(engine)
 #            logging.warning("All tables have been successfully created!")
 
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{user}:{current_password}@{host}:{port}/{admin_database}"
+
+                # Create an engine
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                # Update role password
+                conn.execute(text(f"ALTER ROLE {admin_database} WITH PASSWORD '{password}'"))
+                logging.warning(f"Role '{admin_database}' password updated successfully.")   
+                
             databases_to_install = {
                 "liberty": True,
                 "libnsx1": data.get("enterprise", False),
@@ -66,10 +80,13 @@ class Setup:
             features_to_install = [db for db, status in features_to_install.items() if status]
             for db_name in features_to_install:
                 logging.warning(f"Installing {db_name} database...")
-                if load_data:
+                if load_features:
                     db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
                     db_init.restore_postgres_dump(db_name)
                     logging.warning(f"{db_name} database restored successfully!")
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_password.update_database_settings(db_name)
+                logging.warning(f"{db_name} settings updated successfully!")
 
             db_properties_path = get_db_properties_path()
             encryption = Encryption(self.jwt)

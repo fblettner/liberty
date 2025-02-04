@@ -62,17 +62,19 @@ const Spinner = styled.div`
 export default function SetupDialog() {
   const [step, setStep] = useState(1); // Track form step
   const [formData, setFormData] = useState({
-    host: "localhost",
+    host: "pg",
     port: "5432",
     database: "liberty",
     user: "liberty",
-    password: "nomana",
+    password: "change_on_install",
+    current_password: "change_on_install",
     admin_password: "nomana",
     enterprise: false,
     keycloak: false,
     airflow: false,
     gitea: false,
     load_data: false,
+    load_features: false
   });
 
   const [progress, setProgress] = useState(0);
@@ -264,9 +266,22 @@ export default function SetupDialog() {
                   </Div_AppsSetup>
                   <Div_AppsSetup>
                     <Input
+                      id="current_password"
+                      name="current_password"
+                      label="Current Password"
+                      type="password"
+                      value={formData.current_password}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Input
                       id="password"
                       name="password"
-                      label="Password"
+                      label="New Password"
                       type="password"
                       value={formData.password}
                       onChange={handleChange}
@@ -340,6 +355,15 @@ export default function SetupDialog() {
                       labelPlacement="end"
                     />
                   </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="load_features"
+                      checked={formData.load_features}
+                      onChange={handleChange}
+                      label="Do you want to load features data (this will erase all current database)?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>                  
                 </>
               )}
               {loading && (

@@ -63,7 +63,7 @@ class Install:
 
             # 🚀 Grant privileges to the role
             conn.execute(text(f'GRANT ALL PRIVILEGES ON DATABASE "{database}" TO {database}'))
-            logging.warning(f"Granted privileges to role '{database}' on database '{database}'.")       
+            logging.warning(f"Granted privileges to role '{database}' on database '{database}'.")    
 
         dump_file = get_dump_path(database)
         if not os.path.exists(dump_file):
