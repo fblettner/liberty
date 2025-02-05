@@ -35,7 +35,7 @@ class Alembic:
             self.config.read(get_ini_path())
             database_to_upgrade = self.config["repository"]["databases"].split(", ")
             for database in database_to_upgrade:         
-                dump = Dump(self.apiController, database)
+                dump = Dump(self.apiController, database, self.jwt)
                 dump.upload_json_to_database()
             return {"message": "Database upgraded successfully!", "status": "success"}
         except Exception as err:
