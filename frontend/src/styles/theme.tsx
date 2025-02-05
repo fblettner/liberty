@@ -199,6 +199,7 @@ const GlobalStyles = ({ darkMode, theme }: { darkMode: boolean, theme: any }) =>
         line-height: 2.2;
         border-bottom: 1px solid ${darkMode ? "rgba(81, 81, 81, 1)" : "rgba(224, 224, 224, 1)"};
         font-size: 0.875rem;
+        touch-action: none;
       }
   
       /* Prevent overflow of root elements */
