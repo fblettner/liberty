@@ -72,7 +72,6 @@ export function AppsHeader() {
   const isLargeScreen = useMediaQuery("(min-width: 1280px)");
 
   return (
-    <Div>
       <Div_HeaderAppBar open={isOpen}>
         {/* Position the Menu Icon Absolutely */}
         {shouldShowMenusIcon && (
@@ -106,6 +105,5 @@ export function AppsHeader() {
         </Div_HeaderToolbar>
 
       </Div_HeaderAppBar>
-    </Div>
   );
 }

@@ -112,7 +112,7 @@ export const rowDelete = async (params: IRowDelete) => {
                     isNew: updatedIsNew,
                     unsavedRows: updatedUnsavedRows,
                     rowsBeforeChange: updatedRowsBeforeChange,
-                    hasUnsavedRows: Object.keys(updatedUnsavedRows).length > 0, // Recalculate as needed
+                    hasUnsavedRows: Object.keys(updatedUnsavedRows).length > 0, 
                 }
             };
         });
@@ -295,7 +295,7 @@ export const rowUpdate = async (params: IRowUpdate) => {
                     isNew: updatedIsNew,
                     unsavedRows: updatedUnsavedRows,
                     rowsBeforeChange: updatedRowsBeforeChange,
-                    hasUnsavedRows: Object.keys(updatedUnsavedRows).length > 0, // Recalculate as needed
+                    hasUnsavedRows: Object.keys(updatedUnsavedRows).length > 0, 
                 }
             };
         });

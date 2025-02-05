@@ -85,7 +85,6 @@ const StyledListItem = styled.li<{ selected?: boolean; disabled?: boolean }>(
     marginLeft: theme.spacing(1),
     overflow: "hidden",
     padding: theme.spacing(0.5),
-    touchAction: 'none',
   }));
   
   const PrimaryText = styled.span(({ theme }) => ({

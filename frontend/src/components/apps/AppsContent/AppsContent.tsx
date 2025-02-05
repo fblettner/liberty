@@ -4,7 +4,7 @@
  * *
  */
 // React Import
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { t } from 'i18next';
 
@@ -21,7 +21,8 @@ import { SnackMessage } from '@ly_components/common/SnackMessage';
 import { EDialogTabs } from '@ly_types/lyDialogs';
 import { EApplications } from '@ly_types/lyApplications';
 import { EUsers } from '@ly_types/lyUsers';
-import { Main_Content } from '@ly_components/styles/Main';
+import { Main_Content, Main_Login } from '@ly_components/styles/Main';
+import { Div_DialogWidgetContent } from '@ly_components/styles/Div';
 
 export function AppsContent() {
   const { tabs, activeTab, addTab, closeTab, setActiveTab, memoizedContent, clearTabs } = useTabs();
@@ -69,26 +70,36 @@ export function AppsContent() {
   const handleTabChanged = (event: React.SyntheticEvent, newValue: string) => setActiveTab(newValue);
 
   return (
-    <Main_Content>
+    <Fragment>
       {userProperties[EUsers.status] &&
-      <AppsMenus onMenuSelect={handleMenuClick} />
+        <Main_Content>
+
+          <AppsMenus onMenuSelect={handleMenuClick} />
+
+          <AlertAppsMessage />
+          <SnackMessage />
+          {tabs.length > 0 &&
+            <TabContainer
+              tabs={tabs}
+              activeTab={activeTab}
+              onTabChange={handleTabChanged}
+              onCloseTab={closeTab}
+            />
+          }
+          {memoizedContent.map(tab => (
+            <TabPanel key={tab[EDialogTabs.sequence]} value={activeTab} index={tab[EDialogTabs.sequence]}>
+              {tab.content}
+            </TabPanel>
+          ))}
+
+        </Main_Content>
       }
-      <AlertAppsMessage />
-      <SnackMessage />
-      {tabs.length > 0 &&
-        <TabContainer
-          tabs={tabs}
-          activeTab={activeTab}
-          onTabChange={handleTabChanged}
-          onCloseTab={closeTab}
-        />
+      {!userProperties[EUsers.status] &&
+        <Main_Login>
+          <AppsLogin />
+
+        </Main_Login>
       }
-      {memoizedContent.map(tab => (
-        <TabPanel key={tab[EDialogTabs.sequence]} value={activeTab} index={tab[EDialogTabs.sequence]}>
-          {tab.content}
-        </TabPanel>
-      ))}
-      {!userProperties[EUsers.status] && <AppsLogin />}
-    </Main_Content>
+    </Fragment>
   );
 }
