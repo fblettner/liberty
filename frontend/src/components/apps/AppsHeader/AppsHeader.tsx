@@ -23,7 +23,8 @@ import { EUsers } from "@ly_types/lyUsers";
 import { Div, Div_Header, Div_HeaderAppBar, Div_HeaderToolbar } from "@ly_components/styles/Div";
 import { Divider } from "@ly_components/common/Divider";
 import { Typo_AppsName } from "@ly_components/styles/Typography";
-import { IconButton_Contrast } from "@ly_components/styles/IconButton";;
+import { IconButton_Contrast } from "@ly_components/styles/IconButton"; import { useMediaQuery } from "@ly_components/common/UseMediaQuery";
+;
 
 
 export function AppsHeader() {
@@ -66,14 +67,17 @@ export function AppsHeader() {
   }, [dispatch, isChatOpen]);
 
   const shouldShowMenusIcon = modules.menus && modules.menus.enabled && userProperties[EUsers.status];
+  const isSmallScreen = useMediaQuery("(min-width: 600px)");
+  const isMediumScreen = useMediaQuery("(min-width: 960px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1280px)");
 
   return (
     <Div>
       <Div_HeaderAppBar open={isOpen}>
         {/* Position the Menu Icon Absolutely */}
         {shouldShowMenusIcon && (
-          <IconButton_Contrast 
-            onClick={handleMenuOpen} 
+          <IconButton_Contrast
+            onClick={handleMenuOpen}
             icon={LYMenuIcon}
             style={{ marginLeft: "8px" }}
           />
@@ -83,10 +87,12 @@ export function AppsHeader() {
         <Div_HeaderToolbar>
           {/* Left Section */}
           <Div_Header>
-            <LYLogoIcon width="32px" height="32px"/>
-            <Typo_AppsName noWrap>
-              {appsProperties[EApplications.name]}
-            </Typo_AppsName>
+            <LYLogoIcon width="32px" height="32px" />
+            {(isMediumScreen || isLargeScreen) &&
+              <Typo_AppsName noWrap>
+                {appsProperties[EApplications.name]}
+              </Typo_AppsName>
+            }
           </Div_Header>
 
           <Divider orientation="vertical" flexItem />

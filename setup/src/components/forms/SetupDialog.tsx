@@ -125,7 +125,7 @@ export default function SetupDialog() {
         setLoading(false);
       }
     } catch (error) {
-      logMessage("Failed to install. Check your details.");
+      logMessage("Failed to install. Check your details: " + error);
       setLoading(false);
     }
   };
@@ -161,7 +161,7 @@ export default function SetupDialog() {
         setLoading(false);
       }
     } catch (error) {
-      logMessage("Failed to upgrade. Check your details.");
+      logMessage("Failed to install. Check your details: " + error);
       setLoading(false);
     }
   };
@@ -193,7 +193,7 @@ export default function SetupDialog() {
         setLoading(false);
       }
     } catch (error) {
-      logMessage("Failed to prepare. Check your details.");
+      logMessage("Failed to install. Check your details: " + error);
       setLoading(false);
     }
   };

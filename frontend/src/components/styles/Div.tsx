@@ -420,6 +420,7 @@ export const Div_DialogWidgetContent = styled(Div)(({ theme }) => ({
     height: '100%',
     overflowY: 'auto',
     padding: theme.spacing(1),
+    boxSizing: 'border-box',
 }));
 
 export const Div_DialogWidgetButtons = styled(Div)(({ theme }) => ({
@@ -484,6 +485,7 @@ export const Div_FormsListView = styled(Div)<Div_FormsListViewProps>(({ theme, s
     width: "100%",
     cursor: 'pointer',
     padding: theme.spacing(1),
+    touchAction: 'none',
 }));
 
 export const Div_TableList = styled(Div)(({ theme }) => ({

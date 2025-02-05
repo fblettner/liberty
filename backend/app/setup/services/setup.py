@@ -59,6 +59,7 @@ class Setup:
                 "libnjde": data.get("enterprise", False),
                 "libnetl": data.get("enterprise", False),
             }
+            
             databases_to_install = [db for db, status in databases_to_install.items() if status]
             for db_name in databases_to_install:
                 logging.warning(f"Installing {db_name} database...")

@@ -52,6 +52,7 @@ export const Paper_Dialogs = styled(Div)(({ theme }) => ({
     flexDirection: 'column',
     background: theme.palette.background.default,
     border: `1px solid ${theme.palette.primary.main}`,
+    boxSizing: 'border-box',
 }))
 
 export const Paper_Dashboard = styled(Div)(({ theme }) => ({
