@@ -8,7 +8,7 @@
 
 // Custom Import
 import { css } from '@emotion/css';
-import { Div_AppsDialogTabPanel, Div_TabPanelContent } from '@ly_components/styles/Div';
+import { Div_AppsDialogTabPanel, Div_DialogTabPanel, Div_TabPanelContent } from '@ly_components/styles/Div';
 
 interface ITabPanelProps {
     children: React.ReactNode;
@@ -16,24 +16,18 @@ interface ITabPanelProps {
     index: string;
 }
 
-export const TabPanel = ({ children, value, index }: ITabPanelProps) => (
-        <Div_AppsDialogTabPanel
+export const TabPanel = ({ children, value, index, ...other }: ITabPanelProps) => (
+        <Div_DialogTabPanel
             role="tabpanel"
             hidden={value !== index}
             id={`tabpanel-${index}`}
             aria-labelledby={`tab-${index}`}
-            className={
-                css({
-                  position: 'absolute',
-                  zIndex: value === index ? 1 : 0,
-                  visibility: value === index ? 'visible' : 'hidden',
-                })
-              }
+            {...other}
         >
             <Div_TabPanelContent>
                 {children}
             </Div_TabPanelContent>
-        </Div_AppsDialogTabPanel>
+        </Div_DialogTabPanel>
 
 );
 

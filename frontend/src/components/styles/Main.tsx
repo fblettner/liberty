@@ -9,13 +9,25 @@ import { footerHeight, headerHeight } from '@ly_utils/commonUtils';
 
 // Application Content, move the content right when the drawer is open
 export const Main_Content = styled('main') (({ theme }) => ({
+    display: 'flex',
     flexGrow: 1,
     width: '100%',
-    overflow: 'auto',
-    height: `calc(100% - ${headerHeight}px - ${footerHeight}px)`,
-    paddingTop: headerHeight,
-    paddingLeft: theme.spacing(0),
-    paddingRight: theme.spacing(0),
-    paddingBottom: theme.spacing(0),
-    position: 'relative' 
+    overflow: 'hidden',
+    height: '100%',
+    position: 'relative',
+    flexDirection: 'column',
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+    paddingBottom:  theme.spacing(1),
   }));
+
+
+  export const Main_Login = styled('main') (({ theme }) => ({
+    display: 'flex',
+    flexGrow: 1,
+    width: '100%',
+    overflow: 'hidden',
+    height: '100%',
+    position: 'relative',
+    flexDirection: 'column',
+  }));  

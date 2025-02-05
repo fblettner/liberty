@@ -176,16 +176,3 @@ export const Paper_TableTree = styled(Div)<Paper_TableTreeProps>(({ theme, displ
 }));
 
 
-interface Paper_CardProps {
-    hasHeader?: boolean;
-    numRows: number
-}
-
-export const Paper_CardContent = styled(Div)<Paper_CardProps>(({ theme, hasHeader, numRows }) => ({
-    padding: theme.spacing(1),
-    background: theme.palette.background.default,
-    borderRadius: "12px",
-    height: hasHeader
-      ? numRows === 1 ? "100%" : `calc((100vh - ${headerHeight * 3}px - ${footerHeight}px - ${tabHeight * 2}px) / ${(numRows > 2) ? 2 : Number(numRows)})`
-      : numRows === 1 ? "100%" : `calc((100vh - ${headerHeight * 3}px - ${footerHeight}px - ${tabHeight * 2}px) / ${(numRows > 2) ? 2 : Number(numRows)} + ${tabHeight}px)`,
-  }));

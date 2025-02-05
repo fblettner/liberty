@@ -12,6 +12,7 @@ export const Tabs_Dialogs = styled(Tabs)(({ theme }) => ({
   width: "100%",
   borderRadius: "12px",
   padding: "8px",
+  display: "flex",
 }));
 
 export const Tab_Dialogs = styled(Tab)(({ theme }) => ({

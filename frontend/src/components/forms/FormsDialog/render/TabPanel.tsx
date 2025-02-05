@@ -17,8 +17,7 @@ interface ITabPanelProps {
 }
 
 export const TabPanel = ({ children, value, index, ...other }: ITabPanelProps) => (
-    <Fragment>
-        
+    <Fragment> 
             <Div_DialogTabPanel
                 role="tabpanel"
                 hidden={value !== index}

@@ -485,6 +485,7 @@ export const Div_FormsListView = styled(Div)<Div_FormsListViewProps>(({ theme, s
     width: "100%",
     cursor: 'pointer',
     padding: theme.spacing(1),
+
 }));
 
 export const Div_TableList = styled(Div)(({ theme }) => ({
@@ -545,9 +546,10 @@ export const Div_DialogTabPanel = styled(Div)<TabPanelProps>(({ hidden }) => ({
 }));
 
 export const Div_AppsLayout = styled('div')(({ theme }) => ({
-    height: '100vh',
-    width: '100%',
+    minHeight: '100vh', // Ensure full viewport height
+    width: '100vw',
     display: 'flex',
+    flexDirection: 'column', // Ensure child elements respect flexbox behavior
 }));
 
 
@@ -556,8 +558,8 @@ export const Div_AppsTabsHeader = styled(Div)(({ theme }) => ({
 }));
 
 export const Div_AppsDialogTabPanel = styled(Div)(({ theme }) => ({
-    width: `calc(100% - ${theme.spacing(2)})`, // Subtract horizontal margin
-    height: `calc(100% - ${headerHeight}px - ${footerHeight}px - 64px - ${theme.spacing(2)}) `,
+    width: '100%',  
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
@@ -566,8 +568,8 @@ export const Div_AppsDialogTabPanel = styled(Div)(({ theme }) => ({
     boxShadow: theme.shadows[3],
     borderRadius: "12px",
     padding: theme.spacing(2),
-    margin: theme.spacing(1),
     border: `1px solid ${theme.palette.divider}`,
+    boxSizing: 'border-box',
 }));
 
 export const Div_TabPanelContent = styled(Div)(({ theme }) => ({
@@ -603,6 +605,7 @@ export const Div_FormsToolsCard = styled(Div)(({ theme }) => ({
 
 
 export const Div_Login = styled(Div)(({ theme }) => ({
+    width: '100%',
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -670,7 +673,7 @@ interface AppBarProps {
 }
 
 export const Div_HeaderAppBar = styled.div<AppBarProps>(({ theme, open }) => ({
-    position: "fixed",
+    position: "sticky",
     top: 0,
     left: 0,
     width: "100%",
@@ -681,11 +684,6 @@ export const Div_HeaderAppBar = styled.div<AppBarProps>(({ theme, open }) => ({
     alignItems: "center",
     justifyContent: "space-between",
     zIndex: 1,
-    ...(open && {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-
-    }),
 }));
 
 // Updated Styled Components for a Modern Drawer
