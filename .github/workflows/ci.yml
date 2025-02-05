@@ -56,7 +56,7 @@ jobs:
 
           if [ -z "$LATEST_TAG" ]; then
             # If no tag exists, start from vMAJOR.0.0
-            NEW_TAG="v${{ steps.get_major_version.outputs.major_version }}.0.0"
+            NEW_TAG="${{ steps.get_major_version.outputs.major_version }}.0.0"
           else
             # Extract the minor and patch versions
             MINOR_VERSION=$(echo "$LATEST_TAG" | awk -F. '{print $2}')
@@ -65,11 +65,11 @@ jobs:
             if [ "$PATCH_VERSION" -ge 99 ]; then
               # If patch reaches 100, reset patch to 0 and increment minor
               NEW_MINOR_VERSION=$((MINOR_VERSION + 1))
-              NEW_TAG="v${{ steps.get_major_version.outputs.major_version }}.$NEW_MINOR_VERSION.0"
+              NEW_TAG="${{ steps.get_major_version.outputs.major_version }}.$NEW_MINOR_VERSION.0"
             else
               # Otherwise, just increment the patch
               NEW_PATCH_VERSION=$((PATCH_VERSION + 1))
-              NEW_TAG="v${{ steps.get_major_version.outputs.major_version }}.$MINOR_VERSION.$NEW_PATCH_VERSION"
+              NEW_TAG="${{ steps.get_major_version.outputs.major_version }}.$MINOR_VERSION.$NEW_PATCH_VERSION"
             fi
           fi
 
