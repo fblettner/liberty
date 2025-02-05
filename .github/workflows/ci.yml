@@ -51,7 +51,7 @@ jobs:
         id: get_version
         run: |
           # Get the latest tag for the major version (e.g., v1.0.x)
-          LATEST_TAG=$(git tag --list "v${{ steps.get_major_version.outputs.major_version }}.*" --sort=-v:refname | head -n 1)
+          LATEST_TAG=$(git tag --list "${{ steps.get_major_version.outputs.major_version }}.*" --sort=-v:refname | head -n 1)
           echo "Latest tag for major version: $LATEST_TAG"
 
           if [ -z "$LATEST_TAG" ]; then
