@@ -5,7 +5,6 @@
  */
 import styled from "@emotion/styled";
 import { Typography } from "@ly_components/common/Typography";
-import { alpha } from "@ly_components/types/common";
 import { EStandardColor } from "@ly_utils/commonUtils";
 
 interface StyledTypographyProps {

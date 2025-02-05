@@ -13,9 +13,9 @@ export const Main_Content = styled('main') (({ theme }) => ({
     width: '100%',
     overflow: 'auto',
     height: `calc(100% - ${headerHeight}px - ${footerHeight}px)`,
-    marginTop: headerHeight,
-    marginLeft: theme.spacing(0),
-    marginRight: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-
+    paddingTop: headerHeight,
+    paddingLeft: theme.spacing(0),
+    paddingRight: theme.spacing(0),
+    paddingBottom: theme.spacing(0),
+    position: 'relative' 
   }));
