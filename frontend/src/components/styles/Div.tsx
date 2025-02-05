@@ -485,7 +485,6 @@ export const Div_FormsListView = styled(Div)<Div_FormsListViewProps>(({ theme, s
     width: "100%",
     cursor: 'pointer',
     padding: theme.spacing(1),
-    touchAction: 'none',
 }));
 
 export const Div_TableList = styled(Div)(({ theme }) => ({

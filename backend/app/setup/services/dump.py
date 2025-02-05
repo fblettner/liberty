@@ -1,6 +1,7 @@
 import logging
 
 from app.setup.services.install import Install
+from app.utils.jwt import JWT
 logger = logging.getLogger(__name__)
 
 from app.config import get_db_properties_path
@@ -22,11 +23,12 @@ class DateTimeEncoder(json.JSONEncoder):
         return super().default(obj)
 
 class Dump: 
-    def __init__(self, apiController: ApiController, database):
+    def __init__(self, apiController: ApiController, database, jwt: JWT):
         db_properties_path = get_db_properties_path()
         self.config = apiController.queryRest.load_db_properties(db_properties_path)
         self.database = database
         self.apiController = apiController
+        self.jwt = jwt
 
         # Database configuration
         DATABASE_URL = f"postgresql+psycopg2://{database}:{self.config["password"]}@{self.config["host"]}:{self.config["port"]}/{database}"

@@ -149,7 +149,7 @@ pool_alias=default
                     models.create_model()
 
                 if data_enabled:
-                    dump = Dump(self.apiController, database)
+                    dump = Dump(self.apiController, database, self.jwt)
                     if tables and tables != [""]:  # Ensure it's not an empty list
                         dump.extract_table_to_json(tables)
                     else:
