@@ -716,7 +716,7 @@ export const Div_DrawerContainer = styled.div<{ open: boolean }>(({ theme, open 
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         display: "flex",
         flexDirection: "column",
-        zIndex: 1000,        
+        zIndex: 10000,        
         overflow: "hidden"
     }
 });
