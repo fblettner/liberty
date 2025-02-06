@@ -6,6 +6,12 @@
 - Online demo is available at [https://liberty.nomana-it.fr](https://liberty.nomana-it.fr)
 - Web page at: [https://nomana-it.fr](https://nomana-it.fr)
 
+```ini
+Login = demo
+Password = demo
+Appplication = LIBERTY, NOMASX-1 and NOMAJDE
+```
+
 ![liberty](https://github.com/user-attachments/assets/74479874-d7ba-469a-b525-b468529c4432)
 
 ---
