@@ -26,7 +26,7 @@ export const Main_Content = styled('main') (({ theme }) => ({
     display: 'flex',
     flexGrow: 1,
     width: '100%',
-    overflow: 'hidden',
+    overflow: 'auto',
     height: '100%',
     position: 'relative',
     flexDirection: 'column',

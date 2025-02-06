@@ -50,3 +50,10 @@ export const Button_Tools = styled(Button)(({ theme, variant, disabled }) => ({
 
   },
 }));
+
+
+export const Button_Popper = styled(Button)(({ theme, variant }) => ({
+  position: "absolute",
+  bottom: 10,
+  right: 10,
+}));

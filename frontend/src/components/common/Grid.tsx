@@ -92,7 +92,10 @@ export const GridItem = styled.div<GridItemProps & { spacing?: number }>(
         flexBasis = calculateWidth(size);
       } else if (size) {
         flexBasis = calculateWidth(size.xs);
-        if ((isSmallScreen || isMobile) && size.sm) {
+        if (isMobile) {
+          flexBasis = calculateWidth(size.xs) || flexBasis;
+        }
+        if ((isSmallScreen && !isMobile) && size.sm) {
           flexBasis = calculateWidth(size.sm) || flexBasis;
         }
         if (isMediumScreen && !isMobile && size.md) {

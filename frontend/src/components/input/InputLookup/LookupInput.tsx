@@ -34,6 +34,7 @@ import { Div_AutoComplete } from "@ly_components/styles/Div";
 import { IconButton } from "@ly_components/common/IconButton";
 import { Select } from "@ly_components/common/Select";
 import { TextFieldVariants } from "@ly_components/types/common";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common/UseMediaQuery";
 
 export interface ILookupInput {
     id: string;
@@ -61,7 +62,9 @@ export const LookupInput = (props: ILookupInput) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [searchValue, setSearchValue] = useState("");
     const [filteredData, setFilteredData] = useState<ILookupOption[]>([]);
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
+    
     const [popperOpen, setPopperOpen] = useState(false);
 
     const appsProperties: IAppsProps = useSelector(getAppsProperties);
@@ -408,21 +411,21 @@ export const LookupInput = (props: ILookupInput) => {
                     )}
 
                 />
-                {lookupState.header !== undefined && lookupState.header[ELookup.display_search] === "Y" && !disabled &&
+                {lookupState.header !== undefined && lookupState.header[ELookup.display_search] === "Y" && !disabled && 
                     <IconButton
                         onClick={() => { onSearchOpen() }}
                         aria-label="search"
                         icon={LYSearchIcon}
                     />
                 }
-                {lookupState.header !== undefined && lookupState.header[ELookup.display_add] === "Y" && !disabled &&
+                {lookupState.header !== undefined && lookupState.header[ELookup.display_add] === "Y" && !disabled && !isSmallScreen && !isMobile &&
                     <IconButton
                         onClick={() => { onDialogOpen(LYComponentMode.add) }}
                         aria-label="edit"
                         icon={LYAddIcon}
                     />
                 }
-                {lookupState.header !== undefined && selectedOption !== null && lookupState.header[ELookup.display_add] === "Y" && !disabled &&
+                {lookupState.header !== undefined && selectedOption !== null && lookupState.header[ELookup.display_add] === "Y" && !disabled && !isSmallScreen && !isMobile &&
                     <IconButton
                         onClick={() => { onDialogOpen(LYComponentMode.edit) }}
                         aria-label="edit"

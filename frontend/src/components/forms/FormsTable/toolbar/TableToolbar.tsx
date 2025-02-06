@@ -91,7 +91,6 @@ export const TableToolbar = ({
             && !isEditMode;
     }, [tableProperties, userProperties, component, readonly, isEditMode]);
 
-
     const displayGridToolbar = useMemo(() => {
         return tableProperties[ETableHeader.editable] && userProperties[EUsers.readonly] !== EUserReadonly.true && component.componentMode !== LYComponentMode.search && !isMobile && !isSmallScreen;
     }, [tableProperties[ETableHeader.editable], userProperties[EUsers.readonly], component.componentMode]);
@@ -468,7 +467,7 @@ export const TableToolbar = ({
                 <Divider />
             }
             {displayGridToolbar &&
-                !readonly &&
+                !readonly && !isMobile && !isSmallScreen &&
                 <Fragment>
                     <IconButton
                         onClick={handleGridMode}
