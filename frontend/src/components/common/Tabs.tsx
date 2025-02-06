@@ -54,30 +54,13 @@ const TabsWrapper = styled.div<StyledTabsWrapperProps>(({ theme, isScrollable })
 // Tabs Component
 export function Tabs(props: TabsProps) {
     const { value, onChange, variant = 'standard', scrollButtons = false, children } = props;
-
     const containerRef = useRef<HTMLDivElement>(null);
-    const [showLeftButton, setShowLeftButton] = useState(false);
-    const [showRightButton, setShowRightButton] = useState(false);
 
     // Check scroll position to toggle button visibility
     const checkScrollButtons = () => {
         const container = containerRef.current;
         if (container) {
             const { scrollLeft, scrollWidth, clientWidth } = container;
-            setShowLeftButton(scrollLeft > 0);
-            setShowRightButton(scrollLeft + clientWidth < scrollWidth);
-        }
-    };
-
-    // Scroll the tab list
-    const scrollTabs = (direction: 'left' | 'right') => {
-        const container = containerRef.current;
-        if (container) {
-            const scrollAmount = 100;
-            container.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth',
-            });
         }
     };
 
@@ -90,14 +73,6 @@ export function Tabs(props: TabsProps) {
 
     return (
         <TabsContainer>
-            {scrollButtons && showLeftButton && (
-                <IconButton_Contrast 
-                    onClick={() => scrollTabs('left')} 
-                    icon={LYArrowLeftIcon} 
-                    size={LYIconSize.large} 
-                />
-            )}
-
             <TabsWrapper isScrollable={variant === 'scrollable'} ref={containerRef} onScroll={checkScrollButtons}>
                 {children.map((child) =>
                     React.cloneElement<ChildrenTabProps>(child, {
@@ -106,14 +81,6 @@ export function Tabs(props: TabsProps) {
                     })
                 )}
             </TabsWrapper>
-
-            {scrollButtons && showRightButton && (
-                <IconButton_Contrast 
-                    onClick={() => scrollTabs('right')} 
-                    icon={LYArrowRightIcon} 
-                    size={LYIconSize.large} 
-                />
-            )}
         </TabsContainer>
     );
 };

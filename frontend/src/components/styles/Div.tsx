@@ -7,7 +7,7 @@ import '@emotion/react';
 import styled from '@emotion/styled';
 import BackgroundLY from '@ly_assets/background_ly.jpg'
 import { DefaultZIndex } from '@ly_components/types/common';
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { alpha } from '@ly_components/types/common';
 import { drawerWidth, footerHeight, headerHeight } from '@ly_utils/commonUtils';
 
@@ -363,7 +363,7 @@ export const Div_ChatTitle = styled(Div)<Div_DialogWidgetProps>(({ theme, minimi
     right: fullScreen ? 0 : minimized ? 10 : 10,
     top: fullScreen ? 0 : 'auto',
     left: fullScreen ? 0 : 'auto',
-    height: fullScreen ? '100vh' : minimized ? '50px' : userHeight,
+    height: fullScreen ? '100dvh' : minimized ? '50px' : userHeight,
     width: fullScreen ? '100vw' : minimized ? '300px' : userWidth,
     borderRadius: fullScreen ? '0px' : '12px',
     display: 'flex',
@@ -383,7 +383,7 @@ export const Div_DialogWidget = styled(Div)<Div_DialogWidgetProps>(({ theme, min
     transform: fullScreen || minimized ? 'none' : 'translate(-50%, -50%)',
     bottom: fullScreen ? 0 : minimized ? 10 : 'auto',
     right: fullScreen ? 0 : minimized ? 10 : 'auto',
-    height: fullScreen ? '100vh' : minimized ? '50px' : userHeight,
+    height: fullScreen ? '100dvh' : minimized ? '50px' : userHeight,
     width: fullScreen ? '100vw' : minimized ? '300px' : userWidth,
     borderRadius: fullScreen ? '0px' : '12px',
     display: 'flex',
@@ -490,6 +490,7 @@ export const Div_FormsListView = styled(Div)<Div_FormsListViewProps>(({ theme, s
 
 export const Div_TableList = styled(Div)(({ theme }) => ({
     width: '100%',
+    height: '100%',
     overflow: 'auto',
 }));
 
@@ -546,7 +547,7 @@ export const Div_DialogTabPanel = styled(Div)<TabPanelProps>(({ hidden }) => ({
 }));
 
 export const Div_AppsLayout = styled('div')(({ theme }) => ({
-    minHeight: '100vh', // Ensure full viewport height
+    minHeight: '100dvh', // Ensure full viewport height
     width: '100vw',
     display: 'flex',
     flexDirection: 'column', // Ensure child elements respect flexbox behavior
@@ -621,7 +622,7 @@ export const Backdrop = styled(Div)(({ theme }) => ({
     top: 0,
     left: 0,
     width: '100vw',
-    height: '100vh',
+    height: '100dvh',
     background: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black
     zIndex: DefaultZIndex.Component - 2, // Below the modal box
 }));
@@ -692,7 +693,7 @@ export const Div_DrawerOverlay = styled.div<{ open: boolean }>(({ open }) => ({
     top: 0,
     left: 0,
     width: "100vw",
-    height: "100vh",
+    height: "100dvh",
     background: "rgba(0, 0, 0, 0.3)", // Softer overlay for modern look
     opacity: open ? 1 : 0,
     pointerEvents: open ? "auto" : "none",
@@ -702,13 +703,14 @@ export const Div_DrawerOverlay = styled.div<{ open: boolean }>(({ open }) => ({
 
 
 export const Div_DrawerContainer = styled.div<{ open: boolean }>(({ theme, open }) => {
-    const isMobile = useMediaQuery("(max-width: 600px)");
+    const isSmallScreen = useMediaQuery("(max-width: 600px)");
+    const isMobile = useDeviceDetection();
     return {
         position: "fixed",
         top: 0,
         left: 0,
-        height: "100vh",
-        width: isMobile ? '100%' : drawerWidth, 
+        height: "100dvh",
+        width: isMobile || isSmallScreen ? '100%' : drawerWidth, 
         background: alpha(theme.palette.primary.main, 0.1),
         transform: open ? "translateX(0)" : "translateX(-100%)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -727,7 +729,7 @@ export const Div_DrawerContent = styled(Div)(({ theme }) => ({
     borderRadius: "12px", // Rounded top corners
     boxShadow: theme.shadows[6], 
     overflow: "auto",
-    maxHeight: "100vh",
+    maxHeight: "100dvh",
     scrollbarGutter: "stable", // Keeps space for the scrollbar to avoid layout shift
 
  

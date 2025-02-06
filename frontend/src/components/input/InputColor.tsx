@@ -18,7 +18,7 @@ import { OnInputChangeFunction } from '@ly_components/forms/FormsDialog/utils/co
 import { LYCancelIcon, LYColorLensIcon, LYFullscreenExitIcon, LYFullscreenIcon, LYPlayCircleOutlineIcon } from '@ly_styles/icons';
 import { Typography } from '@ly_components/common/Typography';
 import { Paper_Dialogs } from '@ly_components/styles/Paper';
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { Button } from "@ly_components/common/Button";
 import { IconButton } from '@ly_components/common/IconButton';
 import { IconButton_Contrast } from '@ly_components/styles/IconButton';
@@ -47,17 +47,18 @@ const InputColorDialog = (props: IColorDialogProps) => {
     const [color, setColor] = useState(value);
 
     const isSmallScreen = useMediaQuery("(max-width: 600px)");
-    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen); // Set fullscreen initially if small screen
+    const isMobile = useDeviceDetection();
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
     const [dimensions, setDimensions] = useState({ width: 350, height: 750 });
     const resizeRef = useRef<HTMLDivElement | null>(null);
     const titleBarRef = useRef<HTMLDivElement | null>(null); // Add ref for the title bar
 
     // Update fullscreen state based on screen size
     useEffect(() => {
-        if (isSmallScreen) {
+        if (isSmallScreen || isMobile) {
             setIsFullScreen(true);
         }
-    }, [isSmallScreen]);
+    }, [isSmallScreen, isMobile]);
 
 
     const [{ x, y }, api] = useSpring(() => ({
@@ -94,7 +95,7 @@ const InputColorDialog = (props: IColorDialogProps) => {
     );
 
     const toggleFullScreen = () => {
-        if (!isSmallScreen) {
+        if (!isSmallScreen && !isMobile) {
             setIsFullScreen((prev) => !prev);
         }
     };
@@ -127,7 +128,7 @@ const InputColorDialog = (props: IColorDialogProps) => {
                 }}
             >
                 <Div_DialogWidget fullScreen={isFullScreen} userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
-                    userHeight={isFullScreen ? '100vh' : `${dimensions.height}px`}>
+                    userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}>
                     {/* Header */}
                     <Div_DialogWidgetTitle
                         ref={titleBarRef}

@@ -40,7 +40,6 @@ export const Stack_FormsAI = styled(Div)(({ theme }) => ({
     height: '100%',
     width: '100%',
     margin: "0 auto",
-    maxWidth: '1000px',
     overflow: 'hidden',
     paddingBottom: '10px',
     boxSizing: 'border-box',

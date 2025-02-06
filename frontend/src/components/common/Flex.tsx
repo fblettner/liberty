@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { animated, useSpring } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { FaGripLinesVertical, FaGripLines } from "react-icons/fa6";
-import { useMediaQuery } from "@ly_components/common//UseMediaQuery";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common//UseMediaQuery";
 
 const FlexContainer = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isMobile',
@@ -26,7 +26,7 @@ const FlexPanel = styled(animated.div, {
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.isMobile ? "100%" : "auto")}; /* Full width on mobile */
-  height: ${(props) => (props.isMobile ? "100vh" : "auto")}; /* Full height of viewport on mobile */
+  height: ${(props) => (props.isMobile ? "100dvh" : "auto")}; /* Full height of viewport on mobile */
   overflow: ${(props) => (props.isMobile ? "auto" : "hidden")}; /* Enable scrolling for content on mobile */
   box-sizing: border-box; /* Ensure padding/border doesn't affect dimensions */
 `;
@@ -111,7 +111,8 @@ export const FlexPanels: React.FC<ResizableFlexPanelsProps> = ({
     direction = "horizontal",
     dragEnabled = false,
 }) => {
-    const isMobile = useMediaQuery("(max-width:600px)"); // Detect small screen
+    const isSmallScreen = useMediaQuery("(max-width:600px)"); 
+    const isMobile = useDeviceDetection();
     const allChildren = React.Children.toArray(children);
     const [flexSizes, setFlexSizes] = useState<number[]>(panels);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -151,7 +152,7 @@ export const FlexPanels: React.FC<ResizableFlexPanelsProps> = ({
 
     const bindDrag = useDrag(
         ({ offset: [offsetX, offsetY], args: [index], first }) => {
-            if (isMobile) return;
+            if (isMobile || isSmallScreen) return;
 
             const containerSize = (
                 direction === "horizontal"
@@ -192,22 +193,22 @@ export const FlexPanels: React.FC<ResizableFlexPanelsProps> = ({
     return (
         <FlexContainer
             ref={containerRef}
-            direction={isMobile ? "vertical" : direction}
-            isMobile={isMobile}
+            direction={isMobile || isSmallScreen ? "vertical" : direction}
+            isMobile={isMobile || isSmallScreen}
         >
             {childOrder.map((child, index) => (
                 <React.Fragment key={index}>
                     <FlexPanel
-                        isMobile={isMobile}
-                        style={isMobile ? {} : springs[index]} 
-                        draggable={!isMobile && dragEnabled} 
+                        isMobile={isMobile || isSmallScreen}
+                        style={isMobile || isSmallScreen ? {} : springs[index]} 
+                        draggable={!isMobile && !isSmallScreen && dragEnabled} 
                         onDragStart={() => handleDragStart(index)}
                         onDragOver={handleDragOver}
                         onDrop={(event) => handleDrop(event, index)}
                     >
                         {child}
                     </FlexPanel>
-                    {!isMobile && index < childOrder.length - 1 && (
+                    {!isMobile && !isSmallScreen && index < childOrder.length - 1 && (
                         <ResizerButton
                             {...bindDrag(index)}
                             direction={direction}

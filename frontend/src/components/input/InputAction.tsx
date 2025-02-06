@@ -44,7 +44,7 @@ import { ESequence } from '@ly_types/lySequence';
 import { LYCancelIcon, LYFullscreenExitIcon, LYFullscreenIcon, LYPlayCircleOutlineIcon } from '@ly_styles/icons';
 import { Typography } from '@ly_components/common/Typography';
 import { Paper_Dialogs, Paper_Table } from '@ly_components/styles/Paper';
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { Button } from "@ly_components/common/Button";
 import { IconButton_Contrast } from '@ly_components/styles/IconButton';
 import { Input } from '@ly_components/common/Input';
@@ -67,8 +67,8 @@ export interface InputActionProps {
 
 export const InputAction = (props: InputActionProps) => {
     const isSmallScreen = useMediaQuery("(max-width: 600px)");
-
-    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen); // Set fullscreen initially if small screen
+    const isMobile = useDeviceDetection();
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
     const [dimensions, setDimensions] = useState({ width: DIALOG_WIDGET_DIMENSION.width, height: DIALOG_WIDGET_DIMENSION.height });
     const resizeRef = useRef<HTMLDivElement | null>(null);
     const titleBarRef = useRef<HTMLDivElement | null>(null); // Add ref for the title bar
@@ -859,10 +859,10 @@ export const InputAction = (props: InputActionProps) => {
 
     // Update fullscreen state based on screen size
     useEffect(() => {
-        if (isSmallScreen) {
+        if (isSmallScreen || isMobile) {
             setIsFullScreen(true);
         }
-    }, [isSmallScreen]);
+    }, [isSmallScreen, isMobile]);
 
 
     const [{ x, y }, api] = useSpring(() => ({
@@ -899,7 +899,7 @@ export const InputAction = (props: InputActionProps) => {
     );
 
     const toggleFullScreen = () => {
-        if (!isSmallScreen) {
+        if (!isSmallScreen && !isMobile) {
             setIsFullScreen((prev) => !prev);
         }
     };
@@ -927,7 +927,7 @@ export const InputAction = (props: InputActionProps) => {
                         }}
                     >
                         <Div_DialogWidget fullScreen={isFullScreen} userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
-                            userHeight={isFullScreen ? '100vh' : `${dimensions.height}px`}>
+                            userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}>
                             {/* Header */}
                             <Div_DialogWidgetTitle
                                 ref={titleBarRef}
@@ -1003,7 +1003,7 @@ export const InputAction = (props: InputActionProps) => {
                         }}
                     >
                         <Div_DialogWidget fullScreen={isFullScreen} userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
-                            userHeight={isFullScreen ? '100vh' : `${dimensions.height}px`}>
+                            userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}>
                             {/* Header */}
                             <Div_DialogWidgetTitle
                                 ref={titleBarRef}

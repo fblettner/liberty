@@ -20,7 +20,7 @@ import { LYTableInstance } from "@ly_components/forms/FormsTable/utils/tanstackU
 import { LYAccountTreeIcon, LYAddIcon, LYContentCopyIcon, LYDeleteIcon, LYDownloadIcon, LYEditIcon, LYEditRoadIcon, LYFilterAltIcon, LYInfoOutlinedIcon, LYLinkIcon, LYListIcon, LYReactIcon, LYRefreshIcon, LYTableViewIcon, LYUploadIcon } from "@ly_styles/icons";
 import { Divider } from "@ly_components/common/Divider";
 import { Paper_TableToolbar } from "@ly_components/styles/Paper";
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { IconButton } from "@ly_components/common/IconButton";
 import { DialogExport } from "@ly_components/common/DialogExport";
 import { PDF } from "@ly_utils/pdfUtils";
@@ -68,7 +68,8 @@ export const TableToolbar = ({
 
 }: ITableToolbar) => {
     const userProperties: IUsersProps = useSelector(getUserProperties);
-    const isMobile = useMediaQuery('(max-width:600px)');
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
     const [openExport, setOpenExport] = useState<{
         anchorEl: HTMLElement | null
         open: boolean;
@@ -92,19 +93,19 @@ export const TableToolbar = ({
 
 
     const displayGridToolbar = useMemo(() => {
-        return tableProperties[ETableHeader.editable] && userProperties[EUsers.readonly] !== EUserReadonly.true && component.componentMode !== LYComponentMode.search;
+        return tableProperties[ETableHeader.editable] && userProperties[EUsers.readonly] !== EUserReadonly.true && component.componentMode !== LYComponentMode.search && !isMobile && !isSmallScreen;
     }, [tableProperties[ETableHeader.editable], userProperties[EUsers.readonly], component.componentMode]);
 
     const displayTableToolbar = useMemo(() => {
-        return displayView.tree && !isMobile && !isEditMode;
-    }, [displayView.tree, isMobile, isEditMode]);
+        return displayView.tree && !isMobile && !isSmallScreen && !isEditMode;
+    }, [displayView.tree, isMobile, isSmallScreen, isEditMode]);
 
     const displayListToolbar = useMemo(() => {
-        return !displayView.tree && !isMobile && !isEditMode;
-    }, [displayView.tree, isMobile, isEditMode]);
+        return !displayView.tree && !isEditMode && !isMobile && !isSmallScreen ;
+    }, [displayView.tree, isMobile, isEditMode, isSmallScreen]);
 
     const displayTreeToolbar = useMemo(() => {
-        return tableProperties[ETableHeader.treeID] !== null && !isEditMode && component.componentMode !== LYComponentMode.search && !displayView.list;
+        return tableProperties[ETableHeader.treeID] !== null && !isEditMode && component.componentMode !== LYComponentMode.search ;
     }, [tableProperties[ETableHeader.treeID], component.componentMode, displayView.list, isEditMode]);
 
     const displayImportToolbar = useMemo(() => {
@@ -128,15 +129,17 @@ export const TableToolbar = ({
         setDisplayView((prevDisplayView) => ({
             ...prevDisplayView,
             tree: !prevDisplayView.tree,
-            table: !isMobile ? true : false,
+            table: !isMobile && !isSmallScreen ? true : false,
+            list: (isMobile || isSmallScreen) && prevDisplayView.tree ? true : false,
         }));
 
-    }, [displayView.tree, isMobile, handleRefresh]);
+    }, [displayView.tree, isMobile, isSmallScreen, handleRefresh]);
 
 
     const handleListView = useCallback(() => {
         setDisplayView((prevDisplayView) => ({
             ...prevDisplayView,
+            tree: false,
             list: !prevDisplayView.list,
             table: prevDisplayView.list,
         }));
@@ -451,7 +454,7 @@ export const TableToolbar = ({
             {displayListToolbar &&
                 <IconButton
                     onClick={handleListView}
-                    icon={displayView.list ? LYTableViewIcon : LYListIcon}
+                    icon={displayView.list && !isMobile && !isSmallScreen ? LYTableViewIcon : LYListIcon}
                 />
             }
             {displayTableToolbar &&

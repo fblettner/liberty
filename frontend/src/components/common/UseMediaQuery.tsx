@@ -25,3 +25,32 @@ export function useMediaQuery(query: string): boolean {
 
   return matches;
 }
+
+export const useDeviceDetection = () => {
+  const [device, setDevice] = useState(false);
+
+  useEffect(() => {
+    const handleDeviceDetection = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+      const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
+
+      if (isMobile) {
+        setDevice(true);
+      } else if (isTablet) {
+        setDevice(true);
+      } else {
+        setDevice(false);
+      }
+    };
+
+    handleDeviceDetection();
+    window.addEventListener('resize', handleDeviceDetection);
+
+    return () => {
+      window.removeEventListener('resize', handleDeviceDetection);
+    };
+  }, []);
+
+  return device;
+};

@@ -15,7 +15,7 @@ import { Div_DialogWidgetContent, Div_DialogWidgetTitleButtons, Div_ResizeBox, D
 import { DIALOG_WIDGET_DIMENSION } from '@ly_utils/commonUtils';
 import { ComponentProperties, LYComponentEvent } from "@ly_types/lyComponents";
 import { LYFullscreenExitIcon, LYFullscreenIcon, LYReactIcon } from "@ly_styles/icons";
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { IconButton_Contrast } from "@ly_components/styles/IconButton";
 import { DefaultZIndex } from "@ly_components/types/common";
 
@@ -29,18 +29,18 @@ export interface ITableUpload {
 export const TableUpload = (params: ITableUpload) => {
     const { open, setOpen, componentProperties, handleRefresh } = params;
     const isSmallScreen = useMediaQuery("(max-width: 600px)");
-
-    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen); // Set fullscreen initially if small screen
+    const isMobile = useDeviceDetection();
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
     const [dimensions, setDimensions] = useState({ width: DIALOG_WIDGET_DIMENSION.width, height: DIALOG_WIDGET_DIMENSION.height });
     const resizeRef = useRef<HTMLDivElement | null>(null);
     const titleBarRef = useRef<HTMLDivElement | null>(null); // Add ref for the title bar
 
     // Update fullscreen state based on screen size
     useEffect(() => {
-        if (isSmallScreen) {
+        if (isSmallScreen || isMobile) {
             setIsFullScreen(true);
         }
-    }, [isSmallScreen]);
+    }, [isSmallScreen, isMobile]);
 
 
     const [{ x, y }, api] = useSpring(() => ({
@@ -77,7 +77,7 @@ export const TableUpload = (params: ITableUpload) => {
     );
 
     const toggleFullScreen = () => {
-        if (!isSmallScreen) {
+        if (!isSmallScreen && !isMobile) {
             setIsFullScreen((prev) => !prev);
         }
     };
@@ -110,7 +110,7 @@ export const TableUpload = (params: ITableUpload) => {
                 }}
             >
                 <Div_DialogWidget fullScreen={isFullScreen} userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
-                    userHeight={isFullScreen ? '100vh' : `${dimensions.height}px`}>
+                    userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}>
                     {/* Header */}
                     <Div_DialogWidgetTitle
                         ref={titleBarRef}
