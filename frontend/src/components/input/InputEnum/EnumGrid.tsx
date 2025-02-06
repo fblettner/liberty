@@ -75,7 +75,7 @@ export const EnumGrid = (props: IEnumGrid) => {
     if (!isLoading)
         return (
             <Paper_Popup elevation={3}>
-                <TableContainer style={{ maxHeight: (isMobile || isSmallScreen) ? "100%" : 325 }}>
+                <TableContainer style={{ maxHeight: (isMobile || isSmallScreen) ? "100dvh" : 325 }}>
                     <Table>
                         <TableHead>
                             <TableRow_Header>

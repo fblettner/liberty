@@ -98,7 +98,7 @@ export const LookupGrid = ({ isLoading, id, onChange, setSelectedOption, lookupS
 
         return (
             <Paper_Popup elevation={3}>
-                <TableContainer  style={{ maxHeight: (isMobile || isSmallScreen) ? "100%" : 325 }}>
+                <TableContainer  style={{ maxHeight: (isMobile || isSmallScreen) ? "100dvh" : 325 }}>
                     {lookupState.header !== undefined && lookupState.columns.length > 0 && (
                         <Table>
                             <TableHead>
