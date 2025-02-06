@@ -547,8 +547,8 @@ export const Div_DialogTabPanel = styled(Div)<TabPanelProps>(({ hidden }) => ({
 }));
 
 export const Div_AppsLayout = styled('div')(({ theme }) => ({
-    minHeight: '100dvh', // Ensure full viewport height
-    width: '100vw',
+    height: '100dvh', // Ensure full viewport height
+    width: '100dvw',
     display: 'flex',
     flexDirection: 'column', // Ensure child elements respect flexbox behavior
 }));

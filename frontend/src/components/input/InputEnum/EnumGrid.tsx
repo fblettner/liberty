@@ -15,6 +15,7 @@ import { Paper_Popup } from "@ly_components/styles/Paper";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@ly_components/common/Table";
 import { TableContainer, TableRow_Header, TableRow_Selected } from "@ly_components/styles/Table";
 import { DefaultZIndex } from "@ly_components/types/common";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common/UseMediaQuery";
 
 
 export interface IEnumGrid {
@@ -31,7 +32,9 @@ export interface IEnumGrid {
 
 export const EnumGrid = (props: IEnumGrid) => {
     const { id, isLoading, columns, data, setSelectedOption, onChange, onClose, inputRef } = props;
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
+    
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const rowRefs = useRef<(HTMLTableRowElement | null)[]>([]);
 
@@ -72,7 +75,7 @@ export const EnumGrid = (props: IEnumGrid) => {
     if (!isLoading)
         return (
             <Paper_Popup elevation={3}>
-                <TableContainer style={{ maxHeight: 325 }}>
+                <TableContainer style={{ maxHeight: (isMobile || isSmallScreen) ? "100%" : 325 }}>
                     <Table>
                         <TableHead>
                             <TableRow_Header>

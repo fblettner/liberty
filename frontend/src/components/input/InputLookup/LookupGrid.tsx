@@ -16,6 +16,7 @@ import { Paper_Popup } from "@ly_components/styles/Paper";
 import { TableContainer, TableRow_Header, TableRow_Selected } from "@ly_components/styles/Table";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@ly_components/common/Table";
 import { DefaultZIndex } from "@ly_components/types/common";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common/UseMediaQuery";
 
 
 export interface ILookupGrid {
@@ -32,7 +33,9 @@ export interface ILookupGrid {
 export const LookupGrid = ({ isLoading, id, onChange, setSelectedOption, lookupState, data, onClose, inputRef }: ILookupGrid) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const rowRefs = useRef<(HTMLTableRowElement | null)[]>([]);
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
+    
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "ArrowDown") {
@@ -95,7 +98,7 @@ export const LookupGrid = ({ isLoading, id, onChange, setSelectedOption, lookupS
 
         return (
             <Paper_Popup elevation={3}>
-                <TableContainer style={{ maxHeight: 325 }}>
+                <TableContainer  style={{ maxHeight: (isMobile || isSmallScreen) ? "100%" : 325 }}>
                     {lookupState.header !== undefined && lookupState.columns.length > 0 && (
                         <Table>
                             <TableHead>

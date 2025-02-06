@@ -33,6 +33,7 @@ import { Div_AutoComplete } from "@ly_components/styles/Div";
 import { IconButton } from "@ly_components/common/IconButton";
 import { Select } from "@ly_components/common/Select";
 import { TextFieldVariants } from "@ly_components/types/common";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common/UseMediaQuery";
 
 export interface IEnumInput {
     id: string;
@@ -56,7 +57,9 @@ export interface IEnumInput {
 
 export const EnumInput = (props: IEnumInput) => {
     const { id, label, enumID, defaultValue, disabled, variant, freeSolo, searchByLabel, data, dynamic_params, fixed_params, sessionMode, overrideQueryPool, callFromTable, onChange, setErrorState, hideButton } = props;
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
+    
     const appsProperties: IAppsProps = useSelector(getAppsProperties)
     const userProperties: IUsersProps = useSelector(getUserProperties);
     const modulesProperties: IModulesProps = useSelector(getModules);
@@ -324,14 +327,14 @@ export const EnumInput = (props: IEnumInput) => {
                             />
                     )}
                 />
-                {enumState.header[EEnumHeader.display_add] === "Y" && !disabled && !callFromTable && !hideButton &&
+                {enumState.header[EEnumHeader.display_add] === "Y" && !disabled && !callFromTable && !hideButton && !isSmallScreen && !isMobile &&
                     <IconButton
                         onClick={() => { onDialogOpen(LYComponentMode.add) }}
                         aria-label="edit"
                         icon={LYAddIcon} 
                         />
                 }
-                {selectedOption !== null && enumState.header[EEnumHeader.display_add] === "Y" && !disabled && !callFromTable && !hideButton &&
+                {selectedOption !== null && enumState.header[EEnumHeader.display_add] === "Y" && !disabled && !callFromTable && !hideButton && !isSmallScreen && !isMobile &&
                     <IconButton
                         onClick={() => { onDialogOpen(LYComponentMode.edit) }}
                         aria-label="edit" icon={LYEditIcon} 

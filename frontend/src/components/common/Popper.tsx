@@ -2,6 +2,11 @@ import React, { ReactNode, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 import { useZIndex } from "@ly_components/types/common";
+import { useDeviceDetection, useMediaQuery } from "./UseMediaQuery";
+import { Button } from "./Button";
+import { LYCloseIcon } from "@ly_styles/icons";
+import { t } from "i18next";
+import { Button_Popper } from "@ly_components/styles/Button";
 
 // Supported placements
 type Placement = "top" | "bottom" | "left" | "right" | "bottom-start" | "bottom-end";
@@ -31,16 +36,20 @@ const Backdrop = styled.div<{ zIndex: number }>(({ zIndex }) => ({
 );
 
 // Styled Popper container
-const PopperContainer = styled.div<{ visible: boolean; width: number | string; zIndex: number }>(
-  ({ visible, width, zIndex }) => ({
-    position: "absolute",
-    width: width,
+const PopperContainer = styled.div<{ fullScreen: boolean; visible: boolean; width: number | string; zIndex: number }>(
+  ({ fullScreen, visible, width, zIndex }) => ({
+    position: fullScreen ? "fixed" : "absolute",
+    top: fullScreen ? "0" : "auto",
+    left: fullScreen ? "0" : "auto",
+    width: fullScreen ? "100vw" : width,
+    height: fullScreen ? "100vh" : "auto",
     zIndex: zIndex,
     transition: "opacity 0.2s ease-in-out",
     opacity: 1,
     visibility: visible ? "visible" : "hidden",
   })
 );
+
 
 // 🔥 Unified Popper/Popover Component
 export const Popper = ({
@@ -54,32 +63,42 @@ export const Popper = ({
   onClose,
 }: PopperProps) => {
 
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const isMobile = useDeviceDetection();
   const popperRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
   const [positionReady, setPositionReady] = useState(false);
 
   // Calculates the position relative to anchor
   const updatePosition = () => {
+
+    if (isSmallScreen || isMobile) {
+      setPosition({ top: 0, left: 0 });
+      setPositionReady(true);
+      return;
+    }
+
+
     if (anchorEl && popperRef.current) {
       const anchorRect = anchorEl.getBoundingClientRect();
       const popperOffsetParent = popperRef.current.offsetParent as HTMLElement;
       const parentRect = popperOffsetParent?.getBoundingClientRect() || { top: 0, left: 0 };
-  
+
       const popperHeight = popperRef.current.offsetHeight;
       const parentHeight = popperOffsetParent?.clientHeight || window.innerHeight;
 
-     // Check if popper would overflow at the bottom of the parent container
-     const wouldOverflowBottom = anchorRect.bottom + popperHeight  > window.innerHeight;
-  
+      // Check if popper would overflow at the bottom of the parent container
+      const wouldOverflowBottom = anchorRect.bottom + popperHeight > window.innerHeight;
+
       let top = 0;
       let left = 0;
-  
+
       const finalPlacement = wouldOverflowBottom && placement.startsWith("bottom") ? "top" : placement;
-  
+
       switch (finalPlacement) {
         case "top":
           top = anchorRect.top - parentRect.top - popperHeight - 25;
-          left = anchorRect.left - parentRect.left 
+          left = anchorRect.left - parentRect.left
           break;
         case "bottom-start":
           top = anchorRect.bottom - parentRect.top;
@@ -102,7 +121,7 @@ export const Popper = ({
           left = anchorRect.left - parentRect.left;
           break;
       }
-  
+
       setPosition({ top, left });
       setPositionReady(true);
     }
@@ -120,7 +139,8 @@ export const Popper = ({
       window.removeEventListener("resize", updatePosition);
       window.removeEventListener("scroll", updatePosition, true);
     };
-  }, [open, anchorEl, placement, modal]);
+  }, [open, anchorEl, placement, modal, isSmallScreen, isMobile]);
+
 
   const { getNextZIndex, resetZIndex } = useZIndex();
   const zIndex = useRef<number>(0);
@@ -132,7 +152,7 @@ export const Popper = ({
   }, [getNextZIndex, resetZIndex]);
 
   const handleClose = () => {
-   // resetZIndex();
+    // resetZIndex();
     onClose?.();
   }
 
@@ -144,18 +164,26 @@ export const Popper = ({
         visible={positionReady}
         width={style.width || 300}
         zIndex={zIndex.current}
+        fullScreen={isSmallScreen || isMobile}
         style={{
-          ...style,
           top: `${position.top}px`,
           left: `${position.left}px`,
         }}
       >
+        {(isMobile || isSmallScreen) && <Button_Popper
+          disabled={false}
+          variant="outlined" // Use 'outlined' for a modern, clean look
+          startIcon={LYCloseIcon}
+          onClick={handleClose}
+        >
+          {t('button.close')}
+        </Button_Popper>}
         {children}
       </PopperContainer>
     </>
   ) : null;
 
-  return disablePortal ? popperContent : ReactDOM.createPortal(popperContent,  document.body);
+  return disablePortal ? popperContent : ReactDOM.createPortal(popperContent, document.body);
 };
 
 
