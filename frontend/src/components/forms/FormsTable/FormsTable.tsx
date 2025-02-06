@@ -50,7 +50,7 @@ import { TableGridRef } from "@ly_components/forms/FormsTable/views/TableGrid";
 import { onSelectRowFunction } from "@ly_components/input/InputLookup/utils/commonUtils";
 import { LYAddIcon, LYCopyIcon, LYDeleteIcon, LYEditIcon } from "@ly_styles/icons";
 import { Stack_FormsTable } from "@ly_components/styles/Stack";
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { AnchorPosition } from "@ly_components/types/common";
 
 interface IFormsTable {
@@ -64,7 +64,8 @@ interface IFormsTable {
 
 export function FormsTable(params: IFormsTable) {
     const { componentProperties, displayMode, viewGrid, viewMode, onSelectRow, readonly } = params;
-    const isMobile = useMediaQuery('(max-width:600px)');
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMobile = useDeviceDetection();
     const longPressTimeout = useRef<number | null>(null);
 
     const appsProperties: IAppsProps = useSelector(getAppsProperties)
@@ -328,7 +329,7 @@ export function FormsTable(params: IFormsTable) {
     }, [tableState.tableData])
 
     useEffect(() => {
-        if (isMobile && displayView.tree) {
+        if ((isMobile || isSmallScreen) && displayView.tree) {
             setDisplayView((prevDisplayView) => ({
                 ...prevDisplayView,
                 list: false,
@@ -336,7 +337,7 @@ export function FormsTable(params: IFormsTable) {
             }));
         }
         else
-            if (isMobile && (displayView.list || displayView.table)) {
+            if ((isMobile || isSmallScreen) && (displayView.list || displayView.table)) {
                 setDisplayView((prevDisplayView) => ({
                     ...prevDisplayView,
                     list: true,
@@ -351,7 +352,7 @@ export function FormsTable(params: IFormsTable) {
                     tree: (viewMode === LYComponentViewMode.tree) ? true : false
                 }));
             }
-    }, [isMobile])
+    }, [isMobile, isSmallScreen])
 
 
     useEffect(() => {

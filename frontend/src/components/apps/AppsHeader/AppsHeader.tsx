@@ -23,7 +23,7 @@ import { EUsers } from "@ly_types/lyUsers";
 import { Div, Div_Header, Div_HeaderAppBar, Div_HeaderToolbar } from "@ly_components/styles/Div";
 import { Divider } from "@ly_components/common/Divider";
 import { Typo_AppsName } from "@ly_components/styles/Typography";
-import { IconButton_Contrast } from "@ly_components/styles/IconButton"; import { useMediaQuery } from "@ly_components/common/UseMediaQuery";
+import { IconButton_Contrast } from "@ly_components/styles/IconButton"; import { useDeviceDetection, useMediaQuery } from "@ly_components/common/UseMediaQuery";
 ;
 
 
@@ -67,9 +67,8 @@ export function AppsHeader() {
   }, [dispatch, isChatOpen]);
 
   const shouldShowMenusIcon = modules.menus && modules.menus.enabled && userProperties[EUsers.status];
-  const isSmallScreen = useMediaQuery("(min-width: 600px)");
-  const isMediumScreen = useMediaQuery("(min-width: 960px)");
-  const isLargeScreen = useMediaQuery("(min-width: 1280px)");
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
+  const isMobile = useDeviceDetection();
 
   return (
       <Div_HeaderAppBar open={isOpen}>
@@ -87,7 +86,7 @@ export function AppsHeader() {
           {/* Left Section */}
           <Div_Header>
             <LYLogoIcon width="32px" height="32px" />
-            {(isMediumScreen || isLargeScreen) &&
+            {!isSmallScreen && !isMobile &&
               <Typo_AppsName noWrap>
                 {appsProperties[EApplications.name]}
               </Typo_AppsName>

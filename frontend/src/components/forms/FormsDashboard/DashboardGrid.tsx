@@ -10,10 +10,10 @@ import { DashboardCard } from '@ly_components/forms/FormsDashboard/DashboardCard
 import { ComponentProperties } from '@ly_types/lyComponents';
 import { IDashboardState } from '@ly_types/lyDashboard';
 import { DashboardGridItem } from '@ly_components/common/Grid';
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { Fragment } from 'react/jsx-runtime';
 import { AdvancedFlexPanels } from '@ly_components/common/FlexAdvanced';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export interface IDashboardGrid {
     rows: number[];
@@ -31,7 +31,15 @@ export const DashboardGrid = ({
     component
 }: IDashboardGrid) => {
 
-    const isMobile = useMediaQuery("(max-width:600px)");
+    const isSmallScreen = useMediaQuery("(max-width:600px)");
+    const isMobile = useDeviceDetection();
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
+    
+    useEffect(() => {
+        if (isSmallScreen || isMobile) {
+            setIsFullScreen(true);
+        }
+    }, [isSmallScreen, isMobile]);
 
     const children = useMemo(
         () =>
@@ -47,7 +55,7 @@ export const DashboardGrid = ({
         [rows, columns, dashboardData]
     );
 
-    if (isMobile) {
+    if (isFullScreen) {
         return (
             <Fragment>
                 {rows.map((row: number) => (

@@ -253,7 +253,7 @@ export const cellMouseDownHandler = (params: ICellMouseDownHandler) => {
         table.deselectAllRows();
         table.toggleRowSelected(row[TablesGridHardCoded.row_id].toString());
 
-        if (displayView.tree && apiRef.current !== undefined) {
+        if (displayView.tree && apiRef.current ) {
             apiRef.current.scrollToRow(row[TablesGridHardCoded.row_id]);
         }
     }, 250); // 200ms delay for single click
@@ -290,7 +290,7 @@ export const touchStartHandler = (params: ICellMouseDownHandler) => {
         table.deselectAllRows();
         table.toggleRowSelected(row[TablesGridHardCoded.row_id]);
 
-        if (displayView.tree && row !== undefined && apiRef.current !== undefined) {
+        if (displayView.tree && row !== undefined && apiRef.current) {
             apiRef.current.scrollToRow(row[TablesGridHardCoded.row_id]);
         }
 };

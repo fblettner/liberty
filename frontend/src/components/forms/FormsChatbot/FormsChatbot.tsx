@@ -4,7 +4,7 @@
  * *
  */
 // React Import
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrag } from '@use-gesture/react';
 import { animated, useSpring } from '@react-spring/web';
@@ -17,17 +17,28 @@ import { Div_ChatContent, Div_DialogWidgetTitleButtons, Div, Div_ResizeBox, Div_
 import { LYCloseIcon, LYFullscreenExitIcon, LYFullscreenIcon, LYMaximizeIcon, LYMinimizeIcon } from '@ly_styles/icons';
 import { IconButton_Contrast } from '@ly_components/styles/IconButton';
 import { DefaultZIndex } from '@ly_components/types/common';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { DIALOG_WIDGET_DIMENSION } from '@ly_utils/commonUtils';
 
 
 export function FormsChatbot() {
     const dispatch = useDispatch();
     const isChatOpen: boolean = useSelector(getChatMode);
     const [isMinimized, setIsMinimized] = useState(false);
-    const [isFullScreen, setIsFullScreen] = useState(false);
-    const [chatDimensions, setChatDimensions] = useState({ width: 500, height: 600 });
+    const isSmallScreen = useMediaQuery("(max-width: 600px)");
+    const isMobile = useDeviceDetection();
+
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
+    const [dimensions, setDimensions] = useState({ width: 500, height: DIALOG_WIDGET_DIMENSION.height });
     const resizeRef = useRef<HTMLDivElement | null>(null);
     const titleBarRef = useRef<HTMLDivElement | null>(null); // Add ref for the title bar
 
+    // Update fullscreen state based on screen size
+    useEffect(() => {
+        if (isSmallScreen || isMobile) {
+            setIsFullScreen(true);
+        }
+    }, [isSmallScreen, isMobile]);
 
     // Position state for the chatbot
     const [{ x, y }, api] = useSpring(() => ({
@@ -44,8 +55,8 @@ export function FormsChatbot() {
                 // Handle resizing
                 const newWidth = Math.max(300, state.offset[0]); // Minimum width
                 const newHeight = Math.max(200, state.offset[1]); // Minimum height
-                setChatDimensions({ width: newWidth, height: newHeight });
-            } else if (!isMinimized && !isFullScreen) {
+                setDimensions({ width: newWidth, height: newHeight });
+            } else if (!isFullScreen) {
                 if (titleBarRef.current && titleBarRef.current.contains(state.event.target as Node))
                     // Handle dragging
                     api.start({ x: state.offset[0], y: state.offset[1] });
@@ -55,7 +66,7 @@ export function FormsChatbot() {
             from: (state) => {
                 const isResizing = state.target === resizeRef.current;
                 if (isResizing) {
-                    return [chatDimensions.width, chatDimensions.height];
+                    return [dimensions.width, dimensions.height];
                 } else {
                     return [x.get(), y.get()];
                 }
@@ -63,23 +74,24 @@ export function FormsChatbot() {
         }
     );
 
+
     const handleCloseChat = () => {
         dispatch(onChatOpenChanged(!isChatOpen));
     };
 
     const handleMinimizeChat = () => {
-        if (isFullScreen) {
+        if (isFullScreen && !isMobile && !isSmallScreen) {
             setIsFullScreen(false);
         }
         setIsMinimized((prev) => !prev);
     };
 
     const toggleFullScreen = () => {
-        if (isMinimized) {
-            setIsMinimized(false);
+        if (!isSmallScreen && !isMobile) {
+            setIsFullScreen((prev) => !prev);
         }
-        setIsFullScreen((prev) => !prev);
     };
+
 
     return (
         <Div>
@@ -101,8 +113,8 @@ export function FormsChatbot() {
                     <Div_ChatTitle
                         minimized={isMinimized}
                         fullScreen={isFullScreen}
-                        userWidth={isFullScreen ? '100vw' : `${chatDimensions.width}px`}
-                        userHeight={isFullScreen ? '100vh' : `${chatDimensions.height}px`}
+                        userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
+                        userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}
                     >
                         {/* Header */}
                         <Div_DialogWidgetTitle
@@ -113,29 +125,33 @@ export function FormsChatbot() {
                                 {isMinimized ? 'Ly-AI' : 'Chat with Liberty AI'}
                             </span>
                             <Div_DialogWidgetTitleButtons>
-                                <IconButton_Contrast 
-                                    aria-label="minimize" 
-                                    onClick={handleMinimizeChat} 
-                                    icon={isMinimized ? LYMaximizeIcon : LYMinimizeIcon} 
-                                /> 
-                                <IconButton_Contrast 
-                                    aria-label="toggle full screen" 
-                                    onClick={toggleFullScreen}
-                                    icon={isFullScreen ? LYFullscreenExitIcon : LYFullscreenIcon}
-                                /> 
-                                <IconButton_Contrast 
-                                    aria-label="close" 
+                                {!isFullScreen && !isMinimized &&
+                                    <IconButton_Contrast
+                                        aria-label="minimize"
+                                        onClick={handleMinimizeChat}
+                                        icon={isMinimized ? LYMaximizeIcon : LYMinimizeIcon}
+                                    />
+                                }
+                                {!isFullScreen && !isMinimized &&
+                                    <IconButton_Contrast
+                                        aria-label="toggle full screen"
+                                        onClick={toggleFullScreen}
+                                        icon={isFullScreen ? LYFullscreenExitIcon : LYFullscreenIcon}
+                                    />
+                                }
+                                <IconButton_Contrast
+                                    aria-label="close"
                                     onClick={handleCloseChat}
-                                    icon={LYCloseIcon} 
+                                    icon={LYCloseIcon}
                                 />
                             </Div_DialogWidgetTitleButtons>
                         </Div_DialogWidgetTitle>
 
                         {/* Content */}
                         <Div_ChatContent>
-                            <FormsAI 
-                                componentProperties={{ 
-                                    id: 9999, 
+                            <FormsAI
+                                componentProperties={{
+                                    id: 9999,
                                     componentMode: LYComponentMode.chat,
                                     type: LYComponentType.FormsAI,
                                     label: 'defaultLabel',

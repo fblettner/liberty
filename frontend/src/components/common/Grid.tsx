@@ -4,7 +4,7 @@
  * *
  */
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@ly_components/common//UseMediaQuery";
+import { useDeviceDetection, useMediaQuery } from "@ly_components/common//UseMediaQuery";
 
 // Styled Grid Item
 interface GridItemProps {
@@ -17,6 +17,7 @@ export const GridContainer = styled.div<{ spacing?: number; py?: number; px?: nu
     ({ spacing = 2, py = 0, px = 0, columns = 1 }) => {
 
         const isSmallScreen = useMediaQuery("(min-width: 600px)");
+        const isMobile = useDeviceDetection();
         const isMediumScreen = useMediaQuery("(min-width: 960px)");
         const isLargeScreen = useMediaQuery("(min-width: 1280px)");
         let cols: number = 1;
@@ -25,17 +26,17 @@ export const GridContainer = styled.div<{ spacing?: number; py?: number; px?: nu
             cols = columns ?? 1;
         } else if (columns) {
             cols = columns.xs ?? 1;
-            if (isSmallScreen) {
+            if (isSmallScreen || isMobile) {
                 cols = columns.sm || cols;
             }
-            if (isMediumScreen) {
+            if (isMediumScreen && !isMobile) {
                 cols = columns.md || cols;
             }
-            if (isLargeScreen) {
+            if (isLargeScreen && !isMobile) {
                 cols = columns.lg || cols;
             }
         }
-
+        
         return {
             display: "grid",
             gridTemplateColumns: `repeat(${cols}, 1fr)`, // Define the number of columns
@@ -71,6 +72,7 @@ export const GridFlexContainer = styled.div<{
 export const GridItem = styled.div<GridItemProps & { spacing?: number }>(
     ({ size, spacing = 2 }) => {
       const isSmallScreen = useMediaQuery("(min-width: 600px)");
+      const isMobile = useDeviceDetection();
       const isMediumScreen = useMediaQuery("(min-width: 960px)");
       const isLargeScreen = useMediaQuery("(min-width: 1280px)");
   
@@ -90,13 +92,13 @@ export const GridItem = styled.div<GridItemProps & { spacing?: number }>(
         flexBasis = calculateWidth(size);
       } else if (size) {
         flexBasis = calculateWidth(size.xs);
-        if (isSmallScreen && size.sm) {
+        if ((isSmallScreen || isMobile) && size.sm) {
           flexBasis = calculateWidth(size.sm) || flexBasis;
         }
-        if (isMediumScreen && size.md) {
+        if (isMediumScreen && !isMobile && size.md) {
           flexBasis = calculateWidth(size.md) || flexBasis;
         }
-        if (isLargeScreen && size.lg) {
+        if (isLargeScreen && !isMobile && size.lg) {
           flexBasis = calculateWidth(size.lg) || flexBasis;
         }
       }

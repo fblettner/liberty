@@ -92,7 +92,7 @@ export function FormsTools() {
     ];
 
     return (
-        <GridContainer spacing={4} columns={{ xs: 1, sm: 5 }} py={2} >
+        <GridContainer spacing={4} columns={{ xs: 1, md: 5 }} py={2} >
             {tools.map((tool) => (
                 <GridItem key={tool.name}>
                     <Card>

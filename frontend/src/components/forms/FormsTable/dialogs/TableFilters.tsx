@@ -25,7 +25,7 @@ import { IContentValue } from "@ly_utils/commonUtils";
 import { LYAddIcon, LYCancelIcon, LYFullscreenExitIcon, LYFullscreenIcon, LYPlayCircleOutlineIcon, LYReactIcon, LYResetIcon, LYThumbDownOffIcon, LYThumbUpIcon } from "@ly_styles/icons";
 import { Paper_Dialogs, Paper_Popup } from "@ly_components/styles/Paper";
 import { Dialog_Actions, Dialog_Content, Dialog_Title } from "@ly_components/styles/Dialog";
-import { useMediaQuery } from '@ly_components/common/UseMediaQuery';
+import { useDeviceDetection, useMediaQuery } from '@ly_components/common/UseMediaQuery';
 import { Dialog } from "@ly_components/common/Dialog";
 import { Button } from "@ly_components/common/Button";
 import { IconButton_Contrast } from "@ly_components/styles/IconButton";
@@ -85,8 +85,8 @@ export const TableFilters = (params: ITableFilters) => {
     );
 
     const isSmallScreen = useMediaQuery("(max-width: 600px)");
-
-    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen); // Set fullscreen initially if small screen
+    const isMobile = useDeviceDetection();
+    const [isFullScreen, setIsFullScreen] = useState(() => isSmallScreen || isMobile); // Set fullscreen initially if small screen
     const [dimensions, setDimensions] = useState({ width: DIALOG_WIDGET_DIMENSION.width, height: DIALOG_WIDGET_DIMENSION.height });
     const resizeRef = useRef<HTMLDivElement | null>(null);
     const titleBarRef = useRef<HTMLDivElement | null>(null); // Add ref for the title bar
@@ -381,10 +381,10 @@ export const TableFilters = (params: ITableFilters) => {
 
     // Update fullscreen state based on screen size
     useEffect(() => {
-        if (isSmallScreen) {
+        if (isSmallScreen || isMobile) {
             setIsFullScreen(true);
         }
-    }, [isSmallScreen]);
+    }, [isSmallScreen, isMobile]);
 
 
     const [{ x, y }, api] = useSpring(() => ({
@@ -421,7 +421,7 @@ export const TableFilters = (params: ITableFilters) => {
     );
 
     const toggleFullScreen = () => {
-        if (!isSmallScreen) {
+        if (!isSmallScreen && !isMobile) {
             setIsFullScreen((prev) => !prev);
         }
     };
@@ -447,7 +447,7 @@ export const TableFilters = (params: ITableFilters) => {
                 }}
             >
                 <Div_DialogWidget fullScreen={isFullScreen} userWidth={isFullScreen ? '100vw' : `${dimensions.width}px`}
-                    userHeight={isFullScreen ? '100vh' : `${dimensions.height}px`}>
+                    userHeight={isFullScreen ? '100dvh' : `${dimensions.height}px`}>
                     {/* Header */}
                     <Div_DialogWidgetTitle
                         ref={titleBarRef}
