@@ -39,7 +39,7 @@ def setup_setup_routes(app, controller: SetupController):
         return result  
 
     @router.post(
-        "/setup/Prepare",
+        "/setup/prepare",
         summary="SETUP - Prepare Upgrade",
         description="Configure the postgres database for upgrading.",
         tags=["Setup"], 

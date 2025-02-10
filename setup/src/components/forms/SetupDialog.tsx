@@ -615,21 +615,20 @@ export default function SetupDialog() {
                     Start Upgrade
                   </Button_Setup>
                 </>
-              )}              
+              )}
               {loading && (
                 <>
                   <ProgressBar progress={progress} />
                   <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
                     <Spinner />
                   </div>
-                  <Div_Logs>
-                    {logs.map((log, index) => (
-                      <div key={index}>{log}</div>
-                    ))}
-                  </Div_Logs>
                 </>
               )}
-
+              <Div_Logs>
+                {logs.map((log, index) => (
+                  <div key={index}>{log}</div>
+                ))}
+              </Div_Logs>
               {step === SetupStep.INIT && (
                 <Button_Setup fullWidth variant="contained" onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.WIZARD) }}>
                   Next
