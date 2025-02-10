@@ -37,7 +37,78 @@ def setup_setup_routes(app, controller: SetupController):
             app.state.setup_required = False  
             app.state.offline_mode = False
         return result  
+
+    @router.post(
+        "/setup/Prepare",
+        summary="SETUP - Prepare Upgrade",
+        description="Configure the postgres database for upgrading.",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def prepare(
+        req: Request,
+        body: SetupRequest,
+    ):
+        result = await controller.prepare(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result  
     
+    @router.post(
+        "/setup/restore",
+        summary="SETUP - Restore",
+        description="Restore database with clean installation.",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def restore(
+        req: Request,
+        body: SetupRequest,
+    ):
+        result = await controller.restore(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result  
+
+    @router.post(
+        "/setup/update",
+        summary="SETUP - Update",
+        description="Update all settings for database connection and passwords.",
+        tags=["Setup"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, SETUP_ERROR_MESSAGE),
+        },
+    )
+    async def update(
+        req: Request,
+        body: SetupRequest,
+    ):
+        result = await controller.update(req)
+        result_data = json.loads(result.body.decode("utf-8"))  
+
+        if result_data.get("status") == "success":
+            app.state.setup_required = False  
+            app.state.offline_mode = False
+        return result      
 
     @router.get(
         "/export/repository",

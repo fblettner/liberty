@@ -91,22 +91,78 @@ class Install:
         except subprocess.CalledProcessError as e:
             logging.error(f"Restore failed: {e}")
 
+    def restore_postgres_dump_for_upgrade(self, database):
+        """Restores a PostgreSQL dump using `pg_restore`."""
+        
+        # Database configuration
+        ADMIN_DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.admin_database}"
+
+            # Create an engine
+        admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+        with admin_engine.connect() as conn:
+            result = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{database}'"))
+            db_exists = result.scalar()
+
+            if not db_exists:
+                logging.warning(f"Creating database '{database}'...")
+                conn.execute(text(f'CREATE DATABASE "{database}"'))
+            else:
+                logging.warning(f"Database '{database}' already exists. Skipping creation.")
+            # 🚀 Check if the role exists
+            result = conn.execute(text(f"SELECT 1 FROM pg_roles WHERE rolname = '{database}'"))
+            role_exists = result.scalar()
+
+            if not role_exists:
+                logging.warning(f"Creating role '{database}' with password...")
+                conn.execute(text(f"CREATE ROLE {database} WITH LOGIN PASSWORD '{self.password}'"))
+            else:
+                logging.warning(f"Role '{database}' already exists. Skipping creation.")
+
+            # 🚀 Grant privileges to the role
+            conn.execute(text(f'GRANT ALL PRIVILEGES ON DATABASE "{database}" TO {database}'))
+            logging.warning(f"Granted privileges to role '{database}' on database '{database}'.")    
+
+
+        if not db_exists:
+            try:
+                dump_file = get_dump_path(database)
+                if not os.path.exists(dump_file):
+                    logging.error(f"Dump file {dump_file} not found!")
+                    return
+
+                logging.warning(f"{database} does not exist. Restoring database {database} from {dump_file}...")
+                pg_path = subprocess.run(["which", "pg_restore"], capture_output=True, text=True).stdout.strip()
+                command = [
+                    pg_path, 
+                    "--clean",  
+                    "--if-exists",  
+                    "-U", self.user,
+                    "-h", self.host,
+                    "-p", str(self.port),
+                    "-d", database,
+                    dump_file
+                ]
+                subprocess.run(command, check=True, env={"PGPASSWORD": self.password})
+
+                logging.warning("Database restored successfully!")
+
+            except subprocess.CalledProcessError as e:
+                logging.error(f"Restore failed: {e}")
+
     def update_database_settings(self, database):     
-        DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
-        engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
-
-        self.config = configparser.ConfigParser()
-        self.config.read(get_ini_path())
-        databases_to_update = self.config["repository"]["databases"].split(", ")    
-
-        """Update a row in the table using SQLAlchemy ORM"""
         try:
+            DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
+            engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
+
+            self.config = configparser.ConfigParser()
+            self.config.read(get_ini_path())
+            databases_to_update = self.config["repository"]["databases"].split(", ")    
+
             metadata = MetaData()
             table = Table("ly_applications", metadata, autoload_with=engine)
             encryption = Encryption(self.jwt)
             encrypted_password = encryption.encrypt_text(self.password)
 
-            """Update a row using SQLAlchemy Core"""
             with engine.connect() as connection:
                 stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_password=encrypted_password)
                 connection.execute(stmt)
@@ -122,7 +178,6 @@ class Install:
             encryption = Encryption(self.jwt)
             encrypted_admin_password = encryption.encrypt_text(self.admin_password)
 
-            """Update a row using SQLAlchemy Core"""
             with engine.connect() as connection:
                 stmt = update(table).where(table.c.usr_id=="admin").values(usr_password=encrypted_admin_password)
                 connection.execute(stmt)

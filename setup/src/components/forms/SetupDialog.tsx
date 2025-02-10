@@ -3,11 +3,21 @@ import { Fragment, useState } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import axios from "axios";
-import { Div_AppsSetup, Div_DialogToolbar, Div_DialogToolbarButtons, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Paper_Setup } from "@ly_components/styles/Div";
+import { Div_AppsSetup, Div_Logs, Div_Setup, Div_SetupLayout, Main_Content, Paper_Setup } from "@ly_components/styles/Div";
 import { LYLogoIcon } from "@ly_styles/icons";
 import { Input } from '@ly_components/common/Input';
 import { Button } from "@ly_components/common/Button";
 import { Checkbox } from "@ly_components/common/Checkbox";
+
+enum SetupStep {
+  INIT = "init",
+  WIZARD = "wizard",
+  INSTALL = "install",
+  UPGRADE = "upgrade",
+  UPDATE = "update",
+  RESTORE = "restore"
+}
+
 
 // Styles
 const Form_Setup = styled('form')(({ theme }) => ({
@@ -20,6 +30,7 @@ const Title = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 16px;
 `;
+
 
 export const Button_Setup = styled(Button)(({ theme, variant }) => ({
   marginTop: theme.spacing(2),
@@ -60,7 +71,7 @@ const Spinner = styled.div`
 `;
 
 export default function SetupDialog() {
-  const [step, setStep] = useState(1); // Track form step
+  const [step, setStep] = useState(SetupStep.INIT); // Track form step
   const [formData, setFormData] = useState({
     host: "pg",
     port: "5432",
@@ -130,6 +141,42 @@ export default function SetupDialog() {
     }
   };
 
+  const handleRestore = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setLogs([]);
+    logMessage("Starting installation...");
+    setProgress(20);
+
+    try {
+      let queryAPI = window.location.origin + "/api/setup/restore"
+      logMessage("Restoring database...");
+      setProgress(50);
+      const response = await axios.post(queryAPI, JSON.stringify(formData), {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.data;
+      if (data.status === "success") {
+        setProgress(100);
+        logMessage("Restore complete! Redirecting...");
+
+        // 🔄 Refresh the page after a short delay (1.5s)
+        setTimeout(() => {
+          window.location.href = window.location.origin;
+        }, 1500);
+      } else {
+        logMessage(`Error: ${data.items[0].message}`);
+        setLoading(false);
+      }
+    } catch (error) {
+      logMessage("Failed to restore. Check your details: " + error);
+      setLoading(false);
+    }
+  };
+
   const handleUpgrade = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -174,8 +221,40 @@ export default function SetupDialog() {
     setProgress(20);
 
     try {
-      let queryAPI = window.location.origin + "/api/setup/revision?message=upgrade"
+      let queryAPI = window.location.origin + "/api/setup/prepare"
       logMessage("Preparing database...");
+      setProgress(50);
+      const response = await axios.post(queryAPI, JSON.stringify(formData), {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.data;
+      if (data.status === "success") {
+        setProgress(100);
+        logMessage("Preparation complete! You can create a revision...");
+        setLoading(false);
+      } else {
+        logMessage(`Error: ${data.items[0].message}`);
+        setLoading(false);
+      }
+    } catch (error) {
+      logMessage("Failed to prepare. Check your details: " + error);
+      setLoading(false);
+    }
+  };
+
+  const handleRevision = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setLogs([]);
+    logMessage("Create a revision...");
+    setProgress(20);
+
+    try {
+      let queryAPI = window.location.origin + "/api/setup/revision?message=upgrade"
+      logMessage("Creating a revision for the database...");
       setProgress(50);
       const response = await axios.post(queryAPI, {}, {
         headers: {
@@ -186,8 +265,44 @@ export default function SetupDialog() {
       const data = await response.data;
       if (data.status === "success") {
         setProgress(100);
-        logMessage("Preparation complete! You can start the upgrade...");
+        logMessage("Revision complete! You can start the upgrade...");
         setLoading(false);
+      } else {
+        logMessage(`Error: ${data.items[0].message}`);
+        setLoading(false);
+      }
+    } catch (error) {
+      logMessage("Failed to create a revision. Check your details: " + error);
+      setLoading(false);
+    }
+  };
+
+  const handleUpdate = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setLogs([]);
+    logMessage("Starting update...");
+    setProgress(20);
+
+    try {
+      let queryAPI = window.location.origin + "/api/setup/update"
+      logMessage("Updating database...");
+      setProgress(50);
+      const response = await axios.post(queryAPI, JSON.stringify(formData), {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.data;
+      if (data.status === "success") {
+        setProgress(100);
+        logMessage("Update complete! Redirecting...");
+
+        // 🔄 Refresh the page after a short delay (1.5s)
+        setTimeout(() => {
+          window.location.href = window.location.origin;
+        }, 1500);
       } else {
         logMessage(`Error: ${data.items[0].message}`);
         setLoading(false);
@@ -205,17 +320,23 @@ export default function SetupDialog() {
           <Paper_Setup>
             <LYLogoIcon width="75px" height="75px" />
             <Form_Setup noValidate >
-              {step === 2 &&
-              <Div_AppsSetup>
-                <Button_Setup variant="contained" onClick={() => setStep(1)} disabled={loading}>
-                  Previous
-                </Button_Setup>
+              {step !== SetupStep.INIT && step !== SetupStep.WIZARD &&
+                <Div_AppsSetup>
+                  <Button_Setup variant="contained" onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.WIZARD) }} disabled={loading}>
+                    Previous
+                  </Button_Setup>
                 </Div_AppsSetup>
               }
-              <Title>Installation - Step {step} of 2</Title>
-
-              {step === 1 && (
+              {step === SetupStep.WIZARD &&
+                <Div_AppsSetup>
+                  <Button_Setup variant="contained" onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.INIT) }} disabled={loading}>
+                    Previous
+                  </Button_Setup>
+                </Div_AppsSetup>
+              }
+              {step === SetupStep.INIT && (
                 <>
+                  <Title>Setup - Step 1 of 2</Title>
                   <Div_AppsSetup>
                     <Input
                       id="host"
@@ -268,7 +389,7 @@ export default function SetupDialog() {
                     <Input
                       id="current_password"
                       name="current_password"
-                      label="Current Password"
+                      label="Current Database Password"
                       type="password"
                       value={formData.current_password}
                       onChange={handleChange}
@@ -281,7 +402,7 @@ export default function SetupDialog() {
                     <Input
                       id="password"
                       name="password"
-                      label="New Password"
+                      label="New Database Password"
                       type="password"
                       value={formData.password}
                       onChange={handleChange}
@@ -293,21 +414,57 @@ export default function SetupDialog() {
                 </>
               )}
 
-              {step === 2 && (
+              {step === SetupStep.RESTORE && (
                 <>
+                  <Title>Restore clean database</Title>
                   <Div_AppsSetup>
-                    <Input
-                      id="admin_password"
-                      name="admin_password"
-                      label="Admin Password"
-                      type="password"
-                      value={formData.admin_password}
+                    <Checkbox
+                      id="enterprise"
+                      checked={formData.enterprise}
                       onChange={handleChange}
-                      required
-                      fullWidth
-                      variant="standard"
+                      label="Do you want to restore enterprise features?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="keycloak"
+                      checked={formData.keycloak}
+                      onChange={handleChange}
+                      label="Do you want to restore Keycloak?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="airflow"
+                      checked={formData.airflow}
+                      onChange={handleChange}
+                      label="Do you want to restore Airflow?"
+                      labelPlacement="end"
                     />
                   </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="gitea"
+                      checked={formData.gitea}
+                      onChange={handleChange}
+                      label="Do you want to restore Gitea?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleRestore}>
+                    Start Restore
+                  </Button_Setup>
+                </>
+              )}
+
+
+              {step === SetupStep.INSTALL && (
+                <>
+                  <Title>Install a new platform</Title>
                   <Div_AppsSetup>
                     <Checkbox
                       id="enterprise"
@@ -355,62 +512,164 @@ export default function SetupDialog() {
                       labelPlacement="end"
                     />
                   </Div_AppsSetup>
-                  <Div_AppsSetup>
-                    <Checkbox
-                      id="load_features"
-                      checked={formData.load_features}
-                      onChange={handleChange}
-                      label="Do you want to load features data (this will erase all current database)?"
-                      labelPlacement="end"
-                    />
-                  </Div_AppsSetup>                  
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
+                    Start Installation
+                  </Button_Setup>
                 </>
               )}
+
+              {step === SetupStep.UPDATE && (
+                <>
+                  <Title>Update current installation</Title>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="enterprise"
+                      checked={formData.enterprise}
+                      onChange={handleChange}
+                      label="Are you using enterprise features?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="keycloak"
+                      checked={formData.keycloak}
+                      onChange={handleChange}
+                      label="Are you using Keycloak?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="airflow"
+                      checked={formData.airflow}
+                      onChange={handleChange}
+                      label="Are you using Airflow?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="gitea"
+                      checked={formData.gitea}
+                      onChange={handleChange}
+                      label="Are you using Gitea?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleUpdate}>
+                    Start Update
+                  </Button_Setup>
+                </>
+              )}
+              {step === SetupStep.UPGRADE && (
+                <>
+                  <Title>Upgrade current installation</Title>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="enterprise"
+                      checked={formData.enterprise}
+                      onChange={handleChange}
+                      label="Are you using enterprise features?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="keycloak"
+                      checked={formData.keycloak}
+                      onChange={handleChange}
+                      label="Are you using Keycloak?"
+                      labelPlacement="end"
+                    />
+
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="airflow"
+                      checked={formData.airflow}
+                      onChange={handleChange}
+                      label="Are you using Airflow?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Div_AppsSetup>
+                    <Checkbox
+                      id="gitea"
+                      checked={formData.gitea}
+                      onChange={handleChange}
+                      label="Are you using Gitea?"
+                      labelPlacement="end"
+                    />
+                  </Div_AppsSetup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handlePrepare}>
+                    Prepare Upgrade
+                  </Button_Setup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleRevision}>
+                    Create a revision
+                  </Button_Setup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleUpgrade}>
+                    Start Upgrade
+                  </Button_Setup>
+                </>
+              )}              
               {loading && (
                 <>
                   <ProgressBar progress={progress} />
                   <div css={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
                     <Spinner />
                   </div>
-
+                  <Div_Logs>
+                    {logs.map((log, index) => (
+                      <div key={index}>{log}</div>
+                    ))}
+                  </Div_Logs>
                 </>
               )}
-              <Div_Logs>
-                {logs.map((log, index) => (
-                  <div key={index}>{log}</div>
-                ))}
-              </Div_Logs>
-              {step === 1 && (
-                <Button_Setup fullWidth variant="contained" onClick={() => setStep(2)}>
+
+              {step === SetupStep.INIT && (
+                <Button_Setup fullWidth variant="contained" onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.WIZARD) }}>
                   Next
                 </Button_Setup>
               )}
 
-              {step === 2 && (
+              {step === SetupStep.WIZARD && (
                 <Fragment>
-                  <Div_DialogToolbar>
-                      <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
-                        Update Settings
-                      </Button_Setup>
-
-                  </Div_DialogToolbar>
-                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleInstall}>
+                  <Title>Setup - Step 2 of 2</Title>
+                  <Div_AppsSetup>
+                    <Input
+                      id="admin_password"
+                      name="admin_password"
+                      label="Admin Password"
+                      type="password"
+                      value={formData.admin_password}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      variant="standard"
+                    />
+                  </Div_AppsSetup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.UPDATE) }}>
+                    Update Settings
+                  </Button_Setup>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.INSTALL) }}>
                     Install
                   </Button_Setup>
-                  <Div_DialogToolbarButtons>
-                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handlePrepare}>
-                    Prepare
-                  </Button_Setup>
-                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={handleUpgrade}>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.UPGRADE) }}>
                     Upgrade
                   </Button_Setup>
-                  </Div_DialogToolbarButtons>
+                  <Button_Setup fullWidth variant="contained" disabled={loading} onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setStep(SetupStep.RESTORE) }}>
+                    Restore Clean Database
+                  </Button_Setup>
                 </Fragment>
               )}
             </Form_Setup>
           </Paper_Setup>
         </Div_Setup>
       </Main_Content>
-    </Div_SetupLayout>
+    </Div_SetupLayout >
   );
 }
