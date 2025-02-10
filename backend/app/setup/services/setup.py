@@ -34,7 +34,6 @@ class Setup:
             current_password = data.get("current_password")
             admin_password = data.get("admin_password")
             load_data = data.get("load_data", False)
-            load_features = data.get("load_features", False)
 
             # Create all tables in the database
 #            for table in Base.metadata.tables.values():
@@ -58,6 +57,11 @@ class Setup:
                 "libnsx1": data.get("enterprise", False),
                 "libnjde": data.get("enterprise", False),
                 "libnetl": data.get("enterprise", False),
+                "nomasx1": data.get("enterprise", False),
+                "nomajde": data.get("enterprise", False),
+                "airflow": data.get("airflow", False),
+                "keycloak": data.get("keycloak", False),
+                "gitea": data.get("gitea", False),
             }
             
             databases_to_install = [db for db, status in databases_to_install.items() if status]
@@ -71,24 +75,6 @@ class Setup:
                 db_password.update_database_settings(db_name)
                 logging.warning(f"{db_name} settings updated successfully!")
             
-            features_to_install = {
-                "nomasx1": data.get("enterprise", False),
-                "nomajde": data.get("enterprise", False),
-                "airflow": data.get("airflow", False),
-                "keycloak": data.get("keycloak", False),
-                "gitea": data.get("gitea", False),
-            }
-            features_to_install = [db for db, status in features_to_install.items() if status]
-            for db_name in features_to_install:
-                logging.warning(f"Installing {db_name} database...")
-                if load_features:
-                    db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
-                    db_init.restore_postgres_dump(db_name)
-                    logging.warning(f"{db_name} database restored successfully!")
-                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
-                db_password.update_database_settings(db_name)
-                logging.warning(f"{db_name} settings updated successfully!")
-
             db_properties_path = get_db_properties_path()
             encryption = Encryption(self.jwt)
             encrypted_password = encryption.encrypt_text(password)
@@ -133,6 +119,186 @@ pool_alias=default
                 "status": "error",
                 "count": 0
             })
+        
+
+    async def restore(self, req: Request):
+        try:
+            data = await req.json()
+            host = data.get("host")
+            port = data.get("port")
+            admin_database = data.get("database")
+            user = data.get("user")
+            password = data.get("password")
+            current_password = data.get("current_password")
+            admin_password = data.get("admin_password")
+
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{user}:{current_password}@{host}:{port}/{admin_database}"
+
+                # Create an engine
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                # Update role password
+                conn.execute(text(f"ALTER ROLE {admin_database} WITH PASSWORD '{password}'"))
+                logging.warning(f"Role '{admin_database}' password updated successfully.")   
+                
+            databases_to_install = {
+                "liberty": True,
+                "libnsx1": data.get("enterprise", False),
+                "libnjde": data.get("enterprise", False),
+                "libnetl": data.get("enterprise", False),
+                "nomasx1": data.get("enterprise", False),
+                "nomajde": data.get("enterprise", False),
+                "airflow": data.get("airflow", False),
+                "keycloak": data.get("keycloak", False),
+                "gitea": data.get("gitea", False),
+            }
+            
+            databases_to_install = [db for db, status in databases_to_install.items() if status]
+            for db_name in databases_to_install:
+                logging.warning(f"Restoring {db_name} database...")
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_init.restore_postgres_dump(db_name)
+                logging.warning(f"{db_name} database restored successfully!")
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_password.update_database_settings(db_name)
+                logging.warning(f"{db_name} settings updated successfully!")
+            
+            db_properties_path = get_db_properties_path()
+            encryption = Encryption(self.jwt)
+            encrypted_password = encryption.encrypt_text(password)
+            config_content = f"""# FRAMEWORK SETTINGS
+[framework]
+user={user}
+password={encrypted_password}
+host={host}
+port={port}
+database={admin_database}
+pool_min=1
+pool_max=10
+pool_alias=default
+"""
+            with open(db_properties_path, "w", encoding="utf-8") as config_file:
+                config_file.write(config_content)
+            
+            logging.warning(f"Configuration file created at {db_properties_path}")
+
+            if os.path.exists(db_properties_path):
+                config = self.apiController.queryRest.load_db_properties(db_properties_path)
+                await self.apiController.queryRest.default_pool(config)
+                
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "success",
+                        "count": 0
+                    })
+            else:
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "error",
+                        "count": 0
+                    })
+
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "count": 0
+            })        
+
+    async def prepare(self, req: Request):
+        try:
+            data = await req.json()
+            host = data.get("host")
+            port = data.get("port")
+            admin_database = data.get("database")
+            user = data.get("user")
+            password = data.get("password")
+            current_password = data.get("current_password")
+            admin_password = data.get("admin_password")
+            load_data = data.get("load_data", False)
+
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{user}:{current_password}@{host}:{port}/{admin_database}"
+
+                # Create an engine
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                # Update role password
+                conn.execute(text(f"ALTER ROLE {admin_database} WITH PASSWORD '{password}'"))
+                logging.warning(f"Role '{admin_database}' password updated successfully.")   
+                
+            databases_to_install = {
+                "liberty": True,
+                "libnsx1": data.get("enterprise", False),
+                "libnjde": data.get("enterprise", False),
+                "libnetl": data.get("enterprise", False),
+                "nomasx1": data.get("enterprise", False),
+                "nomajde": data.get("enterprise", False),
+                "airflow": data.get("airflow", False),
+                "keycloak": data.get("keycloak", False),
+                "gitea": data.get("gitea", False),
+            }
+            
+            databases_to_install = [db for db, status in databases_to_install.items() if status]
+            for db_name in databases_to_install:
+                logging.warning(f"Preparing {db_name} database...")
+                db_init = Install(user, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_init.restore_postgres_dump_for_upgrade(db_name)
+                logging.warning(f"{db_name} database prepared successfully!")
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_password.update_database_settings(db_name)
+                logging.warning(f"{db_name} settings updated successfully!")
+            
+            db_properties_path = get_db_properties_path()
+            encryption = Encryption(self.jwt)
+            encrypted_password = encryption.encrypt_text(password)
+            config_content = f"""# FRAMEWORK SETTINGS
+[framework]
+user={user}
+password={encrypted_password}
+host={host}
+port={port}
+database={admin_database}
+pool_min=1
+pool_max=10
+pool_alias=default
+"""
+            with open(db_properties_path, "w", encoding="utf-8") as config_file:
+                config_file.write(config_content)
+            
+            logging.warning(f"Configuration file created at {db_properties_path}")
+
+            if os.path.exists(db_properties_path):
+                config = self.apiController.queryRest.load_db_properties(db_properties_path)
+                await self.apiController.queryRest.default_pool(config)
+                
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "success",
+                        "count": 0
+                    })
+            else:
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "error",
+                        "count": 0
+                    })
+
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "count": 0
+            })
+        
+
 
     async def repository(self, req: Request):
         try:
@@ -161,6 +327,95 @@ pool_alias=default
                     "status": "success",
                     "count": 0
                 })
+
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "count": 0
+            })
+
+
+    async def update(self, req: Request):
+        try:
+            data = await req.json()
+            host = data.get("host")
+            port = data.get("port")
+            admin_database = data.get("database")
+            user = data.get("user")
+            password = data.get("password")
+            current_password = data.get("current_password")
+            admin_password = data.get("admin_password")
+
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{user}:{current_password}@{host}:{port}/{admin_database}"
+
+            databases_to_update = {
+                "liberty": True,
+                "libnsx1": data.get("enterprise", False),
+                "libnjde": data.get("enterprise", False),
+                "libnetl": data.get("enterprise", False),
+                "nomasx1": data.get("enterprise", False),
+                "nomajde": data.get("enterprise", False),
+                "airflow": data.get("airflow", False),
+                "keycloak": data.get("keycloak", False),
+                "gitea": data.get("gitea", False),
+            }
+            databases_to_update = [db for db, status in databases_to_update.items() if status]
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                # Update role password
+                for db_name in databases_to_update:
+                    logging.warning(f"Updating {db_name} database...")
+                    conn.execute(text(f"ALTER ROLE {db_name} WITH PASSWORD '{password}'"))
+                    logging.warning(f"Role '{db_name}' password updated successfully.")   
+
+            self.config = configparser.ConfigParser()
+            self.config.read(get_ini_path())
+            databases_to_update = self.config["repository"]["databases"].split(", ")    
+
+            for db_name in databases_to_update:
+                db_password = Install(db_name, password, host, port, db_name, admin_database, self.jwt, admin_password)
+                db_password.update_database_settings(db_name)
+                logging.warning(f"{db_name} settings updated successfully!")
+
+            db_properties_path = get_db_properties_path()
+            encryption = Encryption(self.jwt)
+            encrypted_password = encryption.encrypt_text(password)
+            config_content = f"""# FRAMEWORK SETTINGS
+[framework]
+user={user}
+password={encrypted_password}
+host={host}
+port={port}
+database={admin_database}
+pool_min=1
+pool_max=10
+pool_alias=default
+"""
+            with open(db_properties_path, "w", encoding="utf-8") as config_file:
+                config_file.write(config_content)
+            
+            logging.warning(f"Configuration file created at {db_properties_path}")
+
+            if os.path.exists(db_properties_path):
+                config = self.apiController.queryRest.load_db_properties(db_properties_path)
+                await self.apiController.queryRest.default_pool(config)
+                
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "success",
+                        "count": 0
+                    })
+            else:
+                # Return the response
+                return JSONResponse({
+                        "items": [],
+                        "status": "error",
+                        "count": 0
+                    })
 
         except Exception as err:
             message = str(err)

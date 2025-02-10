@@ -14,6 +14,15 @@ class SetupController:
 
     async def install(self, req: Request):
         return await self.setupRest.install(req)
+
+    async def prepare(self, req: Request):
+        return await self.setupRest.prepare(req)
+    
+    async def restore(self, req: Request):
+        return await self.setupRest.restore(req)
+        
+    async def update(self, req: Request):
+        return await self.setupRest.update(req)    
     
     async def repository(self, req: Request):
         return await self.setupRest.repository(req)        
