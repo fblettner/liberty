@@ -151,40 +151,41 @@ class Install:
 
     def update_database_settings(self, database):     
         try:
-            DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
-            engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
-
             self.config = configparser.ConfigParser()
             self.config.read(get_ini_path())
             databases_to_update = self.config["repository"]["databases"].split(", ")    
+        
+            if database in databases_to_update:
+                DATABASE_URL = f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{database}"
+                engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
 
-            metadata = MetaData()
-            table = Table("ly_applications", metadata, autoload_with=engine)
-            encryption = Encryption(self.jwt)
-            encrypted_password = encryption.encrypt_text(self.password)
+                metadata = MetaData()
+                table = Table("ly_applications", metadata, autoload_with=engine)
+                encryption = Encryption(self.jwt)
+                encrypted_password = encryption.encrypt_text(self.password)
 
-            with engine.connect() as connection:
-                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_password=encrypted_password)
-                connection.execute(stmt)
-                logging.debug(f"Paswword updated successfully for database {database}!")
-                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_host=self.host)
-                connection.execute(stmt)
-                logging.debug(f"Hostname updated successfully for database {database}!")
-                stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_port=self.port)
-                connection.execute(stmt)
-                logging.debug(f"Port updated successfully for database {database}!")            
+                with engine.connect() as connection:
+                    stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_password=encrypted_password)
+                    connection.execute(stmt)
+                    logging.debug(f"Paswword updated successfully for database {database}!")
+                    stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_host=self.host)
+                    connection.execute(stmt)
+                    logging.debug(f"Hostname updated successfully for database {database}!")
+                    stmt = update(table).where(table.c.apps_pool.in_(databases_to_update)).values(apps_port=self.port)
+                    connection.execute(stmt)
+                    logging.debug(f"Port updated successfully for database {database}!")            
 
-            table = Table("ly_users", metadata, autoload_with=engine)
-            encryption = Encryption(self.jwt)
-            encrypted_admin_password = encryption.encrypt_text(self.admin_password)
+                table = Table("ly_users", metadata, autoload_with=engine)
+                encryption = Encryption(self.jwt)
+                encrypted_admin_password = encryption.encrypt_text(self.admin_password)
 
-            with engine.connect() as connection:
-                stmt = update(table).where(table.c.usr_id=="admin").values(usr_password=encrypted_admin_password)
-                connection.execute(stmt)
-                logging.debug(f"Admin paswword updated successfully for database {database}!")
-                stmt = delete(table).where(table.c.usr_id=="demo")
-                connection.execute(stmt)
-                logging.debug(f"Demo user deleted successfully for database {database}!")                
+                with engine.connect() as connection:
+                    stmt = update(table).where(table.c.usr_id=="admin").values(usr_password=encrypted_admin_password)
+                    connection.execute(stmt)
+                    logging.debug(f"Admin paswword updated successfully for database {database}!")
+                    stmt = delete(table).where(table.c.usr_id=="demo")
+                    connection.execute(stmt)
+                    logging.debug(f"Demo user deleted successfully for database {database}!")                
 
 
         except Exception as e:
