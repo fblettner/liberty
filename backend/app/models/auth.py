@@ -35,7 +35,7 @@ class UserItem(BaseModel):
     USR_MODE: str
     USR_READONLY: str
     USR_DASHBOARD: int | None
-    USR_THEME: str
+    USR_THEME: str | None
 
 class UserResponse(BaseModel):
     items: List[UserItem]

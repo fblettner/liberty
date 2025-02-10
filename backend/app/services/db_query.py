@@ -572,7 +572,6 @@ class Query:
             if not is_pool_open:
                 await self.open_pool(defaultPool, target_pool)
             results = await self.db_pools.get_pool(target_pool).db_dao.get(target_query, context)
-
             # Handle login not found
             if len(results["rows"]) == 0:
                 return {

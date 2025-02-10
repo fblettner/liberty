@@ -102,6 +102,7 @@ export const AppsLogin = () => {
           modules,
           modules.login.enabled ? "database" : "oidc"
         );
+
         if (!validateLogin(token, setErrorState)) return;
 
         const result = await ToolsQuery.user({
@@ -111,6 +112,7 @@ export const AppsLogin = () => {
           modulesProperties: modules,
           jwt_token: token.access_token
         });
+
         if (result.status === ResultStatus.success) {
           let userProperties = result.items[0];
           connectApplication(userProperties, dispatch, application, auth, modules, token.access_token);
