@@ -3,7 +3,7 @@ import logging
 from app.config import get_encrypted_path, get_key_path, get_secrets_path
 logger = logging.getLogger(__name__)
 from fastapi import  Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import jwt  # PyJWT
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -16,7 +16,7 @@ ENCRYPTED_SECRETS_FILE = get_encrypted_path()
 KEY_FILE = get_key_path()
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 240
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = HTTPBearer()
 
 class JWT:
 
@@ -104,9 +104,10 @@ class JWT:
 
 
     # Dependency to verify token
-    def is_valid_jwt(self, token: str = Depends(oauth2_scheme)):
+    def is_valid_jwt(self, token: HTTPAuthorizationCredentials = Depends(oauth2_scheme)):
         try:
-            payload = jwt.decode(token, self.get_secret_key("SECRET_KEY"), algorithms=[ALGORITHM])
+            token_str = token.credentials
+            payload = jwt.decode(token_str, self.get_secret_key("SECRET_KEY"), algorithms=[ALGORITHM])
             user: str = payload.get("sub")
             if user is None:
                 raise HTTPException(status_code=401, detail="Invalid token")

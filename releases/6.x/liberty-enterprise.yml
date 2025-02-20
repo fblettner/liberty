@@ -6,7 +6,8 @@ services:
       - airflow-scheduler 
     environment:
       - TZ=Europe/Paris    
-      - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"     
+      - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"   
+      - SCARF_ANALYTICS=false  
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
       - airflow-logs:/opt/airflow/logs
@@ -33,7 +34,8 @@ services:
         condition: service_healthy    
     environment:
       - TZ=Europe/Paris   
-      # - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"
+      - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"
+      - SCARF_ANALYTICS=false
       # - AIRFLOW__SCHEDULER__STATSD_ON=True
       # - AIRFLOW__SCHEDULER__STATSD_HOST=statsd-exporter
       # - AIRFLOW__SCHEDULER__STATSD_PORT=9125

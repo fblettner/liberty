@@ -16,11 +16,6 @@
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
-      "@ly_types/*": ["src/types/*"],
-      "@ly_services/*": ["src/services/*"],
-      "@ly_utils/*": ["src/utils/*"],
-      "@ly_features/*": ["src/features/*"],
-      "@ly_translations/*": ["src/translations/*"], 
       "@ly_app/*": ["src/app/*"], 
       "@ly_components/*": ["src/components/*"], 
       "@ly_styles/*": ["src/styles/*"], 

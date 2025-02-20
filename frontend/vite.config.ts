@@ -62,14 +62,9 @@ export default defineConfig({
       // Map '@' to the 'src' directory for absolute imports
      // '@': path.resolve(__dirname, 'src'),
       "@ly_assets": path.resolve(__dirname, 'src/assets'),
-      "@ly_types": path.resolve(__dirname, 'src/types'),
-      "@ly_services": path.resolve(__dirname, 'src/services'),
-      "@ly_utils": path.resolve(__dirname, 'src/utils'),
-      "@ly_features": path.resolve(__dirname, 'src/features'),
       "@ly_app": path.resolve(__dirname, 'src/app'),
       "@ly_components": path.resolve(__dirname, 'src/components'),
       "@ly_styles": path.resolve(__dirname, 'src/styles'),
-      "@ly_translations": path.resolve(__dirname, 'src/translations'),
     },
   },
 })
