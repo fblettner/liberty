@@ -77,3 +77,5 @@ class ApiController:
     async def ai_welcome(self, req: Request):
         return await self.apiRest.ai_welcome(req)      
         
+    async def rest(self, req: Request):
+        return await self.apiRest.rest(req)          

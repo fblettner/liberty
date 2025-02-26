@@ -1,11 +1,15 @@
 # Description: API REST service for handling REST API requests.
 import logging
 import os
+import re
+from urllib.parse import urljoin, urlparse
 
+from fastapi.responses import JSONResponse
 import httpx
 from pydantic import BaseModel
 
-from app.services.db_query import Query
+from app.services.db_query import Query, SessionMode
+from app.utils.encrypt import Encryption
 logger = logging.getLogger(__name__)
 
 import json
@@ -14,13 +18,11 @@ from datetime import datetime, timezone
 from app.utils.logs import LogHandler
 from app.logs import get_logs_json_path, get_logs_text_path
 
+defaultPool = "default"
+
 class ApiType:
     internal = "INTERNAL"
     external = "EXTERNAL"
-
-class ApiFramework:
-    CreateFrameworkDatabase = "CreateFrameworkDatabase"
-    DropFrameworkDatabase = "DropFrameworkDatabase"
 
 class AIResponse(BaseModel):
     message: str
@@ -31,6 +33,95 @@ class Rest:
     def __init__(self, queryRest: Query):
         self.logs_handler = LogHandler()
         self.queryRest = queryRest
+
+    async def rest(self, req: Request):
+        try:
+            query_params = req.query_params
+
+            """Extracts OpenAI API URL and Key from MODULE_ID = 'AI'."""
+            query = {
+                "QUERY": 34,
+                "POOL": query_params.get("mode") == SessionMode.framework and defaultPool or query_params.get("pool"),
+                "CRUD": "GET",
+            }
+            context = {
+                "row_offset": 0,
+                "row_limit": 1000,
+                "where": {"API_ID":query_params.get("api")},
+            }
+            # Get the target query using the framework query method
+            target_query = await self.queryRest.db_pools.get_pool("default").db_dao.get_framework_query(
+                query, self.queryRest.db_pools.get_pool("default").db_type
+            )
+
+            api = await self.queryRest.db_pools.get_pool("default").db_dao.get(target_query, context)
+            rows = api.get("rows")
+
+            if not api.get("rows"):
+                raise ValueError("No API found")
+
+            row = rows[0]  # Extract the first row (dictionary)
+            
+            api_type = row.get("API_SOURCE")
+            method = row.get("API_METHOD")
+            url = row.get("API_URL")
+            user = row.get("API_USER")
+            password = row.get("API_PASSWORD")
+            body = row.get("API_BODY")
+
+            # Convert API_BODY from JSON string format to a Python dictionary
+            body_dict = json.loads(body)  
+
+            # 🔹 Ensure request body is retrieved properly
+            req_body = await req.json()  
+
+            # Perform variable substitution in body
+            body_str = json.dumps(body_dict)  # Convert dictionary to string for replacement
+            for key, value in req_body.items():
+                variable = rf"\${key.upper()}" 
+                body_str = re.sub(variable, str(value), body_str)  
+
+            # Convert back to dictionary
+            parsed_body = json.loads(body_str)
+            if api_type == ApiType.internal:
+                base_url = str(req.base_url) 
+                full_url = urljoin(base_url, url)  
+            else:
+                # Check if `url` is already a full external URL
+                parsed_url = urlparse(url)
+                if parsed_url.scheme and parsed_url.netloc:
+                    full_url = url  # Use the full external URL as is
+                else:
+                    raise ValueError(f"Invalid external URL: {url}")
+
+            # 🔹 Make the API call
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                response = await client.post(full_url, json=parsed_body)
+                if response.status_code == 200:
+                    response_data = response.json()
+                else:
+                    response_data = {
+                        "error": f"Failed request with status code {response.status_code}",
+                        "details": response.text
+                    }
+            response_data = response.json()
+
+            return JSONResponse({
+                "items": response_data,
+                "status": "success",
+                "count": 0,
+            })
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "hasMore": False,
+                "limit": context.get("row_limit", 1000),
+                "offset": context.get("row_offset", 0),
+                "count": 0,
+            })
+        
 
 
     async def push_log(self, req: Request):

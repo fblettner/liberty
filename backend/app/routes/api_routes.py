@@ -230,7 +230,7 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
     ):
         return await controller.close(req)
 
-
+    
     @router.get(
         "/db/query",
         response_model=GetSuccessResponse,  # Specify the success response schema
@@ -426,4 +426,66 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
         return await controller.ai_welcome(req)   
 
 
+    @router.post(
+        "/rest",
+        response_model=PostSuccessResponse,  # Specify the success response schema
+        responses={
+            200: response_200(PostSuccessResponse, POST_APIDB_RESPONSE_DESCRIPTION, POST_APIDB_RESPONSE_EXAMPLE),
+            400: response_400("Request body cannot be empty."),
+            422: response_422(),
+            500: response_500(PostErrorResponse, POST_APIDB_ERROR_EXAMPLE),
+        },
+        summary="REST - Call Post Api",
+        description="Call a rest api (post).",
+        tags=["Query"],
+    )
+    async def post(
+        req: Request,
+        jwt: str = Depends(jwt.is_valid_jwt),
+        source: QuerySource = Query(None, description="The source to retrieve the query definition. Valid values: `framework`, `query`"),
+        type: QueryType = Query(None, description="The type of query, get data or metadata. Valid values: `table`, `columns`."),
+        pool: str = Query(None, description="The database pool alias to retrieve the query definition. (e.g., `default`, `libnsx1`)"),
+        mode: SessionMode = Query(None, description="The session mode, retrieve data from framework table or pool. Valid values: `framework`, `session`"),
+        query: int = Query(None, description="The query ID to execute. (e.g., `1`, `2`)"),
+        override_pool: Optional[str] = Query(None, description="Override the default pool set in the query definition. (e.g., `default`, `libnsx1`)"),
+        body: Dict[str, Any] = Body(..., description="JSON object with key-value pairs is required.")
+):
+        if not body:  # Check if the body is empty
+            raise HTTPException(
+                status_code=400,
+                detail="Request body cannot be empty. JSON object with key-value pairs is required.",
+            )
+        return await controller.rest(req)
+
+    @router.get(
+        "/rest",
+        response_model=PostSuccessResponse,  # Specify the success response schema
+        responses={
+            200: response_200(PostSuccessResponse, POST_APIDB_RESPONSE_DESCRIPTION, POST_APIDB_RESPONSE_EXAMPLE),
+            400: response_400("Request body cannot be empty."),
+            422: response_422(),
+            500: response_500(PostErrorResponse, POST_APIDB_ERROR_EXAMPLE),
+        },
+        summary="REST - Call Post Api",
+        description="Call a rest api (post).",
+        tags=["Query"],
+    )
+    async def get(
+        req: Request,
+        jwt: str = Depends(jwt.is_valid_jwt),
+        source: QuerySource = Query(None, description="The source to retrieve the query definition. Valid values: `framework`, `query`"),
+        type: QueryType = Query(None, description="The type of query, get data or metadata. Valid values: `table`, `columns`."),
+        pool: str = Query(None, description="The database pool alias to retrieve the query definition. (e.g., `default`, `libnsx1`)"),
+        mode: SessionMode = Query(None, description="The session mode, retrieve data from framework table or pool. Valid values: `framework`, `session`"),
+        query: int = Query(None, description="The query ID to execute. (e.g., `1`, `2`)"),
+        override_pool: Optional[str] = Query(None, description="Override the default pool set in the query definition. (e.g., `default`, `libnsx1`)"),
+        body: Dict[str, Any] = Body(..., description="JSON object with key-value pairs is required.")
+):
+        if not body:  # Check if the body is empty
+            raise HTTPException(
+                status_code=400,
+                detail="Request body cannot be empty. JSON object with key-value pairs is required.",
+            )
+        return await controller.rest(req)
+    
     app.include_router(router, prefix="/api")

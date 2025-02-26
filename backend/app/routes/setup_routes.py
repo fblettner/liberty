@@ -8,7 +8,7 @@ from fastapi import APIRouter, Request
 
 from app.controllers.setup_controller import SetupController
 from app.models.base import ErrorResponse, SuccessResponse, response_200, response_422, response_500
-from app.models.setup import SETUP_ERROR_MESSAGE, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE, SetupRequest
+from app.models.setup import CREATE_ERROR_MESSAGE, CREATE_RESPONSE_DESCRIPTION, CREATE_RESPONSE_EXAMPLE, DROP_ERROR_MESSAGE, DROP_RESPONSE_DESCRIPTION, DROP_RESPONSE_EXAMPLE, SETUP_ERROR_MESSAGE, SETUP_RESPONSE_DESCRIPTION, SETUP_RESPONSE_EXAMPLE, CreateRequest, DropRequest, SetupRequest
 
 
 def setup_setup_routes(app, controller: SetupController):
@@ -205,4 +205,42 @@ def setup_setup_routes(app, controller: SetupController):
         ):
         return controller.current(req)
 
+
+    @router.post(
+        "/db/create",
+        summary="DATABASE - Create",
+        description="Create database for new application",
+        tags=["Database"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, CREATE_RESPONSE_DESCRIPTION, CREATE_RESPONSE_EXAMPLE),
+            422: response_422(),  
+            500: response_500(ErrorResponse, CREATE_ERROR_MESSAGE),
+        },
+    )
+    async def create(
+        req: Request,
+        body: CreateRequest,
+    ):
+        return await controller.create(req)
+    
+    @router.post(
+        "/db/drop",
+        summary="DATABASE - Drop",
+        description="Drop an existing database",
+        tags=["Database"], 
+        response_model=SuccessResponse,
+        responses={
+            200: response_200(SuccessResponse, DROP_RESPONSE_EXAMPLE, DROP_RESPONSE_DESCRIPTION),
+            422: response_422(),  
+            500: response_500(ErrorResponse, DROP_ERROR_MESSAGE),
+        },
+    )
+    async def drop(
+        req: Request,
+        body: DropRequest,
+    ):
+        return await controller.drop(req)
+    
     app.include_router(router, prefix="/api")
+
