@@ -2,6 +2,7 @@
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
 ## Announcements
+- **Release 6.0.47**: Issue with focus on input lookup when opening search dialog
 - **Release 6.0.46**: Implement call for custom rest api, add drop and create database for framework
 
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
