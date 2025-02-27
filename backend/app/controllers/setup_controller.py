@@ -38,3 +38,9 @@ class SetupController:
     
     def current(self, req: Request):
         return self.alembic.current(req)           
+    
+    async def create(self, req: Request):
+        return await self.setupRest.create_database(req)    
+    
+    async def drop(self, req: Request):
+        return await self.setupRest.drop_database(req)        

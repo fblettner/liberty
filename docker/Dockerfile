@@ -14,8 +14,7 @@ ENV PYTHONPATH=$PIP_TARGET
 ENV PATH="/liberty-framework/bin:$PATH"
 
 # Copy and install the Python package
-COPY ./backend/dist/*.tar.gz liberty-framework-latest.tar.gz
-RUN pip install --target=$PIP_TARGET --no-cache-dir liberty-framework-latest.tar.gz
+RUN pip install --target=$PIP_TARGET --no-cache-dir liberty-framework
 VOLUME /liberty-framework/app/config/files
 VOLUME /liberty-framework/app/logs/files
 

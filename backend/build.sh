@@ -1,3 +1,3 @@
 source .venv/bin/activate
-python -m build
+python3 -m build
 

@@ -1,4 +1,6 @@
 import logging
+
+from app.setup.models.liberty import Base
 logger = logging.getLogger(__name__)
 
 from sqlalchemy import create_engine, text
@@ -34,13 +36,6 @@ class Setup:
             current_password = data.get("current_password")
             admin_password = data.get("admin_password")
             load_data = data.get("load_data", False)
-
-            # Create all tables in the database
-#            for table in Base.metadata.tables.values():
-#                if not table.schema:
-#                    table.schema = database  # 🔹 Assign schema to tables
-#            Base.metadata.create_all(engine)
-#            logging.warning("All tables have been successfully created!")
 
             # Database configuration
             ADMIN_DATABASE_URL = f"postgresql+psycopg2://{user}:{current_password}@{host}:{port}/{admin_database}"
@@ -424,3 +419,141 @@ pool_alias=default
                 "status": "error",
                 "count": 0
             })
+        
+
+    async def create_database(self, req: Request):
+        try:
+            data = await req.json()
+            host = data.get("host")
+            port = data.get("port")
+            database = data.get("database")
+            user = data.get("user")
+            password = data.get("password")
+        
+            # Database configuration
+            db_properties_path = get_db_properties_path()
+            config = self.apiController.queryRest.load_db_properties(db_properties_path)
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{config["user"]}:{config["password"]}@{config["host"]}:{config["port"]}/{config["database"]}"
+
+                # Create an engine
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                result = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{database}'"))
+                db_exists = result.scalar()
+
+                if not db_exists:
+                    logging.warning(f"Creating database '{database}'...")
+                    conn.execute(text(f'CREATE DATABASE "{database}"'))
+                else:
+                    logging.warning(f"Database '{database}' already exists. Skipping creation.")
+                # 🚀 Check if the role exists
+                result = conn.execute(text(f"SELECT 1 FROM pg_roles WHERE rolname = '{user}'"))
+                role_exists = result.scalar()
+
+                if not role_exists:
+                    logging.warning(f"Creating role '{user}' with password...")
+                    conn.execute(text(f"CREATE ROLE {user} WITH LOGIN PASSWORD '{password}'"))
+                else:
+                    logging.warning(f"Role '{user}' already exists. Skipping creation.")
+
+                # 🚀 Grant privileges to the role
+                conn.execute(text(f'GRANT ALL PRIVILEGES ON DATABASE "{database}" TO {user}'))
+                logging.warning(f"Granted privileges to role '{user}' on database '{database}'.")    
+
+            # Create all tables in the database
+            DATABASE_URL = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
+            engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT") 
+
+            with engine.connect() as conn:
+                result = conn.execute(text(f"SELECT 1 FROM information_schema.schemata WHERE schema_name = '{database}'"))
+                schema_exists = result.scalar()
+
+                if not schema_exists:
+                    logging.warning(f"Creating schema '{user}'...")
+                    conn.execute(text(f'CREATE SCHEMA "{user}" AUTHORIZATION {user}'))
+                else:
+                    logging.warning(f"Schema '{user}' already exists. Skipping creation.")
+
+            for table in Base.metadata.tables.values():
+                if not table.schema:
+                    table.schema = database  
+                    Base.metadata.create_all(engine)
+            
+            logging.warning("All tables have been successfully created!")        
+            # Return the response
+            return JSONResponse({
+                    "items": [],
+                    "status": "success",
+                    "count": 0
+                })
+
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "count": 0
+            })            
+        
+    async def drop_database(self, req: Request):
+        try:
+            data = await req.json()
+            database = data.get("database")
+            user = data.get("user")
+        
+            # Database configuration
+            db_properties_path = get_db_properties_path()
+            config = self.apiController.queryRest.load_db_properties(db_properties_path)
+            # Database configuration
+            ADMIN_DATABASE_URL = f"postgresql+psycopg2://{config["user"]}:{config["password"]}@{config["host"]}:{config["port"]}/{config["database"]}"
+
+                # Create an engine
+            admin_engine = create_engine(ADMIN_DATABASE_URL, isolation_level="AUTOCOMMIT") 
+            with admin_engine.connect() as conn:
+                # 🚀 Check if database exists
+                result = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{database}'"))
+                db_exists = result.scalar()
+
+                if db_exists:
+                    logging.warning(f"Revoking new connections to database '{database}'...")
+                    conn.execute(text(f"UPDATE pg_database SET datallowconn = FALSE WHERE datname = '{database}'"))
+
+                    logging.warning(f"Terminating active connections to database '{database}'...")
+                    conn.execute(text(f"""
+                        SELECT pg_terminate_backend(pg_stat_activity.pid) 
+                        FROM pg_stat_activity 
+                        WHERE pg_stat_activity.datname = '{database}' 
+                        AND pid <> pg_backend_pid();
+                    """))
+
+                    logging.warning(f"Dropping database '{database}'...")
+                    conn.execute(text(f'DROP DATABASE "{database}"'))
+                else:
+                    logging.warning(f"Database '{database}' does not exist. Skipping drop.")
+
+                # 🚀 Check if the role exists
+                result = conn.execute(text(f"SELECT 1 FROM pg_roles WHERE rolname = '{user}'"))
+                role_exists = result.scalar()
+
+                if role_exists:
+                    logging.warning(f"Dropping role '{user}'...")
+                    conn.execute(text(f"DROP ROLE {user}"))
+                else:
+                    logging.warning(f"Role '{user}' does not exist. Skipping drop.")
+            
+            logging.warning("Database successfully dropped!")    
+            # Return the response
+            return JSONResponse({
+                    "items": [],
+                    "status": "success",
+                    "count": 0
+                })
+
+        except Exception as err:
+            message = str(err)
+            return JSONResponse({
+                "items": [{"message": f"Error: {message}"}],
+                "status": "error",
+                "count": 0
+            })                    
