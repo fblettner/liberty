@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.framework.middlewares=compress-middleware"      
       - "traefik.http.routers.framework-https.middlewares=compress-middleware"
   pg:
-    image: postgres:16
+    image: ghcr.io/fblettner/liberty-enterprise-pg:latest
     shm_size: 512mb
     command: |
       postgres
