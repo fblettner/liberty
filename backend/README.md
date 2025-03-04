@@ -2,13 +2,14 @@
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
 ## Announcements
-- **Release 6.0.52**: Get version from last tag to set the package version
-- **Release 6.0.51**: Add a delay before building the docker image
-- **Release 6.0.50**: Build docker image after publishing to PyPi
-- **Release 6.0.49**: Sync with github release
-- **Release 6.0.48**: Sync with github release
-- **Release 6.0.47**: Issue with focus on input lookup when opening search dialog
-- **Release 6.0.46**: Implement call for custom rest api, add drop and create database for framework
+- **Last Release:**
+- Build React Frontend and Setup before adding to Python package
+- Get version from last tag to set the package version
+- Add a delay before building the docker image
+- Build docker image after publishing to PyPi
+- Sync with github release
+- Issue with focus on input lookup when opening search dialog
+- Implement call for custom rest api, add drop and create database for framework
 
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 

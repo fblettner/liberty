@@ -94,6 +94,27 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' 
+
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: frontend 
+
+      - name: Build frontend
+        run: npm run build
+        working-directory: frontend   
+
+      - name: Install Setup dependencies
+        run: npm install
+        working-directory: setup 
+
+      - name: Build setup
+        run: npm run build
+        working-directory: setup   
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
