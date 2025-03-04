@@ -4,7 +4,7 @@
  */
 
 import { useEffect, useState } from "react";
-import { IUsersProps, IAppsProps, EUsers, EApplications, IFiltersProperties, ToolsQuery, GlobalSettings, IModulesProps, ThemeColors, ThemeColorItem, Theme } from "liberty-core";
+import { IUsersProps, IAppsProps, EUsers, EApplications, IFiltersProperties, ToolsQuery, GlobalSettings, IModulesProps, ThemeColors, ThemeColorItem, Theme } from "@nomana-it/liberty-core";
 import BackgroundLY from '@ly_assets/background_ly.jpg'
 
 export interface IThemeProps {
