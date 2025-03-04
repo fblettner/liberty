@@ -16,13 +16,13 @@ services:
     labels:
       - "traefik.enable=true"
       # HTTP Router for Filebrowser
-      - "traefik.http.routers.airflow.rule=PathPrefix(`/airflow`)"
+      - "traefik.http.routers.airflow.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/airflow`)"
       - "traefik.http.routers.airflow.entrypoints=web"   
 
       # HTTPS Router for Filebrowser
-      - "traefik.http.routers.airflow-https.rule=PathPrefix(`/airflow`)"
+      - "traefik.http.routers.airflow-https.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/airflow`)"
       - "traefik.http.routers.airflow-https.entrypoints=websecure" 
-      - "traefik.http.routers.airflow-https.tls=true"    
+      - "traefik.http.routers.airflow-https.tls.certresolver=myresolver"
 
       # Filebrowser Service (Port 80)
       - "traefik.http.services.airflow.loadbalancer.server.port=8080"
@@ -31,7 +31,7 @@ services:
     command: bash -c "airflow scheduler"
     depends_on:
       gitea:
-        condition: service_healthy
+        condition: service_healthy    
     environment:
       - TZ=Europe/Paris   
       - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"
@@ -60,13 +60,13 @@ services:
       - "traefik.enable=true"
 
       # HTTP Router for OIDC
-      - "traefik.http.routers.oidc.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/oidc`)"
       - "traefik.http.routers.oidc.entrypoints=web"
 
       # HTTPS Router for OIDC
-      - "traefik.http.routers.oidc-https.rule=PathPrefix(`/oidc`)"
+      - "traefik.http.routers.oidc-https.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/oidc`)"
       - "traefik.http.routers.oidc-https.entrypoints=websecure" 
-      - "traefik.http.routers.oidc-https.tls=true"
+      - "traefik.http.routers.oidc-https.tls.certresolver=myresolver"
 
       # OIDC Service (Port 9000)
       - "traefik.http.services.oidc.loadbalancer.server.port=8080"
@@ -103,15 +103,15 @@ services:
     labels:
       - "traefik.enable=true"
       # HTTP Router for Filebrowser
-      - "traefik.http.routers.gitea.rule=PathPrefix(`/gitea`)"
+      - "traefik.http.routers.gitea.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/gitea`)"
       - "traefik.http.routers.gitea.entrypoints=web"
       - "traefik.http.routers.gitea.middlewares=gitea-stripprefix"
 
       # HTTPS Router for Filebrowser
-      - "traefik.http.routers.gitea-https.rule=PathPrefix(`/gitea`)"
+      - "traefik.http.routers.gitea-https.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/gitea`)"
       - "traefik.http.routers.gitea-https.entrypoints=websecure" 
       - "traefik.http.routers.gitea-https.middlewares=gitea-stripprefix"
-      - "traefik.http.routers.gitea-https.tls=true"    
+      - "traefik.http.routers.gitea-https.tls.certresolver=myresolver"
 
       # Filebrowser Service (Port 80)
       - "traefik.http.middlewares.gitea-stripprefix.stripprefix.prefixes=/gitea"
@@ -125,18 +125,16 @@ services:
       - SCRIPT_NAME=/pgadmin
     networks:
       - liberty-network 
-    depends_on:
-      - pg
     labels:
       - "traefik.enable=true"
       # HTTP Router for pgadmin
-      - "traefik.http.routers.pgadmin.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/pgadmin`)"
       - "traefik.http.routers.pgadmin.entrypoints=web"
 
       # HTTPS Router for pgadmin
-      - "traefik.http.routers.pgadmin-https.rule=PathPrefix(`/pgadmin`)"
+      - "traefik.http.routers.pgadmin-https.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/pgadmin`)"
       - "traefik.http.routers.pgadmin-https.entrypoints=websecure" 
-      - "traefik.http.routers.pgadmin-https.tls=true" 
+      - "traefik.http.routers.pgadmin-https.tls.certresolver=myresolver"
 
       # pgadmin Service (Port 3003)
       - "traefik.http.services.pgadmin.loadbalancer.server.port=3003" 
