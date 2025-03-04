@@ -17,7 +17,7 @@ def read_readme():
 
 setup(
     name="liberty-framework",
-    version="6.0.48",
+    version="6.0.49",
     description="Liberty Framework",
     author="Franck Blettner",
     author_email="franck.blettner@nomana-it.fr",
