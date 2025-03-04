@@ -2,6 +2,7 @@
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
 ## Announcements
+- **Release 6.0.52**: Get version from last tag to set the package version
 - **Release 6.0.51**: Add a delay before building the docker image
 - **Release 6.0.50**: Build docker image after publishing to PyPi
 - **Release 6.0.49**: Sync with github release

@@ -15,9 +15,15 @@ def read_readme():
     readme_file = BASE_DIR / "README.md"
     return readme_file.read_text(encoding="utf-8") if readme_file.exists() else ""
 
+def get_version():
+    """Read version from the VERSION file (but don't modify it here)."""
+    if not VERSION_FILE.exists():
+        return "6.0.0"  # Default version if file doesn't exist
+    return VERSION_FILE.read_text().strip()
+
 setup(
     name="liberty-framework",
-    version="6.0.51",
+    version=get_version(),
     description="Liberty Framework",
     author="Franck Blettner",
     author_email="franck.blettner@nomana-it.fr",
