@@ -1,5 +1,6 @@
 from pathlib import Path
 from setuptools import setup, find_packages
+import setuptools_scm
 from setuptools.command.sdist import sdist as _sdist
 from setuptools.command.bdist_wheel import bdist_wheel as _bdist_wheel
 
