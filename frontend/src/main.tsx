@@ -6,7 +6,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { App } from "@ly_app/app"
-import { AppProvider, Div, ErrorBoundary, TranslationProvider } from "liberty-core"
+import { AppProvider, Div, ErrorBoundary, TranslationProvider } from '@nomana-it/liberty-core'
 import { AuthProvider, useAuth as oidcUseAuth } from "react-oidc-context";
 
 const oidcConfig = {
