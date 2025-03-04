@@ -4,7 +4,7 @@
  * *
  */
 import { useThemeConfig } from '@ly_styles/theme';
-import { AppsContent, LYThemeProvider, useAppContext } from 'liberty-core';
+import { AppsContent, LYThemeProvider, useAppContext } from '@nomana-it/liberty-core';
 
 
 export function App() {
