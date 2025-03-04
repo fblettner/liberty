@@ -108,7 +108,7 @@ jobs:
 
       - name: Build Python package (sdist & wheel)
         run: |
-          python -m build --sdist && python -m build --wheel
+          python -m build backend --sdist && python -m build backend --wheel
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
