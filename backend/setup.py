@@ -2,6 +2,7 @@ from pathlib import Path
 from setuptools import setup, find_packages
 from setuptools.command.sdist import sdist as _sdist
 from setuptools.command.bdist_wheel import bdist_wheel as _bdist_wheel
+import subprocess
 
 BASE_DIR = Path(__file__).resolve().parent
 VERSION_FILE = BASE_DIR / "VERSION"
@@ -16,10 +17,13 @@ def read_readme():
     return readme_file.read_text(encoding="utf-8") if readme_file.exists() else ""
 
 def get_version():
-    """Read version from the VERSION file (but don't modify it here)."""
-    if not VERSION_FILE.exists():
-        return "6.0.0"  # Default version if file doesn't exist
-    return VERSION_FILE.read_text().strip()
+    """Get the version from Git tags or the VERSION file."""
+    try:
+        # Get the latest Git tag
+        version = subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"], stderr=subprocess.DEVNULL).decode().strip()
+        return version
+    except subprocess.CalledProcessError:
+        return "6.0.0"  # Default version if all else fails
 
 setup(
     name="liberty-framework",
