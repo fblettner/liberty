@@ -2,6 +2,7 @@
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
 ## Announcements
+- **Release 6.0.50**: Build docker image after publishing to PyPi
 - **Release 6.0.49**: Sync with github release
 - **Release 6.0.48**: Sync with github release
 - **Release 6.0.47**: Issue with focus on input lookup when opening search dialog
