@@ -100,7 +100,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --upgrade setuptools wheel build setuptools-scm
+        run: pip install --upgrade setuptools wheel build
 
       - name: Build Python package (sdist & wheel)
         run: |
