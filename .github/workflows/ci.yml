@@ -93,10 +93,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ needs.create-version-tag.outputs.version }} 
-
-      - name: Update VERSION file with Git tag
-        run: echo "${{ needs.create-version-tag.outputs.version }}" > VERSION
 
       - name: Set up Python
         uses: actions/setup-python@v4
