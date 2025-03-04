@@ -117,17 +117,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push framework image (arm64 and amd64)
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./docker/Dockerfile
-          push: true
-          platforms: linux/arm64, linux/amd64
-          tags: ghcr.io/${{ github.repository_owner }}/liberty-framework:${{ needs.create-version-tag.outputs.version }},
-                ghcr.io/${{ github.repository_owner }}/liberty-framework:latest                             
-         
+        
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
@@ -151,3 +141,14 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
           twine upload backend/dist/*          
+
+      - name: Build and push framework image (arm64 and amd64)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          push: true
+          platforms: linux/arm64, linux/amd64
+          tags: ghcr.io/${{ github.repository_owner }}/liberty-framework:${{ needs.create-version-tag.outputs.version }},
+                ghcr.io/${{ github.repository_owner }}/liberty-framework:latest                             
+        
