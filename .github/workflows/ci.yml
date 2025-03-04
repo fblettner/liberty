@@ -100,7 +100,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --upgrade setuptools wheel build
+        run: pip install --upgrade setuptools wheel build setuptools_scm
 
       - name: Build Python package (sdist & wheel)
         run: |
@@ -141,3 +141,10 @@ jobs:
           files: backend/dist/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          twine upload backend/dist/*          
