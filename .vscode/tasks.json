@@ -4,7 +4,7 @@
         {
             "label": "Build Python Package",
             "type": "shell",
-            "command": "python -m build",
+            "command": "./build.sh",
             "group": {
                 "kind": "build",
                 "isDefault": true
