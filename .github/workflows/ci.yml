@@ -100,7 +100,7 @@ jobs:
           node-version: '22' 
 
       - name: Update package.json to use NPM version of liberty-core
-        run: npm pkg set dependencies.liberty-core=latest
+        run: npm pkg set dependencies.@nomana-it/liberty-core=latest
         working-directory: frontend
 
       - name: Install frontend dependencies
