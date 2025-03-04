@@ -1,6 +1,5 @@
 from pathlib import Path
 from setuptools import setup, find_packages
-import setuptools_scm
 from setuptools.command.sdist import sdist as _sdist
 from setuptools.command.bdist_wheel import bdist_wheel as _bdist_wheel
 
@@ -18,8 +17,7 @@ def read_readme():
 
 setup(
     name="liberty-framework",
-    use_scm_version=True,  # Fetch version from Git tags
-    setup_requires=["setuptools_scm"],
+    version="6.0.48",
     description="Liberty Framework",
     author="Franck Blettner",
     author_email="franck.blettner@nomana-it.fr",
