@@ -142,6 +142,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install Twine
+        run: pip install --upgrade twine
+        
       - name: Upload to PyPI
         env:
           TWINE_USERNAME: __token__
