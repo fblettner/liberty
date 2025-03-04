@@ -123,4 +123,4 @@ tail -f logs/webserver.log  # Webserver logs
 ---
 
 ## 🎉 You're Ready to Use Airflow!
-Now, you have a fully working Airflow setup running with `pip` in a **virtual environ
+Now, you have a fully working Airflow setup running with `pip` in a **virtual environment
