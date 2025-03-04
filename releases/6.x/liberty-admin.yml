@@ -2,24 +2,27 @@ services:
   traefik:
     container_name: traefik
     image: ghcr.io/fblettner/liberty-enterprise-traefik:latest
-    command: 
-      # - --log.level=DEBUG  
-      - --api.dashboard=true  
-      - --api.insecure=false  
+    command:
+      # - --log.level=DEBUG
+      - --api.dashboard=true
+      - --api.insecure=false
       - --providers.docker=true
-      - --entrypoints.web.address=:3000
+      - --entrypoints.web.address=:80
       - --entrypoints.web.forwardedHeaders.insecure=true
       - --entrypoints.db.address=:5432
-      - --entrypoints.websecure.address=:3443
+      - --entrypoints.websecure.address=:443
       - --entrypoints.dashboard.address=:8080
       - --entrypoints.websecure.http.tls=true
       - --providers.file.filename=/usr/share/traefik/config/traefik-dynamic.yaml
+      - --certificatesresolvers.myresolver.acme.tlschallenge=true
+      - --certificatesresolvers.myresolver.acme.email=franck.blettner@nomana-it.fr
+      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
     ports:
-      - "3000:3000"
-      - "3443:3443"
+      - "80:80"
+      - "443:443"
       - "8080:8080"
-      - "5432:5432"
     volumes:
+      - ./letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock
       - traefik-certs:/etc/certs
       - traefik-config:/usr/share/traefik/config
@@ -30,11 +33,11 @@ services:
       traefik.http.routers.dashboard.rule: PathPrefix(`/api`) || PathPrefix(`/dashboard`)
       traefik.http.routers.dashboard.service: api@internal
       traefik.http.routers.dashboard.middlewares: auth
-      traefik.http.middlewares.auth.basicauth.users: admin:$2y$05$7rCtewb814C6lkp1vil7feZeaI17bi3f//4pyQKDTeCR6v5Ty7DuG
+      traefik.http.middlewares.auth.basicauth.users: admin:admin
       traefik.http.routers.dashboard.entrypoints: dashboard
       traefik.http.middlewares.compress-middleware.compress: true
     depends_on:
-      - error-pages      
+      - error-pages
   portainer:
     container_name: portainer
     image: ghcr.io/fblettner/liberty-enterprise-portainer:latest
@@ -42,27 +45,27 @@ services:
       traefik.enable: true
       traefik.http.middlewares.portainer-strip.stripprefix.prefixes: /portainer
       # HTTP Router for Portainer (to support redirection)
-      traefik.http.routers.portainer-http.rule: PathPrefix(`/portainer`)
-      traefik.http.routers.portainer-http.entrypoints: web 
+      traefik.http.routers.portainer-http.rule: Host(`liberty.nomana-it.fr`) && PathPrefix(`/portainer`)
+      traefik.http.routers.portainer-http.entrypoints: web
       traefik.http.routers.portainer-http.middlewares: portainer-strip
       # HTTPS Router for Portainer
-      traefik.http.routers.portainer-https.rule: PathPrefix(`/portainer`)
+      traefik.http.routers.portainer-https.rule: Host(`liberty.nomana-it.fr`) && PathPrefix(`/portainer`)
       traefik.http.routers.portainer-https.entrypoints: websecure
       traefik.http.routers.portainer-https.middlewares: portainer-strip
-      traefik.http.routers.portainer-https.tls: true
+      traefik.http.routers.portainer-https.tls.certresolver: myresolver
       # Portainer Service (Port 9000)
       traefik.http.services.portainer.loadbalancer.server.port: 9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer-data:/data
-    restart: unless-stopped  
+    restart: unless-stopped
     networks:
       - liberty-network
   error-pages:
     container_name: error-pages
     image: ghcr.io/fblettner/liberty-enterprise-busybox:latest
     volumes:
-      - shared-data:/var/www/html 
+      - shared-data:/var/www/html
     labels:
       traefik.enable: true
       # use as "fallback" for any NON-registered services (with priority below normal)
@@ -77,12 +80,12 @@ services:
       # define service properties
       traefik.http.services.error-pages-service.loadbalancer.server.port: 8080
     networks:
-      - liberty-network       
+      - liberty-network
 volumes:
   traefik-certs:
     name: traefik-certs
   traefik-config:
-    name: traefik-config  
+    name: traefik-config
   shared-data:
     name: shared-data
   portainer-data:

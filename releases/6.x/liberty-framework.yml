@@ -12,52 +12,24 @@ services:
     volumes:
       - liberty-config:/liberty-framework/app/config/files     
       - liberty-logs:/liberty-framework/app/logs/files
+      - liberty-versions:/liberty-framework/app/alembic/versions
     working_dir: /
     depends_on:
       - pg
     labels:
       - "traefik.enable=true"
 
-      # HTTP Router for API 
-      - "traefik.http.routers.framework.rule=PathPrefix(`/api`)"
-      - "traefik.http.routers.framework.entrypoints=web"
-      - "traefik.http.routers.framework.middlewares=error-pages-middleware"
-
-      # HTTPS Router for API
-      - "traefik.http.routers.framework-https.rule=PathPrefix(`/api`)"
-      - "traefik.http.routers.framework-https.entrypoints=websecure"
-      - "traefik.http.routers.framework-https.tls=true"
-      - "traefik.http.routers.framework-https.middlewares=error-pages-middleware"      
-
-      # HTTP Router for Socket
-      - "traefik.http.routers.socket.rule=PathPrefix(`/socket`)"
-      - "traefik.http.routers.socket.entrypoints=web"
-
-      # HTTPS Router for Socket
-      - "traefik.http.routers.socket-https.rule=PathPrefix(`/socket`)"
-      - "traefik.http.routers.socket-https.entrypoints=websecure"
-      - "traefik.http.routers.socket-https.tls=true"
- 
-      # HTTP Router for Socket.io
-      - "traefik.http.routers.socketio.rule=PathPrefix(`/socket.io`)"
-      - "traefik.http.routers.socketio.entrypoints=web"
-
-      # HTTPS Router for Socket.io
-      - "traefik.http.routers.socketio-https.rule=PathPrefix(`/socket.io`)"
-      - "traefik.http.routers.socketio-https.entrypoints=websecure"
-      - "traefik.http.routers.socketio-https.tls=true"
-
       # HTTP Router for REACT (to support redirection)
-      - "traefik.http.routers.react.rule=PathPrefix(`/`)" 
+      - "traefik.http.routers.react.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/`)" 
       - "traefik.http.routers.react.entrypoints=web"
       - "traefik.http.routers.react.middlewares=error-pages-middleware"      
   
       # HTTPS Router for REACT
-      - "traefik.http.routers.react-https.rule=PathPrefix(`/`)" 
+      - "traefik.http.routers.react-https.rule=Host(`liberty.nomana-it.fr`) && PathPrefix(`/`)" 
       - "traefik.http.routers.react-https.entrypoints=websecure"
-      - "traefik.http.routers.react-https.tls=true"
-      - "traefik.http.routers.react-https.middlewares=error-pages-middleware"      
-
+      - "traefik.http.routers.react-https.middlewares=error-pages-middleware"   
+      - "traefik.http.routers.react-https.tls.certresolver=myresolver"
+      
       # Framework Service (Port 8000)
       - "traefik.http.services.framework.loadbalancer.server.port=8000"
       - "traefik.http.routers.react.middlewares=compress-middleware"      
@@ -106,6 +78,8 @@ volumes:
     name: liberty-config  
   liberty-logs:
     name: liberty-logs   
+  liberty-versions:
+    name: liberty-versions     
   pg-data:
     name: pg-data
   pg-logs:
