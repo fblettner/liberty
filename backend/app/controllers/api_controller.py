@@ -79,3 +79,6 @@ class ApiController:
         
     async def rest(self, req: Request):
         return await self.apiRest.rest(req)          
+    
+    async def version(self, req: Request):
+        return await self.apiRest.get_version(req)           
