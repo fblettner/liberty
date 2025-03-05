@@ -8,7 +8,7 @@ from typing import Any, Dict, Optional
 from fastapi import APIRouter, Body, Depends, HTTPException, Query, Request, Path
 from pydantic import Field
 from app.controllers.api_controller import ApiController
-from app.models.apidb import ENCRYPT_ERROR_MESSAGE, ENCRYPT_RESPONSE_DESCRIPTION, ENCRYPT_RESPONSE_EXAMPLE, GET_APIDB_ERROR_EXAMPLE, GET_APIDB_RESPONSE_DESCRIPTION, GET_APIDB_RESPONSE_EXAMPLE, EncryptResponse, GetSuccessResponse, GetErrorResponse
+from app.models.apidb import ENCRYPT_ERROR_MESSAGE, ENCRYPT_RESPONSE_DESCRIPTION, ENCRYPT_RESPONSE_EXAMPLE, GET_APIDB_ERROR_EXAMPLE, GET_APIDB_RESPONSE_DESCRIPTION, GET_APIDB_RESPONSE_EXAMPLE, VERSION_ERROR_MESSAGE, VERSION_RESPONSE_DESCRIPTION, VERSION_RESPONSE_EXAMPLE, EncryptResponse, GetSuccessResponse, GetErrorResponse, VersionResponse
 from app.models.apidb import POST_APIDB_ERROR_EXAMPLE, POST_APIDB_RESPONSE_DESCRIPTION, POST_APIDB_RESPONSE_EXAMPLE, PostErrorResponse, PostSuccessResponse
 from app.models.applications import APPLICATIONS_ERROR_MESSAGE, APPLICATIONS_RESPONSE_DESCRIPTION, APPLICATIONS_RESPONSE_EXAMPLE, ApplicationsResponse
 from app.models.auth import TOKEN_ERROR_MESSAGE, TOKEN_RESPONSE_DESCRIPTION, TOKEN_RESPONSE_EXAMPLE, USER_ERROR_MESSAGE, USER_RESPONSE_DESCRIPTION, USER_RESPONSE_EXAMPLE, LoginRequest, TokenResponse, UserResponse
@@ -489,3 +489,24 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
         return await controller.rest(req)
     
     app.include_router(router, prefix="/api")
+
+    @router.get(
+        "/fmw/version",
+       response_model=VersionResponse,  # Specify the success response schema
+        responses={
+            200: response_200(VersionResponse, VERSION_RESPONSE_DESCRIPTION, VERSION_RESPONSE_EXAMPLE),
+            400: response_400("Invalid JSON format in request query."),
+            422: response_422(),
+            500: response_500(GetErrorResponse, VERSION_ERROR_MESSAGE),
+        },
+        summary="FMW - Version",
+        description="Retrieve the version of the framework.",
+        tags=["Framework"],
+    )
+    async def get(
+        req: Request,
+    ):
+
+        return await controller.version(req)
+    
+    app.include_router(router, prefix="/api")    

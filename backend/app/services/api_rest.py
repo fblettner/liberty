@@ -1,4 +1,5 @@
 # Description: API REST service for handling REST API requests.
+import importlib
 import logging
 import os
 import re
@@ -326,3 +327,11 @@ class Rest:
             logger.exception("AI: Error fetching response from OpenAI")
             raise HTTPException(status_code=500, detail=f"Error fetching response: {e}")   
         
+        
+    async def get_version(self, request: Request):
+        try:
+            return JSONResponse({
+                    "version": importlib.metadata.version("liberty-framework") 
+                })
+        except importlib.metadata.PackageNotFoundError:
+            return "Unknown"

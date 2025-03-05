@@ -145,3 +145,12 @@ ENCRYPT_RESPONSE_DESCRIPTION = "Encryption successful"
 ENCRYPT_RESPONSE_EXAMPLE = {
     "encrypted": "ENC:wNMyALbXf....."
 } 
+
+# Define the full response schema
+class VersionResponse(BaseModel):
+    version: str
+VERSION_ERROR_MESSAGE = "Failed to get the framework version"
+VERSION_RESPONSE_DESCRIPTION = "Version retrieved successfully"
+VERSION_RESPONSE_EXAMPLE = {
+    "version": "6.0.59"
+} 
