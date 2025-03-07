@@ -217,7 +217,7 @@ async def lifespan(app: FastAPI):
 
 def main():
     """Entry point for running the application."""
-    config = uvicorn.Config("app.main:app", host="0.0.0.0", port=8000, reload=True, log_level="warning")
+    config = uvicorn.Config("liberty.main:app", host="0.0.0.0", port=8000, reload=True, log_level="warning")
     server = uvicorn.Server(config)
     
     try:
