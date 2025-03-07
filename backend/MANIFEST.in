@@ -1,9 +1,9 @@
 include requirements.txt
 include LICENSE
 include README.md
-recursive-include app *
+recursive-include liberty *
 recursive-include tests *   
-exclude app/config/files/db.properties
-exclude app/config/files/encryption.key
-exclude app/config/files/secrets.json
-exclude app/config/files/secrets.json.enc
+exclude liberty/config/files/db.properties
+exclude liberty/config/files/encryption.key
+exclude liberty/config/files/secrets.json
+exclude liberty/config/files/secrets.json.enc

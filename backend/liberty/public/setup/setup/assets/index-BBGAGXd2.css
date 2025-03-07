@@ -1,0 +1,1 @@
+.divider.horizontal{height:1px;width:100%;margin-top:4px;margin-bottom:4px}.divider.vertical{width:1px;height:100%;margin-left:4px;margin-right:4px}.menu-item-icon{margin-right:8px}.ResizeHandleOuter{flex:0 0 1.5em;position:relative;outline:none;--background-color: transparent}.ResizeHandleOuter[data-resize-handle-active]{--background-color: var(--color-solid-resize-bar-handle)}

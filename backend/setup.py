@@ -38,7 +38,7 @@ setup(
     install_requires=read_requirements(),
     entry_points={
         "console_scripts": [
-            "liberty-start=app.main:main",  # Creates a CLI command to start the app
+            "liberty-start=liberty.main:main",  # Creates a CLI command to start the app
         ]
     },
     classifiers=[

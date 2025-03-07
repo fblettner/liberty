@@ -1,2 +1,2 @@
 source .venv/bin/activate
-fastapi dev app/main.py
+fastapi dev liberty/main.py
