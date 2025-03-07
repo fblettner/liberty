@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(2.341686964035034, 0, 0, 2.3301119804382324, -485.4170227050781, -1023.4410400390625)" style="">
+    <g>
+      <g>
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="210.2772" y1="545.7792" x2="418.6193" y2="545.7792">
+          <stop offset="0" style="stop-color:#0F2027"/>
+          <stop offset="1" style="stop-color:#2C5364"/>
+        </linearGradient>
+        <ellipse class="st0" cx="314.45" cy="545.78" rx="104.17" ry="104.49" style="fill: url('#SVGID_1_');"/>
+        <ellipse class="st1" cx="314.45" cy="545.78" rx="97.27" ry="97.75" style="fill: rgb(255, 255, 255);"/>
+      </g>
+      <g>
+        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="233.545" y1="545.7792" x2="395.3515" y2="545.7792">
+          <stop offset="0" style="stop-color:#2C5364"/>
+          <stop offset="1" style="stop-color:#0F2027"/>
+        </linearGradient>
+        <circle class="st2" cx="314.45" cy="545.78" r="80.9" style="fill: url('#SVGID_2_');"/>
+        <rect x="259.64" y="499.53" class="st3" width="124" height="98" style="fill: none;"/>
+        <text class="st1 st4 st5" style="white-space: pre; fill: rgb(255, 255, 255); font-family: ChalkboardSE-Regular; font-size: 104px; line-height: 166.4px; perspective-origin: 26.1719px 7.375px;" x="264.368" y="573.521">Ly</text>
+      </g>
+    </g>
+  </g>
+</svg>
