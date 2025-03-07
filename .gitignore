@@ -1,8 +1,8 @@
 dist
-backend/app/config/files/db.properties
-backend/app/config/files/encryption.key
-backend/app/config/files/secrets.json
-backend/app/config/files/secrets.json.enc
+backend/liberty/config/files/db.properties
+backend/liberty/config/files/encryption.key
+backend/liberty/config/files/secrets.json
+backend/liberty/config/files/secrets.json.enc
 backend/tests
 
 # Logs
@@ -14,7 +14,7 @@ pnpm-debug.log*
 lerna-debug.log*
 .DS_Store*
 .VSCodeCounter*
-backend/app/config/keys/*
+backend/liberty/config/keys/*
 backend/tests/results
 frontend/cypress
 
