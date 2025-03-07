@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
 
   build: {
-    outDir: "../backend/app/public/setup",
+    outDir: "../backend/liberty/public/setup",
     assetsDir: 'setup/assets',
     emptyOutDir: true,
     sourcemap: true

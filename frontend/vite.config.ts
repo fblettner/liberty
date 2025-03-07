@@ -52,7 +52,7 @@ export default defineConfig({
 
   },
   build: {
-    outDir: "../backend/app/public/frontend",
+    outDir: "../backend/liberty/public/frontend",
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: true
