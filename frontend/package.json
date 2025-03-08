@@ -14,8 +14,8 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@sentry/vite-plugin": "^3.1.2",
-    "@types/node": "^22.13.4",
+    "@sentry/vite-plugin": "^3.2.2",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -23,8 +23,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-oidc-context": "^3.2.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0"
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1"
   },
   "eslintConfig": {
     "extends": [
