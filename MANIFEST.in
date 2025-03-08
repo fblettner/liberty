@@ -1,0 +1,9 @@
+include requirements.txt
+include LICENSE
+include README.md
+recursive-include liberty *
+recursive-include tests *   
+exclude liberty/framework/config/files/db.properties
+exclude liberty/framework/config/files/encryption.key
+exclude liberty/framework/config/files/secrets.json
+exclude liberty/framework/config/files/secrets.json.enc

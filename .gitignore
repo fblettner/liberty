@@ -1,9 +1,11 @@
 dist
-backend/liberty/config/files/db.properties
-backend/liberty/config/files/encryption.key
-backend/liberty/config/files/secrets.json
-backend/liberty/config/files/secrets.json.enc
-backend/tests
+liberty/framework/config/files/db.properties
+liberty/framework/config/files/encryption.key
+liberty/framework/config/files/secrets.json
+liberty/framework/config/files/secrets.json.enc
+liberty/framework//config/keys/*
+liberty/tests/results
+liberty/tests
 
 # Logs
 *.log
@@ -14,8 +16,7 @@ pnpm-debug.log*
 lerna-debug.log*
 .DS_Store*
 .VSCodeCounter*
-backend/liberty/config/keys/*
-backend/tests/results
+
 frontend/cypress
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
