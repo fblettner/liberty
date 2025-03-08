@@ -11,7 +11,7 @@
             },
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}/backend"
+                "cwd": "${workspaceFolder}"
             }
         },
         {

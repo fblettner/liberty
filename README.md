@@ -1,6 +1,16 @@
 # 📖 Liberty Framework  
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
+## Announcements
+- **Last Release:**
+- Build React Frontend and Setup before adding to Python package
+- Get version from last tag to set the package version
+- Add a delay before building the docker image
+- Build docker image after publishing to PyPi
+- Sync with github release
+- Issue with focus on input lookup when opening search dialog
+- Implement call for custom rest api, add drop and create database for framework
+
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
 - Online demo is available at [https://liberty.nomana-it.fr](https://liberty.nomana-it.fr)
@@ -46,16 +56,9 @@ For easier setup and to ensure compatibility with future enterprise features, it
 
 ### **Option 1: Install via `pip`**
 ```bash
-git clone https://github.com/fblettner/liberty-framework.git
-go to backend directory and submit build.sh
 pip install liberty-framework
 ```
 
-### **Option 2: Run with Docker**
-```bash
-docker pull ghcr.io/fblettner/liberty-framework:latest
-docker run -p 8000:8000 ghcr.io/fblettner/liberty-framework
-```
 
 ---
 
@@ -63,10 +66,6 @@ docker run -p 8000:8000 ghcr.io/fblettner/liberty-framework
 After installation, you can **start the framework** with:  
 ```bash
 liberty-start
-```
-or manually:  
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ---
