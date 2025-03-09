@@ -4,7 +4,7 @@ export TAG=latest
 # Define variables
 DB_CONTAINER="liberty-framework-pg-1"   # PostgreSQL container name
 DB_USER="liberty"                   # Database user
-DUMP_DIR="./pg/dump"                       # Local directory for the dump files
+DUMP_DIR="../backend/liberty/framework/postgres/dump"
 
 # Step 1: Create the dump directory if it doesn't exist
 echo "Creating dump directory..."

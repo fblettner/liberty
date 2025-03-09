@@ -9,7 +9,7 @@ from sqlalchemy import pool
 
 from alembic import context
 from liberty.framework.config import get_db_properties_path
-from liberty.framework.setup.models import liberty, nomasx1
+from liberty.framework.setup.models import liberty, nomasx1, nomaarf
 from liberty.framework.utils.encrypt import Encryption
 from liberty.framework.utils.jwt import JWT
 
@@ -46,8 +46,9 @@ target_metadata = {
     "liberty": liberty.Base.metadata,
     "libnsx1": liberty.Base.metadata,
     "libnjde": liberty.Base.metadata,
-    "libnetl": liberty.Base.metadata,
+    "libnarf": liberty.Base.metadata,
     "nomasx1": nomasx1.Base.metadata,
+    "nomaarf": nomaarf.Base.metadata,
 }
 
 # other values from the config, defined by the needs of env.py,
@@ -69,8 +70,9 @@ database_url ={
     "liberty": f"postgresql+psycopg2://liberty:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/liberty",
     "libnsx1": f"postgresql+psycopg2://libnsx1:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnsx1",
     "libnjde": f"postgresql+psycopg2://libnjde:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnjde",
-    "libnetl": f"postgresql+psycopg2://libnetl:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnetl",
+    "libnarf": f"postgresql+psycopg2://libnarf:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/libnarf",
     "nomasx1": f"postgresql+psycopg2://nomasx1:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/nomasx1",
+    "nomaarf": f"postgresql+psycopg2://nomaarf:{encryption.decrypt_text(db_config.get('password'))}@{db_config.get('host')}:{db_config.get('port')}/nomaarf",
 }
 
 

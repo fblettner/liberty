@@ -4,7 +4,7 @@ logger = logging.getLogger(__name__)
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, date
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 from sqlalchemy import text
 import re
 from abc import abstractmethod
@@ -132,9 +132,9 @@ class BaseDAO:
             self.engine = None  # Reset the engine to None
             self.async_session = None  # Reset the sessionmaker to None
                    
-    def replace_variables_placeholders(self, query: str, variables: List[Dict[str, str]]) -> str:
+    def replace_variables_placeholders(self, query: str, variables: Dict[str, Union[str, int, float, None]]) -> str:
         for name, value in variables.items():
-            if name != "\r":
+            if name != "\r" : 
                 if isinstance(value, (int, float)) or value is not None:
                     # Handle dollar signs and escape single quotes in strings
                     if isinstance(value, str):
@@ -165,11 +165,15 @@ class BaseDAO:
 
                 if "q" in context:
                     # Create the where clause of the query with the context 
-                    where = json.loads(context["q"])
-                    query = await self.construct_query_where(query, where)
+                    q = json.loads(context["q"])
+                    query = await self.construct_query_where(query, q)
 
                 if "where" in context:
                     query = self.replace_variables_placeholders(query, context["where"])
+
+                if "params" in context:
+                    params = json.loads(context["params"])
+                    query = self.replace_variables_placeholders(query, params)
 
                 # Add ORDER BY Clause 
                 if target_query[0][1] is not None:
@@ -269,22 +273,18 @@ class BaseDAO:
             raise RuntimeError(f"Query execution failed: {str(err)}")
 
 
-    async def get(self, query: str, context, params: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    async def get(self, query: str, context) -> List[Dict[str, Any]]:
         """
         Executes a query and returns the result along with metadata.
 
         Args:
             query (str): The SQL query to execute.
-            params (Optional[Dict[str, Any]]): Query parameters.
-
         Returns:
             Dict[str, Any]: A dictionary containing rows, column metadata, and row count.
         """
         try:
             # Use SQLAlchemy's `text` to prepare the query
             statement = await self.build_query(query, context, False)
-            if params:
-                self.replace_variables_placeholders(query, params)
 
             # Open a session
             async with self.get_session() as session:
@@ -386,7 +386,11 @@ class BaseDAO:
                     async with session.begin():  # Start a transaction
                         result = await session.execute(text(statement))
                         # Commit is implicit in session.begin() if no exception is raised
-                        return result.rowcount
+                        if "returning" in statement.lower():
+                            rows = [dict(row) for row in result.mappings().all()] 
+                        else:
+                            rows = [] 
+                        return {"count": result.rowcount, "rows": rows}
                 except Exception as e:
                     logger.exception(f"Error executing statement: {e}")
                     import traceback
