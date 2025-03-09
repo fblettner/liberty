@@ -293,12 +293,11 @@ class API:
 
             # Execute the query
             results = await self.db_pools.get_pool(target_pool).db_dao.post(data_query, context)
-
             # Return the response
             return JSONResponse({
-                "items": [],
+                "items": results["rows"],
                 "status": "success",
-                "count": results
+                "count": results["count"]
             })
 
         except Exception as err:
