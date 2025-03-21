@@ -31949,7 +31949,7 @@
             "module_enabled": "N",
             "module_audit_user": "admin",
             "module_audit_date": "2025-02-17T12:30:59.187000",
-            "module_params": "{\n  \"url\": \"https://72991f9e55ee6023ffc63f6833bfe1ae@o4508174117830656.ingest.de.sentry.io/4508174125826128\",\n  \"replay\": \"false\",\n  \"clientid\":\"nomana\",\n  \"platform\":\"dev\"\n}"
+            "module_params": ""
         },
         {
             "module_id": "login",
@@ -37673,16 +37673,6 @@
             "query_audit_date": "2024-08-13T08:01:31.692000"
         },
         {
-            "query_id": 79,
-            "query_dbtype": "generic",
-            "query_crud": "GET",
-            "query_pool": "SESSION",
-            "query_sqlquery": "SELECT\n  DD_RULES,\n  DD_RULES_VALUES,\n  LKP_LABEL\nFROM\n(\n  SELECT\n    'BOOLEAN' DD_RULES,\n    'Y' DD_RULES_VALUES,\n    'Enable (Y)' LKP_LABEL\n  UNION ALL\n  SELECT\n    'BOOLEAN' DD_RULES,\n    '01' DD_RULES_VALUES,\n    'Enable (01)' LKP_LABEL\n  UNION ALL\n   SELECT * FROM (\n   SELECT\n    'ENUM' COL_RULES,\n    CAST(ENUM_ID AS VARCHAR) DD_RULES_VALUES,\n    ENUM_LABEL LKP_LABEL\n  FROM\n    LY_ENUM\n  ORDER BY\n    ENUM_ID\n    )\n  UNION ALL\n  SELECT DD_RULES,  CAST(DD_RULES_VALUES AS VARCHAR) DD_RULES_VALUES, LKP_LABEL FROM (\n   SELECT\n    'LOOKUP' DD_RULES,\n    LKP_ID DD_RULES_VALUES,\n    LKP_DESCRIPTION LKP_LABEL\n   FROM\n    LY_LOOKUP  \n   ORDER BY LKP_ID\n  )  \n  UNION ALL\n   SELECT\n    'NN' DD_RULES,\n    NN_ID DD_RULES_VALUES,\n    'Next Number - '||NN_ID LKP_LABEL\n  FROM\n    LY_NEXTNUM \n  UNION ALL\n  SELECT * FROM (\n   SELECT\n    'SEQUENCE' DD_RULES,\n    CAST(SEQ_ID AS VARCHAR) DD_RULES_VALUES,\n    SEQ_LABEL LKP_LABEL\n   FROM\n    LY_SEQUENCE  \n   ORDER BY SEQ_ID\n   )\n  UNION ALL\n  SELECT\n    'DEFAULT' DD_RULES,\n    DD_ID DD_RULES_VALUES,\n    DD_LABEL LKP_LABEL\n  FROM\n    LY_DICTIONARY\n )",
-            "query_orderby": null,
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-02T19:47:40.559000"
-        },
-        {
             "query_id": 154,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -39041,6 +39031,16 @@
             "query_orderby": "TCL_KEY",
             "query_audit_user": "admin",
             "query_audit_date": "2024-12-17T14:22:21.565000"
+        },
+        {
+            "query_id": 79,
+            "query_dbtype": "generic",
+            "query_crud": "GET",
+            "query_pool": "SESSION",
+            "query_sqlquery": "SELECT\n  DD_RULES,\n  DD_RULES_VALUES,\n  LKP_LABEL\nFROM\n(\n  SELECT\n    'BOOLEAN' DD_RULES,\n    'Y' DD_RULES_VALUES,\n    'Enable (Y)' LKP_LABEL\n  UNION ALL\n  SELECT\n    'BOOLEAN' DD_RULES,\n    '01' DD_RULES_VALUES,\n    'Enable (01)' LKP_LABEL\n  UNION ALL\n   SELECT * FROM (\n   SELECT\n    'ENUM' COL_RULES,\n    CAST(ENUM_ID AS VARCHAR) DD_RULES_VALUES,\n    ENUM_LABEL LKP_LABEL\n  FROM\n    LY_ENUM\n  ORDER BY\n    ENUM_ID\n    )\n  UNION ALL\n  SELECT DD_RULES,  CAST(DD_RULES_VALUES AS VARCHAR) DD_RULES_VALUES, LKP_LABEL FROM (\n   SELECT\n    'LOOKUP' DD_RULES,\n    LKP_ID DD_RULES_VALUES,\n    LKP_DESCRIPTION LKP_LABEL\n   FROM\n    LY_LOOKUP  \n   ORDER BY LKP_ID\n  )  \n  UNION ALL\n   SELECT\n    'NN' DD_RULES,\n    NN_ID DD_RULES_VALUES,\n    'Next Number - '||NN_ID LKP_LABEL\n  FROM\n    LY_NEXTNUM \n  UNION ALL\n  SELECT * FROM (\n   SELECT\n    'SEQUENCE' DD_RULES,\n    CAST(SEQ_ID AS VARCHAR) DD_RULES_VALUES,\n    SEQ_LABEL LKP_LABEL\n   FROM\n    LY_SEQUENCE  \n   ORDER BY SEQ_ID\n   )\n  UNION ALL\n  SELECT\n    'DEFAULT' DD_RULES,\n    DD_ID DD_RULES_VALUES,\n    DD_LABEL LKP_LABEL\n  FROM\n    LY_DICTIONARY\n )",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-03-09T17:21:10.206000"
         }
     ],
     "ly_seq_params": [
