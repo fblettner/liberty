@@ -10,8 +10,8 @@ services:
     networks:
       - liberty-network
     volumes:
-      - liberty-config:/liberty-framework/app/config/files     
-      - liberty-logs:/liberty-framework/app/logs/files
+      - liberty-config:/liberty-framework/liberty/framework/config/files     
+      - liberty-logs:/liberty-framework/liberty/framework/logs/files
     working_dir: /
     depends_on:
       - pg
