@@ -7,6 +7,7 @@ services:
     environment:
       - TZ=Europe/Paris    
       - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"   
+      - AIRFLOW__API__BASE_URL=http://localhost:3000/airflow
       - SCARF_ANALYTICS=false  
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
@@ -45,6 +46,24 @@ services:
       - airflow-logs:/opt/airflow/logs
     networks:
       - liberty-network
+  airflow-dag-processor:
+    image: ghcr.io/fblettner/liberty-enterprise-airflow:latest
+    command: bash -c "airflow dag-processor"
+    depends_on:
+      gitea:
+        condition: service_healthy    
+    environment:
+      - TZ=Europe/Paris   
+      # - AIRFLOW__WEBSERVER__INSTANCE_NAME = "Liberty_DEV"
+      # - AIRFLOW__SCHEDULER__STATSD_ON=True
+      # - AIRFLOW__SCHEDULER__STATSD_HOST=statsd-exporter
+      # - AIRFLOW__SCHEDULER__STATSD_PORT=9125
+      # - AIRFLOW__SCHEDULER__STATSD_PREFIX=airflow 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - airflow-logs:/opt/airflow/logs
+    networks:
+      - liberty-network        
   oidc:
     image: ghcr.io/fblettner/liberty-enterprise-keycloak:latest
     command: ["start-dev", "--proxy-headers=xforwarded"]
