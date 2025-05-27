@@ -953,7 +953,7 @@ class LyUsers(Base):
 
 class LyUsrRoles(Base):
     __tablename__ = 'ly_usr_roles'
-    usr_id = Column(VARCHAR(30), primary_key=True, nullable=False)
+    usr_id = Column(VARCHAR(100), primary_key=True, nullable=False)
     rol_id = Column(VARCHAR(30), primary_key=True, nullable=False)
     rlu_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     rlu_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
