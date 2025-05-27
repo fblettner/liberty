@@ -10,6 +10,8 @@
 - Sync with github release
 - Issue with focus on input lookup when opening search dialog
 - Implement call for custom rest api, add drop and create database for framework
+- Migrate Airflow to 3.0
+- Add new report for OUT Users/Roles
 
 🚀 **Liberty Framework** is a powerful, modular, and extensible **FastAPI-based and React-based framework** designed to streamline backend development for business applications. It provides **database management, authentication, real-time socket communication, and more**, making it easy to deploy and scale enterprise solutions.  
 
