@@ -217,6 +217,15 @@ class IDollarLicenseJdeOut(Base):
     lout_usage = Column(DATE, primary_key=False, nullable=False)
 
 
+class IDollarLicenseJdeOutUsers(Base):
+    __tablename__ = 'i$_license_jde_out_users'
+    lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    lout_user = Column(VARCHAR(40), primary_key=True, nullable=False)
+    lout_usage = Column(DATE, primary_key=True, nullable=False)
+    lout_role = Column(VARCHAR(40), primary_key=False, nullable=False)
+    lout_env = Column(VARCHAR(40), primary_key=False, nullable=False)
+
+
 class IDollarRolSecurityRights(Base):
     __tablename__ = 'i$_rol_security_rights'
     ser_apps_id = Column(INTEGER, primary_key=True, nullable=False)
@@ -412,6 +421,15 @@ class LicenseJdeOut(Base):
         Index("license_jde_out_idx1", "lout_apps_id", "lout_user"),
     )
 
+
+
+class LicenseJdeOutUsers(Base):
+    __tablename__ = 'license_jde_out_users'
+    lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    lout_user = Column(VARCHAR(40), primary_key=True, nullable=False)
+    lout_usage = Column(DATE, primary_key=True, nullable=False)
+    lout_role = Column(VARCHAR(40), primary_key=False, nullable=False)
+    lout_env = Column(VARCHAR(40), primary_key=False, nullable=False)
 
 
 class LicenseJdeUsers(Base):

@@ -9425,6 +9425,36 @@
             "dd_default": null,
             "dd_audit_user": "admin",
             "dd_audit_date": "2025-03-21T07:52:02.284000"
+        },
+        {
+            "dd_id": "LOUT_ENV",
+            "dd_label": "Environment",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-05-27T12:34:26.394000"
+        },
+        {
+            "dd_id": "LOUT_USAGE",
+            "dd_label": "Tracking Date",
+            "dd_type": "date",
+            "dd_rules": "CURRENT_DATE",
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-05-27T12:35:07.169000"
+        },
+        {
+            "dd_id": "LOUT_ROLE",
+            "dd_label": "Role ID",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-05-27T12:38:36.996000"
         }
     ],
     "ly_dictionary_filters": [],
@@ -12696,6 +12726,27 @@
             "lng_label": "Date MAJ",
             "lng_audit_user": "admin",
             "lng_audit_date": "2025-03-21T07:45:57.796000"
+        },
+        {
+            "dd_id": "LOUT_ENV",
+            "lng_id": "fr",
+            "lng_label": "Environnement",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-05-27T12:34:34.525000"
+        },
+        {
+            "dd_id": "LOUT_USAGE",
+            "lng_id": "fr",
+            "lng_label": "Date Utilisation",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-05-27T12:35:16.244000"
+        },
+        {
+            "dd_id": "LOUT_ROLE",
+            "lng_id": "fr",
+            "lng_label": "Rôle ID",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-05-27T12:38:44.534000"
         }
     ],
     "ly_dlg_tab": [
@@ -14250,6 +14301,17 @@
             "menu_level": 2,
             "menu_audit_user": "admin",
             "menu_audit_date": "2025-03-09T14:28:57.089000"
+        },
+        {
+            "menu_seq_ukid": "100003.100005.100003.",
+            "menu_parent_id": "100003.100005.",
+            "menu_child_id": "100003.100005.100003.",
+            "menu_component": "FormsTable",
+            "menu_component_id": 96,
+            "menu_label": "OUT - Users / Roles",
+            "menu_level": 3,
+            "menu_audit_user": "admin",
+            "menu_audit_date": "2025-05-27T12:36:54.801000"
         }
     ],
     "ly_lnk_val": [
@@ -31003,6 +31065,26 @@
             "col_cdn_id": null
         },
         {
+            "tbl_id": 96,
+            "col_id": 1,
+            "col_seq": 1,
+            "col_dd_id": "APPS_ID",
+            "col_label": null,
+            "col_target": "LOUT_APPS_ID",
+            "col_type": "text",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-05-27T12:32:54.453000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
             "tbl_id": 95,
             "col_id": 2,
             "col_seq": 2,
@@ -31099,6 +31181,26 @@
             "col_key": "N",
             "col_audit_user": "admin",
             "col_audit_date": "2025-03-21T08:04:11.627000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 96,
+            "col_id": 2,
+            "col_seq": 2,
+            "col_dd_id": "USR_ID",
+            "col_label": null,
+            "col_target": "LOUT_USER",
+            "col_type": "date",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-05-27T12:32:45.666000",
             "col_filter": "N",
             "col_cdn_id": null
         },
@@ -31223,6 +31325,26 @@
             "col_cdn_id": null
         },
         {
+            "tbl_id": 96,
+            "col_id": 3,
+            "col_seq": 3,
+            "col_dd_id": "LOUT_USAGE",
+            "col_label": null,
+            "col_target": "LOUT_USAGE",
+            "col_type": "date",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-05-27T12:35:32.482000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
             "tbl_id": 95,
             "col_id": 4,
             "col_seq": 4,
@@ -31343,6 +31465,26 @@
             "col_cdn_id": null
         },
         {
+            "tbl_id": 96,
+            "col_id": 4,
+            "col_seq": 4,
+            "col_dd_id": "LOUT_ROLE",
+            "col_label": null,
+            "col_target": "LOUT_ROLE",
+            "col_type": "text",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-05-27T12:39:51.024000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
             "tbl_id": 95,
             "col_id": 5,
             "col_seq": 5,
@@ -31419,6 +31561,26 @@
             "col_key": "N",
             "col_audit_user": "admin",
             "col_audit_date": "2025-03-21T08:05:21.497000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 96,
+            "col_id": 5,
+            "col_seq": 5,
+            "col_dd_id": "LOUT_ENV",
+            "col_label": null,
+            "col_target": "LOUT_ENV",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-05-27T12:35:46.025000",
             "col_filter": "N",
             "col_cdn_id": null
         },
@@ -33433,6 +33595,24 @@
             "tbl_audit_user": "admin",
             "tbl_audit_date": "2025-03-09T14:22:47.761000",
             "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 96,
+            "tbl_db_name": "LICENSE_JDE_OUT_USERS",
+            "tbl_label": "License - Object Usage Tracking - Users / Roles",
+            "tbl_query_id": 129,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": "",
+            "tbl_sheet": "",
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2025-05-27T12:28:10.482000",
+            "tbl_auto_load": "Y"
         }
     ],
     "ly_tbl_filters": [
@@ -35917,6 +36097,13 @@
             "query_type": "CRUD",
             "query_audit_user": "admin",
             "query_audit_date": "2025-03-09T14:21:17.451000"
+        },
+        {
+            "query_id": 129,
+            "query_label": "LICENSE_JDE_OUT_USERS_ROLES",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-05-27T12:27:59.449000"
         }
     ],
     "ly_qry_sql": [
@@ -37551,6 +37738,16 @@
             "query_audit_date": "2024-09-02T16:01:54.409000"
         },
         {
+            "query_id": 129,
+            "query_dbtype": "generic",
+            "query_crud": "POST",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "INSERT INTO\n    LICENSE_JDE_OUT_USERS\n(\n    LOUT_APPS_ID,\n    LOUT_USER,\n    LOUT_USAGE,\n    LOUT_ROLE,\n    LOUT_ENV\n)\nVALUES (\n    :LOUT_APPS_ID,\n    :LOUT_USER,\n    :LOUT_USAGE,\n    :LOUT_ROLE,\n    :LOUT_ENV\n)",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-05-27T12:35:54.384000"
+        },
+        {
             "query_id": 126,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -37821,6 +38018,16 @@
             "query_audit_date": "2023-12-03T18:21:26.233000"
         },
         {
+            "query_id": 129,
+            "query_dbtype": "generic",
+            "query_crud": "DELETE",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "DELETE FROM\n    LICENSE_JDE_OUT_USERS\nWHERE\n    LOUT_APPS_ID = :LOUT_APPS_ID\n    AND LOUT_USER = :LOUT_USER\n    AND LOUT_USAGE = :LOUT_USAGE",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-05-27T12:35:54.406000"
+        },
+        {
             "query_id": 37,
             "query_dbtype": "generic",
             "query_crud": "PUT",
@@ -37901,6 +38108,16 @@
             "query_audit_date": "2025-03-09T14:21:45.532000"
         },
         {
+            "query_id": 129,
+            "query_dbtype": "generic",
+            "query_crud": "GET",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "SELECT \n    LOUT_APPS_ID,\n    LOUT_USER,\n    LOUT_USAGE,\n    LOUT_ROLE,\n    LOUT_ENV \nFROM \n  LICENSE_JDE_OUT_USERS",
+            "query_orderby": "LOUT_USAGE DESC",
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-05-27T12:37:47.259000"
+        },
+        {
             "query_id": 1,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -37909,6 +38126,16 @@
             "query_orderby": "USR_APPS_ID,USR_ID",
             "query_audit_user": "admin",
             "query_audit_date": "2025-03-21T07:47:02.429000"
+        },
+        {
+            "query_id": 129,
+            "query_dbtype": "generic",
+            "query_crud": "PUT",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "UPDATE\n    LICENSE_JDE_OUT_USERS\nSET\n    LOUT_ROLE = :LOUT_ROLE,\n    LOUT_ENV = :LOUT_ENV\nWHERE\n    LOUT_APPS_ID = :LOUT_APPS_ID\n    AND LOUT_USER = :LOUT_USER\n    AND LOUT_USAGE = :LOUT_USAGE",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-05-27T12:35:54.442000"
         },
         {
             "query_id": 51,
