@@ -296,7 +296,7 @@ class JdeObjects(Base):
     __tablename__ = 'jde_objects'
     jdeo_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     jdeo_object = Column(VARCHAR(10), primary_key=True, nullable=False)
-    jdeo_description = Column(VARCHAR(60), primary_key=False, nullable=True)
+    jdeo_description = Column(VARCHAR(100), primary_key=False, nullable=True)
     jdeo_sy = Column(VARCHAR(10), primary_key=False, nullable=True)
     jdeo_type = Column(VARCHAR(4), primary_key=False, nullable=True)
     jdeo_ukid = Column(INTEGER, primary_key=False, nullable=True)
@@ -307,7 +307,7 @@ class JdeObjectsVersions(Base):
     jdeo_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     jdeo_object = Column(VARCHAR(10), primary_key=True, nullable=False)
     jdeo_version = Column(VARCHAR(10), primary_key=True, nullable=False)
-    jdeo_description = Column(VARCHAR(60), primary_key=False, nullable=True)
+    jdeo_description = Column(VARCHAR(100), primary_key=False, nullable=True)
     jdeo_sy = Column(VARCHAR(4), primary_key=False, nullable=True)
     jdeo_type = Column(VARCHAR(4), primary_key=False, nullable=True)
     jdeo_ukid = Column(INTEGER, primary_key=False, nullable=True)
