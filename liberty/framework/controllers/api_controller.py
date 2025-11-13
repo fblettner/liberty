@@ -75,10 +75,10 @@ class ApiController:
         return await self.rest.ai_prompt(req)     
     
     async def ai_welcome(self, req: Request):
-        return await self.apiRest.ai_welcome(req)      
+        return await self.rest.ai_welcome(req)      
         
     async def call_rest(self, req: Request):
         return await self.rest.call_rest(req)          
     
     async def version(self, req: Request):
-        return await self.apiRest.get_version(req)           
+        return await self.rest.get_version(req)           

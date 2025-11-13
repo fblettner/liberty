@@ -217,13 +217,23 @@ class IDollarLicenseJdeOut(Base):
     lout_usage = Column(DATE, primary_key=False, nullable=False)
 
 
+class IDollarLicenseJdeOutObjects(Base):
+    __tablename__ = 'i$_license_jde_out_objects'
+    lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    lout_object = Column(VARCHAR(10), primary_key=True, nullable=False)
+    lout_version = Column(VARCHAR(10), primary_key=True, nullable=False)
+    lout_type = Column(VARCHAR(10), primary_key=False, nullable=True)
+    lout_usage = Column(DATE, primary_key=False, nullable=False)
+    lout_count = Column(INTEGER, primary_key=False, nullable=True)
+
+
 class IDollarLicenseJdeOutUsers(Base):
     __tablename__ = 'i$_license_jde_out_users'
     lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     lout_user = Column(VARCHAR(40), primary_key=True, nullable=False)
     lout_usage = Column(DATE, primary_key=True, nullable=False)
-    lout_role = Column(VARCHAR(40), primary_key=False, nullable=False)
-    lout_env = Column(VARCHAR(40), primary_key=False, nullable=False)
+    lout_role = Column(VARCHAR(40), primary_key=True, nullable=False)
+    lout_env = Column(VARCHAR(40), primary_key=True, nullable=False)
 
 
 class IDollarRolSecurityRights(Base):
@@ -423,13 +433,23 @@ class LicenseJdeOut(Base):
 
 
 
+class LicenseJdeOutObjects(Base):
+    __tablename__ = 'license_jde_out_objects'
+    lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
+    lout_object = Column(VARCHAR(10), primary_key=True, nullable=False)
+    lout_version = Column(VARCHAR(10), primary_key=True, nullable=False)
+    lout_type = Column(VARCHAR(10), primary_key=False, nullable=True)
+    lout_usage = Column(DATE, primary_key=False, nullable=False)
+    lout_count = Column(INTEGER, primary_key=False, nullable=True)
+
+
 class LicenseJdeOutUsers(Base):
     __tablename__ = 'license_jde_out_users'
     lout_apps_id = Column(INTEGER, primary_key=True, nullable=False)
     lout_user = Column(VARCHAR(40), primary_key=True, nullable=False)
     lout_usage = Column(DATE, primary_key=True, nullable=False)
-    lout_role = Column(VARCHAR(40), primary_key=False, nullable=False)
-    lout_env = Column(VARCHAR(40), primary_key=False, nullable=False)
+    lout_role = Column(VARCHAR(40), primary_key=True, nullable=False)
+    lout_env = Column(VARCHAR(40), primary_key=True, nullable=False)
 
 
 class LicenseJdeUsers(Base):
@@ -984,6 +1004,8 @@ class SettingsJdedwards(Base):
     jde_e1composite = Column(VARCHAR(1), primary_key=False, nullable=True)
     jde_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     jde_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    jde_out_purge = Column(VARCHAR(1), primary_key=False, nullable=True)
+    jde_out_retention = Column(INTEGER, primary_key=False, nullable=True)
     __table_args__ = (
         ForeignKeyConstraint(["apps_id"], ["settings_applications.apps_id"], name="settingsjdedwards_fk1", ondelete="CASCADE"),
     )

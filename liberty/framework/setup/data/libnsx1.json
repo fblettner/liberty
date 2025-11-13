@@ -3783,6 +3783,52 @@
             "col_audit_user": "admin",
             "col_audit_date": "2024-12-04T18:23:25.626000",
             "col_cdn_id": null
+        },
+        {
+            "frm_id": 8,
+            "col_id": 15,
+            "tab_id": 1,
+            "col_seq": 14,
+            "col_colspan": 1,
+            "col_component": "DD",
+            "col_component_id": null,
+            "col_dd_id": "JDE_OUT_PURGE",
+            "col_label": null,
+            "col_target": "JDE_OUT_PURGE",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T14:42:59.440000",
+            "col_cdn_id": null
+        },
+        {
+            "frm_id": 8,
+            "col_id": 16,
+            "tab_id": 1,
+            "col_seq": 15,
+            "col_colspan": 1,
+            "col_component": "DD",
+            "col_component_id": null,
+            "col_dd_id": "JDE_OUT_RETENTION",
+            "col_label": null,
+            "col_target": "JDE_OUT_RETENTION",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T14:43:24.145000",
+            "col_cdn_id": null
         }
     ],
     "ly_dlg_frm": [
@@ -9455,6 +9501,46 @@
             "dd_default": null,
             "dd_audit_user": "admin",
             "dd_audit_date": "2025-05-27T12:38:36.996000"
+        },
+        {
+            "dd_id": "JDE_OUT_PURGE",
+            "dd_label": "Purge OUT (Y/N)",
+            "dd_type": "boolean",
+            "dd_rules": "BOOLEAN",
+            "dd_rules_values": "Y",
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-11-02T14:40:11.123000"
+        },
+        {
+            "dd_id": "JDE_OUT_RETENTION",
+            "dd_label": "OUT Retention Days",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": "Y",
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-11-02T14:40:48.356000"
+        },
+        {
+            "dd_id": "LOUT_TYPE",
+            "dd_label": "Object Type",
+            "dd_type": "text",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-11-02T16:15:21.904000"
+        },
+        {
+            "dd_id": "LOUT_COUNT",
+            "dd_label": "# Call",
+            "dd_type": "number",
+            "dd_rules": null,
+            "dd_rules_values": null,
+            "dd_default": null,
+            "dd_audit_user": "admin",
+            "dd_audit_date": "2025-11-02T16:16:03.372000"
         }
     ],
     "ly_dictionary_filters": [],
@@ -12747,6 +12833,34 @@
             "lng_label": "Rôle ID",
             "lng_audit_user": "admin",
             "lng_audit_date": "2025-05-27T12:38:44.534000"
+        },
+        {
+            "dd_id": "JDE_OUT_PURGE",
+            "lng_id": "fr",
+            "lng_label": "Purge OUT",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-11-02T14:40:20.226000"
+        },
+        {
+            "dd_id": "JDE_OUT_RETENTION",
+            "lng_id": "fr",
+            "lng_label": "Jours Retention OUT",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-11-02T14:41:12.698000"
+        },
+        {
+            "dd_id": "LOUT_TYPE",
+            "lng_id": "fr",
+            "lng_label": "Type Objet",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-11-02T16:15:35.338000"
+        },
+        {
+            "dd_id": "LOUT_COUNT",
+            "lng_id": "fr",
+            "lng_label": "# Appel",
+            "lng_audit_user": "admin",
+            "lng_audit_date": "2025-11-02T16:16:14.104000"
         }
     ],
     "ly_dlg_tab": [
@@ -14312,6 +14426,17 @@
             "menu_level": 3,
             "menu_audit_user": "admin",
             "menu_audit_date": "2025-05-27T12:36:54.801000"
+        },
+        {
+            "menu_seq_ukid": "100003.100005.100004.",
+            "menu_parent_id": "100003.100005.",
+            "menu_child_id": "100003.100005.100004.",
+            "menu_component": "FormsTable",
+            "menu_component_id": 97,
+            "menu_label": "OUT - Objects",
+            "menu_level": 3,
+            "menu_audit_user": "admin",
+            "menu_audit_date": "2025-11-02T16:13:41.987000"
         }
     ],
     "ly_lnk_val": [
@@ -16425,46 +16550,6 @@
             "col_cdn_id": null
         },
         {
-            "tbl_id": 1,
-            "col_id": 8,
-            "col_seq": 9,
-            "col_dd_id": "USRP_TECHNICAL",
-            "col_label": null,
-            "col_target": "USRP_TECHNICAL",
-            "col_type": null,
-            "col_rules": null,
-            "col_rules_values": null,
-            "col_default": null,
-            "col_visible": "Y",
-            "col_disabled": "N",
-            "col_required": "N",
-            "col_key": "N",
-            "col_audit_user": "admin",
-            "col_audit_date": "2024-06-19T14:59:37.828000",
-            "col_filter": "N",
-            "col_cdn_id": null
-        },
-        {
-            "tbl_id": 1,
-            "col_id": 9,
-            "col_seq": 10,
-            "col_dd_id": "USRP_GENERIC",
-            "col_label": null,
-            "col_target": "USRP_GENERIC",
-            "col_type": null,
-            "col_rules": null,
-            "col_rules_values": null,
-            "col_default": null,
-            "col_visible": "Y",
-            "col_disabled": "N",
-            "col_required": "N",
-            "col_key": "N",
-            "col_audit_user": "admin",
-            "col_audit_date": "2024-06-19T14:59:43.526000",
-            "col_filter": "N",
-            "col_cdn_id": null
-        },
-        {
             "tbl_id": 33,
             "col_id": 3,
             "col_seq": 3,
@@ -16941,6 +17026,26 @@
             "col_key": "N",
             "col_audit_user": "anonymous",
             "col_audit_date": null,
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 1,
+            "col_id": 8,
+            "col_seq": 9,
+            "col_dd_id": "USRP_TECHNICAL",
+            "col_label": null,
+            "col_target": "USRP_TECHNICAL",
+            "col_type": "boolean",
+            "col_rules": "BOOLEAN",
+            "col_rules_values": "Y",
+            "col_default": null,
+            "col_visible": "N",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-06-04T09:03:38.175000",
             "col_filter": "N",
             "col_cdn_id": null
         },
@@ -31085,6 +31190,26 @@
             "col_cdn_id": null
         },
         {
+            "tbl_id": 74,
+            "col_id": 13,
+            "col_seq": 13,
+            "col_dd_id": "JDE_OUT_PURGE",
+            "col_label": null,
+            "col_target": "JDE_OUT_PURGE",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T14:41:52.514000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
             "tbl_id": 95,
             "col_id": 2,
             "col_seq": 2,
@@ -31192,15 +31317,35 @@
             "col_label": null,
             "col_target": "LOUT_USER",
             "col_type": "date",
-            "col_rules": null,
-            "col_rules_values": null,
+            "col_rules": "LOOKUP",
+            "col_rules_values": "6",
             "col_default": null,
             "col_visible": "Y",
             "col_disabled": "N",
             "col_required": "N",
             "col_key": "Y",
             "col_audit_user": "admin",
-            "col_audit_date": "2025-05-27T12:32:45.666000",
+            "col_audit_date": "2025-05-27T17:17:09.997000",
+            "col_filter": "Y",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 74,
+            "col_id": 14,
+            "col_seq": 14,
+            "col_dd_id": "JDE_OUT_RETENTION",
+            "col_label": null,
+            "col_target": "JDE_OUT_RETENTION",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T14:42:08.695000",
             "col_filter": "N",
             "col_cdn_id": null
         },
@@ -31332,7 +31477,7 @@
             "col_label": null,
             "col_target": "LOUT_USAGE",
             "col_type": "date",
-            "col_rules": null,
+            "col_rules": "CURRENT_DATE",
             "col_rules_values": null,
             "col_default": null,
             "col_visible": "Y",
@@ -31340,8 +31485,128 @@
             "col_required": "N",
             "col_key": "Y",
             "col_audit_user": "admin",
-            "col_audit_date": "2025-05-27T12:35:32.482000",
+            "col_audit_date": "2025-05-27T17:16:59.736000",
+            "col_filter": "Y",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 1,
+            "col_seq": 1,
+            "col_dd_id": "LOUT_APPS_ID",
+            "col_label": null,
+            "col_target": "LOUT_APPS_ID",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "Y",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": null,
             "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 3,
+            "col_seq": 3,
+            "col_dd_id": "LOUT_VERSION",
+            "col_label": null,
+            "col_target": "LOUT_VERSION",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "Y",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": null,
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 6,
+            "col_seq": 6,
+            "col_dd_id": "LOUT_COUNT",
+            "col_label": null,
+            "col_target": "LOUT_COUNT",
+            "col_type": null,
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": null,
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 2,
+            "col_seq": 2,
+            "col_dd_id": "LOUT_OBJECT",
+            "col_label": null,
+            "col_target": "LOUT_OBJECT",
+            "col_type": "text",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "Y",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T16:12:34.193000",
+            "col_filter": "Y",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 5,
+            "col_seq": 5,
+            "col_dd_id": "LOUT_USAGE",
+            "col_label": null,
+            "col_target": "LOUT_USAGE",
+            "col_type": "date",
+            "col_rules": "CURRENT_DATE",
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "Y",
+            "col_key": "Y",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T16:12:42.316000",
+            "col_filter": "Y",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 97,
+            "col_id": 4,
+            "col_seq": 4,
+            "col_dd_id": "LOUT_TYPE",
+            "col_label": null,
+            "col_target": "LOUT_TYPE",
+            "col_type": "text",
+            "col_rules": null,
+            "col_rules_values": null,
+            "col_default": null,
+            "col_visible": "Y",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-11-02T16:16:43.224000",
+            "col_filter": "Y",
             "col_cdn_id": null
         },
         {
@@ -31661,6 +31926,26 @@
             "col_key": "N",
             "col_audit_user": "admin",
             "col_audit_date": "2025-03-21T08:05:31.560000",
+            "col_filter": "N",
+            "col_cdn_id": null
+        },
+        {
+            "tbl_id": 1,
+            "col_id": 9,
+            "col_seq": 10,
+            "col_dd_id": "USRP_GENERIC",
+            "col_label": null,
+            "col_target": "USRP_GENERIC",
+            "col_type": "boolean",
+            "col_rules": "BOOLEAN",
+            "col_rules_values": "Y",
+            "col_default": null,
+            "col_visible": "N",
+            "col_disabled": "N",
+            "col_required": "N",
+            "col_key": "N",
+            "col_audit_user": "admin",
+            "col_audit_date": "2025-06-02T08:55:09.261000",
             "col_filter": "N",
             "col_cdn_id": null
         },
@@ -33611,8 +33896,26 @@
             "tbl_tree_id": null,
             "tbl_frm_id": null,
             "tbl_audit_user": "admin",
-            "tbl_audit_date": "2025-05-27T12:28:10.482000",
-            "tbl_auto_load": "Y"
+            "tbl_audit_date": "2025-05-27T17:16:49.530000",
+            "tbl_auto_load": "N"
+        },
+        {
+            "tbl_id": 97,
+            "tbl_db_name": "LICENSE_JDE_OUT_OBJECTS",
+            "tbl_label": "License - Object Usage Tracking - Objects",
+            "tbl_query_id": 130,
+            "tbl_editable": "N",
+            "tbl_uploadable": "N",
+            "tbl_audit": "N",
+            "tbl_burst": "N",
+            "tbl_workbook": "",
+            "tbl_sheet": "",
+            "tbl_ctx_id": null,
+            "tbl_tree_id": null,
+            "tbl_frm_id": null,
+            "tbl_audit_user": "admin",
+            "tbl_audit_date": "2025-11-02T16:02:15.823000",
+            "tbl_auto_load": "N"
         }
     ],
     "ly_tbl_filters": [
@@ -36104,6 +36407,13 @@
             "query_type": "CRUD",
             "query_audit_user": "admin",
             "query_audit_date": "2025-05-27T12:27:59.449000"
+        },
+        {
+            "query_id": 130,
+            "query_label": "LICENSE_JDE_OUT_OBJECTS",
+            "query_type": "CRUD",
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T15:57:39.775000"
         }
     ],
     "ly_qry_sql": [
@@ -36728,16 +37038,6 @@
             "query_audit_date": "2024-06-30T10:55:19.951000"
         },
         {
-            "query_id": 97,
-            "query_dbtype": "generic",
-            "query_crud": "POST",
-            "query_pool": "nomasx1",
-            "query_sqlquery": "INSERT INTO SETTINGS_JDEDWARDS\n  (\n  APPS_ID,\n  JDE_SY,\n  JDE_DTA,\n  JDE_CTL,\n  JDE_SVM,\n  JDE_CO,\n  JDE_OL,\n  JDE_F00950,\n  JDE_MENU_STANDARD,\n  JDE_E1PAGES,\n  JDE_E1COMPOSITE,\n  JDE_AUDIT_USER,\n  JDE_AUDIT_DATE\n  )\nVALUES (\n  :APPS_ID,\n  :JDE_SY,\n  :JDE_DTA,\n  :JDE_CTL,\n  :JDE_SVM,\n  :JDE_CO,\n  :JDE_OL,\n  :JDE_F00950,\n  :JDE_MENU_STANDARD,\n  :JDE_E1PAGES,\n  :JDE_E1COMPOSITE,\n  :JDE_AUDIT_USER,\n  :JDE_AUDIT_DATE\n  )",
-            "query_orderby": null,
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-13T18:39:08.012000"
-        },
-        {
             "query_id": 32,
             "query_dbtype": "generic",
             "query_crud": "POST",
@@ -37218,16 +37518,6 @@
             "query_audit_date": "2023-12-13T18:41:30.672000"
         },
         {
-            "query_id": 97,
-            "query_dbtype": "generic",
-            "query_crud": "PUT",
-            "query_pool": "nomasx1",
-            "query_sqlquery": "UPDATE SETTINGS_JDEDWARDS SET\n  JDE_SY = :JDE_SY,\n  JDE_DTA = :JDE_DTA,\n  JDE_CTL = :JDE_CTL,\n  JDE_SVM = :JDE_SVM,\n  JDE_CO = :JDE_CO,\n  JDE_OL = :JDE_OL,\n  JDE_F00950 = :JDE_F00950,\n  JDE_MENU_STANDARD = :JDE_MENU_STANDARD,\n  JDE_E1PAGES = :JDE_E1PAGES,\n  JDE_E1COMPOSITE = :JDE_E1COMPOSITE,\n  JDE_AUDIT_USER = :JDE_AUDIT_USER,\n  JDE_AUDIT_DATE = :JDE_AUDIT_DATE\nWHERE\n  APPS_ID = :APPS_ID",
-            "query_orderby": null,
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-13T18:43:10.761000"
-        },
-        {
             "query_id": 24,
             "query_dbtype": "generic",
             "query_crud": "POST",
@@ -37246,16 +37536,6 @@
             "query_orderby": null,
             "query_audit_user": "anonymous",
             "query_audit_date": "2023-12-13T18:43:55.128000"
-        },
-        {
-            "query_id": 97,
-            "query_dbtype": "generic",
-            "query_crud": "GET",
-            "query_pool": "nomasx1",
-            "query_sqlquery": "SELECT\n  APPS_ID,\n  JDE_SY,\n  JDE_DTA,\n  JDE_CTL,\n  JDE_SVM,\n  JDE_CO,\n  JDE_OL,\n  JDE_F00950,\n  JDE_MENU_STANDARD,\n  JDE_E1PAGES,\n  JDE_E1COMPOSITE,\n  JDE_AUDIT_USER,\n  JDE_AUDIT_DATE\nFROM\n  SETTINGS_JDEDWARDS\n",
-            "query_orderby": null,
-            "query_audit_user": "anonymous",
-            "query_audit_date": "2023-12-13T18:45:55.566000"
         },
         {
             "query_id": 59,
@@ -38118,6 +38398,16 @@
             "query_audit_date": "2025-05-27T12:37:47.259000"
         },
         {
+            "query_id": 97,
+            "query_dbtype": "generic",
+            "query_crud": "GET",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "SELECT\n  APPS_ID,\n  JDE_SY,\n  JDE_DTA,\n  JDE_CTL,\n  JDE_SVM,\n  JDE_CO,\n  JDE_OL,\n  JDE_F00950,\n  JDE_MENU_STANDARD,\n  JDE_E1PAGES,\n  JDE_E1COMPOSITE,\n  JDE_AUDIT_USER,\n  JDE_AUDIT_DATE,\n  JDE_OUT_PURGE,\n  JDE_OUT_RETENTION\nFROM\n  SETTINGS_JDEDWARDS\n",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T14:36:03.777000"
+        },
+        {
             "query_id": 1,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -38138,6 +38428,26 @@
             "query_audit_date": "2025-05-27T12:35:54.442000"
         },
         {
+            "query_id": 97,
+            "query_dbtype": "generic",
+            "query_crud": "POST",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "INSERT INTO SETTINGS_JDEDWARDS\n  (\n  APPS_ID,\n  JDE_SY,\n  JDE_DTA,\n  JDE_CTL,\n  JDE_SVM,\n  JDE_CO,\n  JDE_OL,\n  JDE_F00950,\n  JDE_MENU_STANDARD,\n  JDE_E1PAGES,\n  JDE_E1COMPOSITE,\n  JDE_AUDIT_USER,\n  JDE_AUDIT_DATE,\n  JDE_OUT_PURGE,\n  JDE_OUT_RETENTION\n  )\nVALUES (\n  :APPS_ID,\n  :JDE_SY,\n  :JDE_DTA,\n  :JDE_CTL,\n  :JDE_SVM,\n  :JDE_CO,\n  :JDE_OL,\n  :JDE_F00950,\n  :JDE_MENU_STANDARD,\n  :JDE_E1PAGES,\n  :JDE_E1COMPOSITE,\n  :JDE_AUDIT_USER,\n  :JDE_AUDIT_DATE,\n  :JDE_OUT_PURGE,\n  :JDE_OUT_RETENTION  \n  )",
+            "query_orderby": null,
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-13T18:39:08.012000"
+        },
+        {
+            "query_id": 97,
+            "query_dbtype": "generic",
+            "query_crud": "PUT",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "UPDATE SETTINGS_JDEDWARDS SET\n  JDE_SY = :JDE_SY,\n  JDE_DTA = :JDE_DTA,\n  JDE_CTL = :JDE_CTL,\n  JDE_SVM = :JDE_SVM,\n  JDE_CO = :JDE_CO,\n  JDE_OL = :JDE_OL,\n  JDE_F00950 = :JDE_F00950,\n  JDE_MENU_STANDARD = :JDE_MENU_STANDARD,\n  JDE_E1PAGES = :JDE_E1PAGES,\n  JDE_E1COMPOSITE = :JDE_E1COMPOSITE,\n  JDE_AUDIT_USER = :JDE_AUDIT_USER,\n  JDE_AUDIT_DATE = :JDE_AUDIT_DATE,\n  JDE_OUT_PURGE = :JDE_OUT_PURGE,\n  JDE_OUT_RETENTION = :JDE_OUT_RETENTION\nWHERE\n  APPS_ID = :APPS_ID",
+            "query_orderby": null,
+            "query_audit_user": "anonymous",
+            "query_audit_date": "2023-12-13T18:43:10.761000"
+        },
+        {
             "query_id": 51,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -38146,6 +38456,46 @@
             "query_orderby": "USRD_APPS_ID,USRD_ID",
             "query_audit_user": "admin",
             "query_audit_date": "2025-03-21T07:57:16.776000"
+        },
+        {
+            "query_id": 130,
+            "query_dbtype": "generic",
+            "query_crud": "POST",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "INSERT INTO\n    LICENSE_JDE_OUT_OBJECTS\n(\n    LOUT_APPS_ID,\n    LOUT_OBJECT,\n    LOUT_VERSION,\n    LOUT_TYPE,\n    LOUT_USAGE,\n    LOUT_COUNT\n)\nVALUES (\n    :LOUT_APPS_ID,\n    :LOUT_OBJECT,\n    :LOUT_VERSION,\n    :LOUT_TYPE,\n    :LOUT_USAGE,\n    :LOUT_COUNT\n)",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T16:12:58.862000"
+        },
+        {
+            "query_id": 130,
+            "query_dbtype": "generic",
+            "query_crud": "DELETE",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "DELETE FROM\n    LICENSE_JDE_OUT_OBJECTS\nWHERE\n    LOUT_APPS_ID = :LOUT_APPS_ID\n    AND LOUT_OBJECT = :LOUT_OBJECT\n    AND LOUT_VERSION = :LOUT_VERSION\n    AND LOUT_USAGE = :LOUT_USAGE",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T16:12:58.879000"
+        },
+        {
+            "query_id": 130,
+            "query_dbtype": "generic",
+            "query_crud": "GET",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "SELECT \n    LOUT_APPS_ID,\n    LOUT_OBJECT,\n    LOUT_VERSION,\n    LOUT_TYPE,\n    LOUT_USAGE,\n    LOUT_COUNT \nFROM \n  LICENSE_JDE_OUT_OBJECTS",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T16:12:58.893000"
+        },
+        {
+            "query_id": 130,
+            "query_dbtype": "generic",
+            "query_crud": "PUT",
+            "query_pool": "nomasx1",
+            "query_sqlquery": "UPDATE\n    LICENSE_JDE_OUT_OBJECTS\nSET\n    LOUT_TYPE = :LOUT_TYPE,\n    LOUT_COUNT = :LOUT_COUNT\nWHERE\n    LOUT_APPS_ID = :LOUT_APPS_ID\n    AND LOUT_OBJECT = :LOUT_OBJECT\n    AND LOUT_VERSION = :LOUT_VERSION\n    AND LOUT_USAGE = :LOUT_USAGE",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2025-11-02T16:12:58.906000"
         }
     ]
 }

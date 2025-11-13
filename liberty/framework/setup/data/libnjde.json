@@ -6694,26 +6694,6 @@
             "query_audit_date": "2024-09-05T09:44:40.842000"
         },
         {
-            "query_id": 13,
-            "query_dbtype": "generic",
-            "query_crud": "PUT",
-            "query_pool": "jdedwards",
-            "query_sqlquery": "MERGE INTO #SCHEMA.SY#.F00950 t\nUSING (\n  SELECT :FSSETY AS FSSETY,\n         :FSUSER AS FSUSER,\n         :FSOBNM AS FSOBNM,\n         :FSDTAI AS FSDTAI,\n         :FSFRDV AS FSFRDV,\n         :FSSY AS FSSY,\n         :FSOWDI AS FSOWDI,\n         :FSFMNM AS FSFMNM,\n         :FSFUNO AS FSFUNO,\n         :FSINSL AS FSINSL,\n         :FSRUN AS FSRUN,\n         :FSVWYN AS FSVWYN,\n         :FSA AS FSA,\n         :FSCHNG AS FSCHNG,\n         :FSDLT AS FSDLT,\n         :FSTHDV AS FSTHDV,\n         :FSOBID AS FSOBID,\n         :FSADDC AS FSADDC,\n         :FSIOK AS FSIOK,\n         :FSICPY AS FSICPY,\n         :FSIUPT AS FSIUPT,\n         :FSATN1 AS FSATN1,\n         :FSATN2 AS FSATN2,\n         :FSATN3 AS FSATN3,\n         :FSMUSE AS FSMUSE,\n         :FSPID AS FSPID,\n         :FSJOBN AS FSJOBN,\n         :FSUPMJ AS FSUPMJ,\n         :FSUPMT AS FSUPMT,\n         :FSEXITID AS FSEXITID,\n         :FSTABID AS FSTABID,\n         :FSTEXTID AS FSTEXTID,\n         :FSPTH AS FSPTH\n  FROM dual) src\nON (t.FSSETY = src.FSSETY \n    AND t.FSUSER = src.FSUSER \n    AND t.FSOBNM = src.FSOBNM \n    AND t.FSDTAI = src.FSDTAI \n    AND t.FSFRDV = src.FSFRDV \n    AND t.FSSY = src.FSSY)\nWHEN MATCHED THEN\n  UPDATE SET t.FSOWDI = src.FSOWDI,\n             t.FSFMNM = src.FSFMNM,\n             t.FSFUNO = src.FSFUNO,\n             t.FSINSL = src.FSINSL,\n             t.FSRUN = src.FSRUN,\n             t.FSVWYN = src.FSVWYN,\n             t.FSA = src.FSA,\n             t.FSCHNG = src.FSCHNG,\n             t.FSDLT = src.FSDLT,\n             t.FSTHDV = src.FSTHDV,\n             t.FSOBID = src.FSOBID,\n             t.FSADDC = src.FSADDC,\n             t.FSIOK = src.FSIOK,\n             t.FSICPY = src.FSICPY,\n             t.FSIUPT = src.FSIUPT,\n             t.FSATN1 = src.FSATN1,\n             t.FSATN2 = src.FSATN2,\n             t.FSATN3 = src.FSATN3,\n             t.FSMUSE = UPPER(src.FSMUSE),\n             t.FSPID = src.FSPID,\n             t.FSJOBN = src.FSJOBN,\n             t.FSUPMJ = src.FSUPMJ,\n             t.FSUPMT = src.FSUPMT,\n             t.FSEXITID = src.FSEXITID,\n             t.FSTABID = src.FSTABID,\n             t.FSTEXTID = src.FSTEXTID,\n             t.FSPTH = src.FSPTH\nWHEN NOT MATCHED THEN\n  INSERT (FSSETY, FSUSER, FSOBNM, FSDTAI, FSFRDV, FSSY, FSOWDI, FSFMNM, FSFUNO, FSINSL, FSRUN, FSVWYN, FSA, FSCHNG, FSDLT, FSTHDV, FSOBID, FSADDC, FSIOK, FSICPY, FSIUPT, FSATN1, FSATN2, FSATN3, FSMUSE, FSPID, FSJOBN, FSUPMJ, FSUPMT, FSEXITID, FSTABID, FSTEXTID, FSPTH)\n  VALUES (src.FSSETY, src.FSUSER, src.FSOBNM, src.FSDTAI, src.FSFRDV, src.FSSY, src.FSOWDI, src.FSFMNM, src.FSFUNO, src.FSINSL, src.FSRUN, src.FSVWYN, src.FSA, src.FSCHNG, src.FSDLT, src.FSTHDV, src.FSOBID, src.FSADDC, src.FSIOK, src.FSICPY, src.FSIUPT, src.FSATN1, src.FSATN2, src.FSATN3, UPPER(src.FSMUSE), src.FSPID, src.FSJOBN, src.FSUPMJ, src.FSUPMT, src.FSEXITID, src.FSTABID, src.FSTEXTID, src.FSPTH)",
-            "query_orderby": null,
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-10-27T22:26:54.350000"
-        },
-        {
-            "query_id": 13,
-            "query_dbtype": "generic",
-            "query_crud": "DELETE",
-            "query_pool": "jdedwards",
-            "query_sqlquery": "DELETE FROM\n  #SCHEMA.SY#.F00950\nWHERE\n    FSSETY = :FSSETY\n    AND FSUSER = :FSUSER\n    AND FSOBNM = :FSOBNM\n    AND FSDTAI = :FSDTAI\n    AND FSFRDV = :FSFRDV\n    AND FSSY = :FSSY",
-            "query_orderby": null,
-            "query_audit_user": "admin",
-            "query_audit_date": "2024-09-19T22:29:32.331000"
-        },
-        {
             "query_id": 12,
             "query_dbtype": "generic",
             "query_crud": "GET",
@@ -6746,12 +6726,12 @@
         {
             "query_id": 13,
             "query_dbtype": "generic",
-            "query_crud": "POST",
+            "query_crud": "DELETE",
             "query_pool": "jdedwards",
-            "query_sqlquery": "INSERT INTO\n  #SCHEMA.SY#.F00950\n(\n    FSSETY,\n    FSUSER,\n    FSOBNM,\n    FSDTAI,\n    FSFRDV,\n    FSSY,\n    FSOWDI,\n    FSFMNM,\n    FSFUNO,\n    FSINSL,\n    FSRUN,\n    FSVWYN,\n    FSA,\n    FSCHNG,\n    FSDLT,\n    FSTHDV,\n    FSOBID,\n    FSADDC,\n    FSIOK,\n    FSICPY,\n    FSIUPT,\n    FSATN1,\n    FSATN2,\n    FSATN3,\n    FSMUSE,\n    FSPID,\n    FSJOBN,\n    FSUPMJ,\n    FSUPMT,\n    FSEXITID,\n    FSTABID,\n    FSTEXTID,\n    FSPTH\n)\nVALUES (\n    :FSSETY,\n    :FSUSER,\n    :FSOBNM,\n    :FSDTAI,\n    :FSFRDV,\n    :FSSY,\n    :FSOWDI,\n    :FSFMNM,\n    :FSFUNO,\n    :FSINSL,\n    :FSRUN,\n    :FSVWYN,\n    :FSA,\n    :FSCHNG,\n    :FSDLT,\n    :FSTHDV,\n    :FSOBID,\n    :FSADDC,\n    :FSIOK,\n    :FSICPY,\n    :FSIUPT,\n    :FSATN1,\n    :FSATN2,\n    :FSATN3,\n    UPPER(:FSMUSE),\n    :FSPID,\n    :FSJOBN,\n    :FSUPMJ,\n    :FSUPMT,\n    :FSEXITID,\n    :FSTABID,\n    :FSTEXTID,\n    :FSPTH\n)",
+            "query_sqlquery": "DELETE FROM\n  #SCHEMA.SY#.F00950\nWHERE\n    FSSETY = :FSSETY\n    AND FSUSER = :FSUSER\n    AND FSOBNM = :FSOBNM\n    AND FSDTAI = :FSDTAI\n    AND TRIM(FSFRDV) = TRIM(:FSFRDV)\n    AND FSSY = :FSSY",
             "query_orderby": null,
             "query_audit_user": "admin",
-            "query_audit_date": "2024-10-27T22:26:19.647000"
+            "query_audit_date": "2024-09-19T22:29:32.331000"
         },
         {
             "query_id": 15,
@@ -6812,6 +6792,26 @@
             "query_orderby": "DTAI",
             "query_audit_user": "admin",
             "query_audit_date": "2025-02-27T13:52:15.567000"
+        },
+        {
+            "query_id": 13,
+            "query_dbtype": "generic",
+            "query_crud": "POST",
+            "query_pool": "jdedwards",
+            "query_sqlquery": "INSERT INTO\n  #SCHEMA.SY#.F00950\n(\n    FSSETY,\n    FSUSER,\n    FSOBNM,\n    FSDTAI,\n    FSFRDV,\n    FSSY,\n    FSOWDI,\n    FSFMNM,\n    FSFUNO,\n    FSINSL,\n    FSRUN,\n    FSVWYN,\n    FSA,\n    FSCHNG,\n    FSDLT,\n    FSTHDV,\n    FSOBID,\n    FSADDC,\n    FSIOK,\n    FSICPY,\n    FSIUPT,\n    FSATN1,\n    FSATN2,\n    FSATN3,\n    FSMUSE,\n    FSPID,\n    FSJOBN,\n    FSUPMJ,\n    FSUPMT,\n    FSEXITID,\n    FSTABID,\n    FSTEXTID,\n    FSPTH\n)\nVALUES (\n    :FSSETY,\n    :FSUSER,\n    :FSOBNM,\n    :FSDTAI,\n    CASE WHEN :FSDTAI = 'MCU' THEN LPAD(:FSFRDV, 12, ' ') ELSE :FSFRDV END,\n    :FSSY,\n    :FSOWDI,\n    :FSFMNM,\n    :FSFUNO,\n    :FSINSL,\n    :FSRUN,\n    :FSVWYN,\n    :FSA,\n    :FSCHNG,\n    :FSDLT,\n    CASE WHEN :FSDTAI = 'MCU' THEN LPAD(:FSTHDV, 12, ' ') ELSE :FSTHDV END,\n    :FSOBID,\n    :FSADDC,\n    :FSIOK,\n    :FSICPY,\n    :FSIUPT,\n    :FSATN1,\n    :FSATN2,\n    :FSATN3,\n    UPPER(:FSMUSE),\n    :FSPID,\n    :FSJOBN,\n    :FSUPMJ,\n    :FSUPMT,\n    :FSEXITID,\n    :FSTABID,\n    :FSTEXTID,\n    :FSPTH\n)",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-27T22:26:19.647000"
+        },
+        {
+            "query_id": 13,
+            "query_dbtype": "generic",
+            "query_crud": "PUT",
+            "query_pool": "jdedwards",
+            "query_sqlquery": "MERGE INTO #SCHEMA.SY#.F00950 t\nUSING (\n  SELECT :FSSETY AS FSSETY,\n         :FSUSER AS FSUSER,\n         :FSOBNM AS FSOBNM,\n         :FSDTAI AS FSDTAI,\n         CASE WHEN :FSDTAI = 'MCU' THEN LPAD(:FSFRDV, 12, ' ') ELSE :FSFRDV END AS FSFRDV,\n         :FSSY AS FSSY,\n         :FSOWDI AS FSOWDI,\n         :FSFMNM AS FSFMNM,\n         :FSFUNO AS FSFUNO,\n         :FSINSL AS FSINSL,\n         :FSRUN AS FSRUN,\n         :FSVWYN AS FSVWYN,\n         :FSA AS FSA,\n         :FSCHNG AS FSCHNG,\n         :FSDLT AS FSDLT,\n         CASE WHEN :FSDTAI = 'MCU' THEN LPAD(:FSTHDV, 12, ' ') ELSE :FSTHDV END AS FSTHDV,\n         :FSOBID AS FSOBID,\n         :FSADDC AS FSADDC,\n         :FSIOK AS FSIOK,\n         :FSICPY AS FSICPY,\n         :FSIUPT AS FSIUPT,\n         :FSATN1 AS FSATN1,\n         :FSATN2 AS FSATN2,\n         :FSATN3 AS FSATN3,\n         :FSMUSE AS FSMUSE,\n         :FSPID AS FSPID,\n         :FSJOBN AS FSJOBN,\n         :FSUPMJ AS FSUPMJ,\n         :FSUPMT AS FSUPMT,\n         :FSEXITID AS FSEXITID,\n         :FSTABID AS FSTABID,\n         :FSTEXTID AS FSTEXTID,\n         :FSPTH AS FSPTH\n  FROM dual) src\nON (t.FSSETY = src.FSSETY \n    AND t.FSUSER = src.FSUSER \n    AND t.FSOBNM = src.FSOBNM \n    AND t.FSDTAI = src.FSDTAI \n    AND TRIM(t.FSFRDV) = TRIM(src.FSFRDV) \n    AND t.FSSY = src.FSSY)\nWHEN MATCHED THEN\n  UPDATE SET t.FSOWDI = src.FSOWDI,\n             t.FSFMNM = src.FSFMNM,\n             t.FSFUNO = src.FSFUNO,\n             t.FSINSL = src.FSINSL,\n             t.FSRUN = src.FSRUN,\n             t.FSVWYN = src.FSVWYN,\n             t.FSA = src.FSA,\n             t.FSCHNG = src.FSCHNG,\n             t.FSDLT = src.FSDLT,\n             t.FSTHDV = src.FSTHDV,\n             t.FSOBID = src.FSOBID,\n             t.FSADDC = src.FSADDC,\n             t.FSIOK = src.FSIOK,\n             t.FSICPY = src.FSICPY,\n             t.FSIUPT = src.FSIUPT,\n             t.FSATN1 = src.FSATN1,\n             t.FSATN2 = src.FSATN2,\n             t.FSATN3 = src.FSATN3,\n             t.FSMUSE = UPPER(src.FSMUSE),\n             t.FSPID = src.FSPID,\n             t.FSJOBN = src.FSJOBN,\n             t.FSUPMJ = src.FSUPMJ,\n             t.FSUPMT = src.FSUPMT,\n             t.FSEXITID = src.FSEXITID,\n             t.FSTABID = src.FSTABID,\n             t.FSTEXTID = src.FSTEXTID,\n             t.FSPTH = src.FSPTH\nWHEN NOT MATCHED THEN\n  INSERT (FSSETY, FSUSER, FSOBNM, FSDTAI, FSFRDV, FSSY, FSOWDI, FSFMNM, FSFUNO, FSINSL, FSRUN, FSVWYN, FSA, FSCHNG, FSDLT, FSTHDV, FSOBID, FSADDC, FSIOK, FSICPY, FSIUPT, FSATN1, FSATN2, FSATN3, FSMUSE, FSPID, FSJOBN, FSUPMJ, FSUPMT, FSEXITID, FSTABID, FSTEXTID, FSPTH)\n  VALUES (src.FSSETY, src.FSUSER, src.FSOBNM, src.FSDTAI, src.FSFRDV, src.FSSY, src.FSOWDI, src.FSFMNM, src.FSFUNO, src.FSINSL, src.FSRUN, src.FSVWYN, src.FSA, src.FSCHNG, src.FSDLT, src.FSTHDV, src.FSOBID, src.FSADDC, src.FSIOK, src.FSICPY, src.FSIUPT, src.FSATN1, src.FSATN2, src.FSATN3, UPPER(src.FSMUSE), src.FSPID, src.FSJOBN, src.FSUPMJ, src.FSUPMT, src.FSEXITID, src.FSTABID, src.FSTEXTID, src.FSPTH)",
+            "query_orderby": null,
+            "query_audit_user": "admin",
+            "query_audit_date": "2024-10-27T22:26:54.350000"
         }
     ],
     "ly_modules": [],
