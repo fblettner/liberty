@@ -31,7 +31,7 @@ class Dump:
         self.jwt = jwt
 
         # Database configuration
-        DATABASE_URL = f"postgresql+psycopg2://{database}:{self.config["password"]}@{self.config["host"]}:{self.config["port"]}/{database}"
+        DATABASE_URL = f"postgresql+psycopg2://{database}:{self.config["password"]}@{self.config["host"]}:{self.config["port"]}/{database}?client_encoding=utf8"
 
         try:
             self.engine = create_engine(DATABASE_URL, echo=False, isolation_level="AUTOCOMMIT")
