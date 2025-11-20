@@ -310,6 +310,7 @@ class BaseDAO:
             else:
                 # No rows: fallback to column names only
                 meta_data = [{"name": key.upper(), "type": "UNKNOWN"} for key in result.keys()]
+                
 
             return {"status": "success", "pool": self.config["pool_alias"], "rows": processed_rows, "rowCount": result.rowcount, "meta_data": meta_data}
 
@@ -345,7 +346,9 @@ class BaseDAO:
                             if val is None:
                                 return "NULL" if self.config.get("replace_null") != "Y" else "' '"
                             if isinstance(val, str):
-                                return f"'{val.replace('\'', '\'\'')}'"
+                                val = val.replace("'", "''")      # escape quotes
+                                val = val.replace(":", r"\:")     # escape colon
+                                return f"'{val}'"
                             return str(val)
 
                         # Format the array of records
@@ -369,6 +372,7 @@ class BaseDAO:
                         else:
                             value = value.replace("$$", "$$$$")  # Escape dollar signs
                             value = value.replace("'", "''")  # Escape single quotes
+                            value = value.replace(":", r"\:")    # Escape colon inside value
                             value = f"'{value}'"  # Wrap in single quotes
 
                     # Replace #:VARIABLE# with VALUE or 'VALUE'
@@ -378,6 +382,7 @@ class BaseDAO:
                     # Replace :VARIABLE with VALUE or 'VALUE'
                     regex_string_colon = re.compile(rf"\:{name}\b", re.IGNORECASE)
                     statement = regex_string_colon.sub(str(value), statement)
+ 
 
 
             # Open a session
