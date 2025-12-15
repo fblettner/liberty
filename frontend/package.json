@@ -14,17 +14,17 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@sentry/vite-plugin": "^3.2.2",
-    "@types/node": "^22.13.10",
+    "@sentry/vite-plugin": "^4.6.1",
+    "@types/node": "^24.10.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.6.4",
     "oidc-client-ts": "^3.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-oidc-context": "^3.2.0",
     "typescript": "^5.8.2",
-    "vite": "^6.2.1"
+    "vite": "^7.2.4"
   },
   "eslintConfig": {
     "extends": [

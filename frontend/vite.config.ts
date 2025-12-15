@@ -58,6 +58,7 @@ export default defineConfig({
     sourcemap: true
   },
   resolve: {
+    preserveSymlinks: true,
     alias: {
       // Map '@' to the 'src' directory for absolute imports
      // '@': path.resolve(__dirname, 'src'),
