@@ -17,6 +17,8 @@ from datetime import datetime, timezone
 from liberty.framework.utils.logs import LogHandler
 from liberty.framework.logs import get_logs_json_path, get_logs_text_path
 from liberty.framework.services.api_services import API, SessionMode
+from liberty.framework.utils.encrypt import Encryption
+
 defaultPool = "default"
 
 class ApiType:
@@ -40,7 +42,7 @@ class Rest:
             """Extracts OpenAI API URL and Key from MODULE_ID = 'AI'."""
             query = {
                 "QUERY": 34,
-                "POOL": query_params.get("mode") == SessionMode.framework and defaultPool or query_params.get("pool"),
+                "POOL": defaultPool if req.query_params.get("mode") == SessionMode.framework else req.query_params.get("pool"),
                 "CRUD": "GET",
             }
             context = {
@@ -49,11 +51,12 @@ class Rest:
                 "where": {"API_ID":query_params.get("api")},
             }
             # Get the target query using the framework query method
-            target_query = await self.api.db_pools.get_pool("default").db_dao.get_framework_query(
+            target_query = await self.api.db_pools.get_pool(defaultPool).db_dao.get_framework_query(
                 query, self.api.db_pools.get_pool("default").db_type
             )
+            pool = req.query_params.get("pool", defaultPool)
 
-            api = await self.api.db_pools.get_pool("default").db_dao.get(target_query, context)
+            api = await self.api.db_pools.get_pool(pool).db_dao.get(target_query, context)
             rows = api.get("rows")
 
             if not api.get("rows"):
@@ -66,6 +69,9 @@ class Rest:
             url = row.get("API_URL")
             user = row.get("API_USER")
             password = row.get("API_PASSWORD")
+            if password:
+                encryption = Encryption(self.api.jwt)
+                password = encryption.decrypt_text(password)
             body = row.get("API_BODY")
 
             # Convert API_BODY from JSON string format to a Python dictionary
@@ -94,8 +100,17 @@ class Rest:
                     raise ValueError(f"Invalid external URL: {url}")
 
             # 🔹 Make the API call
-            async with httpx.AsyncClient(timeout=60.0) as client:
-                response = await client.post(full_url, json=parsed_body)
+            async with httpx.AsyncClient(timeout=60.0,  verify=False) as client:
+                if method.upper() == "GET":
+                    if user and password:
+                        response = await client.get(full_url, params=parsed_body, auth=(user, password))
+                    else:
+                        response = await client.get(full_url, params=parsed_body)
+                else:
+                    if user and password:
+                        response = await client.post(full_url, json=parsed_body, auth=(user, password))
+                    else:
+                        response = await client.post(full_url, json=parsed_body)
                 if response.status_code == 200:
                     response_data = response.json()
                 else:

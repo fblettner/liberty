@@ -5268,5 +5268,6 @@
     "ly_tree": [],
     "ly_cdn_params": [],
     "ly_lkp_params": [],
-    "ly_thm_colors": []
+    "ly_thm_colors": [],
+    "ly_api_conn": []
 }

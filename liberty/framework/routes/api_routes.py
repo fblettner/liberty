@@ -450,11 +450,7 @@ def setup_api_routes(app, controller: ApiController, jwt: JWT):
         override_pool: Optional[str] = Query(None, description="Override the default pool set in the query definition. (e.g., `default`, `libnsx1`)"),
         body: Dict[str, Any] = Body(..., description="JSON object with key-value pairs is required.")
 ):
-        if not body:  # Check if the body is empty
-            raise HTTPException(
-                status_code=400,
-                detail="Request body cannot be empty. JSON object with key-value pairs is required.",
-            )
+        
         return await controller.call_rest(req)
 
     @router.get(

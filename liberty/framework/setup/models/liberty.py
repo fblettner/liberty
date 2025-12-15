@@ -126,6 +126,18 @@ class LyApi(Base):
     api_body = Column(TEXT, primary_key=False, nullable=True)
     api_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
     api_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
+    api_conn_id = Column(INTEGER, primary_key=False, nullable=True)
+
+
+class LyApiConn(Base):
+    __tablename__ = 'ly_api_conn'
+    conn_id = Column(INTEGER, primary_key=True, nullable=False)
+    conn_label = Column(VARCHAR(100), primary_key=False, nullable=False)
+    conn_url = Column(VARCHAR(255), primary_key=False, nullable=False)
+    conn_user = Column(VARCHAR(100), primary_key=False, nullable=True)
+    conn_password = Column(TEXT, primary_key=False, nullable=True)
+    conn_audit_user = Column(VARCHAR(30), primary_key=False, nullable=True)
+    conn_audit_date = Column(TIMESTAMP, primary_key=False, nullable=True)
 
 
 class LyApiHeader(Base):
