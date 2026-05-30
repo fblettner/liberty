@@ -9,9 +9,10 @@ logging.basicConfig(
 )
 
 import os
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi_socketio import SocketManager
 import uvicorn
 from liberty.framework.utils.jwt import JWT
@@ -155,9 +156,52 @@ app = FastAPI(
     description=description,
     version="1.0.0",
     docs_url="/api/test",  # Swagger UI
-    redoc_url="/api",  # ReDoc
+    redoc_url=None,  # Disable default ReDoc, we'll create a custom one
     openapi_url="/liberty-api.json",  # OpenAPI schema
 )
+
+# Add CORS middleware to allow REDOC to load external resources
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# Custom REDOC endpoint with proper headers to avoid CORB issues
+@app.get("/api", include_in_schema=False)
+async def custom_redoc():
+    """Serve REDOC with proper CORS headers."""
+    html = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Liberty API - ReDoc</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+        <style>
+            body {{
+                margin: 0;
+                padding: 0;
+            }}
+        </style>
+    </head>
+    <body>
+        <redoc spec-url="/liberty-api.json"></redoc>
+        <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js" crossorigin></script>
+    </body>
+    </html>
+    """
+    return HTMLResponse(
+        content=html,
+        headers={
+            "Cross-Origin-Embedder-Policy": "unsafe-none",
+            "Cross-Origin-Resource-Policy": "cross-origin",
+        }
+    )
 
 
 @app.exception_handler(HTTPException)
