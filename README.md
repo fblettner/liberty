@@ -1,3 +1,23 @@
+> # ⚠️ This repository is archived — no longer maintained
+>
+> **Liberty Framework has been rebuilt from the ground up as [Liberty Next](https://github.com/fblettner/liberty-next).**
+>
+> Liberty Next is a complete rewrite that fixes the structural limitations of this codebase:
+> the heavy `ly_*` metadata-table model is replaced with a **connector-driven architecture**
+> (SQL / API / DB connectors defined in TOML, schema discovered at runtime), giving major
+> improvements in performance, simplicity, and the ability to add forms, reports and
+> lookups without coordinated inserts across half a dozen tables. The frontend is bundled
+> directly inside the project (no external shared libraries), the AI integration uses
+> the Anthropic SDK, and OIDC/Keycloak is first-class.
+>
+> **➡️ New work happens at [github.com/fblettner/liberty-next](https://github.com/fblettner/liberty-next).**
+>
+> This repository is kept available for reference and for users still running the v1
+> applications (NOMASX-1, NOMAJDE, AIRFLOW) until migration tooling lands in Liberty Next.
+> No new features, no bug fixes — please open issues on the new repository instead.
+
+---
+
 # 📖 Liberty Framework  
 ### A Scalable and Extensible FastAPI and React Framework for Business Applications  
 
